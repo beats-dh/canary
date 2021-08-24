@@ -766,6 +766,7 @@ struct CombatDamage {
 	bool critical;
 	int affected;
 	bool extension;
+	bool cleave;
 	std::string exString;
 
 	CombatDamage() {
@@ -775,6 +776,7 @@ struct CombatDamage {
 		critical = false;
 		affected = 1;
 		extension = false;
+		cleave = false;
 		exString = "";
 	}
 };
