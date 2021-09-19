@@ -1,4 +1,4 @@
-<imbuements>
+<imbuements
 	<base id="1" name="Basic" protection="10000" price="5000" percent="90" removecost="15000" duration="72000" />
 	<base id="2" name="Intricate" protection="30000" price="25000" percent="70" removecost="15000" duration="72000" />
 	<base id="3" name="Powerful" protection="50000" price="100000" percent="50" removecost="15000" duration="72000" />
