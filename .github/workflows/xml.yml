@@ -1,3 +1,4 @@
+---
 name: XML syntax check
 
 on:
@@ -19,3 +20,6 @@ jobs:
 
       - name: Test XML syntax
         run: find data/ -name '*.xml' -print0 | xargs -0 -n1 xmllint --noout
+         cd $GITHUB_WORKSPACE
+          cppcheck --version
+          Lua syntax -reporter=github-pr-review -runners=lua
