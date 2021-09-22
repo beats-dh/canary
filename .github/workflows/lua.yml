@@ -1,5 +1,4 @@
 ---
-
 name: Lua syntax check
 
 on:
@@ -22,6 +21,4 @@ jobs:
 
       - name: Test Lua syntax
         run: find data/ -name '*.lua' -print0 | xargs -0 -n1 luac -p
-          cd $GITHUB_WORKSPACE
-          cppcheck --version
-          Lua syntax -reporter=github-pr-review -runners=lua
+        
