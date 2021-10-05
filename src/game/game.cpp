@@ -6919,11 +6919,12 @@ bool save = false;
 				save = true;
 			}
 		}
-	}
-	else if (last_day != 0) {
-		account.SetPremiumLastDay(0);
+  }
+  else if (last_day != 0)
+  {
+    account.SetPremiumLastDay(0);
 		save = true;
-	}
+  }
 
 	if (save && !account.SaveAccountDB()) {
 		account.GetName(&name);

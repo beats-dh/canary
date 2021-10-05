@@ -56,7 +56,6 @@ void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count)
 	const ItemType &it = Item::items[id];
 
 	msg.add<uint16_t>(it.clientId);
-
 	if (version < 1200) {
 		msg.addByte(0xFF); // MARK_UNMARKED
 	}
@@ -99,7 +98,6 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 	const ItemType &it = Item::items[item->getID()];
 
 	msg.add<uint16_t>(it.clientId);
-
 	if (version < 1200) {
 		msg.addByte(0xFF); // MARK_UNMARKED
 	}
@@ -159,52 +157,52 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 	}
 
 	if (version >= 1264) {
-	if (it.isPodium) {
-		const ItemAttributes::CustomAttribute* podiumVisible = item->getCustomAttribute("PodiumVisible");
-		const ItemAttributes::CustomAttribute* lookType = item->getCustomAttribute("LookType");
-		const ItemAttributes::CustomAttribute* lookMount = item->getCustomAttribute("LookMount");
-		const ItemAttributes::CustomAttribute* lookDirection = item->getCustomAttribute("LookDirection");
+		if (it.isPodium) {
+			const ItemAttributes::CustomAttribute* podiumVisible = item->getCustomAttribute("PodiumVisible");
+			const ItemAttributes::CustomAttribute* lookType = item->getCustomAttribute("LookType");
+			const ItemAttributes::CustomAttribute* lookMount = item->getCustomAttribute("LookMount");
+			const ItemAttributes::CustomAttribute* lookDirection = item->getCustomAttribute("LookDirection");
 
-		if (lookType) {
-			uint16_t look = static_cast<uint16_t>(boost::get<int64_t>(lookType->value));
-			msg.add<uint16_t>(look);
+			if (lookType) {
+				uint16_t look = static_cast<uint16_t>(boost::get<int64_t>(lookType->value));
+				msg.add<uint16_t>(look);
 
-			if(look != 0) {
-				const ItemAttributes::CustomAttribute* lookHead = item->getCustomAttribute("LookHead");
-				const ItemAttributes::CustomAttribute* lookBody = item->getCustomAttribute("LookBody");
-				const ItemAttributes::CustomAttribute* lookLegs = item->getCustomAttribute("LookLegs");
-				const ItemAttributes::CustomAttribute* lookFeet = item->getCustomAttribute("LookFeet");
+				if(look != 0) {
+					const ItemAttributes::CustomAttribute* lookHead = item->getCustomAttribute("LookHead");
+					const ItemAttributes::CustomAttribute* lookBody = item->getCustomAttribute("LookBody");
+					const ItemAttributes::CustomAttribute* lookLegs = item->getCustomAttribute("LookLegs");
+					const ItemAttributes::CustomAttribute* lookFeet = item->getCustomAttribute("LookFeet");
 
-				msg.addByte(lookHead ? static_cast<uint8_t>(boost::get<int64_t>(lookHead->value)) : 0);
-				msg.addByte(lookBody ? static_cast<uint8_t>(boost::get<int64_t>(lookBody->value)) : 0);
-				msg.addByte(lookLegs ? static_cast<uint8_t>(boost::get<int64_t>(lookLegs->value)) : 0);
-				msg.addByte(lookFeet ? static_cast<uint8_t>(boost::get<int64_t>(lookFeet->value)) : 0);
+					msg.addByte(lookHead ? static_cast<uint8_t>(boost::get<int64_t>(lookHead->value)) : 0);
+					msg.addByte(lookBody ? static_cast<uint8_t>(boost::get<int64_t>(lookBody->value)) : 0);
+					msg.addByte(lookLegs ? static_cast<uint8_t>(boost::get<int64_t>(lookLegs->value)) : 0);
+					msg.addByte(lookFeet ? static_cast<uint8_t>(boost::get<int64_t>(lookFeet->value)) : 0);
 
-				const ItemAttributes::CustomAttribute* lookAddons = item->getCustomAttribute("LookAddons");
-				msg.addByte(lookAddons ? static_cast<uint8_t>(boost::get<int64_t>(lookAddons->value)) : 0);
+					const ItemAttributes::CustomAttribute* lookAddons = item->getCustomAttribute("LookAddons");
+					msg.addByte(lookAddons ? static_cast<uint8_t>(boost::get<int64_t>(lookAddons->value)) : 0);
+				}
+			} else {
+				msg.add<uint16_t>(0);
 			}
-		} else {
+
+			if (lookMount) {
+				uint16_t look = static_cast<uint16_t>(boost::get<int64_t>(lookMount->value));
+				msg.add<uint16_t>(look);
+
+				if (look != 0) {
+					const ItemAttributes::CustomAttribute* lookHead = item->getCustomAttribute("LookMountHead");
+					const ItemAttributes::CustomAttribute* lookBody = item->getCustomAttribute("LookMountBody");
+					const ItemAttributes::CustomAttribute* lookLegs = item->getCustomAttribute("LookMountLegs");
+					const ItemAttributes::CustomAttribute* lookFeet = item->getCustomAttribute("LookMountFeet");
+
+					msg.addByte(lookHead ? static_cast<uint8_t>(boost::get<int64_t>(lookHead->value)) : 0);
+					msg.addByte(lookBody ? static_cast<uint8_t>(boost::get<int64_t>(lookBody->value)) : 0);
+					msg.addByte(lookLegs ? static_cast<uint8_t>(boost::get<int64_t>(lookLegs->value)) : 0);
+					msg.addByte(lookFeet ? static_cast<uint8_t>(boost::get<int64_t>(lookFeet->value)) : 0);
+				}
+			} else {
 			msg.add<uint16_t>(0);
-		}
-
-		if (lookMount) {
-			uint16_t look = static_cast<uint16_t>(boost::get<int64_t>(lookMount->value));
-			msg.add<uint16_t>(look);
-
-			if (look != 0) {
-				const ItemAttributes::CustomAttribute* lookHead = item->getCustomAttribute("LookMountHead");
-				const ItemAttributes::CustomAttribute* lookBody = item->getCustomAttribute("LookMountBody");
-				const ItemAttributes::CustomAttribute* lookLegs = item->getCustomAttribute("LookMountLegs");
-				const ItemAttributes::CustomAttribute* lookFeet = item->getCustomAttribute("LookMountFeet");
-
-				msg.addByte(lookHead ? static_cast<uint8_t>(boost::get<int64_t>(lookHead->value)) : 0);
-				msg.addByte(lookBody ? static_cast<uint8_t>(boost::get<int64_t>(lookBody->value)) : 0);
-				msg.addByte(lookLegs ? static_cast<uint8_t>(boost::get<int64_t>(lookLegs->value)) : 0);
-				msg.addByte(lookFeet ? static_cast<uint8_t>(boost::get<int64_t>(lookFeet->value)) : 0);
 			}
-		} else {
-			msg.add<uint16_t>(0);
-		}
 
 		msg.addByte(lookDirection ? static_cast<uint8_t>(boost::get<int64_t>(lookDirection->value)) : 2);
 		msg.addByte(podiumVisible ? static_cast<uint8_t>(boost::get<int64_t>(podiumVisible->value)) : 0x01);
@@ -473,13 +471,11 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	}
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
-
+	version = msg.get<uint16_t>();
 
 	if (version >= 1200 && operatingSystem <= CLIENTOS_NEW_MAC) {
 		enableCompact();
 	}
-
-	version = msg.get<uint16_t>();
 
 	clientVersion = static_cast<int32_t>(msg.get<uint32_t>());
 
@@ -2847,6 +2843,7 @@ void ProtocolGame::sendCreatureType(const Creature *creature, uint8_t creatureTy
 	NetworkMessage msg;
 	msg.addByte(0x95);
 	msg.add<uint32_t>(creature->getID());
+
 	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
 		creatureType = CREATURETYPE_SUMMON_PLAYER;
 	}
@@ -2896,9 +2893,8 @@ void ProtocolGame::sendAddMarker(const Position &pos, uint8_t markType, const st
 {
 	NetworkMessage msg;
 	msg.addByte(0xDD);
-	if (version >= 1200) {
+	if (version >= 1200)
 		msg.addByte(0x00); // unknow
-	}
 
 	msg.addPosition(pos);
 	msg.addByte(markType);
@@ -3443,9 +3439,8 @@ void ProtocolGame::sendReLoginWindow(uint8_t unfairFightReduction)
 	msg.addByte(0x28);
 	msg.addByte(0x00);
 	msg.addByte(unfairFightReduction);
-	if (version >= 1200) {
+	if (version >= 1200)
 		msg.addByte(0x00); // use death redemption (boolean)
-	}
 	writeToOutputBuffer(msg);
 }
 
@@ -3488,27 +3483,22 @@ void ProtocolGame::sendBasicData()
 	{
 		msg.addByte(sid);
 	}
-	if (version >= 1200) {
+	if (version >= 1200)
 		msg.addByte(player->getVocation()->getMagicShield()); // bool - determine whether magic shield is active or not
-	}
 	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::sendBlessStatus()
 {
-	if (!player)
-		return;
-
-	NetworkMessage msg;
+	if (!player) return;
 	uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6; // (compartability for the client 10)
-	//Ignore ToF (bless 1)
+	  //Ignore ToF (bless 1)
+	NetworkMessage msg;
 	uint8_t blessCount = 0;
 	uint16_t flag = 0;
 	uint16_t pow2 = 2;
-	for (int i = 1; i <= 8; i++)
-	{
-		if (player->hasBlessing(i))
-		{
+	for (int i = 1; i <= maxClientBlessings; i++) {
+		if (player->hasBlessing(i)) {
 			if (i > 1)
 				blessCount++;
 			flag |= pow2;
@@ -3517,6 +3507,9 @@ void ProtocolGame::sendBlessStatus()
 	}
 
 	msg.addByte(0x9C);
+	if (version >= 1200) {
+		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
+			flag |= 1;
 
 	if (version >= 1200) {
 	msg.add<uint16_t>((blessCount >= 5) ? (flag | 1) : flag);         //Show up the glowing effect in items if have all blesses
@@ -3904,7 +3897,6 @@ void ProtocolGame::sendShop(Npc *npc)
 	NetworkMessage msg;
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());
-
 	if (version >= 1200) {
 		msg.add<uint16_t>(npc->getCurrencyTrading());
 		msg.addString(std::string()); // ??
@@ -4995,8 +4987,7 @@ void ProtocolGame::sendRestingStatus(uint8_t protection)
 
 void ProtocolGame::sendMagicEffect(const Position &pos, uint8_t type)
 {
-	if (!canSee(pos))
-	{
+	if (!canSee(pos)) {
 		return;
 	}
 
@@ -5830,25 +5821,25 @@ void ProtocolGame::sendOutfitWindow()
 		uint16_t familiarSize = 0;
 		msg.skipBytes(2);
 
-	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
+		const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
 
-	for (const Familiar& familiar : familiars) {
-		if (!player->getFamiliar(familiar)) {
-			continue;
+		for (const Familiar& familiar : familiars) {
+			if (!player->getFamiliar(familiar)) {
+				continue;
+			}
+
+			msg.add<uint16_t>(familiar.lookType);
+			msg.addString(familiar.name);
+			msg.addByte(0x00);
+			if (++familiarSize == limitFamiliars) {
+					break;
+			}
 		}
 
-		msg.add<uint16_t>(familiar.lookType);
-		msg.addString(familiar.name);
-		msg.addByte(0x00);
-		if (++familiarSize == limitFamiliars) {
-				break;
-		}
-	}
-
-	auto endFamiliars = msg.getBufferPosition();
-	msg.setBufferPosition(startFamiliars);
-	msg.add<uint16_t>(familiarSize);
-	msg.setBufferPosition(endFamiliars);
+		auto endFamiliars = msg.getBufferPosition();
+		msg.setBufferPosition(startFamiliars);
+		msg.add<uint16_t>(familiarSize);
+		msg.setBufferPosition(endFamiliars);
 
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
@@ -6026,7 +6017,6 @@ void ProtocolGame::sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time)
 {
 	if(version < 1200 && groupId > 4)
 		return;
-
 	NetworkMessage msg;
 	msg.addByte(0xA5);
 	msg.addByte(groupId);
@@ -6296,8 +6286,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 		if (version >= 1200 && creature->isHealthHidden()) {
 			msg.addByte(CREATURETYPE_HIDDEN);
 		}
-		else
-		{
+		else {
 			msg.addByte(creatureType);
 		}
 
@@ -6531,8 +6520,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg)
 		}
 	}
 
-	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i)
-	{
+	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i) {
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
 	}

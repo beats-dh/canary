@@ -45,7 +45,7 @@ bool IOLoginData::LoginServerAuthentication(const std::string& name,
     return false;
   }
 
-	return true;
+  return true;
 }
 
 uint32_t IOLoginData::gameWorldAuthentication(const std::string& accountName, const std::string& password, std::string& characterName, bool useAccountName)

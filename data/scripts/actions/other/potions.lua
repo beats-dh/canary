@@ -154,13 +154,27 @@ local setting = {
 local potions = Action()
 
 function potions.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local client = player:getClient()
 	if type(target) == "userdata" and not target:isPlayer() then
 		return false
 	end
 
-	local potion = setting[item:getId()]
-	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) then
-		player:say(potion.description, TALKTYPE_MONSTER_SAY)
+	-- Delay potion
+	if not playerDelayPotion[player:getId()] then
+		playerDelayPotion[player:getId()] = 0
+	end
+	if playerDelayPotion[player:getId()] > os.mtime() then
+		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		return true
+	end
+
+	local potion = potions[item:getId()]
+	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and not (player:getGroup():getId() >= 2) then
+		if client.version > 1100 then
+			player:say(potion.description, MESSAGE_POTION)
+		else
+			player:say(potion.description, TALKTYPE_MONSTER_SAY)
+		end
 		return true
 	end
 
@@ -181,13 +195,47 @@ function potions.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			doTargetCombatMana(0, target, COMBAT_MANADRAIN, potion.mana[1], potion.mana[2])
 		end
 
-		if potion.antidote then
-			target:removeCondition(CONDITION_POISON)
+		player:addAchievementProgress('Potion Addict', 100000)
+		if client.version > 1100 then
+			target:say("Aaaah...", MESSAGE_POTION)
+		else
+			target:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+		end
+		player:addItem(potion.flask, 1)
+		player:addCondition(exhaust)
+		player:setStorageValue(38412, player:getStorageValue(38412)+1)
+	end
+
+	-- Delay potion
+	playerDelayPotion[player:getId()] = os.mtime() + 500
+	
+	if potion.func then
+		potion.func(player)
+		if potion.text then
+			if client.version > 1100 then
+				player:say("Aaaah...", MESSAGE_POTION)
+			else
+				player:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+			end
 		end
 
-		player:addItem(potion.flask)
-		target:say("Aaaah...", TALKTYPE_MONSTER_SAY)
-		target:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+	if potion.condition then
+		player:addCondition(potion.condition)
+		if client.version > 1100 then
+			player:say("Aaaah...", MESSAGE_POTION)
+		else
+			player:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+		end
+		player:getPosition():sendMagicEffect(potion.effect)
+	end
+
+	if potion.transform then
+		if item:getCount() >= 1 then
+			item:remove(1)
+			player:addItem(potion.transform.id[math.random(#potion.transform.id)], 1)
+			item:getPosition():sendMagicEffect(potion.effect)
+			return true
+		end
 	end
 
 	if not configManager.getBoolean(configKeys.REMOVE_POTION_CHARGES) then
