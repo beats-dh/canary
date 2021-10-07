@@ -6516,7 +6516,6 @@ void Game::internalDecayItem(Item* item)
 				player->sendSkills();
 			}
 		}
-		Item* newItem = transformItem(item, it.decayTo);
 		transformItem(item, it.decayTo);
 	} else {
 		ReturnValue ret = internalRemoveItem(item);
