@@ -61,8 +61,6 @@ struct Abilities {
 
 	int16_t cleavePercent = { 0 };
 
-	int16_t reflectFlat = { 0 };
-
 	//relfect abilities modifires
 	int16_t reflectPercent[COMBAT_COUNT] = { 0 };
 
