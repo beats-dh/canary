@@ -253,7 +253,7 @@ const std::unordered_map<std::string, FluidTypes_t> FluidTypesMap = {
 };
 
 const std::unordered_map<std::string, SlotPositionBits> SlotTypesMap = {
-	{"head", SLOTP_HEAD},
+	{"head,", SLOTP_HEAD},
 	{"body", SLOTP_ARMOR},
 	{"legs", SLOTP_LEGS},
 	{"feet", SLOTP_FEET},
