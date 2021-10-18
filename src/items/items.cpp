@@ -236,6 +236,21 @@ const std::unordered_map<std::string, FluidTypes_t> FluidTypesMap = {
 	{"mead", FLUID_MEAD },
 };
 
+const std::unordered_map<std::string, SlotPositionBits> SlotTypesMap = {
+	{"head,", SLOTP_HEAD},
+	{"body", SLOTP_ARMOR},
+	{"legs", SLOTP_LEGS},
+	{"feet", SLOTP_FEET},
+	{"backpack", SLOTP_BACKPACK},
+	{"two-handed", SLOTP_TWO_HAND},
+	{"right-hand", SLOTP_LEFT},
+	{"left-hand", SLOTP_RIGHT},
+	{"necklace", SLOTP_NECKLACE},
+	{"ring", SLOTP_RING},
+	{"ammo", SLOTP_AMMO},
+	{"hand", SLOTP_HAND},
+};
+
 Items::Items(){}
 
 void Items::clear()
@@ -830,38 +845,15 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 					break;
 				}
 
-
-
 				case ITEM_PARSE_SLOTTYPE: {
 					tmpStrValue = asLowerCaseString(valueAttribute.as_string());
-					if (tmpStrValue == "head") {
-							it.slotPosition |= SLOTP_HEAD;
-					} else if (tmpStrValue == "body") {
-						it.slotPosition |= SLOTP_ARMOR;
-					} else if (tmpStrValue == "legs") {
-						it.slotPosition |= SLOTP_LEGS;
-					} else if (tmpStrValue == "feet") {
-						it.slotPosition |= SLOTP_FEET;
-					} else if (tmpStrValue == "backpack") {
-						it.slotPosition |= SLOTP_BACKPACK;
-					} else if (tmpStrValue == "two-handed") {
-						it.slotPosition |= SLOTP_TWO_HAND;
-					} else if (tmpStrValue == "right-hand") {
-						it.slotPosition &= ~SLOTP_LEFT;
-					} else if (tmpStrValue == "left-hand") {
-						it.slotPosition &= ~SLOTP_RIGHT;
-					} else if (tmpStrValue == "necklace") {
-						it.slotPosition |= SLOTP_NECKLACE;
-					} else if (tmpStrValue == "ring") {
-						it.slotPosition |= SLOTP_RING;
-					} else if (tmpStrValue == "ammo") {
-						it.slotPosition |= SLOTP_AMMO;
-					} else if (tmpStrValue == "hand") {
-						it.slotPosition |= SLOTP_HAND;
-					} else {
-						SPDLOG_WARN("[Items::parseItemNode] - Unknown slotType: {}",
-                        valueAttribute.as_string());
-					}
+					auto it2 = SlotTypesMap.find(tmpStrValue);
+						if (it2 != SlotTypesMap.end()) {
+							it.slotPosition = it2->second; 
+						} else {
+							SPDLOG_WARN("[Items::parseItemNode] - Unknown slotType: {}",
+                            valueAttribute.as_string());
+						}
 					break;
 				}
 
