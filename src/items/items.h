@@ -49,8 +49,6 @@ struct Abilities {
 	//damage abilities modifiers
 	int16_t absorbPercent[COMBAT_COUNT] = { 0 };
 
-	int16_t magicShieldCapacityPercent = { 0 };
-
 	int16_t magicShieldCapacityFlat = { 0 };
 
 	int16_t perfectShotDamage = { 0 };
