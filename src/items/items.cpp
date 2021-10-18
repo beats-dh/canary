@@ -163,6 +163,23 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 	{"skilllifeamount", ITEM_PARSE_LIFELEECHAMOUNT},
 	{"skillmanachance", ITEM_PARSE_MANALEECHCHANCE},
 	{"skillmanaamount", ITEM_PARSE_MANALEECHAMOUNT},
+	{"deathmagiclevelpoints", ITEM_PARSE_DEATMAGICLEVELPOINTS},
+	{"energymagiclevelpoints", ITEM_PARSE_ENERGYMAGICLEVELPOINTS},
+	{"earthmagiclevelpoints", ITEM_PARSE_ENERGYMAGICLEVELPOINTS},
+	{"reflectpercentall", ITEM_PARSE_REFLECTPERCENTALL},
+	{"earthmagiclevelpoints", ITEM_PARSE_EARTHMAGICLEVELPOINTS},
+	{"firemagiclevelpoints", ITEM_PARSE_FIREMAGICLEVELPOINTS},
+	{"healingmagiclevelpoints", ITEM_PARSE_HEALINGMAGICLEVELPOINTS},
+	{"holymagiclevelpoints", ITEM_PARSE_HOLYMAGICLEVELPOINTS},
+	{"icemagiclevelpoints", ITEM_PARSE_ICEMAGICLEVELPOINTS},
+	{"physicalmagiclevelpoints", ITEM_PARSE_PHYSICALMAGICLEVELPOINTS},
+	{"magicshieldcapacitypercent", ITEM_PARSE_MAGICSHIELDCAPACITYPERCENT},
+	{"magicshieldcapacityflat", ITEM_PARSE_MAGICSHIELDCAPACITYFLAT},
+	{"perfectshotdamage", ITEM_PARSE_PERFECTSHOTDAMAGE},
+	{"perfectshotrange", ITEM_PARSE_PERFECTSHOTRANGE},
+	{"cleavepercent", ITEM_PARSE_CLEAVEPERCENT},
+	{"reflectflatall", ITEM_PARSE_REFLECTFLATALL},
+	{"reflectpercentall", ITEM_PARSE_REFLECTPERCENTALL},
 };
 
 const std::unordered_map<std::string, ItemTypes_t> ItemTypesMap = {
@@ -857,6 +874,91 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 					break;
 				}
 
+				case ITEM_PARSE_CONTAINERSIZE: {
+					it.maxItems = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FLUIDSOURCE: {
+					tmpStrValue = asLowerCaseString(valueAttribute.as_string());
+					auto it2 = FluidTypesMap.find(tmpStrValue);
+						if (it2 != FluidTypesMap.end()) {
+							it.fluidSource = it2->second;
+						} else {
+							SPDLOG_WARN("[Items::parseItemNode] - Unknown fluidSource: {}",
+                        	valueAttribute.as_string());
+						}
+					break;
+				}
+
+				case ITEM_PARSE_READABLE: {
+					it.canReadText = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_WRITEABLE: {
+					it.canWriteText = valueAttribute.as_bool();
+					it.canReadText = it.canWriteText;
+					break;
+				}
+
+				case ITEM_PARSE_MAXTEXTLEN: {
+					it.maxTextLen = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_WRITEONCEITEMID: {
+					it.writeOnceItemId = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_WEAPONTYPE: {
+					tmpStrValue = asLowerCaseString(valueAttribute.as_string());
+					auto it2 = WeaponTypesMap.find(tmpStrValue);
+					if (it2 != WeaponTypesMap.end()) {
+						it.weaponType = it2->second;
+					} else {
+						SPDLOG_WARN("[Items::parseItemNode] - Unknown weaponType: {}",
+                        valueAttribute.as_string());
+					}
+					break;
+				}
+
+
+
+				case ITEM_PARSE_SLOTTYPE: {
+					tmpStrValue = asLowerCaseString(valueAttribute.as_string());
+					if (tmpStrValue == "head") {
+							it.slotPosition |= SLOTP_HEAD;
+					} else if (tmpStrValue == "body") {
+						it.slotPosition |= SLOTP_ARMOR;
+					} else if (tmpStrValue == "legs") {
+						it.slotPosition |= SLOTP_LEGS;
+					} else if (tmpStrValue == "feet") {
+						it.slotPosition |= SLOTP_FEET;
+					} else if (tmpStrValue == "backpack") {
+						it.slotPosition |= SLOTP_BACKPACK;
+					} else if (tmpStrValue == "two-handed") {
+						it.slotPosition |= SLOTP_TWO_HAND;
+					} else if (tmpStrValue == "right-hand") {
+						it.slotPosition &= ~SLOTP_LEFT;
+					} else if (tmpStrValue == "left-hand") {
+						it.slotPosition &= ~SLOTP_RIGHT;
+					} else if (tmpStrValue == "necklace") {
+						it.slotPosition |= SLOTP_NECKLACE;
+					} else if (tmpStrValue == "ring") {
+						it.slotPosition |= SLOTP_RING;
+					} else if (tmpStrValue == "ammo") {
+						it.slotPosition |= SLOTP_AMMO;
+					} else if (tmpStrValue == "hand") {
+						it.slotPosition |= SLOTP_HAND;
+					} else {
+						SPDLOG_WARN("[Items::parseItemNode] - Unknown slotType: {}",
+                        valueAttribute.as_string());
+					}
+					break;
+				}
+
 				case ITEM_PARSE_AMMOTYPE: {
 					it.ammoType = getAmmoType(asLowerCaseString(valueAttribute.as_string()));
 					if (it.ammoType == AMMO_NONE) {
@@ -884,6 +986,405 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 					} else {
 						SPDLOG_WARN("[Items::parseItemNode] - Unknown effect: {}",
                         valueAttribute.as_string());
+					}
+					break;
+				}
+
+				case ITEM_PARSE_RANGE: {
+					it.shootRange = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_STOPDURATION: {
+					it.stopTime = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_DECAYTO: {
+					it.decayTo = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_TRANSFORMEQUIPTO: {
+					it.transformEquipTo = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_TRANSFORMDEEQUIPTO: {
+					it.transformDeEquipTo = pugi::cast<uint16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_DURATION: {
+					it.decayTime = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SHOWDURATION: {
+					it.showDuration = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_CHARGES: {
+					it.charges = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SHOWCHARGES: {
+					it.showCharges = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_SHOWATTRIBUTES: {
+					it.showAttributes = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_HITCHANCE: {
+					it.hitChance = std::min<int8_t>(100, std::max<int8_t>(-100, pugi::cast<int16_t>(valueAttribute.value())));
+					break;
+				}
+
+				case ITEM_PARSE_MAXHITCHANCE: {
+					it.maxHitChance = std::min<uint32_t>(100, pugi::cast<uint32_t>(valueAttribute.value()));
+					break;
+				}
+
+				case ITEM_PARSE_INVISIBLE: {
+					abilities.invisible = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_SPEED: {
+					abilities.speed = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_HEALTHGAIN: {
+					abilities.regeneration = true;
+					abilities.healthGain = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_HEALTHTICKS: {
+					abilities.regeneration = true;
+					abilities.healthTicks = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MANAGAIN: {
+					abilities.regeneration = true;
+					abilities.manaGain = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MANATICKS: {
+					abilities.regeneration = true;
+					abilities.manaTicks = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MANASHIELD: {
+					abilities.manaShield = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_SKILLSWORD: {
+					abilities.skills[SKILL_SWORD] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLAXE: {
+					abilities.skills[SKILL_AXE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLCLUB: {
+					abilities.skills[SKILL_CLUB] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLDIST: {
+					abilities.skills[SKILL_DISTANCE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLFISH: {
+					abilities.skills[SKILL_FISHING] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLFIST: {
+					abilities.skills[SKILL_FIST] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_SKILLSHIELD: {
+					abilities.skills[SKILL_SHIELD] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_CRITICALHITCHANCE: {
+					it.getAbilities().skills[SKILL_CRITICAL_HIT_CHANCE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_CRITICALHITDAMAGE: {
+					it.getAbilities().skills[SKILL_CRITICAL_HIT_DAMAGE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+				
+				case ITEM_PARSE_LIFELEECHCHANCE: {
+					it.getAbilities().skills[SKILL_LIFE_LEECH_CHANCE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_LIFELEECHAMOUNT: {
+					it.getAbilities().skills[SKILL_LIFE_LEECH_AMOUNT] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+				
+				case ITEM_PARSE_MANALEECHCHANCE: {
+					it.getAbilities().skills[SKILL_MANA_LEECH_CHANCE] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MANALEECHAMOUNT: {
+					it.getAbilities().skills[SKILL_MANA_LEECH_AMOUNT] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAXHITPOINTS: {
+					abilities.stats[STAT_MAXHITPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAXHITPOINTSPERCENT: {
+					abilities.statsPercent[STAT_MAXHITPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAXMANAPOINTS: {
+					abilities.stats[STAT_MAXMANAPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAXMANAPOINTSPERCENT: {
+					abilities.statsPercent[STAT_MAXMANAPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAGICPOINTS: {
+					abilities.stats[STAT_MAGICPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAGICPOINTSPERCENT: {
+					abilities.statsPercent[STAT_MAGICPOINTS] = pugi::cast<int32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FIELDABSORBPERCENTENERGY: {
+					abilities.fieldAbsorbPercent[combatTypeToIndex(COMBAT_ENERGYDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FIELDABSORBPERCENTFIRE: {
+					abilities.fieldAbsorbPercent[combatTypeToIndex(COMBAT_FIREDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FIELDABSORBPERCENTPOISON: {
+					abilities.fieldAbsorbPercent[combatTypeToIndex(COMBAT_EARTHDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTALL: {
+					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
+					for (auto& i : abilities.absorbPercent) {
+						i += value;
+					}
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTELEMENTS: {
+					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ENERGYDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_FIREDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_EARTHDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ICEDAMAGE)] += value;
+					break;
+				}
+				
+				case ITEM_PARSE_ABSORBPERCENTMAGIC: {
+					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ENERGYDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_FIREDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_EARTHDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ICEDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_HOLYDAMAGE)] += value;
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_DEATHDAMAGE)] += value;
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTENERGY: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ENERGYDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTFIRE: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_FIREDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTPOISON: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_EARTHDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTICE: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_ICEDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTHOLY: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_HOLYDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTDEATH: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_DEATHDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTLIFEDRAIN: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_LIFEDRAIN)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTMANADRAIN: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_MANADRAIN)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTDROWN: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_DROWNDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTPHYSICAL: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_PHYSICALDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ABSORBPERCENTHEALING: {
+					abilities.absorbPercent[combatTypeToIndex(COMBAT_HEALING)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_DEATMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_DEATHDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ENERGYMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_ENERGYDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_EARTHMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_EARTHDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_FIREMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_FIREDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_HEALINGMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_HEALING)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_HOLYMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_HOLYDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_ICEMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_ICEDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_PHYSICALMAGICLEVELPOINTS: {
+					it.getAbilities().specializedMagicLevel[combatTypeToIndex(COMBAT_PHYSICALDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAGICSHIELDCAPACITYPERCENT: {
+					it.getAbilities().magicShieldCapacityPercent += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MAGICSHIELDCAPACITYFLAT: {
+					it.getAbilities().magicShieldCapacityFlat += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_PERFECTSHOTDAMAGE: {
+					it.getAbilities().perfectShotDamage = pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_PERFECTSHOTRANGE: {
+					it.getAbilities().perfectShotRange = pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_CLEAVEPERCENT: {
+					it.getAbilities().cleavePercent += pugi::cast<int16_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_REFLECTFLATALL: {
+					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
+					Abilities& abilities = it.getAbilities();
+				for (int& i : abilities.reflectFlat)
+					{
+						i += value;
+					}
+					break;
+				}
+
+				case ITEM_PARSE_REFLECTPERCENTALL: {
+					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
+					Abilities& abilities = it.getAbilities();
+					for (auto& i : abilities.reflectPercent) 
+						{
+							i += value;
+						}
+					break;
+				}
+
+				case ITEM_PARSE_SUPPRESSDRUNK: {
+					if (valueAttribute.as_bool()) {
+						abilities.conditionSuppressions |= CONDITION_DRUNK;
+					}
+					break;
+				}
+
+				case ITEM_PARSE_SUPPRESSENERGY: {
+					if (valueAttribute.as_bool()) {
+						abilities.conditionSuppressions |= CONDITION_ENERGY;
+					}
+					break;
+				
+				}
+
+				case ITEM_PARSE_SUPPRESSFIRE: {
+					if (valueAttribute.as_bool()) {
+						abilities.conditionSuppressions |= CONDITION_FIRE;
 					}
 					break;
 				}
@@ -1323,6 +1824,37 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 						if (conditionDamage->getTotalDamage() > 0) {
 							conditionDamage->setParam(CONDITION_PARAM_FORCEUPDATE, 1);
 						}
+
+						conditionDamage->setParam(CONDITION_PARAM_FIELD, 1);
+
+						if (conditionDamage->getTotalDamage() > 0) {
+							conditionDamage->setParam(CONDITION_PARAM_FORCEUPDATE, 1);
+						}
+					}
+					break;
+				}
+
+				case ITEM_PARSE_REPLACEABLE: {
+					it.replaceable = valueAttribute.as_bool();
+					break;
+				}
+
+				case ITEM_PARSE_PARTNERDIRECTION: {
+					it.bedPartnerDir = getDirection(valueAttribute.as_string());
+					break;
+				}
+				
+				case ITEM_PARSE_LEVELDOOR: {
+					it.levelDoor = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_MALETRANSFORMTO: {
+					uint16_t value = pugi::cast<uint16_t>(valueAttribute.value());
+					it.transformToOnUse[PLAYERSEX_MALE] = value;
+					ItemType& other = getItemType(value);
+					if (other.transformToFree == 0) {
+						other.transformToFree = it.id;
 					}
 					break;
 				}
