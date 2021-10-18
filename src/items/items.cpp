@@ -166,7 +166,6 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 	{"deathmagiclevelpoints", ITEM_PARSE_DEATMAGICLEVELPOINTS},
 	{"energymagiclevelpoints", ITEM_PARSE_ENERGYMAGICLEVELPOINTS},
 	{"earthmagiclevelpoints", ITEM_PARSE_ENERGYMAGICLEVELPOINTS},
-	{"reflectpercentall", ITEM_PARSE_REFLECTPERCENTALL},
 	{"earthmagiclevelpoints", ITEM_PARSE_EARTHMAGICLEVELPOINTS},
 	{"firemagiclevelpoints", ITEM_PARSE_FIREMAGICLEVELPOINTS},
 	{"healingmagiclevelpoints", ITEM_PARSE_HEALINGMAGICLEVELPOINTS},
@@ -1265,7 +1264,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				case ITEM_PARSE_REFLECTFLATALL: {
 					int16_t value = pugi::cast<int16_t>(valueAttribute.value());
 					Abilities& abilities = it.getAbilities();
-				for (int& i : abilities.reflectFlat)
+				for (int i : abilities.reflectFlat)
 					{
 						i += value;
 					}

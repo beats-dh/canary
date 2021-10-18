@@ -50,7 +50,7 @@ struct Abilities {
 	int16_t absorbPercent[COMBAT_COUNT] = { 0 };
 
 	//relfect abilities modifires
-	int16_t reflectPercent[COMBAT_COUNT] = { 0 };
+	int32_t reflectPercent[COMBAT_COUNT] = { 0 };
 
 	int16_t reflectFlat[COMBAT_COUNT] = { 0 };
 
