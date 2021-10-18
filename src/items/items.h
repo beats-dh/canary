@@ -49,14 +49,6 @@ struct Abilities {
 	//damage abilities modifiers
 	int16_t absorbPercent[COMBAT_COUNT] = { 0 };
 
-	int16_t magicShieldCapacityFlat = { 0 };
-
-	int16_t perfectShotDamage = { 0 };
-
-	int16_t perfectShotRange = { 0 };
-
-	int16_t cleavePercent = { 0 };
-
 	//relfect abilities modifires
 	int16_t reflectPercent[COMBAT_COUNT] = { 0 };
 
