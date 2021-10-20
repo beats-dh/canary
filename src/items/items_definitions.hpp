@@ -291,6 +291,7 @@ enum ItemFlags_t {
 };
 
 enum ItemTypes_t {
+	ITEM_PARSE_TYPE,
 	ITEM_TYPE_NONE,
 	ITEM_TYPE_DEPOT,
 	ITEM_TYPE_MAILBOX,
@@ -330,8 +331,7 @@ enum ItemTypes_t {
 	ITEM_TYPE_RETRIEVE,
 	ITEM_TYPE_GOLD,
 	ITEM_TYPE_UNASSIGNED,
-	
-	ITEM_PARSE_TYPE,
+
 	ITEM_TYPE_LAST,
 };
 

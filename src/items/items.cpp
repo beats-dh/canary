@@ -36,23 +36,7 @@ namespace fs = boost::filesystem;
 extern Weapons* g_weapons;
 
 const std::unordered_map<std::string, ItemTypes_t> ItemTypesMap = {
-	{"key", ITEM_TYPE_KEY},
-	{"magicfield", ITEM_TYPE_MAGICFIELD},
-	{"container", ITEM_TYPE_CONTAINER},
-	{"depot", ITEM_TYPE_DEPOT},
-	{"rewardchest", ITEM_TYPE_REWARDCHEST},
-	{"carpet", ITEM_TYPE_CARPET},
-	{"mailbox", ITEM_TYPE_MAILBOX},
-	{"trashholder", ITEM_TYPE_TRASHHOLDER},
-	{"teleport", ITEM_TYPE_TELEPORT},
-	{"door", ITEM_TYPE_DOOR},
-	{"bed", ITEM_TYPE_BED},
-	{"rune", ITEM_TYPE_RUNE},
-	{"supply", ITEM_TYPE_SUPPLY},
-	{"creatureproduct", ITEM_TYPE_CREATUREPRODUCT},
-	{"food", ITEM_TYPE_FOOD},
-	{"valuable", ITEM_TYPE_VALUABLE},
-	{"potion", ITEM_TYPE_POTION},
+	{"type", ITEM_PARSE_TYPE},
 };
 
 Items::Items(){}
@@ -479,9 +463,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			ItemTypes_t parseType = parseAttribute->second;
 			switch (parseType) {
 				case ITEM_PARSE_TYPE: {
-				if (tmpStrValue == "type") {
 					tmpStrValue = asLowerCaseString(valueAttribute.as_string());
-					} else if (tmpStrValue == "key") {
+				 	if (tmpStrValue == "key") {
 						it.type = ITEM_TYPE_KEY;
 					} else if (tmpStrValue == "magicfield") {
 						it.type = ITEM_TYPE_MAGICFIELD;
