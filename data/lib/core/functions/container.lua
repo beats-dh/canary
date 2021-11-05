@@ -2,9 +2,16 @@ function Container.isContainer(self)
 	return true
 end
 
+--[[
+	return values for autoloot
+	0 = Did not drop the item. No error
+	-1 = For some reason, the item can not be created.
+	> 0 = UID
+]]
+
 function Container.createLootItem(self, item, boolCharm)
 	if self:getEmptySlots() == 0 then
-		return true
+		return 0
 	end
 
 	local itemCount = 0
@@ -29,20 +36,18 @@ function Container.createLootItem(self, item, boolCharm)
 		end
 	end
 	
-	while (itemCount > 0) do
-		local n = math.min(itemCount, 100)
-		itemCount = itemCount - n
-		
-		local tmpItem = self:addItem(item.itemId, n)
+	local tmpItem = false
+	if itemCount > 0 then
+		tmpItem = self:addItem(item.itemId, math.min(itemCount, 100))
 		if not tmpItem then
-			return false
+			return -1
 		end
 
 		if tmpItem:isContainer() then
 			for i = 1, #item.childLoot do
 				if not tmpItem:createLootItem(item.childLoot[i]) then
 					tmpItem:remove()
-					return false
+					return -1
 				end
 			end
 		end
@@ -61,5 +66,5 @@ function Container.createLootItem(self, item, boolCharm)
 			tmpItem:setText(item.text)
 		end
 	end
-	return true
+	return tmpItem and tmpItem.uid or 0
 end

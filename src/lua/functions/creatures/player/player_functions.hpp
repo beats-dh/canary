@@ -298,6 +298,12 @@ class PlayerFunctions final : LuaScriptInterface {
 			registerMethod(L, "Player", "setExpBoostStamina", PlayerFunctions::luaPlayerSetExpBoostStamina);
 
 			registerMethod(L, "Player", "getIdleTime", PlayerFunctions::luaPlayerGetIdleTime);
+
+			//Autoloot
+			registerMethod(L,"Player", "addAutoLootItem", PlayerFunctions::luaPlayerAddAutoLootItem);
+			registerMethod(L, "Player", "removeAutoLootItem", PlayerFunctions::luaPlayerRemoveAutoLootItem);
+			registerMethod(L, "Player", "getAutoLootItem", PlayerFunctions::luaPlayerGetAutoLootItem);
+			registerMethod(L, "Player", "getAutoLootList", PlayerFunctions::luaPlayerGetAutoLootList);
 			registerMethod(L, "Player", "getFreeBackpackSlots", PlayerFunctions::luaPlayerGetFreeBackpackSlots);
 
 			registerMethod(L, "Player", "isOffline", PlayerFunctions::luaPlayerIsOffline);
@@ -581,6 +587,12 @@ class PlayerFunctions final : LuaScriptInterface {
 		static int luaPlayerSetExpBoostStamina(lua_State* L);
 
 		static int luaPlayerGetIdleTime(lua_State* L);
+
+		static int luaPlayerAddAutoLootItem(lua_State* L);
+		static int luaPlayerRemoveAutoLootItem(lua_State* L);
+		static int luaPlayerGetAutoLootItem(lua_State* L);
+		static int luaPlayerGetAutoLootList(lua_State* L); // NOT READY
+
 		static int luaPlayerGetFreeBackpackSlots(lua_State* L);
 
 		static int luaPlayerOpenMarket(lua_State* L);

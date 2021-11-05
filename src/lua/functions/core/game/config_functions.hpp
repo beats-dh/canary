@@ -129,6 +129,7 @@ class ConfigFunctions final : LuaScriptInterface {
 			registerEnumIn(L, "configKeys", RED_SKULL_DURATION)
 			registerEnumIn(L, "configKeys", BLACK_SKULL_DURATION)
 			registerEnumIn(L, "configKeys", ORANGE_SKULL_DURATION)
+			registerEnumIn(L, "configKeys", AUTOLOOT_MODE)
 			registerEnumIn(L, "configKeys", RATE_MONSTER_HEALTH)
 			registerEnumIn(L, "configKeys", RATE_MONSTER_ATTACK)
 			registerEnumIn(L, "configKeys", RATE_MONSTER_DEFENSE)

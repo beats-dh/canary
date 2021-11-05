@@ -1598,6 +1598,11 @@ class Player final : public Creature, public Cylinder
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
 
+		//Autoloot
+		void addAutoLootItem(uint16_t itemId);
+		void removeAutoLootItem(uint16_t itemId);
+		bool getAutoLootItem(uint16_t itemId);
+
 		void updateRegeneration();
 
 		void setScheduledSaleUpdate(bool scheduled) {
@@ -1919,6 +1924,10 @@ class Player final : public Creature, public Cylinder
 		void internalAddThing(uint32_t index, Thing* thing) override;
 
 		std::unordered_set<uint32_t> attackedSet;
+
+		//Autoloot
+		std::unordered_set<uint32_t> autoLootList;
+		//std::unordered_set<uint32_t> autoLootList; (use this if you have ubuntu 16+)
 
 		std::unordered_set<uint32_t> VIPList;
 
