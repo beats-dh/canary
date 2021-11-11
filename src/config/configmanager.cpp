@@ -184,6 +184,7 @@ bool ConfigManager::load()
 	boolean[SORT_LOOT_BY_CHANCE] = getGlobalBoolean(L, "sortLootByChance", false);
 	boolean[TOGLE_SAVE_INTERVAL] = getGlobalBoolean(L, "togleSaveInterval", false);
 	boolean[TOGLE_SAVE_INTERVAL_CLEAN_MAP] = getGlobalBoolean(L, "togleSaveIntervalCleanMap", false);
+	boolean[ALLOW_CLIENT_OLD] = getGlobalBoolean(L, "allowClientOld", false);
 
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
 
