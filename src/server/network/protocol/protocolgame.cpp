@@ -3490,7 +3490,9 @@ void ProtocolGame::sendBasicData()
 
 void ProtocolGame::sendBlessStatus()
 {
-	if (!player) return;
+	if (!player)
+	return;
+
 	uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6; // (compartability for the client 10)
 	  //Ignore ToF (bless 1)
 	NetworkMessage msg;
@@ -3511,12 +3513,15 @@ void ProtocolGame::sendBlessStatus()
 		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
 			flag |= 1;
 
-	if (version >= 1200) {
-	msg.add<uint16_t>((blessCount >= 5) ? (flag | 1) : flag);         //Show up the glowing effect in items if have all blesses
-	msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
-	// msg.add<uint16_t>(0);
+		msg.add<uint16_t>(flag);
+		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
 	}
-	
+	else if (blessCount >= 5) {
+		msg.add<uint16_t>(0x01);
+	}
+	else {
+		msg.add<uint16_t>(0x00);
+	}
 	writeToOutputBuffer(msg);
 }
 
