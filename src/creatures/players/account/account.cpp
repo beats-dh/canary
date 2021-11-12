@@ -292,7 +292,7 @@ error_t Account::GetID(uint32_t *id) {
 
 error_t Account::SetName(std::string name) {
   if (name.empty()) {
-    return ERROR_INVALID_ACCOUNT_NAME;
+    return ERROR_INVALID_ACC_NAME;
   }
   name_ = name;
   return ERROR_NO;
