@@ -81,7 +81,6 @@ void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count)
 		if (it.isPodium) {
 			msg.add<uint16_t>(0);
 			msg.add<uint16_t>(0);
-
 			msg.addByte(2);
 			msg.addByte(0x01);
 		}
