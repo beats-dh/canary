@@ -5374,6 +5374,9 @@ void ProtocolGame::sendAddCreature(const Creature *creature, const Position &pos
 
 	if (version >= 1200) {
 		msg.addByte(shouldAddExivaRestrictions ? 0x01 : 0x00); // exiva button enabled
+	}
+
+	if (version >= 1200) {
 		msg.addByte(0x00); // tournament button enabled
 	}
 
