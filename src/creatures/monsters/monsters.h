@@ -233,7 +233,7 @@ class Monsters
 
 		MonsterType* getMonsterType(const std::string& name);
 		MonsterType* getMonsterTypeByRaceId(uint16_t thisrace);
-		void addMonsterType(const std::string& name, MonsterType* mType);
+		MonsterType* addMonsterType(const std::string& name);
 		bool deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std::string& description = "");
 
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
