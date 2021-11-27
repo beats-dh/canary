@@ -1469,7 +1469,10 @@ MonsterType* Monsters::getMonsterTypeByRaceId(uint16_t thisrace) {
 	return (mtype ? mtype : nullptr);
 }
 
-MonsterType* Monsters::addMonsterType(const std::string& name)
+void Monsters::addMonsterType(const std::string& name, MonsterType* mType)
 {
-	return &monsters[asLowerCaseString(name)];
+	// Suppress [-Werror=unused-but-set-parameter]
+	// https://stackoverflow.com/questions/1486904/how-do-i-best-silence-a-warning-about-unused-variables
+	(void) mType;
+	mType = &monsters[asLowerCaseString(name)];
 }
