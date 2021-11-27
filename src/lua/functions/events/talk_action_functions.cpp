@@ -74,7 +74,8 @@ int TalkActionFunctions::luaTalkActionSeparator(lua_State* L) {
 	// talkAction:separator(sep)
 	TalkAction* talk = getUserdata<TalkAction>(L, 1);
 	if (talk) {
-		talk->setSeparator(getString(L, 2).c_str());
+		std::string sep = getString(L, 2);
+		talk->setSeparator((sep.empty() ? '"' : sep[0]));
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
