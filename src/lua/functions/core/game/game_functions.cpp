@@ -42,27 +42,25 @@ int GameFunctions::luaGameCreateMonsterType(lua_State* L) {
 		return 1;
 	}
 
-	if (!isString(L, 1)) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	const std::string& name = getString(L, 1);
-	if (name.empty()) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	MonsterType* monsterType = g_monsters.getMonsterType(name);
+	MonsterType* monsterType = g_monsters.getMonsterType(getString(L, 1));
 	if (monsterType) {
-		monsterType->info = {};
+		monsterType->info.lootItems.clear();
+		monsterType->info.attackSpells.clear();
+		monsterType->info.defenseSpells.clear();
+		pushUserdata<MonsterType>(L, monsterType);
+		setMetatable(L, -1, "MonsterType");
 	} else if (isString(L, 1)) {
-		monsterType->info = {};
+		monsterType = new MonsterType();
+		std::string name = getString(L, 1);
+		g_monsters.addMonsterType(name, monsterType);
+		monsterType = g_monsters.getMonsterType(getString(L, 1));
+		monsterType->name = name;
+		monsterType->nameDescription = "a " + name;
+		pushUserdata<MonsterType>(L, monsterType);
+		setMetatable(L, -1, "MonsterType");
+	} else {
+		lua_pushnil(L);
 	}
-	monsterType->name = name;
-	monsterType->nameDescription = "a " + name;
-	pushUserdata<MonsterType>(L, monsterType);
-	setMetatable(L, -1, "MonsterType");
 	return 1;
 }
 
