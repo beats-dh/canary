@@ -28,7 +28,7 @@
 #include "game/movement/position.h"
 #include "items/tile.h"
 
-using ConditionList = std::list<Condition*>;
+using ConditionList = std::vector<Condition*>;
 using CreatureEventList = std::list<CreatureEvent*>;
 
 class Map;

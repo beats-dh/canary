@@ -52,6 +52,9 @@ class Condition
 
 		virtual Condition* clone() const = 0;
 
+		void setType(ConditionType_t newType) {
+			conditionType = newType;
+		}
 		ConditionType_t getType() const {
 			return conditionType;
 		}

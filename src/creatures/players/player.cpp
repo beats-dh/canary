@@ -420,7 +420,7 @@ uint32_t Player::getClientIcons() const
 {
 	uint32_t icons = 0;
 	for (Condition* condition : conditions) {
-		if (!isSuppress(condition->getType())) {
+		if (condition->getType() != CONDITION_NONE && !isSuppress(condition->getType())) {
 			icons |= condition->getIcons();
 		}
 	}
@@ -2431,11 +2431,10 @@ void Player::death(Creature* lastHitCreature)
 		while (it != end) {
 			Condition* condition = *it;
 			if (condition->isPersistent()) {
-				it = conditions.erase(it);
-
+				ConditionType_t type = condition->getType();
+				condition->setType(CONDITION_NONE); // Safely schedule it to be removed
 				condition->endCondition(this);
-				onEndCondition(condition->getType());
-				delete condition;
+				onEndCondition(type);
 			} else {
 				++it;
 			}
@@ -2447,11 +2446,10 @@ void Player::death(Creature* lastHitCreature)
 		while (it != end) {
 			Condition* condition = *it;
 			if (condition->isPersistent()) {
-				it = conditions.erase(it);
-
+				ConditionType_t type = condition->getType();
+				condition->setType(CONDITION_NONE); // Safely schedule it to be removed
 				condition->endCondition(this);
-				onEndCondition(condition->getType());
-				delete condition;
+				onEndCondition(type);
 			} else {
 				++it;
 			}
