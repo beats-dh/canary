@@ -58,7 +58,6 @@ void MonsterType::loadLoot(MonsterType* monsterType, LootBlock lootBlock)
 
 bool Monsters::loadFromXml(bool reloading /*= false*/)
 {
-	unloadedMonsters = {};
 	pugi::xml_document doc;
 
 	loaded = true;
@@ -72,11 +71,7 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 			continue;
 		}
 
-		if (reloading && monsters.find(name) != monsters.end()) {
-			loadMonster(file, name, true);
-		} else {
-			unloadedMonsters.emplace(name, file);
-		}
+		loadMonster(file, name, reloading);
 	}
 	return true;
 }
@@ -763,7 +758,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	}
 
 	if (reloading) {
-		auto it = monsters.find(asLowerCaseString(monsterName));
+		auto it = monsters.find(monsterName);
 		if (it != monsters.end()) {
 			mType = &it->second;
 			mType->info = {};
@@ -771,7 +766,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	}
 
 	if (!mType) {
-		mType = &monsters[asLowerCaseString(monsterName)];
+		mType = &monsters[monsterName];
 	}
 
 	mType->name = attr.as_string();
@@ -1459,12 +1454,7 @@ MonsterType* Monsters::getMonsterType(const std::string& name)
 
 	auto it = monsters.find(lowerCaseName);
 	if (it == monsters.end()) {
-		auto it2 = unloadedMonsters.find(lowerCaseName);
-		if (it2 == unloadedMonsters.end()) {
-			return nullptr;
-		}
-
-		return loadMonster(it2->second, name);
+		return nullptr;
 	}
 	return &it->second;
 }
