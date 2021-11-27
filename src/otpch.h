@@ -22,6 +22,7 @@
 
 // Definitions should be global.
 #include "utils/definitions.h"
+#include "utils/stringExtend.h"
 
 #include <algorithm>
 #include <chrono>
@@ -35,7 +36,6 @@
 #include <memory>
 #include <mutex>
 #include <sstream>
-#include <string>
 #include <thread>
 #include <unordered_map>
 #include <vector>

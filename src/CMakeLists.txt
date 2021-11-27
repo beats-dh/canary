@@ -234,6 +234,7 @@ target_sources(${PROJECT_NAME}
     server/network/webhook/webhook.cpp
     server/server.cpp
     server/signals.cpp
+    utils/stringExtend.h
     utils/tools.cpp
     utils/wildcardtree.cpp
 )
