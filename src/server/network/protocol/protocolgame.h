@@ -324,6 +324,7 @@ private:
 	void sendMarketCancelOffer(const MarketOfferEx &offer);
 	void sendMarketBrowseOwnHistory(const HistoryMarketOfferList &buyOffers, const HistoryMarketOfferList &sellOffers);
 	void sendMarketStatistics();
+	void sendKillTracking(const std::string& name, const Outfit_t& outfit, const Container* container);
 	void sendMarketDetail(uint16_t itemId);
 	void sendTradeItemRequest(const std::string &traderName, const Item *item, bool ack);
 	void sendCloseTrade();

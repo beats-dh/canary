@@ -1495,6 +1495,11 @@ class Player final : public Creature, public Cylinder
 				client->sendHighscores(characters, categoryId, vocationId, page, pages);
 			}
 		}
+		void sendKillTracking(const std::string& name, const Outfit_t& outfit, const Container* container) {
+			if (client) {
+				client->sendKillTracking(name, outfit, container);
+			}
+		}
 		void addAsyncOngoingTask(uint64_t flags) {
 			asyncOngoingTasks |= flags;
 		}
