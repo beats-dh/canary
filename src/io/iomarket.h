@@ -53,6 +53,9 @@ class IOMarket
 		MarketStatistics* getPurchaseStatistics(uint16_t itemId);
 		MarketStatistics* getSaleStatistics(uint16_t itemId);
 
+		auto& getPurchaseStatistics() {return purchaseStatistics;}
+		auto& getSaleStatistics() {return saleStatistics;}
+
 	private:
 		IOMarket() = default;
 
