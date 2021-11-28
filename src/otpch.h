@@ -39,6 +39,7 @@
 #include <thread>
 #include <unordered_map>
 #include <vector>
+#include <array>
 
 #include <boost/asio.hpp>
 
