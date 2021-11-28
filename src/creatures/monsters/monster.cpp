@@ -2052,6 +2052,9 @@ void Monster::dropLoot(Container* corpse, Creature*)
 {
 	if (corpse && lootDrop) {
 		g_events->eventMonsterOnDropLoot(this, corpse);
+		if (Player* owner = g_game.getPlayerByID(corpse->getCorpseOwner())) {
+			owner->sendKillTracking(mType->name, currentOutfit, corpse);
+		}
 	}
 }
 

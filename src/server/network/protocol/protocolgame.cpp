@@ -4623,6 +4623,26 @@ void ProtocolGame::sendMarketStatistics()
 	writeToOutputBuffer(statisticsmsg);
 }
 
+void ProtocolGame::sendKillTracking(const std::string& name, const Outfit_t& outfit, const Container* container)
+{
+	NetworkMessage msg;
+
+	msg.reset();
+	msg.addByte(0xD1);
+	msg.addString(name);
+	msg.add<uint16_t>(outfit.lookType ? outfit.lookType : 19);
+	msg.addByte(outfit.lookHead);
+	msg.addByte(outfit.lookBody);
+	msg.addByte(outfit.lookLegs);
+	msg.addByte(outfit.lookFeet);
+	msg.addByte(outfit.lookAddons);
+	msg.addByte(container->size());
+	for (const Item* item : container->getItemList()) {
+		AddItem(msg, item);
+	}
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendTradeItemRequest(const std::string &traderName, const Item *item, bool ack)
 {
 	NetworkMessage msg;
