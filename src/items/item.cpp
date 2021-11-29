@@ -20,7 +20,6 @@
 #include "otpch.h"
 
 #include "items/item.h"
-#include "items/functions/item_parse.hpp"
 #include "items/containers/container.h"
 #include "game/movement/teleport.h"
 #include "items/trashholder.h"
