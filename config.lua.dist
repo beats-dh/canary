@@ -20,6 +20,7 @@ redSkullDuration = 1
 blackSkullDuration = 3
 orangeSkullDuration = 7
 
+
 onlyInvitedCanMoveHouseItems = true
 cleanProtectionZones = false
 
