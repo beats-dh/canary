@@ -1328,12 +1328,11 @@ void AreaCombat::copyArea(const MatrixArea* input, MatrixArea* output, MatrixOpe
 			for (uint32_t y = 0; y < input->getRows(); ++y) {
 				uint32_t rx = 0;
 				for (int32_t x = input->getCols(); --x >= 0;) {
-					if (((y ^ centerY) | (static_cast<uint32_t>(x) ^ centerX)) == 0) {
-						output->setCenter(y, rx);
-					}
 					output->setValue(y, rx++, input->getValue(y, x));
 				}
 			}
+
+			output->setCenter(centerY, (input->getRows() - 1) - centerX);
 			break;
 		}
 
@@ -1342,12 +1341,10 @@ void AreaCombat::copyArea(const MatrixArea* input, MatrixArea* output, MatrixOpe
 			for (uint32_t x = 0; x < input->getCols(); ++x) {
 				uint32_t ry = 0;
 				for (int32_t y = input->getRows(); --y >= 0;) {
-					if (((static_cast<uint32_t>(y) ^ centerY) | (x ^ centerX)) == 0) {
-						output->setCenter(ry, x);
-					}
 					output->setValue(ry++, x, input->getValue(y, x));
 				}
 			}
+			output->setCenter((input->getCols() - 1) - centerY, centerX);
 			break;		
 		}
 		case MATRIXOPERATION_ROTATE90:
@@ -1356,14 +1353,14 @@ void AreaCombat::copyArea(const MatrixArea* input, MatrixArea* output, MatrixOpe
 			for (uint32_t x = 0; x < input->getCols(); ++x) {
 				uint32_t rx = 0;
 				for (int32_t y = input->getRows(); --y >= 0;) {
-					if (((static_cast<uint32_t>(y) ^ centerY) | (x ^ centerX)) == 0) {
-						output->setCenter(ry, rx);
-					}
 					output->setValue(ry, rx++, input->getValue(y, x));
 				}
 
 				++ry;
 			}
+
+		// we need position correction
+			output->setCenter((input->getCols() - 1) - centerX, (input->getRows() - 1) - centerY);
 			break;
 		}
 		case MATRIXOPERATION_ROTATE180:
@@ -1372,14 +1369,14 @@ void AreaCombat::copyArea(const MatrixArea* input, MatrixArea* output, MatrixOpe
 			for (uint32_t x = 0; x < input->getCols(); ++x) {
 				--rx;
 
-				uint32_t ry = 0;
+		uint32_t ry = 0;
 				for (int32_t y = input->getRows(); --y >= 0;) {
-					if (((static_cast<uint32_t>(y) ^ centerY) | (x ^ centerX)) == 0) {
-						output->setCenter(ry, rx);
-					}
-					output->setValue(ry, rx, input->getValue(y, x));
+					output->setValue(ry++, rx, input->getValue(y, x));
 				}
 			}
+
+				// we need position correction
+			output->setCenter((input->getRows() - 1) - centerY, centerX);
 			break;
 		}
 		case MATRIXOPERATION_ROTATE270:
@@ -1390,13 +1387,11 @@ void AreaCombat::copyArea(const MatrixArea* input, MatrixArea* output, MatrixOpe
 
 				uint32_t rx = input->getRows();
 				for (int32_t y = input->getRows(); --y >= 0;) {
-					--rx;
-					if (((static_cast<uint32_t>(y) ^ centerY) | (x ^ centerX)) == 0) {
-						output->setCenter(ry, rx);
-					}
-					output->setValue(ry, rx, input->getValue(y, x));
+					output->setValue(ry, --rx, input->getValue(y, x));
 				}
 			}
+			// we need position correction
+			output->setCenter((input->getCols() - 1) - centerX, centerY);
 			break;
 		}
 		default:
