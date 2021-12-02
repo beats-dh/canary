@@ -243,12 +243,12 @@ bool Creature::getNextStep(Direction& dir, uint32_t&)
 	}
 
 	dir = listWalkDir.front();
-	listWalkDir.pop_front();
+	listWalkDir.pop_back();
 	onWalk(dir);
 	return true;
 }
 
-void Creature::startAutoWalk(const std::forward_list<Direction>& listDir)
+void Creature::startAutoWalk(const std::vector<Direction>& listDir)
 {
 	if (hasCondition(CONDITION_ROOTED)) {
 		return;
@@ -932,7 +932,7 @@ void Creature::goToFollowCreature()
 
 			if (dir != DIRECTION_NONE) {
 				listWalkDir.clear();
-				listWalkDir.push_front(dir);
+				listWalkDir.push_back(dir);
 
 				hasFollowPath = true;
 				startAutoWalk(listWalkDir);
@@ -1022,7 +1022,7 @@ void Creature::addDamagePoints(Creature* attacker, int32_t damagePoints)
 
 	auto it = damageMap.find(attackerId);
 	if (it == damageMap.end()) {
-		CountBlock_t cb;
+		CountBlock_t cb{};
 		cb.ticks = OTSYS_TIME();
 		cb.total = damagePoints;
 		damageMap[attackerId] = cb;
@@ -1384,7 +1384,7 @@ int64_t Creature::getStepDuration() const
 	}
 
 	int32_t stepSpeed = getStepSpeed();
-	uint32_t calculatedStepSpeed = std::max<uint32_t>(floor((Creature::speedA * log((stepSpeed / 2) + Creature::speedB) + Creature::speedC) + 0.5), 1);
+	uint32_t calculatedStepSpeed = std::max<uint32_t>(floor((Creature::speedA * log((stepSpeed / static_cast<double>(2)) + Creature::speedB) + Creature::speedC) + 0.5), 1);
 	calculatedStepSpeed = (stepSpeed > -Creature::speedB) ? calculatedStepSpeed : 1;
 
 	uint32_t groundSpeed = 150;
@@ -1592,12 +1592,12 @@ bool Creature::isInvisible() const
 	}) != conditions.end();
 }
 
-bool Creature::getPathTo(const Position& targetPos, std::forward_list<Direction>& dirList, const FindPathParams& fpp) const
+bool Creature::getPathTo(const Position& targetPos, std::vector<Direction>& dirList, const FindPathParams& fpp) const
 {
 	return g_game.map.getPathMatching(*this, dirList, FrozenPathingConditionCall(targetPos), fpp);
 }
 
-bool Creature::getPathTo(const Position& targetPos, std::forward_list<Direction>& dirList, int32_t minTargetDist, int32_t maxTargetDist, bool fullPathSearch /*= true*/, bool clearSight /*= true*/, int32_t maxSearchDist /*= 0*/) const
+bool Creature::getPathTo(const Position& targetPos, std::vector<Direction>& dirList, int32_t minTargetDist, int32_t maxTargetDist, bool fullPathSearch /*= true*/, bool clearSight /*= true*/, int32_t maxSearchDist /*= 0*/) const
 {
 	FindPathParams fpp;
 	fpp.fullPathSearch = fullPathSearch;

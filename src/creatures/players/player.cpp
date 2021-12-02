@@ -2778,6 +2778,7 @@ bool Player::editVIP(uint32_t vipGuid, const std::string& description, uint32_t 
 void Player::autoCloseContainers(const Container* container)
 {
 	std::vector<uint32_t> closeList;
+	closeList.reserve(openContainers.size());
 	for (const auto& it : openContainers) {
 		Container* tmpContainer = it.second.container;
 		while (tmpContainer) {
@@ -3154,6 +3155,7 @@ Cylinder* Player::queryDestination(int32_t& index, const Thing& thing, Item** de
 		bool isStackable = item->isStackable();
 
 		std::vector<Container*> containers;
+		containers.reserve(32);
 
 		for (uint32_t slotIndex = CONST_SLOT_FIRST; slotIndex <= CONST_SLOT_AMMO; ++slotIndex) {
 			Item* inventoryItem = inventory[slotIndex];
@@ -3189,21 +3191,20 @@ Cylinder* Player::queryDestination(int32_t& index, const Thing& thing, Item** de
 			}
 		}
 
-		size_t i = 0;
-		while (i < containers.size()) {
-			Container* tmpContainer = containers[i++];
+		size_t i = static_cast<size_t>(-1);
+		while (++i < containers.size()) {
+			Container* tmpContainer = containers[i];
 			if (!autoStack || !isStackable) {
 				//we need to find first empty container as fast as we can for non-stackable items
 				uint32_t c = tmpContainer->capacity();
 				uint32_t n = c - tmpContainer->size();
-				while (n <= c) {
-					if (tmpContainer->queryAdd(c - n, *item, item->getItemCount(), flags) == RETURNVALUE_NOERROR) {
-						index = c - n;
+				while (--n < c) {
+					int32_t testIndex = c - n - 1;
+					if (tmpContainer->queryAdd(testIndex, *item, item->getItemCount(), flags) == RETURNVALUE_NOERROR) {
+						index = testIndex;
 						*destItem = nullptr;
 						return tmpContainer;
 					}
-
-					--n;
 				}
 
 				for (Item* tmpContainerItem : tmpContainer->getItemList()) {
@@ -3237,7 +3238,7 @@ Cylinder* Player::queryDestination(int32_t& index, const Thing& thing, Item** de
 					containers.push_back(subContainer);
 				}
 
-				n++;
+				++n;
 			}
 
 			if (n < tmpContainer->capacity() && tmpContainer->queryAdd(n, *item, item->getItemCount(), flags) == RETURNVALUE_NOERROR) {
@@ -3471,6 +3472,7 @@ bool Player::removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType,
 	}
 
 	std::vector<Item*> itemList;
+	itemList.reserve(32);
 
 	uint32_t count = 0;
 	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
@@ -3489,7 +3491,7 @@ bool Player::removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType,
 
 			count += itemCount;
 			if (count >= amount) {
-				g_game.internalRemoveItems(std::move(itemList), amount, Item::items[itemId].stackable);
+				g_game.internalRemoveItems(itemList, amount, Item::items[itemId].stackable);
 				return true;
 			}
 		} else if (Container* container = item->getContainer()) {
@@ -3505,7 +3507,7 @@ bool Player::removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType,
 
 					count += itemCount;
 					if (count >= amount) {
-						g_game.internalRemoveItems(std::move(itemList), amount, Item::items[itemId].stackable);
+						g_game.internalRemoveItems(itemList, amount, Item::items[itemId].stackable);
 						return true;
 					}
 				}
@@ -3670,6 +3672,8 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		if (creature == this) {
 			//check containers
 			std::vector<Container*> containers;
+
+			containers.reserve(openContainers.size());
 
 			for (const auto& it : openContainers) {
 				Container* container = it.second.container;
@@ -5325,8 +5329,9 @@ void Player::sendClosePrivate(uint16_t channelId)
 uint64_t Player::getMoney() const
 {
 	std::vector<const Container*> containers;
-	uint64_t moneyCount = 0;
+	containers.reserve(32);
 
+	uint64_t moneyCount = 0;
 	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; ++i) {
 		Item* item = inventory[i];
 		if (!item) {
@@ -5341,9 +5346,9 @@ uint64_t Player::getMoney() const
 		}
 	}
 
-	size_t i = 0;
-	while (i < containers.size()) {
-		const Container* container = containers[i++];
+	size_t i = static_cast<size_t>(-1);
+	while (++i < containers.size()) {
+		const Container* container = containers[i];
 		for (const Item* item : container->getItemList()) {
 			const Container* tmpContainer = item->getContainer();
 			if (tmpContainer) {
@@ -5379,6 +5384,8 @@ size_t Player::getMaxDepotItems() const
 std::vector<Condition*> Player::getMuteConditions() const
 {
 	std::vector<Condition*> muteConditions;
+	muteConditions.reserve(conditions.size());
+
 	for (Condition* condition : conditions) {
 		if (condition->getTicks() <= 0) {
 			continue;

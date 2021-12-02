@@ -228,7 +228,7 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
 	}
 
 	ShopInfo shopInfo = getShopItems()[serverId];
-	int64_t totalCost = shopInfo.buyPrice * amount;
+	int64_t totalCost = static_cast<int64_t>(shopInfo.buyPrice) * amount;
 	if (getCurrency() == ITEM_GOLD_COIN) {
 		if (!g_game.removeMoney(player, totalCost, 0, true)) {
 			return;
@@ -274,7 +274,7 @@ void Npc::onPlayerSellItem(Player* player, uint16_t serverId,
 		return;
 	}
 
-	int64_t totalCost = shopInfo.sellPrice * amount;
+	int64_t totalCost = static_cast<int64_t>(shopInfo.sellPrice) * amount;
 	g_game.addMoney(player, totalCost, 0);
 
 	// onPlayerSellItem(self, player, itemId, subType, amount, ignore)
@@ -358,7 +358,7 @@ void Npc::onThinkWalk(uint32_t interval)
 
 	Direction dir = Position::getRandomDirection();
 	if (canWalkTo(getPosition(), dir)) {
-		listWalkDir.push_front(dir);
+		listWalkDir.push_back(dir);
 		addEventWalk();
 	}
 
