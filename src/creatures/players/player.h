@@ -282,7 +282,7 @@ class Player final : public Creature, public Cylinder
 			return guildNick;
 		}
 		void setGuildNick(std::string nick) {
-			guildNick = nick;
+			guildNick = std::move(nick);
 		}
 
 		bool isInWar(const Player* player) const;

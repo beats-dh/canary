@@ -126,8 +126,8 @@ class MoveEvent final : public Event {
 		const std::string& getVocationString() const {
 			return vocationString;
 		}
-		void setVocationString(const std::string& str) {
-			vocationString = str;
+		void setVocationString(std::string str) {
+			vocationString = std::move(str);
 		}
 		uint32_t getWieldInfo() const {
 			return wieldInfo;
@@ -135,7 +135,7 @@ class MoveEvent final : public Event {
 		const VocEquipMap& getVocEquipMap() const {
 			return vocEquipMap;
 		}
-		void addVocEquipMap(std::string vocName) {
+		void addVocEquipMap(const std::string& vocName) {
 			int32_t vocationId = g_vocations.getVocationId(vocName);
 			if (vocationId != -1) {
 				vocEquipMap[vocationId] = true;
