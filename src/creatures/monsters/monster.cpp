@@ -122,12 +122,6 @@ uint32_t Monster::getHealingCombatValue(CombatType_t healingType) const {
 	return 0;
 }
 
-void Monster::onAttackedCreatureDisappear(bool)
-{
-	attackTicks = 0;
-	extraMeleeAttack = true;
-}
-
 void Monster::onCreatureAppear(Creature* creature, bool isLogin)
 {
 	Creature::onCreatureAppear(creature, isLogin);
@@ -167,7 +161,7 @@ void Monster::onCreatureAppear(Creature* creature, bool isLogin)
 
 		updateTargetList();
 		updateIdleStatus();
-	} else {
+	} else if (canSee(creature->getPosition())) {
 		onCreatureEnter(creature);
 	}
 }
@@ -758,6 +752,7 @@ void Monster::setIdle(bool idle)
 	if (!isIdle) {
 		g_game.addCreatureCheck(this);
 	} else {
+		attackTicks = 0;
 		onIdleStatus();
 		clearTargetList();
 		clearFriendList();
@@ -926,14 +921,14 @@ void Monster::doAttacking(uint32_t interval)
 				spellBlock.spell->castSpell(this, attackedCreature);
 
 				if (spellBlock.isMelee) {
-					extraMeleeAttack = false;
+					lastMeleeAttack = OTSYS_TIME();
 				}
 			}
 		}
 
 		if (!inRange && spellBlock.isMelee) {
 			//melee swing out of reach
-			extraMeleeAttack = true;
+			lastMeleeAttack = 0;
 		}
 	}
 
@@ -966,17 +961,11 @@ bool Monster::canUseSpell(const Position& pos, const Position& targetPos,
 {
 	inRange = true;
 
-	if (sb.isMelee && isFleeing()) {
-		return false;
-	}
-
-	if (extraMeleeAttack) {
-		lastMeleeAttack = OTSYS_TIME();
-	} else if (sb.isMelee && (OTSYS_TIME() - lastMeleeAttack) < 1500) {
-		return false;
-	}
-
-	if (!sb.isMelee || !extraMeleeAttack) {
+	if (sb.isMelee) {
+		if (isFleeing() || (OTSYS_TIME() - lastMeleeAttack) < sb.speed) {
+			return false;
+		}
+	} else {
 		if (sb.speed > attackTicks) {
 			resetTicks = false;
 			return false;
