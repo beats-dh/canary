@@ -7443,7 +7443,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 			uint16_t stashminus = player->getStashItemCount(it.wareId);
 			amount = (amount - (amount > stashminus ? stashminus : amount));
 
-			std::forward_list<Item *> itemList = getMarketItemList(it.wareId, amount, depotLocker);
+			std::vector<Item *> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty() && amount > 0) {
 				return;
 			}
@@ -7648,7 +7648,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		} else {
 			uint16_t stashminus = player->getStashItemCount(it.wareId);
 			amount = (amount - (amount > stashminus ? stashminus : amount));
-			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
+			std::vector<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty() && amount > 0) {
 				return;
 			}
@@ -8258,15 +8258,16 @@ void Game::parsePlayerExtendedOpcode(uint32_t playerId, uint8_t opcode, const st
 	}
 }
 
-std::forward_list<Item*> Game::getMarketItemList(uint16_t wareId, uint16_t sufficientCount, DepotLocker* depotLocker)
+std::vector<Item*> Game::getMarketItemList(uint16_t wareId, uint16_t sufficientCount, DepotLocker* depotLocker)
 {
-	std::forward_list<Item*> itemList;
+	std::vector<Item*> itemList;
 	uint16_t count = 0;
 
-	std::list<Container*> containers {depotLocker};
+	std::vector<Container*> containers{depotLocker};
+
+	size_t i = 0;
 	do {
-		Container* container = containers.front();
-		containers.pop_front();
+		Container* container = containers[i++];
 
 		for (Item* item : container->getItemList()) {
 			Container* c = item->getContainer();
@@ -8288,15 +8289,17 @@ std::forward_list<Item*> Game::getMarketItemList(uint16_t wareId, uint16_t suffi
 				continue;
 			}
 
-			itemList.push_front(item);
+			itemList.push_back(item);
 
 			count += Item::countByType(item, -1);
 			if (count >= sufficientCount) {
 				return itemList;
 			}
 		}
-	} while (!containers.empty());
-	return std::forward_list<Item*>();
+	} while (i < containers.size());
+
+	itemList.clear();
+	return itemList;
 }
 
 void Game::forceRemoveCondition(uint32_t creatureId, ConditionType_t conditionType, ConditionId_t conditionId)
