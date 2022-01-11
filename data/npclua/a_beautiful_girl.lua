@@ -20,7 +20,7 @@ npcConfig.outfit = {
 npcConfig.flags = {
     hostile = false,
     floorchange = false
-}
+
 
 npcType.onThink = function(npc, interval)
 end

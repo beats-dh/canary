@@ -23,10 +23,10 @@
 	
 	<!-- Familiars knights -->
 	<familiar vocation="4" lookType="991" name="Skullfrost" premium="yes" unlocked="no" enabled="yes" />
-	<familiar vocation="8" lookType="991" name="Skullfrost" premium="yes" unlocked="no" enabled="yes" />
+	<familiar vocation="8" lookType="991" name="Skullfrost" premium="yes" unlocked="no" enabled="yes" />/
 	
 	<familiar vocation="4" lookType="1365" name="Snowbash" premium="yes" unlocked="no" enabled="yes" type="quest" />
-	<familiar vocation="8" lookType="1365" name="Snowbash" premium="yes" unlocked="no" enabled="yes" type="quest" />
+	<familiar vocation="8" lookType="1365" name="Snowbash" premium="yes" unlocked="no" enabled="yes" type="quest" 
 
 	
 </familiars>
