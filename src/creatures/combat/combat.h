@@ -127,7 +127,7 @@ class MatrixArea
 		// non-assignable
 		MatrixArea& operator=(const MatrixArea&) = delete;
 
-		void setValue(uint32_t row, uint32_t col, bool value) const {
+		void setValue(uint64_t row, uint64_t col, bool value) const {
 			data_[row][col] = value;
 		}
 		bool getValue(uint32_t row, uint32_t col) const {
