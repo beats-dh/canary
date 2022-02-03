@@ -3,12 +3,20 @@ name: Build - Ubuntu
 
 on:
   pull_request:
+    paths:
+      - cmake/**
+      - src/**
+      - CMakeLists.txt
   push:
     branches:
       - master
       - dev
       - devel
       - develop
+    paths:
+      - cmake/**
+      - src/**
+      - CMakeLists.txt
 
 env:
   VCPKG_BUILD_TYPE: release
