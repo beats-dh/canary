@@ -44,10 +44,10 @@ class TalkAction : public Event {
 			words = word;
 			wordsMap.push_back(word);
 		}
-		char getSeparator() const {
+		std::string getSeparator() const {
 			return separator;
 		}
-		void setSeparator(char sep) {
+		void setSeparator(std::string sep) {
 			separator = sep;
 		}
 
@@ -60,7 +60,7 @@ class TalkAction : public Event {
 
 		std::string words;
 		std::vector<std::string> wordsMap;
-		char separator = '"';
+		std::string separator = "\"";
 };
 
 class TalkActions final : public BaseEvents {
@@ -83,7 +83,7 @@ class TalkActions final : public BaseEvents {
 		Event_ptr getEvent(const std::string& nodeName) override;
 		bool registerEvent(Event_ptr event, const pugi::xml_node& node) override;
 
-		std::unordered_map<std::string, TalkAction> talkActions;
+		std::map<std::string, TalkAction> talkActions;
 
 		LuaScriptInterface scriptInterface;
 };
