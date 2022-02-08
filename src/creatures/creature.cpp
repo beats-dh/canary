@@ -690,6 +690,8 @@ void Creature::onDeath()
 
 bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature, bool lastHitUnjustified, bool mostDamageUnjustified)
 {
+	Creature* mostDamageCreature = nullptr;
+	
 	if (!lootDrop && getMonster()) {
 		if (master) {
 			// Scripting event onDeath
