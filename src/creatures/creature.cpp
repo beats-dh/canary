@@ -690,8 +690,7 @@ void Creature::onDeath()
 
 bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature, bool lastHitUnjustified, bool mostDamageUnjustified)
 {
-	Creature* mostDamageCreature = nullptr;
-	
+
 	if (!lootDrop && getMonster()) {
 		if (master) {
 			// Scripting event onDeath
@@ -730,10 +729,12 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 			dropLoot(corpse->getContainer(), lastHitCreature);
 			corpse->startDecaying();
 			bool corpses = corpse->isRewardCorpse() && (corpse->getID() == ITEM_MALE_CORPSE || corpse->getID() == ITEM_FEMALE_CORPSE);
-			const Player* player = mostDamageCreature->getPlayer();
-			if (g_configManager().getBoolean(AUTOLOOT) && mostDamageCreature->getPlayer() && !corpses) {
-				int32_t pos = tile->getStackposOfItem(player, corpse);
-				g_dispatcher.addTask(createTask(std::bind(&Game::playerQuickLoot, &g_game, mostDamageCreature->getID(), this->getPosition(), corpse->getClientID(), pos, nullptr, false, true)));
+			if (!player) {
+				const Player* player = mostDamageCreature->getPlayer();
+				if (g_configManager().getBoolean(AUTOLOOT) && mostDamageCreature->getPlayer() && !corpses) {
+					int32_t pos = tile->getStackposOfItem(player, corpse);
+					g_dispatcher.addTask(createTask(std::bind(&Game::playerQuickLoot, &g_game, mostDamageCreature->getID(), this->getPosition(), corpse->getClientID(), pos, nullptr, false, true)));
+				}
 			}
 		}
 
