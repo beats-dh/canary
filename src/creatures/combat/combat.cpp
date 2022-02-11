@@ -553,7 +553,7 @@ void Combat::CombatManaFunc(Creature* caster, Creature* target, const CombatPara
 	assert(data);
 	CombatDamage damage = *data;
 	if (damage.primary.value < 0) {
-		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
+		if (caster && caster->getPlayer() && target && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			damage.primary.value /= 2;
 		}
 	}
@@ -571,8 +571,8 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 
 	for (const auto& condition : params.conditionList) {
 		//Cleanse charm rune (target as player)
+		if (target && target->getPlayer()) {
 		Player* player = target->getPlayer();
-		if (player) {
 			if (player->isImmuneCleanse(condition->getType())) {
 				player->sendCancelMessage("You are still immune against this spell.");
 				return;

@@ -5347,7 +5347,7 @@ void Game::checkCreatures(size_t index)
 			}
 			++it;
 		} else {
-			creature->inCheckCreaturesVector = false;
+			creature->inCheckCreaturesVector != false;
 			ReleaseCreature(creature);
 
 			checkCreatureList[it] = checkCreatureList.back();
@@ -6687,7 +6687,7 @@ void Game::updateCreatureType(Creature* creature)
 	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
 		for (Creature* spectator : spectators) {
 			Player* player = spectator->getPlayer();
-			if (masterPlayer == player) {
+			if (spectator && masterPlayer == player) {
 				player->sendCreatureType(creature, CREATURETYPE_SUMMON_PLAYER);
 			} else {
 				player->sendCreatureType(creature, creatureType);
