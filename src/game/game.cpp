@@ -5347,7 +5347,7 @@ void Game::checkCreatures(size_t index)
 			}
 			++it;
 		} else {
-			creature->inCheckCreaturesVector != false;
+			creature->inCheckCreaturesVector = false;
 			ReleaseCreature(creature);
 
 			checkCreatureList[it] = checkCreatureList.back();
