@@ -10,6 +10,9 @@ on:
       - dev
       - devel
       - develop
+      - beats
+    paths:
+      - src/**
 
 env:
   VCPKG_BUILD_TYPE: release
