@@ -82,10 +82,11 @@ jobs:
           name: canary-full-${{ matrix.os }}-${{ matrix.buildtype }}-${{ steps.gitversion.outputs.semVer }}
           path: |
             ${{ github.workspace }}
-            ${{ github.workspace }}/.git/
+            !${{ github.workspace }}/.git/
             !${{ github.workspace }}/.github/
             !${{ github.workspace }}/build/
             !${{ github.workspace }}/cmake/
+            !${{ github.workspace }}/docker/
             !${{ github.workspace }}/docs/
             !${{ github.workspace }}/src/
             !${{ github.workspace }}/tests/
