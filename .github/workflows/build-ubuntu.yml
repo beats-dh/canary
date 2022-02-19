@@ -95,10 +95,11 @@ jobs:
           name: ${{ runner.os }}-canary-amd64-${{ matrix.buildtype }}-${{ github.sha }}
           path: |
             ${{ github.workspace }}
-            ${{ github.workspace }}/.git/
+            !${{ github.workspace }}/.git/
             !${{ github.workspace }}/.github/
             !${{ github.workspace }}/build/
             !${{ github.workspace }}/cmake/
+            !${{ github.workspace }}/docker/
             !${{ github.workspace }}/docs/
             !${{ github.workspace }}/src/
             !${{ github.workspace }}/tests/
