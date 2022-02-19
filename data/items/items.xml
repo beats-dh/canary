@@ -1009,7 +1009,7 @@
 		<attribute key="defense" value="21"/>
 		<attribute key="weight" value="5900"/>
 	</item>
-	<item id="667" article="a" name="fiery heroic axe">
+	<item id="667" article="a" name="fiery">
 		<attribute key="elementfire" value="9"/>
 		<attribute key="attack" value="35"/>
 		<attribute key="extradef" value="1"/>
