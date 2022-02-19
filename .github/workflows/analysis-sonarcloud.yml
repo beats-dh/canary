@@ -17,7 +17,6 @@ on:
       - develop
       - beats
     paths:
-      paths:
       - cmake/**
       - src/**
       - CMakeLists.txt
