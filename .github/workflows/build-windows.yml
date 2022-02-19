@@ -98,10 +98,8 @@ jobs:
             !${{ github.workspace }}/canary.rc
             !${{ github.workspace }}/CMakeLists.txt
             !${{ github.workspace }}/CMakeSettings.json
-            !${{ github.workspace }}/CODE_OF_CONDUCT.md
             !${{ github.workspace }}/GitVersion.yml
             !${{ github.workspace }}/Jenkinsfile
-            !${{ github.workspace }}/LICENSE
             !${{ github.workspace }}/README.md
             !${{ github.workspace }}/recompile.sh
             !${{ github.workspace }}/sonar-project.properties
