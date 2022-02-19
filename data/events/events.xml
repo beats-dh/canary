@@ -7,7 +7,7 @@
 	<event class="Creature" method="onHear" enabled="0" />
 	<event class="Creature" method="onTargetCombat" enabled="1" /><!-- removeCombatProtection on secure modes protection -->
 
-	<!-- Monster Methods -->
+	<!-- Monster Methods --> kkkkkkkkkkkkkkkkkkkkkk
 	<event class="Monster" method="onDropLoot" enabled="1" />
 	<event class="Monster" method="onSpawn" enabled="1" />
 
