@@ -41,6 +41,7 @@ std::string getGlobalString(lua_State* L, const char* identifier, const char* de
 		return defaultValue;
 	}
 
+	// size_t len = lua_strlen(L, -1);
 	size_t len = lua_strlen(L, -1);
 	std::string ret(lua_tostring(L, -1), len);
 	lua_pop(L, 1);
