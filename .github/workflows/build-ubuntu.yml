@@ -7,6 +7,7 @@ on:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - vcpkg.json
   push:
     branches:
       - master
@@ -17,6 +18,7 @@ on:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - vcpkg.json
 
 env:
   VCPKG_BUILD_TYPE: release
