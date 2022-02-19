@@ -553,7 +553,7 @@ void Combat::CombatManaFunc(Creature* caster, Creature* target, const CombatPara
 	assert(data);
 	CombatDamage damage = *data;
 	if (damage.primary.value < 0) {
-		if (caster && caster->getPlayer() && target && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
+		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			damage.primary.value /= 2;
 		}
 	}
@@ -571,8 +571,8 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 
 	for (const auto& condition : params.conditionList) {
 		//Cleanse charm rune (target as player)
-		if (target && target->getPlayer()) {
 		Player* player = target->getPlayer();
+		if (player) {
 			if (player->isImmuneCleanse(condition->getType())) {
 				player->sendCancelMessage("You are still immune against this spell.");
 				return;
@@ -596,14 +596,14 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 			}
 		}
 
-		if (caster == target || target && !target->isImmune(condition->getType())) {
+		if (caster == target || !target->isImmune(condition->getType())) {
 			Condition* conditionCopy = condition->clone();
 			if (caster) {
 				conditionCopy->setParam(CONDITION_PARAM_OWNER, caster->getID());
 			}
 
 			//TODO: infight condition until all aggressive conditions has ended
-			target && target->addCombatCondition(conditionCopy);
+			target->addCombatCondition(conditionCopy);
 		}
 	}
 }
