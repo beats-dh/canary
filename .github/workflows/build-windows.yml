@@ -111,4 +111,4 @@ jobs:
         with:
           name: canary-server-only-${{ matrix.os }}-${{ matrix.buildtype }}-${{ steps.gitversion.outputs.semVer }}
           path: |
-            ${{ github.workspace }}/canary
+            ${{ github.workspace }}/build/bin/
