@@ -111,12 +111,17 @@ jobs:
             !${{ github.workspace }}/canary.rc
             !${{ github.workspace }}/CMakeLists.txt
             !${{ github.workspace }}/CMakeSettings.json
-            !${{ github.workspace }}/CODE_OF_CONDUCT.md
             !${{ github.workspace }}/GitVersion.yml
             !${{ github.workspace }}/Jenkinsfile
-            !${{ github.workspace }}/LICENSE
             !${{ github.workspace }}/README.md
             !${{ github.workspace }}/recompile.sh
             !${{ github.workspace }}/sonar-project.properties
             !${{ github.workspace }}/vcpkg.json
             !${{ github.workspace }}/vcpkg/
+
+      - name: Upload artifact Server Only
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ runner.os }}-canary-server-only-amd64-${{ matrix.buildtype }}-${{ github.sha }}
+          path: |
+            ${{ github.workspace }}/build/bin/
