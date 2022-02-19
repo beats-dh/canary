@@ -1022,7 +1022,7 @@
 		<attribute key="defense" value="20"/>
 		<attribute key="weight" value="4500"/>
 	</item>
-	<item id="669" article="a" name="fiery war axe">
+	<item id="669" article="a" name="fiery">
 		<attribute key="elementfire" value="9"/>
 		<attribute key="attack" value="39"/>
 		<attribute key="defense" value="10"/>
