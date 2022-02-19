@@ -7,16 +7,19 @@ on:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - vcpkg.json
   push:
     branches:
       - master
       - dev
       - devel
       - develop
+      - beats
     paths:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - vcpkg.json
 
 env:
   VCPKG_BUILD_TYPE: release
