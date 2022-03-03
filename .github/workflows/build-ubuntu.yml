@@ -4,6 +4,11 @@ name: Build - Ubuntu
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - cmake/**
+      - src/**
+      - CMakeLists.txt
+      - vcpkg.json
   push:
     branches:
       - main
