@@ -27,7 +27,6 @@
 #include "utils/pugicast.h"
 
 extern Spells* g_spells;
-extern Monsters g_monsters;
 extern Vocations g_vocations;
 extern LuaEnvironment g_luaEnvironment;
 

@@ -46,7 +46,6 @@ extern Chat *g_chat;
 extern Modules *g_modules;
 extern Spells *g_spells;
 extern Imbuements *g_imbuements;
-extern Monsters g_monsters;
 
 template <typename Callable, typename... Args>
 void ProtocolGame::addGameTask(Callable function, Args &&... args)
@@ -1771,7 +1770,7 @@ void ProtocolGame::parseBestiarysendRaces()
 		uint16_t count = 0;
 		for (auto rit : mtype_list)
 		{
-			MonsterType *mtype = g_monsters.getMonsterType(rit.second);
+			MonsterType *mtype = g_monsters().getMonsterType(rit.second);
 			if (!mtype)
 			{
 				return;
@@ -1811,7 +1810,7 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 	auto ait = mtype_list.find(raceId);
 	if (ait != mtype_list.end())
 	{
-		MonsterType *mType = g_monsters.getMonsterType(ait->second);
+		MonsterType *mType = g_monsters().getMonsterType(ait->second);
 		if (mType)
 		{
 			Class = mType->info.bestiaryClass;
@@ -1945,7 +1944,7 @@ void ProtocolGame::addBestiaryTrackerList(NetworkMessage &msg)
 	auto it = mtype_list.find(thisrace);
 	if (it != mtype_list.end())
 	{
-		MonsterType *mtype = g_monsters.getMonsterType(it->second);
+		MonsterType *mtype = g_monsters().getMonsterType(it->second);
 		if (mtype)
 		{
 			player->addBestiaryTrackerList(mtype);
@@ -2456,7 +2455,7 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 		{
 			if (_it.first == raceid_)
 			{
-				MonsterType *tmpType = g_monsters.getMonsterType(it_.second);
+				MonsterType *tmpType = g_monsters().getMonsterType(it_.second);
 				if (!tmpType)
 				{
 					return;

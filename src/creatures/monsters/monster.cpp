@@ -36,7 +36,7 @@ uint32_t Monster::monsterAutoID = 0x40000000;
 
 Monster* Monster::createMonster(const std::string& name)
 {
-	MonsterType* mType = g_monsters.getMonsterType(name);
+	MonsterType* mType = g_monsters().getMonsterType(name);
 	if (!mType) {
 		return nullptr;
 	}

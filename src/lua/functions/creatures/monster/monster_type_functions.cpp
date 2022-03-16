@@ -25,7 +25,6 @@
 #include "lua/functions/creatures/monster/monster_type_functions.hpp"
 #include "lua/scripts/scripts.h"
 
-extern Monsters g_monsters;
 extern Scripts* g_scripts;
 
 void MonsterTypeFunctions::createMonsterTypeLootLuaTable(lua_State* L, const std::vector<LootBlock>& lootList) {
@@ -56,9 +55,9 @@ int MonsterTypeFunctions::luaMonsterTypeCreate(lua_State* L) {
 	// MonsterType(name or raceid)
 	MonsterType* monsterType = nullptr;
 	if (isNumber(L, 2)) {
-		monsterType = g_monsters.getMonsterTypeByRaceId(getNumber<uint16_t>(L, 2));
+		monsterType = g_monsters().getMonsterTypeByRaceId(getNumber<uint16_t>(L, 2));
 	} else {
-		monsterType = g_monsters.getMonsterType(getString(L, 2));
+		monsterType = g_monsters().getMonsterType(getString(L, 2));
 	}
 
 	if (monsterType) {
@@ -774,7 +773,7 @@ int MonsterTypeFunctions::luaMonsterTypeAddAttack(lua_State* L) {
 		MonsterSpell* spell = getUserdata<MonsterSpell>(L, 2);
 		if (spell) {
 			spellBlock_t sb;
-			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
+			if (g_monsters().deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.attackSpells.push_back(std::move(sb));
 			} else {
 				SPDLOG_WARN("Monster: {}, cant load spell: {}", monsterType->name,
@@ -826,7 +825,7 @@ int MonsterTypeFunctions::luaMonsterTypeAddDefense(lua_State* L) {
 		MonsterSpell* spell = getUserdata<MonsterSpell>(L, 2);
 		if (spell) {
 			spellBlock_t sb;
-			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
+			if (g_monsters().deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.defenseSpells.push_back(std::move(sb));
 			} else {
 				SPDLOG_WARN("Monster: {}, Cant load spell: {}", monsterType->name,

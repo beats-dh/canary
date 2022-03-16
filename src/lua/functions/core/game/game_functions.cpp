@@ -30,7 +30,6 @@
 #include "lua/functions/creatures/npc/npc_type_functions.hpp"
 #include "lua/scripts/scripts.h"
 
-extern Monsters g_monsters;
 extern Scripts* g_scripts;
 
 // Game
@@ -42,7 +41,7 @@ int GameFunctions::luaGameCreateMonsterType(lua_State* L) {
 		return 1;
 	}
 
-	MonsterType* monsterType = g_monsters.getMonsterType(getString(L, 1));
+	MonsterType* monsterType = g_monsters().getMonsterType(getString(L, 1));
 	if (monsterType) {
 		monsterType->info.lootItems.clear();
 		monsterType->info.attackSpells.clear();
@@ -52,8 +51,8 @@ int GameFunctions::luaGameCreateMonsterType(lua_State* L) {
 	} else if (isString(L, 1)) {
 		monsterType = new MonsterType();
 		std::string name = getString(L, 1);
-		g_monsters.addMonsterType(name, monsterType);
-		monsterType = g_monsters.getMonsterType(getString(L, 1));
+		g_monsters().addMonsterType(name, monsterType);
+		monsterType = g_monsters().getMonsterType(getString(L, 1));
 		monsterType->name = name;
 		monsterType->nameDescription = "a " + name;
 		pushUserdata<MonsterType>(L, monsterType);
@@ -221,7 +220,7 @@ int GameFunctions::luaGameGetNpcCount(lua_State* L) {
 
 int GameFunctions::luaGameGetMonsterTypes(lua_State* L) {
 	// Game.getMonsterTypes()
-	auto& type = g_monsters.monsters;
+	auto& type = g_monsters().monsters;
 	lua_createtable(L, type.size(), 0);
 
 	for (auto& mType : type) {

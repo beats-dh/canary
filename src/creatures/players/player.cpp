@@ -43,7 +43,6 @@ extern Weapons* g_weapons;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern Imbuements* g_imbuements;
-extern Monsters g_monsters;
 
 MuteCountMap Player::muteCountMap;
 
@@ -2518,7 +2517,7 @@ void Player::death(Creature* lastHitCreature)
 		// Charm bless bestiary
 		if (lastHitCreature && lastHitCreature->getMonster()) {
 			if (charmRuneBless != 0) {
-				MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
+				MonsterType* mType = g_monsters().getMonsterType(lastHitCreature->getName());
 				if (mType && mType->info.raceid == charmRuneBless) {
 					deathLossPercent = (deathLossPercent * 90) / 100;
 				}

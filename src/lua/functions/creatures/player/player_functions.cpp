@@ -31,7 +31,6 @@
 #include "lua/functions/creatures/player/player_functions.hpp"
 
 extern Chat* g_chat;
-extern Monsters g_monsters;
 extern Spells* g_spells;
 extern Vocations g_vocations;
 
@@ -303,7 +302,7 @@ int PlayerFunctions::luaPlayeraddBestiaryKill(lua_State* L) {
 	// player:addBestiaryKill(name[, amount = 1])
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-			MonsterType* mtype = g_monsters.getMonsterType(getString(L, 2));
+			MonsterType* mtype = g_monsters().getMonsterType(getString(L, 2));
 			if (mtype) {
 				IOBestiary g_bestiary;
 				g_bestiary.addBestiaryKill(player, mtype, getNumber<uint32_t>(L, 3, 1));
@@ -324,7 +323,7 @@ int PlayerFunctions::luaPlayergetCharmMonsterType(lua_State* L) {
 		charmRune_t charmid = getNumber<charmRune_t>(L, 2);
 		uint16_t raceid = player->parseRacebyCharm(charmid, false, 0);
 		if (raceid > 0) {
-			MonsterType* mtype = g_monsters.getMonsterTypeByRaceId(raceid);
+			MonsterType* mtype = g_monsters().getMonsterTypeByRaceId(raceid);
 			if (mtype) {
 				pushUserdata<MonsterType>(L, mtype);
 				setMetatable(L, -1, "MonsterType");

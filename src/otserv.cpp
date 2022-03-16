@@ -53,7 +53,6 @@ extern Events* g_events;
 extern Imbuements* g_imbuements;
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
-Monsters g_monsters;
 Npcs g_npcs;
 Vocations g_vocations;
 extern Scripts* g_scripts;

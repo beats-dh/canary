@@ -56,7 +56,6 @@ extern Vocations g_vocations;
 extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
-extern Monsters g_monsters;
 extern Npcs g_npcs;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
@@ -126,7 +125,7 @@ void Game::loadBoostedCreature()
 			}
 		}
 
-		MonsterType* monsterType = g_monsters.getMonsterTypeByRaceId(newrace);
+		MonsterType* monsterType = g_monsters().getMonsterTypeByRaceId(newrace);
 
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
@@ -5892,7 +5891,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (!damage.extension && attacker && attacker->getMonster() && targetPlayer) {
 			// Charm rune (target as player)
-			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
+			MonsterType* mType = g_monsters().getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
 				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
@@ -6071,7 +6070,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (target && target->getMonster()) {
 					uint16_t playerCharmRaceidVamp = attackerPlayer->parseRacebyCharm(CHARM_VAMP, false, 0);
 					if (playerCharmRaceidVamp != 0) {
-						MonsterType* mType = g_monsters.getMonsterType(target->getName());
+						MonsterType* mType = g_monsters().getMonsterType(target->getName());
 						if (mType && playerCharmRaceidVamp == mType->info.raceid) {
 							IOBestiary g_bestiary;
 							Charm* lifec = g_bestiary.getBestiaryCharm(CHARM_VAMP);
@@ -6100,7 +6099,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (target && target->getMonster()) {
 					uint16_t playerCharmRaceidVoid = attackerPlayer->parseRacebyCharm(CHARM_VOID, false, 0);
 					if (playerCharmRaceidVoid != 0) {
-						MonsterType* mType = g_monsters.getMonsterType(target->getName());
+						MonsterType* mType = g_monsters().getMonsterType(target->getName());
 						if (mType && playerCharmRaceidVoid == mType->info.raceid) {
 							IOBestiary g_bestiary;
 							Charm* voidc = g_bestiary.getBestiaryCharm(CHARM_VOID);
@@ -6123,7 +6122,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 			//Charm rune (attacker as player)
 			if (!damage.extension && target && target->getMonster()) {
-				MonsterType* mType = g_monsters.getMonsterType(target->getName());
+				MonsterType* mType = g_monsters().getMonsterType(target->getName());
 				if (mType) {
 					IOBestiary g_bestiary;
 					charmRune_t activeCharm = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
@@ -6392,7 +6391,7 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 
 		if (targetPlayer && attacker && attacker->getMonster()) {
 			//Charm rune (target as player)
-			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
+			MonsterType* mType = g_monsters().getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
 				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
@@ -8117,7 +8116,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 
 						// check if it's an NPC or Monster name.
 
-						if (g_monsters.getMonsterType(newName)) {
+						if (g_monsters().getMonsterType(newName)) {
 							responseMessage = "Your new name cannot be a monster's name.";
 							player -> sendStoreError(STORE_ERROR_PURCHASE, responseMessage);
 							return;
