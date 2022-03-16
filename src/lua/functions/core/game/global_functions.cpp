@@ -654,7 +654,7 @@ int GlobalFunctions::luaAddEvent(lua_State* L) {
 	eventDesc.scriptId = getScriptEnv()->getScriptId();
 
 	auto& lastTimerEventId = g_luaEnvironment.lastEventTimerId;
-	eventDesc.eventId = g_scheduler.addEvent(createSchedulerTask(
+	eventDesc.eventId = g_scheduler().addEvent(createSchedulerTask(
 					delay, std::bind(&LuaEnvironment::executeTimerEvent, &g_luaEnvironment, lastTimerEventId)
 	));
 
@@ -684,7 +684,7 @@ int GlobalFunctions::luaStopEvent(lua_State* L) {
 	LuaTimerEventDesc timerEventDesc = std::move(it->second);
 	timerEvents.erase(it);
 
-	g_scheduler.stopEvent(timerEventDesc.eventId);
+	g_scheduler().stopEvent(timerEventDesc.eventId);
 	luaL_unref(globalState, LUA_REGISTRYINDEX, timerEventDesc.function);
 
 	for (auto parameter : timerEventDesc.parameters) {

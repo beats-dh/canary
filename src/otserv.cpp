@@ -48,7 +48,6 @@
 
 DatabaseTasks g_databaseTasks;
 Dispatcher g_dispatcher;
-Scheduler g_scheduler;
 
 extern Events* g_events;
 extern Imbuements* g_imbuements;
@@ -210,7 +209,7 @@ int main(int argc, char* argv[]) {
 	ServiceManager serviceManager;
 
 	g_dispatcher.start();
-	g_scheduler.start();
+	g_scheduler().start();
 
 	g_dispatcher.addTask(createTask(std::bind(mainLoader, argc, argv,
 												&serviceManager)));
@@ -228,7 +227,7 @@ int main(int argc, char* argv[]) {
 		exit(-1);
 	}
 
-	g_scheduler.join();
+	g_scheduler().join();
 	g_databaseTasks.join();
 	g_dispatcher.join();
 	return 0;

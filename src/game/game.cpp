@@ -164,9 +164,9 @@ void Game::start(ServiceManager* manager)
 	int minutes = tms->tm_min;
 	lightHour = (minutes * LIGHT_DAY_LENGTH) / 60;
 
-	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
-	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
-	g_scheduler.addEvent(createSchedulerTask(EVENT_IMBUEMENT_INTERVAL, std::bind(&Game::checkImbuements, this)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_IMBUEMENT_INTERVAL, std::bind(&Game::checkImbuements, this)));
 }
 
 GameState_t Game::getGameState() const
@@ -326,7 +326,7 @@ void Game::setGameState(GameState_t newState)
 			g_dispatcher.addTask(
 				createTask(std::bind(&Game::shutdown, this)));
 
-			g_scheduler.stop();
+			g_scheduler().stop();
 			g_databaseTasks.stop();
 			g_dispatcher.stop();
 			break;
@@ -3351,7 +3351,7 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 			parentContainer = new Container(tile);
 			parentContainer->incrementReferenceCounter();
 			browseFields[tile] = parentContainer;
-			g_scheduler.addEvent(createSchedulerTask(30000, std::bind(&Game::decreaseBrowseFieldRef, this, tile->getPosition())));
+			g_scheduler().addEvent(createSchedulerTask(30000, std::bind(&Game::decreaseBrowseFieldRef, this, tile->getPosition())));
 		} else {
 			parentContainer = it->second;
 		}
@@ -3755,7 +3755,7 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 		container = new Container(tile);
 		container->incrementReferenceCounter();
 		browseFields[tile] = container;
-		g_scheduler.addEvent(createSchedulerTask(30000, std::bind(&Game::decreaseBrowseFieldRef, this, tile->getPosition())));
+		g_scheduler().addEvent(createSchedulerTask(30000, std::bind(&Game::decreaseBrowseFieldRef, this, tile->getPosition())));
 	} else {
 		container = it->second;
 	}
@@ -5417,7 +5417,7 @@ void Game::removeCreatureCheck(Creature* creature)
 
 void Game::checkCreatures(size_t index)
 {
-	g_scheduler.addEvent(createSchedulerTask(EVENT_CHECK_CREATURE_INTERVAL, std::bind(&Game::checkCreatures, this, (index + 1) % EVENT_CREATURECOUNT)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_CHECK_CREATURE_INTERVAL, std::bind(&Game::checkCreatures, this, (index + 1) % EVENT_CREATURECOUNT)));
 
 	auto& checkCreatureList = checkCreatureLists[index];
 	size_t it = 0, end = checkCreatureList.size();
@@ -6559,7 +6559,7 @@ void Game::addDistanceEffect(const SpectatorHashSet& spectators, const Position&
 
 void Game::checkImbuements()
 {
-	g_scheduler.addEvent(createSchedulerTask(EVENT_IMBUEMENT_INTERVAL, std::bind(&Game::checkImbuements, this)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_IMBUEMENT_INTERVAL, std::bind(&Game::checkImbuements, this)));
 
 	std::vector<uint32_t> toErase;
 
@@ -6581,7 +6581,7 @@ void Game::checkImbuements()
 
 void Game::checkLight()
 {
-	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
+	g_scheduler().addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
 
 	lightHour += lightHourDelta;
 
@@ -6672,7 +6672,7 @@ void Game::shutdown()
 
 	SPDLOG_INFO("Shutting down...");
 
-	g_scheduler.shutdown();
+	g_scheduler().shutdown();
 	g_databaseTasks.shutdown();
 	g_dispatcher.shutdown();
 	map.spawnsMonster.clear();

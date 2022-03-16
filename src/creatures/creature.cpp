@@ -282,13 +282,13 @@ void Creature::addEventWalk(bool firstStep)
 		g_game().checkCreatureWalk(getID());
 	}
 
-	eventWalk = g_scheduler.addEvent(createSchedulerTask(static_cast<uint32_t>(ticks), std::bind(&Game::checkCreatureWalk, &g_game(), getID())));
+	eventWalk = g_scheduler().addEvent(createSchedulerTask(static_cast<uint32_t>(ticks), std::bind(&Game::checkCreatureWalk, &g_game(), getID())));
 }
 
 void Creature::stopEventWalk()
 {
 	if (eventWalk != 0) {
-		g_scheduler.stopEvent(eventWalk);
+		g_scheduler().stopEvent(eventWalk);
 		eventWalk = 0;
 	}
 }
@@ -1285,7 +1285,7 @@ void Creature::removeCondition(ConditionType_t conditionType, ConditionId_t cond
 		if (!force && conditionType == CONDITION_PARALYZE) {
 			int32_t walkDelay = getWalkDelay();
 			if (walkDelay > 0) {
-				g_scheduler.addEvent(createSchedulerTask(walkDelay, std::bind(&Game::forceRemoveCondition, &g_game(), getID(), conditionType, conditionId)));
+				g_scheduler().addEvent(createSchedulerTask(walkDelay, std::bind(&Game::forceRemoveCondition, &g_game(), getID(), conditionType, conditionId)));
 				return;
 			}
 		}

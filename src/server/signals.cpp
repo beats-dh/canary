@@ -35,7 +35,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "server/signals.h"
 
-extern Scheduler g_scheduler;
 extern DatabaseTasks g_databaseTasks;
 extern Dispatcher g_dispatcher;
 
@@ -105,7 +104,7 @@ void Signals::dispatchSignalHandler(int signal)
 		case SIGBREAK: //Shuts the server down
 			g_dispatcher.addTask(createTask(sigbreakHandler));
 			// hold the thread until other threads end
-			g_scheduler.join();
+			g_scheduler().join();
 			g_databaseTasks.join();
 			g_dispatcher.join();
 			break;
