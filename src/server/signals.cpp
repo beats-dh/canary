@@ -44,7 +44,6 @@ extern CreatureEvents* g_creatureEvents;
 extern GlobalEvents* g_globalEvents;
 extern Events* g_events;
 extern Chat* g_chat;
-extern LuaEnvironment g_luaEnvironment;
 
 using ErrorCode = boost::system::error_code;
 
@@ -157,13 +156,13 @@ void Signals::sighupHandler()
 	g_chat->load();
 	SPDLOG_INFO("Reloaded chatchannels");
 
-	g_luaEnvironment.loadFile("data/global.lua");
+	g_luaEnvironment().loadFile("data/global.lua");
 	SPDLOG_INFO("Reloaded global.lua");
 
-	g_luaEnvironment.loadFile("data/stages.lua");
+	g_luaEnvironment().loadFile("data/stages.lua");
 	SPDLOG_INFO("Reloaded stages.lua");
 
-	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
+	lua_gc(g_luaEnvironment().getLuaState(), LUA_GCCOLLECT, 0);
 }
 
 void Signals::sigintHandler()

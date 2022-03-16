@@ -47,7 +47,6 @@ Scripts* g_scripts = nullptr;
 Modules* g_modules = nullptr;
 Imbuements* g_imbuements = nullptr;
 
-extern LuaEnvironment g_luaEnvironment;
 
 Scripts::Scripts() :
 	scriptInterface("Scripts Interface") {

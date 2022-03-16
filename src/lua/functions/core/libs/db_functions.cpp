@@ -24,7 +24,6 @@
 #include "lua/functions/core/libs/db_functions.hpp"
 #include "lua/scripts/lua_environment.hpp"
 
-extern LuaEnvironment g_luaEnvironment;
 
 int DBFunctions::luaDatabaseExecute(lua_State* L) {
 	pushBoolean(L, Database::getInstance().executeQuery(getString(L, -1)));
@@ -37,7 +36,7 @@ int DBFunctions::luaDatabaseAsyncExecute(lua_State* L) {
 		int32_t ref = luaL_ref(L, LUA_REGISTRYINDEX);
 		auto scriptId = getScriptEnv()->getScriptId();
 		callback = [ref, scriptId](DBResult_ptr, bool success) {
-				lua_State* luaState = g_luaEnvironment.getLuaState();
+				lua_State* luaState = g_luaEnvironment().getLuaState();
 				if (!luaState) {
 					return;
 				}
@@ -50,8 +49,8 @@ int DBFunctions::luaDatabaseAsyncExecute(lua_State* L) {
 				lua_rawgeti(luaState, LUA_REGISTRYINDEX, ref);
 				pushBoolean(luaState, success);
 				auto env = getScriptEnv();
-				env->setScriptId(scriptId, &g_luaEnvironment);
-				g_luaEnvironment.callFunction(1);
+				env->setScriptId(scriptId, &g_luaEnvironment());
+				g_luaEnvironment().callFunction(1);
 
 				luaL_unref(luaState, LUA_REGISTRYINDEX, ref);
 		};
@@ -75,7 +74,7 @@ int DBFunctions::luaDatabaseAsyncStoreQuery(lua_State* L) {
 		int32_t ref = luaL_ref(L, LUA_REGISTRYINDEX);
 		auto scriptId = getScriptEnv()->getScriptId();
 		callback = [ref, scriptId](DBResult_ptr result, bool) {
-				lua_State* luaState = g_luaEnvironment.getLuaState();
+				lua_State* luaState = g_luaEnvironment().getLuaState();
 				if (!luaState) {
 					return;
 				}
@@ -92,8 +91,8 @@ int DBFunctions::luaDatabaseAsyncStoreQuery(lua_State* L) {
 					pushBoolean(luaState, false);
 				}
 				auto env = getScriptEnv();
-				env->setScriptId(scriptId, &g_luaEnvironment);
-				g_luaEnvironment.callFunction(1);
+				env->setScriptId(scriptId, &g_luaEnvironment());
+				g_luaEnvironment().callFunction(1);
 
 				luaL_unref(luaState, LUA_REGISTRYINDEX, ref);
 		};

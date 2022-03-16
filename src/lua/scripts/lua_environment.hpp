@@ -42,6 +42,13 @@ class LuaEnvironment: public LuaScriptInterface {
 		LuaEnvironment(const LuaEnvironment &) = delete;
 		LuaEnvironment & operator = (const LuaEnvironment &) = delete;
 
+		static LuaEnvironment& getInstance() {
+			// Guaranteed to be destroyed
+			static LuaEnvironment instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		bool initState() override;
 		bool reInitState();
 		bool closeState() override;
@@ -81,5 +88,7 @@ class LuaEnvironment: public LuaScriptInterface {
 				friend class GlobalFunctions;
 		friend class CombatSpell;
 };
+
+constexpr auto g_luaEnvironment = &LuaEnvironment::getInstance;
 
 #endif  // SRC_LUA_SCRIPTS_LUA_ENVIRONMENT_HPP_

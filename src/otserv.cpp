@@ -51,7 +51,6 @@ DatabaseTasks g_databaseTasks;
 
 extern Events* g_events;
 extern Imbuements* g_imbuements;
-extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
 Npcs g_npcs;
 extern Scripts* g_scripts;
@@ -155,13 +154,13 @@ void loadModules() {
 		"script systems");
 
 	// Lua Env
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/global.lua") == 0),
+	modulesLoadHelper((g_luaEnvironment().loadFile("data/global.lua") == 0),
 		"data/global.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/stages.lua") == 0),
+	modulesLoadHelper((g_luaEnvironment().loadFile("data/stages.lua") == 0),
 		"data/stages.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua") == 0),
+	modulesLoadHelper((g_luaEnvironment().loadFile("data/startup/startup.lua") == 0),
 		"data/startup/startup.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/npclib/load.lua") == 0),
+	modulesLoadHelper((g_luaEnvironment().loadFile("data/npclib/load.lua") == 0),
 		"data/npclib/load.lua");
 
 	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
