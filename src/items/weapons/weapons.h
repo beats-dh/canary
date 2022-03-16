@@ -27,7 +27,6 @@
 #include "utils/utils_definitions.hpp"
 #include "creatures/players/vocations/vocation.h"
 
-extern Vocations g_vocations;
 
 class Weapon;
 class WeaponMelee;
@@ -181,7 +180,7 @@ class Weapon : public Event
 		}
 
 		void addVocWeaponMap(std::string vocName) {
-			int32_t vocationId = g_vocations.getVocationId(vocName);
+			int32_t vocationId = g_vocations().getVocationId(vocName);
 			if (vocationId != -1) {
 				vocWeaponMap[vocationId] = true;
 			}

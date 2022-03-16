@@ -41,7 +41,6 @@
 
 extern Actions actions;
 extern CreatureEvents *g_creatureEvents;
-extern Vocations g_vocations;
 extern Chat *g_chat;
 extern Modules *g_modules;
 extern Spells *g_spells;
@@ -1638,7 +1637,7 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter> &charact
 	msg.addString("(all)");          // All Vocations - hardcoded
 
 	uint32_t selectedVocation = 0xFFFFFFFF;
-	const auto &vocationsMap = g_vocations.getVocations();
+	const auto &vocationsMap = g_vocations().getVocations();
 	for (const auto &it : vocationsMap)
 	{
 		const Vocation &vocation = it.second;

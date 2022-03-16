@@ -27,7 +27,6 @@
 #include "utils/pugicast.h"
 
 extern Spells* g_spells;
-extern Vocations g_vocations;
 extern LuaEnvironment g_luaEnvironment;
 
 Spells::Spells()
@@ -591,7 +590,7 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 			continue;
 		}
 
-		int32_t vocationId = g_vocations.getVocationId(attr.as_string());
+		int32_t vocationId = g_vocations().getVocationId(attr.as_string());
 		if (vocationId != -1) {
 			attr = vocationNode.attribute("showInDescription");
 			vocSpellMap[vocationId] = !attr || attr.as_bool();

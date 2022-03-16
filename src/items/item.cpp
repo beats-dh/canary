@@ -38,7 +38,6 @@
 #define IMBUEMENT_SLOT 500
 
 extern Spells* g_spells;
-extern Vocations g_vocations;
 extern Imbuements* g_imbuements;
 
 Items Item::items;
@@ -1528,7 +1527,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				showVocMap.reserve(vocMap.size() / 2);
 				for (const auto& voc : vocMap) {
 					if (voc.second) {
-						showVocMap.push_back(g_vocations.getVocation(voc.first));
+						showVocMap.push_back(g_vocations().getVocation(voc.first));
 					}
 				}
 

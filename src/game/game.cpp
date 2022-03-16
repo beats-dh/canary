@@ -52,7 +52,6 @@ extern Actions* g_actions;
 extern Chat* g_chat;
 extern TalkActions* g_talkActions;
 extern Spells* g_spells;
-extern Vocations g_vocations;
 extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
@@ -7238,7 +7237,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
-			const auto& vocationsMap = g_vocations.getVocations();
+			const auto& vocationsMap = g_vocations().getVocations();
 			for (const auto& it : vocationsMap) {
 				const Vocation& voc = it.second;
 				if (voc.getFromVocation() == vocation) {
@@ -7258,7 +7257,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
-			const auto& vocationsMap = g_vocations.getVocations();
+			const auto& vocationsMap = g_vocations().getVocations();
 			for (const auto& it : vocationsMap) {
 				const Vocation& voc = it.second;
 				if (voc.getFromVocation() == vocation) {
@@ -7296,7 +7295,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		characters.reserve(result->countResults());
 		do {
 			uint8_t characterVocation;
-			Vocation* voc = g_vocations.getVocation(result->getNumber<uint16_t>("vocation"));
+			Vocation* voc = g_vocations().getVocation(result->getNumber<uint16_t>("vocation"));
 			if (voc) {
 				characterVocation = voc->getClientId();
 			} else {
@@ -8184,7 +8183,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 			return;
 		} else if (offer -> type == PROMOTION) {
 			if (player -> isPremium() && !player -> isPromoted()) {
-				uint16_t promotedId = g_vocations.getPromotedVocation(player -> getVocation() -> getId());
+				uint16_t promotedId = g_vocations().getPromotedVocation(player -> getVocation() -> getId());
 
 				if (promotedId == VOCATION_NONE || promotedId == player -> getVocation() -> getId()) {
 					player -> sendStoreError(STORE_ERROR_PURCHASE, "Your character cannot be promoted.");

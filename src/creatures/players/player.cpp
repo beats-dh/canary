@@ -37,7 +37,6 @@
 #include "io/iobestiary.h"
 
 extern Chat* g_chat;
-extern Vocations g_vocations;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern CreatureEvents* g_creatureEvents;
@@ -91,7 +90,7 @@ Player::~Player()
 
 bool Player::setVocation(uint16_t vocId)
 {
-	Vocation* voc = g_vocations.getVocation(vocId);
+	Vocation* voc = g_vocations().getVocation(vocId);
 	if (!voc) {
 		return false;
 	}
@@ -2164,7 +2163,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		++level;
 		// Player stats gain for vocations level <= 8
 		if (vocation->getId() != VOCATION_NONE && level <= 8) {
-			Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+			Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 			healthMax += noneVocation->getHPGain();
 			health += noneVocation->getHPGain();
 			manaMax += noneVocation->getManaGain();
@@ -2260,7 +2259,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 		--level;
 		// Player stats loss for vocations level <= 8
 		if (vocation->getId() != VOCATION_NONE && level <= 8) {
-			Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+			Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 			healthMax = std::max<int32_t>(0, healthMax - noneVocation->getHPGain());
 			manaMax = std::max<int32_t>(0, manaMax - noneVocation->getManaGain());
 			capacity = std::max<int32_t>(0, capacity - noneVocation->getCapGain());
@@ -4843,7 +4842,7 @@ void Player::checkSkullTicks(int64_t ticks)
 
 bool Player::isPromoted() const
 {
-	uint16_t promotedVocation = g_vocations.getPromotedVocation(vocation->getId());
+	uint16_t promotedVocation = g_vocations().getPromotedVocation(vocation->getId());
 	return promotedVocation == VOCATION_NONE && vocation->getId() != promotedVocation;
 }
 

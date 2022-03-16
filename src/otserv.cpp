@@ -54,7 +54,6 @@ extern Imbuements* g_imbuements;
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
 Npcs g_npcs;
-Vocations g_vocations;
 extern Scripts* g_scripts;
 RSA2 g_RSA;
 
@@ -167,7 +166,7 @@ void loadModules() {
 
 	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
 		"data/scripts/libs");
-	modulesLoadHelper(g_vocations.loadFromXml(),
+	modulesLoadHelper(g_vocations().loadFromXml(),
 		"data/XML/vocations.xml");
 	modulesLoadHelper(g_game().loadScheduleEventFromXml(),
 		"data/XML/events.xml");

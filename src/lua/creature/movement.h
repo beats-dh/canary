@@ -26,7 +26,6 @@
 #include "lua/functions/events/move_event_functions.hpp"
 #include "creatures/players/vocations/vocation.h"
 
-extern Vocations g_vocations;
 
 class MoveEvent;
 using MoveEvent_ptr = std::unique_ptr<MoveEvent>;
@@ -136,7 +135,7 @@ class MoveEvent final : public Event {
 			return vocEquipMap;
 		}
 		void addVocEquipMap(std::string vocName) {
-			int32_t vocationId = g_vocations.getVocationId(vocName);
+			int32_t vocationId = g_vocations().getVocationId(vocName);
 			if (vocationId != -1) {
 				vocEquipMap[vocationId] = true;
 			}

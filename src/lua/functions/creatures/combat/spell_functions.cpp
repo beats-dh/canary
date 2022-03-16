@@ -24,7 +24,6 @@
 #include "lua/functions/creatures/combat/spell_functions.hpp"
 
 extern Spells* g_spells;
-extern Vocations g_vocations;
 
 int SpellFunctions::luaSpellCreate(lua_State* L) {
 	// Spell(words, name or id) to get an existing spell
@@ -578,7 +577,7 @@ int SpellFunctions::luaSpellVocation(lua_State* L) {
 				++it;
 				std::string s = std::to_string(it);
 				char const *pchar = s.c_str();
-				std::string name = g_vocations.getVocation(voc.first)->getVocName();
+				std::string name = g_vocations().getVocation(voc.first)->getVocName();
 				setField(L, pchar, name);
 			}
 			setMetatable(L, -1, "Spell");
@@ -587,7 +586,7 @@ int SpellFunctions::luaSpellVocation(lua_State* L) {
 			for (int i = 0; i < parameters; ++i) {
 				if (getString(L, 2 + i).find(";") != std::string::npos) {
 					std::vector<std::string> vocList = explodeString(getString(L, 2 + i), ";");
-					int32_t vocationId = g_vocations.getVocationId(vocList[0]);
+					int32_t vocationId = g_vocations().getVocationId(vocList[0]);
 					if (vocList.size() > 0) {
 						if (vocList[1] == "true") {
 							spell->addVocMap(vocationId, true);
@@ -596,7 +595,7 @@ int SpellFunctions::luaSpellVocation(lua_State* L) {
 						}
 					}
 				} else {
-					int32_t vocationId = g_vocations.getVocationId(getString(L, 2 + i));
+					int32_t vocationId = g_vocations().getVocationId(getString(L, 2 + i));
 					spell->addVocMap(vocationId, false);
 				}
 			}
