@@ -27,6 +27,7 @@
 #include "utils/pugicast.h"
 
 extern Spells* g_spells;
+extern LuaEnvironment g_luaEnvironment;
 
 Spells::Spells()
 {
@@ -326,7 +327,7 @@ CombatSpell::~CombatSpell()
 
 bool CombatSpell::loadScriptCombat()
 {
-	combat = g_luaEnvironment().getCombatObject(g_luaEnvironment().lastCombatId);
+	combat = g_luaEnvironment.getCombatObject(g_luaEnvironment.lastCombatId);
 	return combat != nullptr;
 }
 

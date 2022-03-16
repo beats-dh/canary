@@ -25,6 +25,7 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/luascript.h"
 
+extern LuaEnvironment g_luaEnvironment;
 
 class PositionFunctions final : LuaScriptInterface {
 	public:
