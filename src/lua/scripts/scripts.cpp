@@ -34,7 +34,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/scripts.h"
 
-Actions* g_actions = nullptr;
 CreatureEvents* g_creatureEvents = nullptr;
 Chat* g_chat = nullptr;
 Events* g_events = nullptr;
@@ -59,7 +58,6 @@ Scripts::~Scripts() {
 	delete g_events;
 	delete g_weapons;
 	delete g_spells;
-	delete g_actions;
 	delete g_talkActions;
 	delete g_moveEvents;
 	delete g_chat;
@@ -84,7 +82,6 @@ bool Scripts::loadScriptSystems() {
 		return false;
 	}
 
-	g_actions = new Actions();
 	if (!g_actions) {
 		return false;
 	}

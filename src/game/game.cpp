@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern Actions* g_actions;
 extern Chat* g_chat;
 extern TalkActions* g_talkActions;
 extern Spells* g_spells;
@@ -3010,9 +3009,9 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 	}
 
 	Position walkToPos = fromPos;
-	ReturnValue ret = g_actions->canUse(player, fromPos);
+	ReturnValue ret = g_actions().canUse(player, fromPos);
 	if (ret == RETURNVALUE_NOERROR) {
-		ret = g_actions->canUse(player, toPos, item);
+		ret = g_actions().canUse(player, toPos, item);
 		if (ret == RETURNVALUE_TOOFARAWAY) {
 			walkToPos = toPos;
 		}
@@ -3095,7 +3094,7 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		player->setNextActionTask(nullptr);
 	}
 
-	g_actions->useItemEx(player, fromPos, toPos, toStackPos, item, isHotkey);
+	g_actions().useItemEx(player, fromPos, toPos, toStackPos, item, isHotkey);
 }
 
 void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPos,
@@ -3131,7 +3130,7 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		}
 	}
 
-	ReturnValue ret = g_actions->canUse(player, pos);
+	ReturnValue ret = g_actions().canUse(player, pos);
 	if (ret != RETURNVALUE_NOERROR) {
 		if (ret == RETURNVALUE_TOOFARAWAY) {
 			std::forward_list<Direction> listDir;
@@ -3180,7 +3179,7 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 	player->resetIdleTime();
 	player->setNextActionTask(nullptr);
 
-	g_actions->useItem(player, pos, index, item, isHotkey);
+	g_actions().useItem(player, pos, index, item, isHotkey);
 }
 
 void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uint8_t fromStackPos, uint32_t creatureId, uint16_t spriteId)
@@ -3228,9 +3227,9 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 	}
 	Position toPos = creature->getPosition();
 	Position walkToPos = fromPos;
-	ReturnValue ret = g_actions->canUse(player, fromPos);
+	ReturnValue ret = g_actions().canUse(player, fromPos);
 	if (ret == RETURNVALUE_NOERROR) {
-		ret = g_actions->canUse(player, toPos, item);
+		ret = g_actions().canUse(player, toPos, item);
 		if (ret == RETURNVALUE_TOOFARAWAY) {
 			walkToPos = toPos;
 		}
@@ -3305,7 +3304,7 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		player->setNextActionTask(nullptr);
 	}
 
-	g_actions->useItemEx(player, fromPos, creature->getPosition(), creature->getParent()->getThingIndex(creature), item, isHotkey, creature);
+	g_actions().useItemEx(player, fromPos, creature->getPosition(), creature->getParent()->getThingIndex(creature), item, isHotkey, creature);
 }
 
 void Game::playerCloseContainer(uint32_t playerId, uint8_t cid)
@@ -4599,7 +4598,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		player->lastQuickLootNotification = OTSYS_TIME();
 	} else {
 		if (corpse->isRewardCorpse()) {
-			g_actions->useItem(player, pos, 0, corpse, false);
+			g_actions().useItem(player, pos, 0, corpse, false);
 		} else {
 			if (!lootAllCorpses) {
 				internalQuickLootCorpse(player, corpse);
@@ -8629,7 +8628,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		case RELOAD_TYPE_SCRIPTS: {
 			// commented out stuff is TODO, once we approach further in revscriptsys
-			g_actions->clear(true);
+			g_actions().clear(true);
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
 			g_talkActions->clear(true);
@@ -8651,7 +8650,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			mounts.reload();
 			g_events->loadFromXml();
 			g_chat->load();
-			g_actions->clear(true);
+			g_actions().clear(true);
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
 			g_talkActions->clear(true);

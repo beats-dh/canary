@@ -28,7 +28,6 @@
 #include "items/containers/rewards/rewardchest.h"
 
 extern Spells* g_spells;
-extern Actions* g_actions;
 
 Actions::Actions() :
 	scriptInterface("Action Interface") {
@@ -574,10 +573,10 @@ std::string Action::getScriptEventName() const {
 
 ReturnValue Action::canExecuteAction(const Player* player, const Position& toPos) {
 	if (!allowFarUse) {
-		return g_actions->canUse(player, toPos);
+		return g_actions().canUse(player, toPos);
 	}
 
-	return g_actions->canUseFar(player, toPos, checkLineOfSight, checkFloor);
+	return g_actions().canUseFar(player, toPos, checkLineOfSight, checkFloor);
 }
 
 Thing* Action::getTarget(Player* player, Creature* targetCreature,

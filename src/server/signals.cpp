@@ -37,7 +37,6 @@
 
 extern DatabaseTasks g_databaseTasks;
 
-extern Actions* g_actions;
 extern TalkActions* g_talkActions;
 extern Spells* g_spells;
 extern CreatureEvents* g_creatureEvents;

@@ -39,7 +39,6 @@
 #include "creatures/players/management/waitlist.h"
 #include "items/weapons/weapons.h"
 
-extern Actions actions;
 extern CreatureEvents *g_creatureEvents;
 extern Chat *g_chat;
 extern Modules *g_modules;
@@ -638,8 +637,8 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 
 		if (recvbyte != 0x1D && recvbyte != 0x1E) {
 			// keep the connection alive
-			g_scheduler.addEvent(createSchedulerTask(500, std::bind(&ProtocolGame::sendPing, getThis())));
-			g_scheduler.addEvent(createSchedulerTask(1000, std::bind(&ProtocolGame::sendPingBack, getThis())));
+			g_scheduler().addEvent(createSchedulerTask(500, std::bind(&ProtocolGame::sendPing, getThis())));
+			g_scheduler().addEvent(createSchedulerTask(1000, std::bind(&ProtocolGame::sendPingBack, getThis())));
 			return;
 		}
 	}
