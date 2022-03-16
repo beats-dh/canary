@@ -52,7 +52,6 @@ DatabaseTasks g_databaseTasks;
 extern Events* g_events;
 extern Imbuements* g_imbuements;
 extern Modules* g_modules;
-Npcs g_npcs;
 extern Scripts* g_scripts;
 RSA2 g_RSA;
 

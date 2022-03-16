@@ -27,7 +27,6 @@
 #include "utils/pugicast.h"
 #include "lua/creature/events.h"
 
-extern Npcs g_npcs;
 extern Events* g_events;
 
 static constexpr int32_t MINSPAWN_INTERVAL = 1000; // 1 second
@@ -273,7 +272,7 @@ void SpawnNpc::cleanup()
 
 bool SpawnNpc::addNpc(const std::string& name, const Position& pos, Direction dir, uint32_t scheduleInterval)
 {
-	NpcType* npcType = g_npcs.getNpcType(name);
+	NpcType* npcType = g_npcs().getNpcType(name);
 	if (!npcType) {
 		SPDLOG_ERROR("Can not find {}", name);
 		return false;

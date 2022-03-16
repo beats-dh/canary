@@ -55,7 +55,6 @@ extern Spells* g_spells;
 extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
-extern Npcs g_npcs;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
@@ -8118,7 +8117,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 							responseMessage = "Your new name cannot be a monster's name.";
 							player -> sendStoreError(STORE_ERROR_PURCHASE, responseMessage);
 							return;
-						} else if (g_npcs.getNpcType(newName)) {
+						} else if (g_npcs().getNpcType(newName)) {
 							responseMessage = "Your new name cannot be an NPC's name.";
 							player -> sendStoreError(STORE_ERROR_PURCHASE, responseMessage);
 							return;
@@ -8614,7 +8613,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			return true;
 		}
 		case RELOAD_TYPE_NPCS: {
-			g_npcs.reset();
+			g_npcs().reset();
 			g_scripts->loadScripts("npclua", false, true);
 			g_luaEnvironment().loadFile("data/npclib/load.lua");
 			return true;
