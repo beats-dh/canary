@@ -31,6 +31,7 @@
 #include "database/databasetasks.h"
 #include "game/game.h"
 #include "game/scheduling/scheduler.h"
+#include "game/scheduling/tasks.h"
 #include "io/iomarket.h"
 #include "lua/creature/events.h"
 #include "lua/modules/modules.h"
@@ -47,7 +48,6 @@
 #endif
 
 DatabaseTasks g_databaseTasks;
-Dispatcher g_dispatcher;
 
 extern Events* g_events;
 extern Imbuements* g_imbuements;
@@ -208,10 +208,10 @@ int main(int argc, char* argv[]) {
 
 	ServiceManager serviceManager;
 
-	g_dispatcher.start();
+	g_dispatcher().start();
 	g_scheduler().start();
 
-	g_dispatcher.addTask(createTask(std::bind(mainLoader, argc, argv,
+	g_dispatcher().addTask(createTask(std::bind(mainLoader, argc, argv,
 												&serviceManager)));
 
 	g_loaderSignal.wait(g_loaderUniqueLock);
@@ -223,13 +223,13 @@ int main(int argc, char* argv[]) {
 	} else {
 		SPDLOG_ERROR("No services running. The server is NOT online!");
 		g_databaseTasks.shutdown();
-		g_dispatcher.shutdown();
+		g_dispatcher().shutdown();
 		exit(-1);
 	}
 
 	g_scheduler().join();
 	g_databaseTasks.join();
-	g_dispatcher.join();
+	g_dispatcher().join();
 	return 0;
 }
 #endif

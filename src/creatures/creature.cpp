@@ -606,7 +606,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 	if (followCreature && (creature == this || creature == followCreature)) {
 		if (hasFollowPath) {
 			isUpdatingPath = true;
-			g_dispatcher.addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game(), getID())));
+			g_dispatcher().addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game(), getID())));
 		}
 
 		if (newPos.z != oldPos.z || !canSee(followCreature->getPosition())) {
@@ -620,7 +620,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 		} else {
 			if (hasExtraSwing()) {
 				//our target is moving lets see if we can get in hit
-				g_dispatcher.addTask(createTask(std::bind(&Game::checkCreatureAttack, &g_game(), getID())));
+				g_dispatcher().addTask(createTask(std::bind(&Game::checkCreatureAttack, &g_game(), getID())));
 			}
 
 			if (newTile->getZone() != oldTile->getZone()) {
@@ -769,7 +769,7 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 
 				if (g_configManager().getBoolean(AUTOLOOT)) {
 					int32_t pos = tile->getStackposOfItem(player, corpse);
-					g_dispatcher.addTask(createTask(std::bind(&Game::playerQuickLoot, &g_game(), mostDamageCreature->getID(), this->getPosition(), corpse->getClientID(), pos - 1, nullptr, false, true)));
+					g_dispatcher().addTask(createTask(std::bind(&Game::playerQuickLoot, &g_game(), mostDamageCreature->getID(), this->getPosition(), corpse->getClientID(), pos - 1, nullptr, false, true)));
 				}
 			}
 		}
@@ -813,7 +813,7 @@ void Creature::changeHealth(int32_t healthChange, bool sendHealthChange/* = true
 		g_game().addCreatureHealth(this);
 	}
 	if (health <= 0) {
-		g_dispatcher.addTask(createTask(std::bind(&Game::executeDeath, &g_game(), getID())));
+		g_dispatcher().addTask(createTask(std::bind(&Game::executeDeath, &g_game(), getID())));
 	}
 }
 
