@@ -35,7 +35,6 @@
 #include "lua/scripts/scripts.h"
 
 CreatureEvents* g_creatureEvents = nullptr;
-Chat* g_chat = nullptr;
 Events* g_events = nullptr;
 GlobalEvents* g_globalEvents = nullptr;
 Spells* g_spells = nullptr;
@@ -61,14 +60,12 @@ Scripts::~Scripts() {
 	delete g_spells;
 	delete g_talkActions;
 	delete g_moveEvents;
-	delete g_chat;
 	delete g_creatureEvents;
 	delete g_globalEvents;
 	delete g_imbuements;
 }
 
 bool Scripts::loadScriptSystems() {
-	g_chat = new Chat();
 
 	// XML loads disabled start
 	g_weapons = new Weapons();

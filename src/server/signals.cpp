@@ -42,7 +42,6 @@ extern Spells* g_spells;
 extern CreatureEvents* g_creatureEvents;
 extern GlobalEvents* g_globalEvents;
 extern Events* g_events;
-extern Chat* g_chat;
 extern LuaEnvironment g_luaEnvironment;
 
 using ErrorCode = boost::system::error_code;
@@ -153,7 +152,7 @@ void Signals::sighupHandler()
 	g_events->loadFromXml();
 	SPDLOG_INFO("Reloaded events");
 
-	g_chat->load();
+	g_chat().load();
 	SPDLOG_INFO("Reloaded chatchannels");
 
 	g_luaEnvironment.loadFile("data/global.lua");

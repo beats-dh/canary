@@ -36,7 +36,6 @@
 #include "items/weapons/weapons.h"
 #include "io/iobestiary.h"
 
-extern Chat* g_chat;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern CreatureEvents* g_creatureEvents;
@@ -5475,7 +5474,7 @@ uint16_t Player::getHelpers() const
 void Player::sendClosePrivate(uint16_t channelId)
 {
 	if (channelId == CHANNEL_GUILD || channelId == CHANNEL_PARTY) {
-		g_chat->removeUserFromChannel(*this, channelId);
+		g_chat().removeUserFromChannel(*this, channelId);
 	}
 
 	if (client) {

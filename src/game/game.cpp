@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern Chat* g_chat;
 extern TalkActions* g_talkActions;
 extern Spells* g_spells;
 extern GlobalEvents* g_globalEvents;
@@ -279,7 +278,7 @@ void Game::setGameState(GameState_t newState)
 			loadItemsPrice();
 
 			groups.load();
-			g_chat->load();
+			g_chat().load();
 
 			// Load monsters and npcs stored by the "loadFromXML" function
 			map.spawnsMonster.startup();
@@ -2807,7 +2806,7 @@ void Game::playerCreatePrivateChannel(uint32_t playerId)
 		return;
 	}
 
-	ChatChannel* channel = g_chat->createChannel(*player, CHANNEL_PRIVATE);
+	ChatChannel* channel = g_chat().createChannel(*player, CHANNEL_PRIVATE);
 	if (!channel || !channel->addUser(*player)) {
 		return;
 	}
@@ -2822,7 +2821,7 @@ void Game::playerChannelInvite(uint32_t playerId, const std::string& name)
 		return;
 	}
 
-	PrivateChatChannel* channel = g_chat->getPrivateChannel(*player);
+	PrivateChatChannel* channel = g_chat().getPrivateChannel(*player);
 	if (!channel) {
 		return;
 	}
@@ -2846,7 +2845,7 @@ void Game::playerChannelExclude(uint32_t playerId, const std::string& name)
 		return;
 	}
 
-	PrivateChatChannel* channel = g_chat->getPrivateChannel(*player);
+	PrivateChatChannel* channel = g_chat().getPrivateChannel(*player);
 	if (!channel) {
 		return;
 	}
@@ -2880,7 +2879,7 @@ void Game::playerOpenChannel(uint32_t playerId, uint16_t channelId)
 		return;
 	}
 
-	ChatChannel* channel = g_chat->addUserToChannel(*player, channelId);
+	ChatChannel* channel = g_chat().addUserToChannel(*player, channelId);
 	if (!channel) {
 		return;
 	}
@@ -2903,7 +2902,7 @@ void Game::playerCloseChannel(uint32_t playerId, uint16_t channelId)
 		return;
 	}
 
-	g_chat->removeUserFromChannel(*player, channelId);
+	g_chat().removeUserFromChannel(*player, channelId);
 }
 
 void Game::playerOpenPrivateChannel(uint32_t playerId, std::string& receiver)
@@ -5150,7 +5149,7 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 		case TALKTYPE_CHANNEL_O:
 		case TALKTYPE_CHANNEL_Y:
 		case TALKTYPE_CHANNEL_R1:
-			g_chat->talkToChannel(*player, type, text, channelId);
+			g_chat().talkToChannel(*player, type, text, channelId);
 			break;
 
 		case TALKTYPE_PRIVATE_PN:
@@ -8618,7 +8617,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_luaEnvironment.loadFile("data/npclib/load.lua");
 			return true;
 		}
-		case RELOAD_TYPE_CHAT: return g_chat->load();
+		case RELOAD_TYPE_CHAT: return g_chat().load();
 		case RELOAD_TYPE_CONFIG: return g_configManager().reload();
 		case RELOAD_TYPE_EVENTS: return g_events->loadFromXml();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
@@ -8650,7 +8649,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->loadDefaults();
 			mounts.reload();
 			g_events->loadFromXml();
-			g_chat->load();
+			g_chat().load();
 			g_actions().clear(true);
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);

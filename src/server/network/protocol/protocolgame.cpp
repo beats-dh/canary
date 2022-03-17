@@ -40,7 +40,6 @@
 #include "items/weapons/weapons.h"
 
 extern CreatureEvents *g_creatureEvents;
-extern Chat *g_chat;
 extern Modules *g_modules;
 extern Spells *g_spells;
 extern Imbuements *g_imbuements;
@@ -391,7 +390,7 @@ void ProtocolGame::connect(uint32_t playerId, OperatingSystem_t operatingSystem)
 	player = foundPlayer;
 	player->incrementReferenceCounter();
 
-	g_chat->removeUserFromAllChannels(*player);
+	g_chat().removeUserFromAllChannels(*player);
 	player->clearModalWindows();
 	player->setOperatingSystem(operatingSystem);
 	player->isConnecting = false;
@@ -3691,7 +3690,7 @@ void ProtocolGame::sendChannelsDialog()
 	NetworkMessage msg;
 	msg.addByte(0xAB);
 
-	const ChannelList &list = g_chat->getChannelList(*player);
+	const ChannelList &list = g_chat().getChannelList(*player);
 	msg.addByte(list.size());
 	for (ChatChannel *channel : list)
 	{

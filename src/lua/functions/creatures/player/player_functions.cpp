@@ -30,7 +30,6 @@
 #include "items/item.h"
 #include "lua/functions/creatures/player/player_functions.hpp"
 
-extern Chat* g_chat;
 extern Spells* g_spells;
 
 int PlayerFunctions::luaPlayerSendInventory(lua_State* L) {
@@ -1915,7 +1914,7 @@ int PlayerFunctions::luaPlayerSendTextMessage(lua_State* L) {
 	TextMessage message(getNumber<MessageClasses>(L, 2), getString(L, 3));
 	if (parameters == 4) {
 		uint16_t channelId = getNumber<uint16_t>(L, 4);
-		ChatChannel* channel = g_chat->getChannel(*player, channelId);
+		ChatChannel* channel = g_chat().getChannel(*player, channelId);
 		if (!channel || !channel->hasUser(*player)) {
 			pushBoolean(L, false);
 			return 1;
