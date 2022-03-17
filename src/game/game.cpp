@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern TalkActions* g_talkActions;
 extern Spells* g_spells;
 extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
@@ -5172,7 +5171,7 @@ bool Game::playerSaySpell(Player* player, SpeakClasses type, const std::string& 
 	}
 
 	std::string words = text;
-	TalkActionResult_t result = g_talkActions->playerSaySpell(player, type, words);
+	TalkActionResult_t result = g_talkActions().playerSaySpell(player, type, words);
 	if (result == TALKACTION_BREAK) {
 		return true;
 	}
@@ -8635,7 +8634,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_actions().clear(true);
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
-			g_talkActions->clear(true);
+			g_talkActions().clear(true);
 			g_globalEvents->clear(true);
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
@@ -8657,7 +8656,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_actions().clear(true);
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
-			g_talkActions->clear(true);
+			g_talkActions().clear(true);
 			g_globalEvents->clear(true);
 			g_spells->clear(true);
 			g_scripts->loadScripts("scripts", false, true);

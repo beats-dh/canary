@@ -38,7 +38,6 @@ CreatureEvents* g_creatureEvents = nullptr;
 Events* g_events = nullptr;
 GlobalEvents* g_globalEvents = nullptr;
 Spells* g_spells = nullptr;
-TalkActions* g_talkActions = nullptr;
 MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
 Scripts* g_scripts = nullptr;
@@ -58,7 +57,6 @@ Scripts::~Scripts() {
 	delete g_events;
 	delete g_weapons;
 	delete g_spells;
-	delete g_talkActions;
 	delete g_moveEvents;
 	delete g_creatureEvents;
 	delete g_globalEvents;
@@ -84,7 +82,6 @@ bool Scripts::loadScriptSystems() {
 		return false;
 	}
 
-	g_talkActions = new TalkActions();
 	if (!g_talkActions) {
 		return false;
 	}
