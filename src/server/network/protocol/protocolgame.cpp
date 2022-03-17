@@ -41,7 +41,6 @@
 
 extern CreatureEvents *g_creatureEvents;
 extern Modules *g_modules;
-extern Spells *g_spells;
 extern Imbuements *g_imbuements;
 
 template <typename Callable, typename... Args>
@@ -3512,7 +3511,7 @@ void ProtocolGame::sendBasicData()
 		msg.addByte(1); // has reached Main (allow player to open Prey window)
 	}
 
-	std::list<uint16_t> spellsList = g_spells->getSpellsByVocation(player->getVocationId());
+	std::list<uint16_t> spellsList = g_spells().getSpellsByVocation(player->getVocationId());
 	msg.add<uint16_t>(spellsList.size());
 	for (uint16_t sid : spellsList)
 	{

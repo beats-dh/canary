@@ -37,7 +37,6 @@
 CreatureEvents* g_creatureEvents = nullptr;
 Events* g_events = nullptr;
 GlobalEvents* g_globalEvents = nullptr;
-Spells* g_spells = nullptr;
 MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
 Scripts* g_scripts = nullptr;
@@ -56,7 +55,6 @@ Scripts::~Scripts() {
 
 	delete g_events;
 	delete g_weapons;
-	delete g_spells;
 	delete g_moveEvents;
 	delete g_creatureEvents;
 	delete g_globalEvents;
@@ -73,7 +71,6 @@ bool Scripts::loadScriptSystems() {
 
 	g_weapons->loadDefaults();
 
-	g_spells = new Spells();
 	if (!g_spells) {
 		return false;
 	}

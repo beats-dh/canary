@@ -26,7 +26,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "utils/pugicast.h"
 
-extern Spells* g_spells;
 extern LuaEnvironment g_luaEnvironment;
 
 Spells::Spells()
@@ -312,7 +311,7 @@ Position Spells::getCasterPosition(Creature* creature, Direction dir)
 }
 
 CombatSpell::CombatSpell(Combat* initCombat, bool initNeedTarget, bool initNeedDirection) :
-	Event(&g_spells->getScriptInterface()),
+	Event(&g_spells().getScriptInterface()),
 	combat(initCombat),
 	needDirection(initNeedDirection),
 	needTarget(initNeedTarget)

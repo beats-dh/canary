@@ -27,7 +27,6 @@
 #include "creatures/combat/spells.h"
 #include "items/containers/rewards/rewardchest.h"
 
-extern Spells* g_spells;
 
 Actions::Actions() :
 	scriptInterface("Action Interface") {
@@ -339,7 +338,7 @@ Action* Actions::getAction(const Item* item) {
 	}
 
 	//rune items
-	return g_spells->getRuneSpell(item->getID());
+	return g_spells().getRuneSpell(item->getID());
 }
 
 ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_t index, Item* item, bool isHotkey) {
