@@ -49,7 +49,6 @@
 
 DatabaseTasks g_databaseTasks;
 
-extern Events* g_events;
 extern Imbuements* g_imbuements;
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
@@ -95,7 +94,6 @@ void badAllocationHandler() {
 void initGlobalScopes() {
 	g_scripts = new Scripts();
 	g_modules = new Modules();
-	g_events = new Events();
 	g_imbuements = new Imbuements();
 }
 
@@ -177,7 +175,7 @@ void loadModules() {
 		"data/XML/imbuements.xml");
 	modulesLoadHelper(g_modules->loadFromXml(),
 		"data/modules/modules.xml");
-	modulesLoadHelper(g_events->loadFromXml(),
+	modulesLoadHelper(g_events().loadFromXml(),
 		"data/events/events.xml");
 	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
 		"data/scripts");

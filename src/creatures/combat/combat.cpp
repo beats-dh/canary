@@ -29,7 +29,6 @@
 #include "items/weapons/weapons.h"
 
 extern Weapons* g_weapons;
-extern Events* g_events;
 
 CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 {
@@ -264,7 +263,7 @@ ReturnValue Combat::canDoCombat(Creature* caster, Tile* tile, bool aggressive)
 		return RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE;
 	}
 
-	return g_events->eventCreatureOnAreaCombat(caster, tile, aggressive);
+	return g_events().eventCreatureOnAreaCombat(caster, tile, aggressive);
 }
 
 bool Combat::isInPvpZone(const Creature* attacker, const Creature* target)
@@ -380,7 +379,7 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 			}
 		}
 	}
-	return g_events->eventCreatureOnTargetCombat(attacker, target);
+	return g_events().eventCreatureOnTargetCombat(attacker, target);
 }
 
 void Combat::setPlayerCombatValues(formulaType_t newFormulaType, double newMina, double newMinb, double newMaxa, double newMaxb)
@@ -500,7 +499,7 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 	if (caster && caster->getPlayer()) {
 		Item *item = caster->getPlayer()->getWeapon();
 		damage = applyImbuementElementalDamage(item, damage);
-		g_events->eventPlayerOnCombat(caster->getPlayer(), target, item, damage);
+		g_events().eventPlayerOnCombat(caster->getPlayer(), target, item, damage);
 
 		if (target && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			damage.primary.value /= 2;

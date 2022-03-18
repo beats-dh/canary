@@ -38,7 +38,6 @@
 
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
-extern Events* g_events;
 extern Imbuements* g_imbuements;
 
 MuteCountMap Player::muteCountMap;
@@ -535,7 +534,7 @@ void Player::addSkillAdvance(skills_t skill, uint64_t count)
 		return;
 	}
 
-	g_events->eventPlayerOnGainSkillTries(this, skill, count);
+	g_events().eventPlayerOnGainSkillTries(this, skill, count);
 	if (count == 0) {
 		return;
 	}
@@ -750,7 +749,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 
 		if (!isLogin) {
 			auto currentFrameTime = g_dispatcher().getDispatcherCycle();
-			g_events->eventOnStorageUpdate(this, key, value, oldValue, currentFrameTime);
+			g_events().eventOnStorageUpdate(this, key, value, oldValue, currentFrameTime);
 		}
 	} else {
 		storageMap.erase(key);
@@ -1592,7 +1591,7 @@ void Player::onChangeZone(ZoneType_t zone)
 
 	g_game().updateCreatureWalkthrough(this);
 	sendIcons();
-	g_events->eventPlayerOnChangeZone(this, zone);
+	g_events().eventPlayerOnChangeZone(this, zone);
 }
 
 void Player::onAttackedCreatureChangeZone(ZoneType_t zone)
@@ -2071,7 +2070,7 @@ void Player::addManaSpent(uint64_t amount)
 		return;
 	}
 
-	g_events->eventPlayerOnGainSkillTries(this, SKILL_MAGLEVEL, amount);
+	g_events().eventPlayerOnGainSkillTries(this, SKILL_MAGLEVEL, amount);
 	if (amount == 0) {
 		return;
 	}
@@ -2128,7 +2127,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		return;
 	}
 
-	g_events->eventPlayerOnGainExperience(this, source, exp, rawExp);
+	g_events().eventPlayerOnGainExperience(this, source, exp, rawExp);
 	if (exp == 0) {
 		return;
 	}
@@ -2219,7 +2218,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 		return;
 	}
 
-	g_events->eventPlayerOnLoseExperience(this, exp);
+	g_events().eventPlayerOnLoseExperience(this, exp);
 	if (exp == 0) {
 		return;
 	}
@@ -5303,7 +5302,7 @@ bool Player::addOfflineTrainingTries(skills_t skill, uint64_t tries)
 		oldSkillValue = magLevel;
 		oldPercentToNextLevel = static_cast<long double>(manaSpent * 100) / nextReqMana;
 
-		g_events->eventPlayerOnGainSkillTries(this, SKILL_MAGLEVEL, tries);
+		g_events().eventPlayerOnGainSkillTries(this, SKILL_MAGLEVEL, tries);
 		uint32_t currMagLevel = magLevel;
 
 		while ((manaSpent + tries) >= nextReqMana) {
@@ -5357,7 +5356,7 @@ bool Player::addOfflineTrainingTries(skills_t skill, uint64_t tries)
 		oldSkillValue = skills[skill].level;
 		oldPercentToNextLevel = static_cast<long double>(skills[skill].tries * 100) / nextReqTries;
 
-		g_events->eventPlayerOnGainSkillTries(this, skill, tries);
+		g_events().eventPlayerOnGainSkillTries(this, skill, tries);
 		uint32_t currSkillLevel = skills[skill].level;
 
 		while ((skills[skill].tries + tries) >= nextReqTries) {

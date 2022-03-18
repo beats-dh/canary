@@ -27,8 +27,6 @@
 #include "lua/creature/movement.h"
 #include "creatures/players/imbuements/imbuements.h"
 
-extern Vocations g_vocations;
-extern Events* g_events;
 extern Imbuements* g_imbuements;
 
 MoveEvents::MoveEvents() :

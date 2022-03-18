@@ -27,8 +27,6 @@
 #include "utils/pugicast.h"
 #include "lua/creature/events.h"
 
-extern Monsters g_monsters;
-extern Events* g_events;
 
 static constexpr int32_t MONSTER_MINSPAWN_INTERVAL = 1000; // 1 second
 static constexpr int32_t MONSTER_MAXSPAWN_INTERVAL = 86400000; // 1 day
@@ -211,7 +209,7 @@ bool SpawnMonster::spawnMonster(uint32_t spawnMonsterId, MonsterType* monsterTyp
 
 	spawnedMonsterMap.insert(spawned_pair(spawnMonsterId, monster));
 	spawnMonsterMap[spawnMonsterId].lastSpawn = OTSYS_TIME();
-	g_events->eventMonsterOnSpawn(monster, pos);
+	g_events().eventMonsterOnSpawn(monster, pos);
 	return true;
 }
 

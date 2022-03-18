@@ -27,7 +27,6 @@
 #include "utils/pugicast.h"
 #include "lua/creature/events.h"
 
-extern Events* g_events;
 
 static constexpr int32_t MINSPAWN_INTERVAL = 1000; // 1 second
 static constexpr int32_t MAXSPAWN_INTERVAL = 86400000; // 1 day
@@ -198,7 +197,7 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position& pos,
 
 	spawnedNpcMap.insert(spawned_pair(spawnId, npc));
 	spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();
-	g_events->eventNpcOnSpawn(npc, pos);
+	g_events().eventNpcOnSpawn(npc, pos);
 	return true;
 }
 

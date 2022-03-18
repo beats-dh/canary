@@ -34,7 +34,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/scripts.h"
 
-Events* g_events = nullptr;
 MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
 Scripts* g_scripts = nullptr;
@@ -51,7 +50,6 @@ Scripts::Scripts() :
 Scripts::~Scripts() {
 	scriptInterface.reInitState();
 
-	delete g_events;
 	delete g_weapons;
 	delete g_moveEvents;
 	delete g_imbuements;

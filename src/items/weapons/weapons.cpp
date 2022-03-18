@@ -27,7 +27,6 @@
 
 extern Vocations g_vocations;
 extern Weapons* g_weapons;
-extern Events* g_events;
 
 Weapons::Weapons()
 {

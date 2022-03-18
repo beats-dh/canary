@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern Events* g_events;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
@@ -1301,7 +1300,7 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 		movingCreature->setLastPosition(movingCreature->getPosition());
 	}
 
-	if (!g_events->eventPlayerOnMoveCreature(player, movingCreature, movingCreaturePos, toPos)) {
+	if (!g_events().eventPlayerOnMoveCreature(player, movingCreature, movingCreaturePos, toPos)) {
 		return;
 	}
 
@@ -1588,7 +1587,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 		return;
 	}
 
-	if (!g_events->eventPlayerOnMoveItem(player, item, count, fromPos, toPos, fromCylinder, toCylinder)) {
+	if (!g_events().eventPlayerOnMoveItem(player, item, count, fromPos, toPos, fromCylinder, toCylinder)) {
 		return;
 	}
 
@@ -1620,7 +1619,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	}
 	player->cancelPush();
 
-	g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
+	g_events().eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
 }
 
 ReturnValue Game::internalMoveItem(Cylinder* fromCylinder,
@@ -3333,7 +3332,7 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 			return;
 		}
 
-		if (!g_events->eventPlayerOnBrowseField(player, tile->getPosition())) {
+		if (!g_events().eventPlayerOnBrowseField(player, tile->getPosition())) {
 			return;
 		}
 
@@ -3735,7 +3734,7 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 		return;
 	}
 
-	if (!g_events->eventPlayerOnBrowseField(player, pos)) {
+	if (!g_events().eventPlayerOnBrowseField(player, pos)) {
 		return;
 	}
 
@@ -4010,7 +4009,7 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 
-	if (!g_events->eventPlayerOnTradeRequest(player, tradePartner, tradeItem)) {
+	if (!g_events().eventPlayerOnTradeRequest(player, tradePartner, tradeItem)) {
 		return;
 	}
 
@@ -4077,7 +4076,7 @@ void Game::playerAcceptTrade(uint32_t playerId)
 		Item* tradeItem1 = player->tradeItem;
 		Item* tradeItem2 = tradePartner->tradeItem;
 
-		if (!g_events->eventPlayerOnTradeAccept(player, tradePartner, tradeItem1, tradeItem2)) {
+		if (!g_events().eventPlayerOnTradeAccept(player, tradePartner, tradeItem1, tradeItem2)) {
 			internalCloseTrade(player);
 			return;
 		}
@@ -4212,7 +4211,7 @@ void Game::playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, uint8_t
                             Position::getDistanceX(playerPosition, tradeItemPosition),
                             Position::getDistanceY(playerPosition, tradeItemPosition));
 	if (index == 0) {
-		g_events->eventPlayerOnLookInTrade(player, tradePartner, tradeItem, lookDistance);
+		g_events().eventPlayerOnLookInTrade(player, tradePartner, tradeItem, lookDistance);
 		return;
 	}
 
@@ -4232,7 +4231,7 @@ void Game::playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, uint8_t
 			}
 
 			if (--index == 0) {
-				g_events->eventPlayerOnLookInTrade(player, tradePartner, item, lookDistance);
+				g_events().eventPlayerOnLookInTrade(player, tradePartner, item, lookDistance);
 				return;
 			}
 		}
@@ -4394,7 +4393,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		subType = count;
 	}
 
-	if (!g_events->eventPlayerOnLookInShop(player, &it, subType)) {
+	if (!g_events().eventPlayerOnLookInShop(player, &it, subType)) {
 		return;
 	}
 
@@ -4436,7 +4435,7 @@ void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos
 	}
 
 	// Parse onLook from event player
-	g_events->eventPlayerOnLook(player, pos, thing, stackPos, lookDistance);
+	g_events().eventPlayerOnLook(player, pos, thing, stackPos, lookDistance);
 }
 
 void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
@@ -4471,7 +4470,7 @@ void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
 		lookDistance = -1;
 	}
 
-	g_events->eventPlayerOnLookInBattleList(player, creature, lookDistance);
+	g_events().eventPlayerOnLookInBattleList(player, creature, lookDistance);
 }
 
 void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spriteId, uint8_t stackPos, Item* defaultItem, bool lootAllCorpses, bool autoLoot)
@@ -4989,7 +4988,7 @@ void Game::playerTurn(uint32_t playerId, Direction dir)
 		return;
 	}
 
-	if (!g_events->eventPlayerOnTurn(player, dir)) {
+	if (!g_events().eventPlayerOnTurn(player, dir)) {
 		return;
 	}
 
@@ -5080,7 +5079,7 @@ void Game::playerShowQuestLog(uint32_t playerId)
 		return;
 	}
 
-	g_events->eventPlayerOnRequestQuestLog(player);
+	g_events().eventPlayerOnRequestQuestLog(player);
 }
 
 void Game::playerShowQuestLine(uint32_t playerId, uint16_t questId)
@@ -5090,7 +5089,7 @@ void Game::playerShowQuestLine(uint32_t playerId, uint16_t questId)
 		return;
 	}
 
-	g_events->eventPlayerOnRequestQuestLine(player, questId);
+	g_events().eventPlayerOnRequestQuestLine(player, questId);
 }
 
 void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
@@ -5358,7 +5357,7 @@ bool Game::internalCreatureSay(Creature* creature, SpeakClasses type, const std:
 	for (Creature* spectator : spectators) {
 		spectator->onCreatureSay(creature, type, text);
 		if (creature != spectator) {
-			g_events->eventCreatureOnHear(spectator, creature, text, type);
+			g_events().eventCreatureOnHear(spectator, creature, text, type);
 		}
 	}
 	return true;
@@ -5456,7 +5455,7 @@ void Game::changeSpeed(Creature* creature, int32_t varSpeedDelta)
 
 void Game::internalCreatureChangeOutfit(Creature* creature, const Outfit_t& outfit)
 {
-	if (!g_events->eventCreatureOnChangeOutfit(creature, outfit)) {
+	if (!g_events().eventCreatureOnChangeOutfit(creature, outfit)) {
 		return;
 	}
 
@@ -5863,7 +5862,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		message.position = targetPos;
 
 		if (!isEvent) {
-			g_events->eventCreatureOnDrainHealth(target, attacker, damage.primary.type, damage.primary.value, damage.secondary.type, damage.secondary.value, message.primary.color, message.secondary.color);
+			g_events().eventCreatureOnDrainHealth(target, attacker, damage.primary.type, damage.primary.value, damage.secondary.type, damage.secondary.value, message.primary.color, message.secondary.color);
 		}
 		if (damage.origin != ORIGIN_NONE && attacker && damage.primary.type != COMBAT_HEALING) {
 			damage.primary.value *= attacker->getBuff(BUFF_DAMAGEDEALT) / 100.;
@@ -7322,7 +7321,7 @@ void Game::playerReportRuleViolationReport(uint32_t playerId, const std::string&
 		return;
 	}
 
-	g_events->eventPlayerOnReportRuleViolation(player, targetName, reportType, reportReason, comment, translation);
+	g_events().eventPlayerOnReportRuleViolation(player, targetName, reportType, reportReason, comment, translation);
 }
 
 void Game::playerReportBug(uint32_t playerId, const std::string& message, const Position& position, uint8_t category)
@@ -7332,7 +7331,7 @@ void Game::playerReportBug(uint32_t playerId, const std::string& message, const 
 		return;
 	}
 
-	g_events->eventPlayerOnReportBug(player, message, position, category);
+	g_events().eventPlayerOnReportBug(player, message, position, category);
 }
 
 void Game::playerDebugAssert(uint32_t playerId, const std::string& assertLine, const std::string& date, const std::string& description, const std::string& comment)
@@ -8619,7 +8618,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 		case RELOAD_TYPE_CHAT: return g_chat().load();
 		case RELOAD_TYPE_CONFIG: return g_configManager().reload();
-		case RELOAD_TYPE_EVENTS: return g_events->loadFromXml();
+		case RELOAD_TYPE_EVENTS: return g_events().loadFromXml();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
@@ -8648,7 +8647,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			mounts.reload();
-			g_events->loadFromXml();
+			g_events().loadFromXml();
 			g_chat().load();
 			g_actions().clear(true);
 			g_creatureEvents().clear(true);

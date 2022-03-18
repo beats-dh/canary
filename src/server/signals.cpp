@@ -37,7 +37,6 @@
 
 extern DatabaseTasks g_databaseTasks;
 
-extern Events* g_events;
 extern LuaEnvironment g_luaEnvironment;
 
 using ErrorCode = boost::system::error_code;
@@ -145,7 +144,7 @@ void Signals::sighupHandler()
 	g_game().mounts.reload();
 	SPDLOG_INFO("Reloaded mounts");
 
-	g_events->loadFromXml();
+	g_events().loadFromXml();
 	SPDLOG_INFO("Reloaded events");
 
 	g_chat().load();
