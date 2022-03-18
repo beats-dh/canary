@@ -39,7 +39,6 @@
 #include "creatures/players/management/waitlist.h"
 #include "items/weapons/weapons.h"
 
-extern CreatureEvents *g_creatureEvents;
 extern Modules *g_modules;
 extern Imbuements *g_imbuements;
 
@@ -421,7 +420,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 		}
 	}
 
-	if (removePlayer && !g_creatureEvents->playerLogout(player)) {
+	if (removePlayer && !g_creatureEvents().playerLogout(player)) {
 		return;
 	}
 

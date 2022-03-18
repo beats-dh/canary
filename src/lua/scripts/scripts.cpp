@@ -34,7 +34,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/scripts.h"
 
-CreatureEvents* g_creatureEvents = nullptr;
 Events* g_events = nullptr;
 MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
@@ -55,7 +54,6 @@ Scripts::~Scripts() {
 	delete g_events;
 	delete g_weapons;
 	delete g_moveEvents;
-	delete g_creatureEvents;
 	delete g_imbuements;
 }
 
@@ -86,7 +84,6 @@ bool Scripts::loadScriptSystems() {
 		return false;
 	}
 
-	g_creatureEvents = new CreatureEvents();
 	if (!g_creatureEvents) {
 		return false;
 	}

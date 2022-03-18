@@ -37,7 +37,6 @@
 
 extern DatabaseTasks g_databaseTasks;
 
-extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern LuaEnvironment g_luaEnvironment;
 
