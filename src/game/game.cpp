@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern MoveEvents* g_moveEvents;
@@ -299,12 +298,12 @@ void Game::setGameState(GameState_t newState)
 			loadMotdNum();
 			loadPlayersRecord();
 
-			g_globalEvents->startup();
+			g_globalEvents().startup();
 			break;
 		}
 
 		case GAME_STATE_SHUTDOWN: {
-			g_globalEvents->execute(GLOBALEVENT_SHUTDOWN);
+			g_globalEvents().execute(GLOBALEVENT_SHUTDOWN);
 
 			//kick all players that are still online
 			auto it = players.begin();
@@ -6634,7 +6633,7 @@ void Game::checkLight()
 	}
   if (currentLightState != lightState) {
 		currentLightState = lightState;
-		for (auto& it : g_globalEvents->getEventMap(GLOBALEVENT_PERIODCHANGE)) {
+		for (auto& it : g_globalEvents().getEventMap(GLOBALEVENT_PERIODCHANGE)) {
 			it.second.executePeriodChange(lightState, lightInfo);
 		}
 	}
@@ -6886,7 +6885,7 @@ void Game::checkPlayersRecord()
 		uint32_t previousRecord = playersRecord;
 		playersRecord = playersOnline;
 
-		for (auto& it : g_globalEvents->getEventMap(GLOBALEVENT_RECORD)) {
+		for (auto& it : g_globalEvents().getEventMap(GLOBALEVENT_RECORD)) {
 			it.second.executeRecord(playersRecord, previousRecord);
 		}
 		updatePlayersRecord();
@@ -8634,7 +8633,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
 			g_talkActions().clear(true);
-			g_globalEvents->clear(true);
+			g_globalEvents().clear(true);
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			g_spells().clear(true);
@@ -8656,7 +8655,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_creatureEvents->clear(true);
 			g_moveEvents->clear(true);
 			g_talkActions().clear(true);
-			g_globalEvents->clear(true);
+			g_globalEvents().clear(true);
 			g_spells().clear(true);
 			g_scripts->loadScripts("scripts", false, true);
 		}

@@ -24,7 +24,6 @@
 #include "lua/scripts/scripts.h"
 #include "utils/tools.h"
 
-extern GlobalEvents* g_globalEvents;
 extern Scripts* g_scripts;
 
 int GlobalEventFunctions::luaCreateGlobalEvent(lua_State* L) {
@@ -82,7 +81,7 @@ int GlobalEventFunctions::luaGlobalEventRegister(lua_State* L) {
 			pushBoolean(L, false);
 			return 1;
 		}
-		pushBoolean(L, g_globalEvents->registerLuaEvent(globalevent));
+		pushBoolean(L, g_globalEvents().registerLuaEvent(globalevent));
 	} else {
 		lua_pushnil(L);
 	}
