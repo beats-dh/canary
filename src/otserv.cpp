@@ -49,7 +49,6 @@
 
 DatabaseTasks g_databaseTasks;
 
-extern Imbuements* g_imbuements;
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
 extern Scripts* g_scripts;
@@ -94,7 +93,6 @@ void badAllocationHandler() {
 void initGlobalScopes() {
 	g_scripts = new Scripts();
 	g_modules = new Modules();
-	g_imbuements = new Imbuements();
 }
 
 void modulesLoadHelper(bool loaded, std::string moduleName) {
@@ -171,7 +169,7 @@ void loadModules() {
 		"data/XML/outfits.xml");
 	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
 		"data/XML/familiars.xml");
-	modulesLoadHelper(g_imbuements->loadFromXml(),
+	modulesLoadHelper(g_imbuements().loadFromXml(),
 		"data/XML/imbuements.xml");
 	modulesLoadHelper(g_modules->loadFromXml(),
 		"data/modules/modules.xml");

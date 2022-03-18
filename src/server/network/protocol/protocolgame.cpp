@@ -40,7 +40,6 @@
 #include "items/weapons/weapons.h"
 
 extern Modules *g_modules;
-extern Imbuements *g_imbuements;
 
 template <typename Callable, typename... Args>
 void ProtocolGame::addGameTask(Callable function, Args &&... args)
@@ -6508,9 +6507,9 @@ void ProtocolGame::AddOutfit(NetworkMessage &msg, const Outfit_t &outfit, bool a
 
 void ProtocolGame::addImbuementInfo(NetworkMessage &msg, uint32_t imbuementId)
 {
-	Imbuement *imbuement = g_imbuements->getImbuement(imbuementId);
-	const BaseImbuement *baseImbuement = g_imbuements->getBaseByID(imbuement->getBaseID());
-	CategoryImbuement *categoryImbuement = g_imbuements->getCategoryByID(imbuement->getCategory());
+	Imbuement *imbuement = g_imbuements().getImbuement(imbuementId);
+	const BaseImbuement *baseImbuement = g_imbuements().getBaseByID(imbuement->getBaseID());
+	CategoryImbuement *categoryImbuement = g_imbuements().getCategoryByID(imbuement->getCategory());
 
 	msg.add<uint32_t>(imbuementId);
 	msg.addString(baseImbuement->name + " " + imbuement->getName());
@@ -6568,10 +6567,10 @@ void ProtocolGame::openImbuementWindow(Item *item)
 		msg.addByte(0x01);
 		addImbuementInfo(msg, imbuementInfo.imbuement->getID());
 		msg.add<uint32_t>(imbuementInfo.duration);
-		msg.add<uint32_t>(g_imbuements->getBaseByID(imbuementInfo.imbuement->getBaseID())->removeCost);
+		msg.add<uint32_t>(g_imbuements().getBaseByID(imbuementInfo.imbuement->getBaseID())->removeCost);
 	}
 
-	std::vector<Imbuement *> imbuements = g_imbuements->getImbuements(player, item);
+	std::vector<Imbuement *> imbuements = g_imbuements().getImbuements(player, item);
 	std::unordered_map<uint16_t, uint16_t> needItems;
 
 	msg.add<uint16_t>(imbuements.size());

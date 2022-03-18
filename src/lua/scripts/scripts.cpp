@@ -38,7 +38,6 @@ MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
 Scripts* g_scripts = nullptr;
 Modules* g_modules = nullptr;
-Imbuements* g_imbuements = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
 
@@ -52,7 +51,6 @@ Scripts::~Scripts() {
 
 	delete g_weapons;
 	delete g_moveEvents;
-	delete g_imbuements;
 }
 
 bool Scripts::loadScriptSystems() {

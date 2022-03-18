@@ -38,7 +38,6 @@
 
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
-extern Imbuements* g_imbuements;
 
 MuteCountMap Player::muteCountMap;
 
@@ -489,7 +488,7 @@ void Player::updateInventoryImbuement(bool init /* = false */)
 
 			// Time not decay on protection zone
 			const Tile* playerTile = getTile();
-			const CategoryImbuement *categoryImbuement = g_imbuements->getCategoryByID(imbuementInfo.imbuement->getCategory());
+			const CategoryImbuement *categoryImbuement = g_imbuements().getCategoryByID(imbuementInfo.imbuement->getCategory());
 			if (categoryImbuement->agressive && playerTile && playerTile->hasFlag(TILESTATE_PROTECTIONZONE)) {
 				continue;
 			}
@@ -1323,7 +1322,7 @@ void Player::onClearImbuement(Item* item, uint8_t slot)
 		return;
 	}
 
-	const BaseImbuement *baseImbuement = g_imbuements->getBaseByID(imbuementInfo.imbuement->getBaseID());
+	const BaseImbuement *baseImbuement = g_imbuements().getBaseByID(imbuementInfo.imbuement->getBaseID());
 	if (!baseImbuement) {
 		return;
 	}

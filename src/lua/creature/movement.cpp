@@ -27,7 +27,6 @@
 #include "lua/creature/movement.h"
 #include "creatures/players/imbuements/imbuements.h"
 
-extern Imbuements* g_imbuements;
 
 MoveEvents::MoveEvents() :
 	scriptInterface("MoveEvents Interface") {

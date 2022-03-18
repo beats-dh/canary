@@ -37,7 +37,6 @@
 
 #define IMBUEMENT_SLOT 500
 
-extern Imbuements* g_imbuements;
 
 Items Item::items;
 
@@ -92,7 +91,7 @@ bool Item::getImbuementInfo(uint8_t slot, ImbuementInfo *imbuementInfo)
 {
 	const ItemAttributes::CustomAttribute* attribute = getCustomAttribute(IMBUEMENT_SLOT + slot);
 	uint32_t info = attribute ? static_cast<uint32_t>(attribute->getInt()) : 0;
-	imbuementInfo->imbuement = g_imbuements->getImbuement(info & 0xFF);
+	imbuementInfo->imbuement = g_imbuements().getImbuement(info & 0xFF);
 	imbuementInfo->duration = info >> 8;
 	return imbuementInfo->duration && imbuementInfo->imbuement;
 }
@@ -138,7 +137,7 @@ bool Item::hasImbuementCategoryId(uint16_t categoryId) {
 	for (uint8_t slotid = 0; slotid < getImbuementSlot(); slotid++) {
 		ImbuementInfo imbuementInfo;
 		if (getImbuementInfo(slotid, &imbuementInfo)) {
-			const CategoryImbuement* categoryImbuement = g_imbuements->getCategoryByID(imbuementInfo.imbuement->getCategory());
+			const CategoryImbuement* categoryImbuement = g_imbuements().getCategoryByID(imbuementInfo.imbuement->getCategory());
 			if (categoryImbuement->id == categoryId) {
 				return true;
 			}
@@ -1477,7 +1476,7 @@ std::string Item::parseImbuementDescription(const Item* item)
 				continue;
 			}
 
-			const BaseImbuement *baseImbuement = g_imbuements->getBaseByID(imbuementInfo.imbuement->getBaseID());
+			const BaseImbuement *baseImbuement = g_imbuements().getBaseByID(imbuementInfo.imbuement->getBaseID());
 			if (!baseImbuement)
 			{
 				continue;
