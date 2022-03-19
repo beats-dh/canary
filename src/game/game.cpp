@@ -316,7 +316,7 @@ void Game::setGameState(GameState_t newState)
 				createTask(std::bind(&Game::shutdown, this)));
 
 			g_scheduler().stop();
-			g_databaseTasks.stop();
+			g_databaseTasks().stop();
 			g_dispatcher().stop();
 			break;
 		}
@@ -619,7 +619,7 @@ void Game::saveGameState()
 
 	Map::save();
 
-	g_databaseTasks.flush();
+	g_databaseTasks().flush();
 
 	if (gameState == GAME_STATE_MAINTAIN) {
 		setGameState(GAME_STATE_NORMAL);
@@ -6666,7 +6666,7 @@ void Game::shutdown()
 	SPDLOG_INFO("Shutting down...");
 
 	g_scheduler().shutdown();
-	g_databaseTasks.shutdown();
+	g_databaseTasks().shutdown();
 	g_dispatcher().shutdown();
 	map.spawnsMonster.clear();
 	map.spawnsNpc.clear();
@@ -7133,7 +7133,7 @@ void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, C
 				} while (result->next());
 				player->sendCyclopediaCharacterRecentDeaths(page, static_cast<uint16_t>(pages), entries);
 			};
-			g_databaseTasks.addTask(std::move(query.str()), callback, true);
+			g_databaseTasks().addTask(std::move(query.str()), callback, true);
 			player->addAsyncOngoingTask(PlayerAsyncTask_RecentDeaths);
 			break;
 	}
@@ -7186,7 +7186,7 @@ void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, C
 				} while (result->next());
 				player->sendCyclopediaCharacterRecentPvPKills(page, static_cast<uint16_t>(pages), entries);
 			};
-			g_databaseTasks.addTask(std::move(query.str()), callback, true);
+			g_databaseTasks().addTask(std::move(query.str()), callback, true);
 			player->addAsyncOngoingTask(PlayerAsyncTask_RecentPvPKills);
 			break;
 	}
@@ -7300,7 +7300,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		} while (result->next());
 		player->sendHighscores(characters, category, vocation, page, static_cast<uint16_t>(pages));
 	};
-	g_databaseTasks.addTask(std::move(query.str()), callback, true);
+	g_databaseTasks().addTask(std::move(query.str()), callback, true);
 	player->addAsyncOngoingTask(PlayerAsyncTask_Highscore);
 }
 

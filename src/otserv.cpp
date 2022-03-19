@@ -47,7 +47,6 @@
 	#include "gitmetadata.h"
 #endif
 
-DatabaseTasks g_databaseTasks;
 
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
@@ -134,7 +133,7 @@ void loadModules() {
 		startupErrorMessage();
 	}
 
-	g_databaseTasks.start();
+	g_databaseTasks().start();
 	DatabaseManager::updateDatabase();
 
 	if (g_configManager().getBoolean(OPTIMIZE_DATABASE)
@@ -215,13 +214,13 @@ int main(int argc, char* argv[]) {
 		serviceManager.run();
 	} else {
 		SPDLOG_ERROR("No services running. The server is NOT online!");
-		g_databaseTasks.shutdown();
+		g_databaseTasks().shutdown();
 		g_dispatcher().shutdown();
 		exit(-1);
 	}
 
 	g_scheduler().join();
-	g_databaseTasks.join();
+	g_databaseTasks().join();
 	g_dispatcher().join();
 	return 0;
 }

@@ -35,7 +35,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "server/signals.h"
 
-extern DatabaseTasks g_databaseTasks;
 
 extern LuaEnvironment g_luaEnvironment;
 
@@ -96,7 +95,7 @@ void Signals::dispatchSignalHandler(int signal)
 			g_dispatcher().addTask(createTask(sigbreakHandler));
 			// hold the thread until other threads end
 			g_scheduler().join();
-			g_databaseTasks.join();
+			g_databaseTasks().join();
 			g_dispatcher().join();
 			break;
 #endif
