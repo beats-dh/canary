@@ -45,6 +45,13 @@ class Weapons final : public BaseEvents
 		Weapons(const Weapons&) = delete;
 		Weapons& operator=(const Weapons&) = delete;
 
+		static Weapons& getInstance() {
+			// Guaranteed to be destroyed
+			static Weapons instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		void loadDefaults();
 		const Weapon* getWeapon(const Item* item) const;
 
@@ -64,6 +71,8 @@ class Weapons final : public BaseEvents
 
 		LuaScriptInterface scriptInterface { "Weapon Interface" };
 };
+
+constexpr auto g_weapons = &Weapons::getInstance;
 
 class Weapon : public Event
 {

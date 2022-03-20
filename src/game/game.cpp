@@ -49,7 +49,6 @@
 #include "server/network/webhook/webhook.h"
 
 extern MoveEvents* g_moveEvents;
-extern Weapons* g_weapons;
 extern Modules* g_modules;
 extern LuaEnvironment g_luaEnvironment;
 
@@ -8630,8 +8629,8 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_moveEvents->clear(true);
 			g_talkActions().clear(true);
 			g_globalEvents().clear(true);
-			g_weapons->clear(true);
-			g_weapons->loadDefaults();
+			g_weapons().clear(true);
+			g_weapons().loadDefaults();
 			g_spells().clear(true);
 			g_scripts().loadScripts("scripts", false, true);
 			return true;
@@ -8642,8 +8641,8 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_configManager().reload();
 			raids.reload() && raids.startup();
 			Item::items.reload();
-			g_weapons->clear(true);
-			g_weapons->loadDefaults();
+			g_weapons().clear(true);
+			g_weapons().loadDefaults();
 			mounts.reload();
 			g_events().loadFromXml();
 			g_chat().load();

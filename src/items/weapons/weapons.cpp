@@ -25,8 +25,6 @@
 #include "lua/creature/events.h"
 #include "items/weapons/weapons.h"
 
-extern Vocations g_vocations;
-extern Weapons* g_weapons;
 
 Weapons::Weapons()
 {
@@ -701,7 +699,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 	const ItemType& it = Item::items[id];
 	if (it.weaponType == WEAPON_AMMO) {
 		Item* mainWeaponItem = player->getWeapon(true);
-		const Weapon* mainWeapon = g_weapons->getWeapon(mainWeaponItem);
+		const Weapon* mainWeapon = g_weapons().getWeapon(mainWeaponItem);
 		if (mainWeapon) {
 			damageModifier = mainWeapon->playerWeaponCheck(player, target, mainWeaponItem->getShootRange());
 		} else {

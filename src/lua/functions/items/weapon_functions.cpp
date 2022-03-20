@@ -28,7 +28,6 @@
 #include "lua/scripts/scripts.h"
 #include "utils/tools.h"
 
-extern Weapons* g_weapons;
 
 int WeaponFunctions::luaCreateWeapon(lua_State* L) {
 	// Weapon(type)
@@ -136,7 +135,7 @@ int WeaponFunctions::luaWeaponRegister(lua_State* L) {
 		}
 
 		weapon->configureWeapon(it);
-		pushBoolean(L, g_weapons->registerLuaEvent(weapon));
+		pushBoolean(L, g_weapons().registerLuaEvent(weapon));
 		weapon = nullptr; // Releases weapon, removing the luascript reference
 	} else {
 		lua_pushnil(L);

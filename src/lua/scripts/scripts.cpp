@@ -35,7 +35,6 @@
 #include "lua/scripts/scripts.h"
 
 MoveEvents* g_moveEvents = nullptr;
-Weapons* g_weapons = nullptr;
 Modules* g_modules = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
@@ -48,19 +47,17 @@ Scripts::Scripts() :
 Scripts::~Scripts() {
 	scriptInterface.reInitState();
 
-	delete g_weapons;
 	delete g_moveEvents;
 }
 
 bool Scripts::loadScriptSystems() {
 
 	// XML loads disabled start
-	g_weapons = new Weapons();
 	if (!g_weapons) {
 		return false;
 	}
 
-	g_weapons->loadDefaults();
+	g_weapons().loadDefaults();
 
 	if (!g_spells) {
 		return false;

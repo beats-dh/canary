@@ -37,7 +37,6 @@
 #include "io/iobestiary.h"
 
 extern MoveEvents* g_moveEvents;
-extern Weapons* g_weapons;
 
 MuteCountMap Player::muteCountMap;
 
@@ -4039,7 +4038,7 @@ void Player::doAttacking(uint32_t)
 		bool result = false;
 
 		Item* tool = getWeapon();
-		const Weapon* weapon = g_weapons->getWeapon(tool);
+		const Weapon* weapon = g_weapons().getWeapon(tool);
 		uint32_t delay = getAttackSpeed();
 		bool classicSpeed = g_configManager().getBoolean(CLASSIC_ATTACK_SPEED);
 
