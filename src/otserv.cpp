@@ -50,7 +50,6 @@
 
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
-RSA2 g_RSA;
 
 std::mutex g_loaderLock;
 std::condition_variable g_loaderSignal;
@@ -109,7 +108,7 @@ void loadModules() {
 
 	// set RSA key
 	try {
-		g_RSA.loadPEM("key.pem");
+		g_RSA().loadPEM("key.pem");
 	} catch(const std::exception& e) {
 		SPDLOG_ERROR(e.what());
 		startupErrorMessage();
