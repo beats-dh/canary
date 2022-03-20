@@ -275,7 +275,7 @@ void Creature::addEventWalk(bool firstStep)
 		return;
 	}
 
-	int64_t ticks = getEventStepTicks(firstStep);
+	uint32_t ticks = getEventStepTicks(firstStep);
 	if (ticks <= 0) {
 		return;
 	}
@@ -1217,7 +1217,7 @@ void Creature::onGainExperience(uint64_t gainExp, Creature* target)
 		message.primary.value = gainExp;
 
 		for (Creature* spectator : spectators) {
-			if (Player* player = spectator->getPlayer()) {
+			if (const Player* player = spectator->getPlayer()) {
 				player->sendTextMessage(message);
 			}
 		}
@@ -1531,7 +1531,7 @@ bool Creature::registerCreatureEvent(const std::string& name)
 
 bool Creature::unregisterCreatureEvent(const std::string& name)
 {
-	CreatureEvent* event = g_creatureEvents().getEventByName(name);
+	const CreatureEvent* event = g_creatureEvents().getEventByName(name);
 	if (!event) {
 		return false;
 	}

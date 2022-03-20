@@ -111,7 +111,7 @@ void Game::loadBoostedCreature()
 			}
 		}
 
-		MonsterType* monsterType = g_monsters().getMonsterTypeByRaceId(newrace);
+		const MonsterType* monsterType = g_monsters().getMonsterTypeByRaceId(newrace);
 
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
@@ -214,12 +214,9 @@ bool Game::loadScheduleEventFromXml()
 			}
 		}
 
-		if ((attr = schedNode.attribute("script"))) {
-			if (!(g_scripts().loadEventSchedulerScripts(attr.as_string()))) {
-				SPDLOG_WARN("Can not load the file '{}' on '/events/scripts/scheduler/'",
-					attr.as_string());
-				return false;
-			}
+		if ((attr = schedNode.attribute("script")) && !(g_scripts().loadEventSchedulerScripts(attr.as_string()))) {
+			SPDLOG_WARN("Can not load the file '{}' on '/events/scripts/scheduler/'", attr.as_string());
+			return false;
 		}
 
 		for (auto schedENode : schedNode.children()) {
@@ -2869,7 +2866,7 @@ void Game::playerOpenChannel(uint32_t playerId, uint16_t channelId)
 		return;
 	}
 
-	ChatChannel* channel = g_chat().addUserToChannel(*player, channelId);
+	const ChatChannel* channel = g_chat().addUserToChannel(*player, channelId);
 	if (!channel) {
 		return;
 	}
@@ -6060,7 +6057,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (target && target->getMonster()) {
 					uint16_t playerCharmRaceidVamp = attackerPlayer->parseRacebyCharm(CHARM_VAMP, false, 0);
 					if (playerCharmRaceidVamp != 0) {
-						MonsterType* mType = g_monsters().getMonsterType(target->getName());
+						const MonsterType* mType = g_monsters().getMonsterType(target->getName());
 						if (mType && playerCharmRaceidVamp == mType->info.raceid) {
 							IOBestiary g_bestiary;
 							Charm* lifec = g_bestiary.getBestiaryCharm(CHARM_VAMP);
@@ -6089,7 +6086,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (target && target->getMonster()) {
 					uint16_t playerCharmRaceidVoid = attackerPlayer->parseRacebyCharm(CHARM_VOID, false, 0);
 					if (playerCharmRaceidVoid != 0) {
-						MonsterType* mType = g_monsters().getMonsterType(target->getName());
+						const MonsterType* mType = g_monsters().getMonsterType(target->getName());
 						if (mType && playerCharmRaceidVoid == mType->info.raceid) {
 							IOBestiary g_bestiary;
 							Charm* voidc = g_bestiary.getBestiaryCharm(CHARM_VOID);
@@ -7286,7 +7283,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		characters.reserve(result->countResults());
 		do {
 			uint8_t characterVocation;
-			Vocation* voc = g_vocations().getVocation(result->getNumber<uint16_t>("vocation"));
+			const Vocation* voc = g_vocations().getVocation(result->getNumber<uint16_t>("vocation"));
 			if (voc) {
 				characterVocation = voc->getClientId();
 			} else {

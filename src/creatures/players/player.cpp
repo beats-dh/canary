@@ -2157,7 +2157,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		++level;
 		// Player stats gain for vocations level <= 8
 		if (vocation->getId() != VOCATION_NONE && level <= 8) {
-			Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
+			const Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 			healthMax += noneVocation->getHPGain();
 			health += noneVocation->getHPGain();
 			manaMax += noneVocation->getManaGain();
@@ -2253,7 +2253,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 		--level;
 		// Player stats loss for vocations level <= 8
 		if (vocation->getId() != VOCATION_NONE && level <= 8) {
-			Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
+			const Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 			healthMax = std::max<int32_t>(0, healthMax - noneVocation->getHPGain());
 			manaMax = std::max<int32_t>(0, manaMax - noneVocation->getManaGain());
 			capacity = std::max<int32_t>(0, capacity - noneVocation->getCapGain());
@@ -2510,7 +2510,7 @@ void Player::death(Creature* lastHitCreature)
 		// Charm bless bestiary
 		if (lastHitCreature && lastHitCreature->getMonster()) {
 			if (charmRuneBless != 0) {
-				MonsterType* mType = g_monsters().getMonsterType(lastHitCreature->getName());
+				const MonsterType* mType = g_monsters().getMonsterType(lastHitCreature->getName());
 				if (mType && mType->info.raceid == charmRuneBless) {
 					deathLossPercent = (deathLossPercent * 90) / 100;
 				}
