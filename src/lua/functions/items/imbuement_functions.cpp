@@ -28,7 +28,6 @@
 #include "lua/scripts/scripts.h"
 #include "utils/tools.h"
 
-extern Scripts* g_scripts;
 extern Weapons* g_weapons;
 
 int ImbuementFunctions::luaCreateImbuement(lua_State* L) {

@@ -36,7 +36,6 @@
 
 MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
-Scripts* g_scripts = nullptr;
 Modules* g_modules = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;

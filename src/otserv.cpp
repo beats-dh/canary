@@ -50,7 +50,6 @@
 
 extern LuaEnvironment g_luaEnvironment;
 extern Modules* g_modules;
-extern Scripts* g_scripts;
 RSA2 g_RSA;
 
 std::mutex g_loaderLock;
@@ -90,7 +89,6 @@ void badAllocationHandler() {
 }
 
 void initGlobalScopes() {
-	g_scripts = new Scripts();
 	g_modules = new Modules();
 }
 
@@ -158,7 +156,7 @@ void loadModules() {
 	modulesLoadHelper((g_luaEnvironment.loadFile("data/npclib/load.lua") == 0),
 		"data/npclib/load.lua");
 
-	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
+	modulesLoadHelper(g_scripts().loadScripts("scripts/lib", true, false),
 		"data/scripts/libs");
 	modulesLoadHelper(g_vocations().loadFromXml(),
 		"data/XML/vocations.xml");
@@ -174,11 +172,11 @@ void loadModules() {
 		"data/modules/modules.xml");
 	modulesLoadHelper(g_events().loadFromXml(),
 		"data/events/events.xml");
-	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
+	modulesLoadHelper(g_scripts().loadScripts("scripts", false, false),
 		"data/scripts");
-	modulesLoadHelper(g_scripts->loadScripts("monster", false, false),
+	modulesLoadHelper(g_scripts().loadScripts("monster", false, false),
 		"data/monster");
-	modulesLoadHelper(g_scripts->loadScripts("npclua", false, false),
+	modulesLoadHelper(g_scripts().loadScripts("npclua", false, false),
 		"data/npclua");
 
 	g_game().loadBoostedCreature();

@@ -50,7 +50,6 @@
 
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
-extern Scripts* g_scripts;
 extern Modules* g_modules;
 extern LuaEnvironment g_luaEnvironment;
 
@@ -219,7 +218,7 @@ bool Game::loadScheduleEventFromXml()
 		}
 
 		if ((attr = schedNode.attribute("script"))) {
-			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
+			if (!(g_scripts().loadEventSchedulerScripts(attr.as_string()))) {
 				SPDLOG_WARN("Can not load the file '{}' on '/events/scripts/scheduler/'",
 					attr.as_string());
 				return false;
@@ -8606,12 +8605,12 @@ bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
 		case RELOAD_TYPE_MONSTERS: {
-			g_scripts->loadScripts("monster", false, true);
+			g_scripts().loadScripts("monster", false, true);
 			return true;
 		}
 		case RELOAD_TYPE_NPCS: {
 			g_npcs().reset();
-			g_scripts->loadScripts("npclua", false, true);
+			g_scripts().loadScripts("npclua", false, true);
 			g_luaEnvironment.loadFile("data/npclib/load.lua");
 			return true;
 		}
@@ -8634,7 +8633,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			g_spells().clear(true);
-			g_scripts->loadScripts("scripts", false, true);
+			g_scripts().loadScripts("scripts", false, true);
 			return true;
 		}
 
@@ -8654,7 +8653,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_talkActions().clear(true);
 			g_globalEvents().clear(true);
 			g_spells().clear(true);
-			g_scripts->loadScripts("scripts", false, true);
+			g_scripts().loadScripts("scripts", false, true);
 		}
 	}
 	return true;
