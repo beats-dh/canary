@@ -45,6 +45,13 @@ class MoveEvents final : public BaseEvents {
 		MoveEvents(const MoveEvents&) = delete;
 		MoveEvents& operator=(const MoveEvents&) = delete;
 
+		static MoveEvents& getInstance() {
+			// Guaranteed to be destroyed
+			static MoveEvents instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		uint32_t onCreatureMove(Creature* creature, const Tile* tile, MoveEvent_t eventType);
 		uint32_t onPlayerEquip(Player* player, Item* item, Slots_t slot, bool isCheck);
 		uint32_t onPlayerDeEquip(Player* player, Item* item, Slots_t slot);
@@ -83,6 +90,8 @@ class MoveEvents final : public BaseEvents {
 
 		LuaScriptInterface scriptInterface;
 };
+
+constexpr auto g_moveEvents = &MoveEvents::getInstance;
 
 using StepFunction = std::function<uint32_t(Creature* creature, Item* item, const Position& pos)>;
 using MoveFunction = std::function<uint32_t(Item* item, Item* tileItem, const Position& pos)>;

@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern MoveEvents* g_moveEvents;
 extern Modules* g_modules;
 extern LuaEnvironment g_luaEnvironment;
 
@@ -8626,7 +8625,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			// commented out stuff is TODO, once we approach further in revscriptsys
 			g_actions().clear(true);
 			g_creatureEvents().clear(true);
-			g_moveEvents->clear(true);
+			g_moveEvents().clear(true);
 			g_talkActions().clear(true);
 			g_globalEvents().clear(true);
 			g_weapons().clear(true);
@@ -8648,7 +8647,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_chat().load();
 			g_actions().clear(true);
 			g_creatureEvents().clear(true);
-			g_moveEvents->clear(true);
+			g_moveEvents().clear(true);
 			g_talkActions().clear(true);
 			g_globalEvents().clear(true);
 			g_spells().clear(true);
@@ -8660,7 +8659,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 bool Game::itemidHasMoveevent(uint32_t itemid)
 {
-	return g_moveEvents->isRegistered(itemid);
+	return g_moveEvents().isRegistered(itemid);
 }
 
 bool Game::hasEffect(uint8_t effectId) {

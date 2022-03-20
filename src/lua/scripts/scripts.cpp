@@ -34,7 +34,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/scripts.h"
 
-MoveEvents* g_moveEvents = nullptr;
 Modules* g_modules = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
@@ -46,8 +45,6 @@ Scripts::Scripts() :
 
 Scripts::~Scripts() {
 	scriptInterface.reInitState();
-
-	delete g_moveEvents;
 }
 
 bool Scripts::loadScriptSystems() {
@@ -71,7 +68,6 @@ bool Scripts::loadScriptSystems() {
 		return false;
 	}
 
-	g_moveEvents = new MoveEvents();
 	if (!g_moveEvents) {
 		return false;
 	}
