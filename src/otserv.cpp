@@ -49,7 +49,6 @@
 
 
 extern LuaEnvironment g_luaEnvironment;
-extern Modules* g_modules;
 
 std::mutex g_loaderLock;
 std::condition_variable g_loaderSignal;
@@ -85,10 +84,6 @@ void badAllocationHandler() {
                  "decrease the size of your map or compile in 64 bits mode");
 	getchar();
 	exit(-1);
-}
-
-void initGlobalScopes() {
-	g_modules = new Modules();
 }
 
 void modulesLoadHelper(bool loaded, std::string moduleName) {
@@ -167,7 +162,7 @@ void loadModules() {
 		"data/XML/familiars.xml");
 	modulesLoadHelper(g_imbuements().loadFromXml(),
 		"data/XML/imbuements.xml");
-	modulesLoadHelper(g_modules->loadFromXml(),
+	modulesLoadHelper(g_modules().loadFromXml(),
 		"data/modules/modules.xml");
 	modulesLoadHelper(g_events().loadFromXml(),
 		"data/events/events.xml");
@@ -280,7 +275,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 
 	// Init and load modules
-	initGlobalScopes();
 	loadModules();
 
 #ifdef _WIN32

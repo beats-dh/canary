@@ -34,7 +34,6 @@
 #include "lua/scripts/lua_environment.hpp"
 #include "lua/scripts/scripts.h"
 
-Modules* g_modules = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
 

@@ -48,7 +48,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 
-extern Modules* g_modules;
 extern LuaEnvironment g_luaEnvironment;
 
 Game::Game()
@@ -8616,7 +8615,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_CONFIG: return g_configManager().reload();
 		case RELOAD_TYPE_EVENTS: return g_events().loadFromXml();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
-		case RELOAD_TYPE_MODULES: return g_modules->reload();
+		case RELOAD_TYPE_MODULES: return g_modules().reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
 		case RELOAD_TYPE_IMBUEMENTS: return g_imbuements().reload();
 		case RELOAD_TYPE_RAIDS: return raids.reload() && raids.startup();
