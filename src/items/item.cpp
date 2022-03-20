@@ -2556,12 +2556,12 @@ ItemAttributes::Attribute& ItemAttributes::getAttr(ItemAttrTypes type)
 
 void Item::startDecaying()
 {
-	g_decay.startDecay(this);
+	g_decay().startDecay(this);
 }
 
 void Item::stopDecaying()
 {
-	g_decay.stopDecay(this);
+	g_decay().stopDecay(this);
 }
 
 bool Item::hasMarketAttributes()

@@ -23,7 +23,6 @@
 #include "game/game.h"
 #include "game/scheduling/scheduler.h"
 
-Decay g_decay;
 
 void Decay::startDecay(Item* item)
 {
