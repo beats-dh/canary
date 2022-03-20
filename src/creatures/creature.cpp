@@ -1479,9 +1479,9 @@ int64_t Creature::getStepDuration() const
 	return stepDuration;
 }
 
-int64_t Creature::getEventStepTicks(bool onlyDelay) const
+uint32_t Creature::getEventStepTicks(bool onlyDelay) const
 {
-	int64_t ret = getWalkDelay();
+	uint32_t ret = getWalkDelay();
 	if (ret <= 0) {
 		int64_t stepDuration = getStepDuration();
 		if (onlyDelay && stepDuration > 0) {

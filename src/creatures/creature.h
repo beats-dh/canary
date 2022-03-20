@@ -173,7 +173,7 @@ class Creature : virtual public Thing
 		int32_t getWalkDelay() const;
 		int64_t getTimeSinceLastMove() const;
 
-		int64_t getEventStepTicks(bool onlyDelay = false) const;
+		uint32_t getEventStepTicks(bool onlyDelay = false) const;
 		int64_t getStepDuration(Direction dir) const;
 		int64_t getStepDuration() const;
 		virtual int32_t getStepSpeed() const {

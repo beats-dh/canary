@@ -323,7 +323,7 @@ class ItemAttributes
 
 		struct Attribute {
 			union {
-				int64_t integer;
+				uint32_t integer;
 				std::string* string;
 				CustomAttributeMap* custom;
 			} value;
@@ -382,8 +382,8 @@ class ItemAttributes
 		const std::string& getStrAttr(ItemAttrTypes type) const;
 		void setStrAttr(ItemAttrTypes type, const std::string& value);
 
-		int64_t getIntAttr(ItemAttrTypes type) const;
-		void setIntAttr(ItemAttrTypes type, int64_t value);
+		uint32_t getIntAttr(ItemAttrTypes type) const;
+		void setIntAttr(ItemAttrTypes type, uint32_t value);
 		void increaseIntAttr(ItemAttrTypes type, int64_t value);
 
 		const Attribute* getExistingAttr(ItemAttrTypes type) const;
@@ -582,7 +582,7 @@ class Item : virtual public Thing
 			getAttributes()->setStrAttr(type, value);
 		}
 
-		int64_t getIntAttr(ItemAttrTypes type) const {
+		int32_t getIntAttr(ItemAttrTypes type) const {
 			if (!attributes) {
 				return 0;
 			}

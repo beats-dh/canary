@@ -2496,7 +2496,7 @@ void ItemAttributes::removeAttribute(ItemAttrTypes type)
 	attributeBits &= ~type;
 }
 
-int64_t ItemAttributes::getIntAttr(ItemAttrTypes type) const
+uint32_t ItemAttributes::getIntAttr(ItemAttrTypes type) const
 {
 	if (!isIntAttrType(type)) {
 		return 0;
@@ -2509,7 +2509,7 @@ int64_t ItemAttributes::getIntAttr(ItemAttrTypes type) const
 	return attr->value.integer;
 }
 
-void ItemAttributes::setIntAttr(ItemAttrTypes type, int64_t value)
+void ItemAttributes::setIntAttr(ItemAttrTypes type, uint32_t value)
 {
 	if (!isIntAttrType(type)) {
 		return;

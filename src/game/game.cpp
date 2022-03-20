@@ -4378,7 +4378,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	int32_t subType;
+	uint8_t subType;
 	if (it.isFluidContainer() || it.isSplash()) {
 		subType = clientFluidToServer(count);
 	} else {
@@ -4909,7 +4909,7 @@ void Game::playerRequestEditVip(uint32_t playerId, uint32_t guid, const std::str
 	player->editVIP(guid, description, icon, notify);
 }
 
-void Game::playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t slot, bool protectionCharm)
+void Game::playerApplyImbuement(uint32_t playerId, uint16_t imbuementid, uint8_t slot, bool protectionCharm)
 {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
@@ -6623,8 +6623,8 @@ void Game::checkLight()
 	}
   if (currentLightState != lightState) {
 		currentLightState = lightState;
-		for (auto& it : g_globalEvents().getEventMap(GLOBALEVENT_PERIODCHANGE)) {
-			it.second.executePeriodChange(lightState, lightInfo);
+		for (auto& [key, it] : g_globalEvents().getEventMap(GLOBALEVENT_PERIODCHANGE)) {
+			it.executePeriodChange(lightState, lightInfo);
 		}
 	}
 }
@@ -6875,8 +6875,8 @@ void Game::checkPlayersRecord()
 		uint32_t previousRecord = playersRecord;
 		playersRecord = playersOnline;
 
-		for (auto& it : g_globalEvents().getEventMap(GLOBALEVENT_RECORD)) {
-			it.second.executeRecord(playersRecord, previousRecord);
+		for (auto& [key, it] : g_globalEvents().getEventMap(GLOBALEVENT_RECORD)) {
+			it.executeRecord(playersRecord, previousRecord);
 		}
 		updatePlayersRecord();
 	}

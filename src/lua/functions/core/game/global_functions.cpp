@@ -746,7 +746,7 @@ int GlobalFunctions::luaGetWaypointPositionByName(lua_State* L) {
 
 int GlobalFunctions::luaSendChannelMessage(lua_State* L) {
 	// sendChannelMessage(channelId, type, message)
-	uint16_t channelId = getNumber<uint32_t>(L, 1);
+	uint16_t channelId = getNumber<uint16_t>(L, 1);
 	const ChatChannel* channel = g_chat().getChannelById(channelId);
 	if (!channel) {
 		pushBoolean(L, false);
