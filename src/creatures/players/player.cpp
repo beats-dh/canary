@@ -1622,7 +1622,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		if (isLogout) {
 			loginPosition = getPosition();
 			SPDLOG_INFO("{} has logged out", getName());
-			g_chat->removeUserFromAllChannels(*this);
+			g_chat().removeUserFromAllChannels(*this);
 			clearPartyInvitations();
 		}
 
@@ -2536,7 +2536,7 @@ void Player::death(Creature* lastHitCreature)
 
 		//Level loss
 		uint64_t expLoss = static_cast<uint64_t>(experience * deathLossPercent);
-		g_events->eventPlayerOnLoseExperience(this, expLoss);
+		g_events().eventPlayerOnLoseExperience(this, expLoss);
 
 		sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are dead.");
 		std::ostringstream lostExp;
