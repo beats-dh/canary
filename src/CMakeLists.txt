@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(Boost_NO_WARN_NEW_VERSIONS ON)
-set(BUILD_WITH_STATIC_CRT OFF)
 
 
 # Global gives error when building spdlog
@@ -125,7 +124,7 @@ find_package(Protobuf REQUIRED)
 
 if (MSVC)
   find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
-  set(CRYPTOPP_LIBRARIES "cryptopp-static")
+  find_package(CRYPTOPP REQUIRED)
   find_package(CURL REQUIRED)
   find_package(jsoncpp REQUIRED)
   find_package(MySQL REQUIRED)
