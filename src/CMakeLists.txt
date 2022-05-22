@@ -9,6 +9,8 @@ set(GNUCXX_MINIMUM_VERSION 8)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(-DBUILD_WITH_STATIC_CRT=OFF)
+
 
 # Global gives error when building spdlog
 # Avoid changes by cmake/make on the source tree
