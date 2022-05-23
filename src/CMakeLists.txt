@@ -124,7 +124,7 @@ find_package(Protobuf REQUIRED)
 
 if (MSVC)
   find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
-  set(CRYPTOPP_LIBRARIES "cryptopp-static")
+  set(CRYPTOPP_LIB....)
   find_package(CURL REQUIRED)
   find_package(jsoncpp REQUIRED)
   find_package(MySQL REQUIRED)
@@ -345,12 +345,12 @@ else()
     PRIVATE
       ${LUA_LIBRARIES}
       ${Protobuf_LIBRARIES}
+      ${CRYPTOPP_LIB}
       Boost::boost
       Boost::date_time
       Boost::filesystem
       Boost::iostreams
       Boost::system
-      cryptopp-static
       CURL::libcurl
       jsoncpp_static
       unofficial::libmariadb unofficial::mariadbclient
