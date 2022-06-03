@@ -27,7 +27,7 @@ only_commits:
     - CMakeLists.txt
 
 install:
-#  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
   - cd C:\Tools\vcpkg
   - git pull
   - .\bootstrap-vcpkg.bat
@@ -39,11 +39,11 @@ before_build:
       if not exist build mkdir build
       cd build
       cmake -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake .. --preset windows-release
-      cmake --build windows-release
-#build:
-# project: C:\projects\canary\build\canary.sln
-#  verbosity: minimal
-#  parallel: true
+      cmake --build . --config windows-release
+build:
+  project: C:\projects\canary\build\canary.sln
+  verbosity: minimal
+  parallel: true
 
 after_build:
   - cd %APPVEYOR_BUILD_FOLDER%\build\bin
