@@ -41,7 +41,7 @@ before_build:
       cmake -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake .. --preset windows-release
       cmake --build windows-release
 build:
-  project: C:\projects\canary\build\canary.sln
+# project: C:\projects\canary\build\canary.sln
   verbosity: minimal
   parallel: true
 
