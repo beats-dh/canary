@@ -13,7 +13,7 @@ platform:
   - x64
 
 configuration:
-  - windows-release
+  - Release
 
 matrix:
   fast_finish: true
@@ -39,7 +39,7 @@ before_build:
       if not exist build mkdir build
       cd build
       cmake -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake .. --preset windows-release
-      cmake --build . --config windows-release
+      cmake --build . --config Release
 build:
   project: C:\projects\canary\build\canary.sln
   verbosity: minimal
