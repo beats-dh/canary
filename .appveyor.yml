@@ -36,11 +36,8 @@ install:
 
 before_build:
   - cmd: |-
-      # if not exist build mkdir build
-      # cd build
       export VCPKG_ROOT=C:\Tools\vcpkg\ && cmake --preset linux-release && cmake --build --preset linux-release
-      # cmake -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake .. --preset windows-release
-      # cmake --build . --config Release
+
 build:
   project: C:\projects\canary\build\canary.sln
   verbosity: minimal
