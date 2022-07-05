@@ -392,18 +392,18 @@
 	</imbuement>
 	<imbuement name="Epiphany" base="1" category="16" iconid="64" premium="0" storage="0">
 		<attribute key="description" value="Raises magic level by 1." />
-		<attribute key="effect" type="skill" value="magicpoints" bonus="1" />
+		<attribute key="effect" type="skill" value="magicLevelPoints" bonus="1" />
 		<attribute key="item" value="9635" count="25" />
 	</imbuement>
 	<imbuement name="Epiphany" base="2" category="16" iconid="64" premium="1" storage="0">
 		<attribute key="description" value="Raises magic level by 2." />
-		<attribute key="effect" type="skill" value="magicpoints" bonus="2" />
+		<attribute key="effect" type="skill" value="magicLevelPoints" bonus="2" />
 		<attribute key="item" value="9635" count="25" />
 		<attribute key="item" value="11452" count="15" />
 	</imbuement>
 	<imbuement name="Epiphany" base="3" category="16" iconid="64" premium="1" storage="0">
 		<attribute key="description" value="Raises magic level by 4." />
-		<attribute key="effect" type="skill" value="magicpoints" bonus="4" />
+		<attribute key="effect" type="skill" value="magicLevelPoints" bonus="4" />
 		<attribute key="item" value="9635" count="25" />
 		<attribute key="item" value="11452" count="15" />
 		<attribute key="item" value="10309" count="15" />

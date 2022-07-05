@@ -310,6 +310,12 @@ class PlayerFunctions final : LuaScriptInterface {
 			registerMethod(L, "Player", "getAccountLevelVocation", PlayerFunctions::luaPlayerGetAccountLevelVocation);
 			registerMethod(L, "Player", "addBadge", PlayerFunctions::luaPlayerAddBadge);
 
+			registerMethod(L, "Player", "getMagicShieldCapacityFlat", PlayerFunctions::luaPlayerGetMagicShieldCapacityFlat);
+			registerMethod(L, "Player", "getMagicShieldCapacityPercent", PlayerFunctions::luaPlayerGetMagicShieldCapacityPercent);
+
+			registerMethod(L, "Player", "sendSpellCooldown", PlayerFunctions::luaPlayerSendSpellCooldown);
+			registerMethod(L, "Player", "sendSpellGroupCooldown", PlayerFunctions::luaPlayerSendSpellGroupCooldown);
+
 			GroupFunctions::init(L);
 			GuildFunctions::init(L);
 			MountFunctions::init(L);
@@ -601,6 +607,12 @@ class PlayerFunctions final : LuaScriptInterface {
 		static int luaPlayerGetAccountLevelVocation(lua_State* L);
 
 		static int luaPlayerAddBadge(lua_State* L);
+
+		static int luaPlayerGetMagicShieldCapacityFlat(lua_State* L);
+		static int luaPlayerGetMagicShieldCapacityPercent(lua_State* L);
+
+		static int luaPlayerSendSpellCooldown(lua_State* L);
+		static int luaPlayerSendSpellGroupCooldown(lua_State* L);
 
 		friend class CreatureFunctions;
 };

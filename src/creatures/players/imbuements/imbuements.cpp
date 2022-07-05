@@ -220,7 +220,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 							skillId = SKILL_SHIELD;
 						} else if (tmpStrValue == "fist") {
 							skillId = SKILL_FIST;
-						} else if (tmpStrValue == "magicpoints") {
+						} else if (tmpStrValue == "magiclevelpoints") {
 							skillId = STAT_MAGICPOINTS;
 							usenormalskill = 2;
 						} else if (tmpStrValue == "critical") {
