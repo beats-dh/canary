@@ -390,3 +390,4 @@ vcpkg_installed
 
 # CLION
 src/cmake-build-debug
+data/world/bronson.otbm

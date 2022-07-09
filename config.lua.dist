@@ -32,10 +32,10 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Welcome to the Canary!"
+motd = "Welcome to the Bronson!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "Canary"
+serverName = "Bronson"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -165,9 +165,9 @@ pushWhenAttacking = false
 -- NOTE: If toggleDownloadMap if false, then the mapDownloadUrl will not be used
 -- NOTE: If a map with the name already exists in the world folder, the map will not be downloaded even if the toggleDownloadMap is true
 toggleDownloadMap = false
-mapName = "canary"
+mapName = "bronson"
 mapDownloadUrl = ""
-mapAuthor = "OpenTibiaBR"
+mapAuthor = "Daniel Henry"
 
 -- Party List limitations
 -- max distance in which players in party list are visible
@@ -177,8 +177,8 @@ partyListMaxDistance = 30
 -- Custom Map
 -- NOTE: mapCustomEnabled: true = activate the map, false = disable the map
 toggleMapCustom = false
-mapCustomName = "canary-custom"
-mapCustomAuthor = "OpenTibiaBR"
+mapCustomName = "bronson-custom"
+mapCustomAuthor = "Daniel Henrique"
 
 -- Market
 marketOfferDuration = 30 * 24 * 60 * 60
@@ -190,7 +190,7 @@ maxMarketOffersAtATimePerPlayer = 100
 mysqlHost = "127.0.0.1"
 mysqlUser = "root"
 mysqlPass = ""
-mysqlDatabase = "canary"
+mysqlDatabase = "bronson"
 mysqlPort = 3306
 mysqlSock = ""
 passwordType = "sha1"
