@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Dragon")
 local monster = {}
 
@@ -35,7 +34,7 @@ monster.Bestiary = {
 monster.health = 1000
 monster.maxHealth = 1000
 monster.race = "blood"
-monster.corpse = 4025
+monster.corpse = 5973
 monster.speed = 172
 monster.manaCost = 0
 
@@ -68,8 +67,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -85,28 +83,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3028, chance = 380}, -- small diamond
-	{id = 3031, chance = 47500, maxCount = 70}, -- gold coin
-	{id = 3031, chance = 37500, maxCount = 45}, -- gold coin
-	{id = 3061, chance = 120}, -- life crystal
-	{id = 3071, chance = 1005}, -- wand of inferno
-	{id = 3275, chance = 960}, -- double axe
-	{id = 3285, chance = 4000}, -- longsword
-	{id = 3297, chance = 420}, -- serpent sword
-	{id = 3301, chance = 1950}, -- broadsword
-	{id = 3322, chance = 560}, -- dragon hammer
-	{id = 3349, chance = 10000}, -- crossbow
-	{id = 3351, chance = 3000}, -- steel helmet
-	{id = 3409, chance = 15000}, -- steel shield
-	{id = 3416, chance = 320}, -- dragon shield
+	{name = "small diamond", chance = 380},
+	{name = "gold coin", chance = 47500, maxCount = 70},
+	{name = "gold coin", chance = 37500, maxCount = 45},
+	{name = "life crystal", chance = 120},
+	{name = "wand of inferno", chance = 1005},
+	{name = "double axe", chance = 960},
+	{name = "longsword", chance = 4000},
+	{name = "serpent sword", chance = 420},
+	{name = "broadsword", chance = 1950},
+	{name = "dragon hammer", chance = 560},
+	{name = "crossbow", chance = 10000},
+	{name = "steel helmet", chance = 3000},
+	{name = "steel shield", chance = 15000},
+	{name = "dragon shield", chance = 320},
 	{id = 3449, chance = 8060, maxCount = 10}, -- burst arrow
-	{id = 3557, chance = 2000}, -- plate legs
-	{id = 3583, chance = 65500, maxCount = 3}, -- dragon ham
-	{id = 5877, chance = 1005}, -- green dragon leather
-	{id = 5920, chance = 1000}, -- green dragon scale
-	{id = 7430, chance = 110}, -- dragonbone staff
-	{id = 236, chance = 1000}, -- strong health potion
-	{id = 11457, chance = 9740} -- dragon's tail
+	{name = "plate legs", chance = 2000},
+	{name = "dragon ham", chance = 65500, maxCount = 3},
+	{name = "green dragon leather", chance = 1005},
+	{name = "green dragon scale", chance = 1000},
+	{name = "dragonbone staff", chance = 110},
+	{name = "strong health potion", chance = 1000},
+	{name = "dragon's tail", chance = 9740}
 }
 
 monster.attacks = {

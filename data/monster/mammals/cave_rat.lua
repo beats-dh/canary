@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Cave Rat")
 local monster = {}
 
@@ -62,8 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -79,10 +77,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 85000, maxCount = 2}, -- gold coin
-	{id = 3598, chance = 750}, -- cookie
+	{name = "gold coin", chance = 85000, maxCount = 2},
+	{name = "cookie", chance = 750},
 	{id = 3607, chance = 30000}, -- cheese
-	{id = 3492, chance = 9700, maxCount = 2} -- worm
+	{name = "worm", chance = 9700, maxCount = 2}
 }
 
 monster.attacks = {

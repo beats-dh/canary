@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Goblin")
 local monster = {}
 
@@ -61,8 +60,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -81,18 +79,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 1781, chance = 15290, maxCount = 3}, -- small stone
-	{id = 3031, chance = 50320, maxCount = 9}, -- gold coin
+	{name = "small stone", chance = 15290, maxCount = 3},
+	{name = "gold coin", chance = 50320, maxCount = 9},
 	{id = 3115, chance = 1130}, -- bone
-	{id = 3120, chance = 1000}, -- mouldy cheese
-	{id = 3267, chance = 1800}, -- dagger
-	{id = 3294, chance = 8870}, -- short sword
-	{id = 3337, chance = 4900}, -- bone club
-	{id = 3355, chance = 1940}, -- leather helmet
-	{id = 3361, chance = 2510}, -- leather armor
-	{id = 3462, chance = 9700}, -- small axe
+	{name = "mouldy cheese", chance = 1000},
+	{name = "dagger", chance = 1800},
+	{name = "short sword", chance = 8870},
+	{name = "bone club", chance = 4900},
+	{name = "leather helmet", chance = 1940},
+	{name = "leather armor", chance = 2510},
+	{name = "small axe", chance = 9700},
 	{id = 3578, chance = 12750}, -- fish
-	{id = 11539, chance = 910} -- goblin ear
+	{name = "goblin ear", chance = 910}
 }
 
 monster.attacks = {
@@ -108,13 +106,13 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 20},
-	{type = COMBAT_EARTHDAMAGE, percent = -12},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 1},
+	{type = COMBAT_HOLYDAMAGE , percent = 20},
 	{type = COMBAT_DEATHDAMAGE , percent = -10}
 }
 

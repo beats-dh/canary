@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Draken Spellweaver")
 local monster = {}
 
@@ -60,8 +59,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -78,25 +76,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3006, chance = 370}, -- ring of the sky
-	{id = 3030, chance = 6910, maxCount = 5}, -- small ruby
-	{id = 3031, chance = 41000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 58000, maxCount = 100}, -- gold coin
-	{id = 3035, chance = 25510, maxCount = 5}, -- platinum coin
-	{id = 3038, chance = 970}, -- green gem
-	{id = 3071, chance = 1660}, -- wand of inferno
-	{id = 3577, chance = 30400}, -- meat
-	{id = 238, chance = 4970}, -- great mana potion
-	{id = 8043, chance = 1450}, -- focus cape
-	{id = 10386, chance = 1980}, -- Zaoan shoes
-	{id = 10397, chance = 19790}, -- weaver's wandtip
-	{id = 10398, chance = 10}, -- draken trophy
-	{id = 10438, chance = 620}, -- spellweaver's robe
-	{id = 10439, chance = 770}, -- Zaoan robe
-	{id = 11454, chance = 1980}, -- luminous orb
-	{id = 11658, chance = 3930}, -- draken sulphur
-	{id = 12307, chance = 30}, -- harness
-	{id = 12549, chance = 180} -- bamboo leaves
+	{name = "ring of the sky", chance = 370},
+	{name = "small ruby", chance = 6910, maxCount = 5},
+	{name = "gold coin", chance = 41000, maxCount = 100},
+	{name = "gold coin", chance = 58000, maxCount = 100},
+	{name = "platinum coin", chance = 25510, maxCount = 5},
+	{name = "green gem", chance = 970},
+	{name = "wand of inferno", chance = 1660},
+	{name = "meat", chance = 30400},
+	{name = "great mana potion", chance = 4970},
+	{name = "focus cape", chance = 1450},
+	{name = "zaoan shoes", chance = 1980},
+	{name = "weaver's wandtip", chance = 19790},
+	{name = "draken trophy", chance = 10},
+	{name = "spellweaver's robe", chance = 620},
+	{name = "zaoan robe", chance = 770},
+	{name = "luminous orb", chance = 1980},
+	{name = "draken sulphur", chance = 3930},
+	{name = "harness", chance = 30},
+	{name = "bamboo leaves", chance = 180}
 }
 
 monster.attacks = {
@@ -105,7 +103,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -250, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -300, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -380, radius = 4, effect = CONST_ME_POFF, target = true},
-	-- {name ="soulfire", interval = 2000, chance = 10, target = false},
+	{name ="soulfire rune", interval = 2000, chance = 10, target = false},
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -280, maxDamage = -360, shootEffect = CONST_ANI_POISON, target = true}
 }
@@ -127,7 +125,7 @@ monster.elements = {
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
 	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 75}
+	{type = COMBAT_DEATHDAMAGE , percent = 80}
 }
 
 monster.immunities = {

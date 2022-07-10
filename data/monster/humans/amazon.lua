@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Amazon")
 local monster = {}
 
@@ -49,7 +48,7 @@ monster.flags = {
 	attackable = true,
 	hostile = true,
 	convinceable = true,
-	pushable = false,
+	pushable = true,
 	rewardBoss = false,
 	illusionable = true,
 	canPushItems = true,
@@ -61,8 +60,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -79,16 +77,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3267, chance = 80000}, -- dagger
+	{name = "dagger", chance = 80000},
 	{id = 3114, chance = 80000, maxCount = 2}, -- skull
-	{id = 3031, chance = 40000, maxCount = 20}, -- gold coin
-	{id = 3602, chance = 30000}, -- brown bread
-	{id = 3273, chance = 23000}, -- sabre
-	{id = 11443, chance = 10000}, -- girlish hair decoration
-	{id = 11444, chance = 5200}, -- protective charm
+	{name = "gold coin", chance = 40000, maxCount = 20},
+	{name = "brown bread", chance = 30000},
+	{name = "sabre", chance = 23000},
+	{name = "girlish hair decoration", chance = 10000},
+	{name = "protective charm", chance = 5200},
 	{id = 2920, chance = 1000}, -- torch
-	{id = 3008, chance = 260}, -- crystal necklace
-	{id = 3030, chance = 130} -- small ruby
+	{name = "crystal necklace", chance = 260},
+	{name = "small ruby", chance = 130}
 }
 
 monster.attacks = {

@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Tortoise")
 local monster = {}
 
@@ -32,7 +31,7 @@ monster.health = 185
 monster.maxHealth = 185
 monster.race = "blood"
 monster.corpse = 6072
-monster.speed = 200
+monster.speed = 65
 monster.manaCost = 445
 
 monster.changeTarget = {
@@ -45,13 +44,13 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
 	hostile = true,
 	convinceable = true,
-	pushable = true,
+	pushable = false,
 	rewardBoss = false,
-	illusionable = false,
+	illusionable = true,
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
@@ -61,8 +60,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -76,13 +74,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 59000, maxCount = 30}, -- gold coin
-	{id = 3305, chance = 730}, -- battle hammer
-	{id = 3410, chance = 2850}, -- plate shield
+	{name = "gold coin", chance = 59000, maxCount = 30},
+	{name = "battle hammer", chance = 730},
+	{name = "plate shield", chance = 2850},
 	{id = 3578, chance = 4600}, -- fish
-	{id = 5678, chance = 770, maxCount = 2}, -- tortoise egg
-	{id = 5899, chance = 1300}, -- turtle shell
-	{id = 6131, chance = 200} -- tortoise shield
+	{name = "tortoise egg", chance = 770, maxCount = 2},
+	{name = "turtle shell", chance = 1300},
+	{name = "tortoise shield", chance = 200}
 }
 
 monster.attacks = {
@@ -91,11 +89,11 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30
+	armor = 22
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 35},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
 	{type = COMBAT_FIREDAMAGE, percent = -10},

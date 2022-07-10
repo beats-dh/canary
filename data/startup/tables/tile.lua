@@ -4,7 +4,7 @@ TileAction = {
 	[20001] = {
 		itemId = false,
 		itemPos = {
-			{x = xxxxx, y = xxxxx, z = x}
+			{x = 1702, y = 1280, z = 7}
 		}
 	}
 }

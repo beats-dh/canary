@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Draken Abomination")
 local monster = {}
 
@@ -33,7 +32,6 @@ monster.race = "venom"
 monster.corpse = 11667
 monster.speed = 270
 monster.manaCost = 0
-monster.maxSummons = 2
 
 monster.changeTarget = {
 	interval = 4000,
@@ -51,7 +49,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 70,
@@ -61,8 +59,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -70,8 +67,11 @@ monster.light = {
 	color = 0
 }
 
-monster.summons = {
-	{name = "Death Blob", chance = 10, interval = 2000, max = 2}
+monster.summon = {
+	maxSummons = 2,
+	summons = {
+		{name = "Death Blob", chance = 10, interval = 2000, count = 2}
+	}
 }
 
 monster.voices = {
@@ -84,32 +84,32 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 50000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 47000, maxCount = 98}, -- gold coin
-	{id = 3035, chance = 50590, maxCount = 8}, -- platinum coin
-	{id = 3577, chance = 50450, maxCount = 4}, -- meat
-	{id = 238, chance = 9950, maxCount = 3}, -- great mana potion
-	{id = 830, chance = 8730}, -- terra hood
-	{id = 7642, chance = 4905, maxCount = 3}, -- great spirit potion
-	{id = 7643, chance = 9400, maxCount = 3}, -- ultimate health potion
-	{id = 8094, chance = 1020}, -- wand of voodoo
-	{id = 9057, chance = 2900, maxCount = 4}, -- small topaz
-	{id = 10384, chance = 470}, -- Zaoan armor
-	{id = 10385, chance = 560}, -- Zaoan helmet
-	{id = 10387, chance = 780}, -- Zaoan legs
-	{id = 11671, chance = 12110}, -- eye of corruption
-	{id = 11672, chance = 6240}, -- tail of corruption
-	{id = 11673, chance = 10940}, -- scale of corruption
-	{id = 11688, chance = 10}, -- shield of corruption
-	{id = 4033, chance = 540}, -- draken boots
-	{id = 11691, chance = 10}, -- snake god's wristguard
-	{id = 12549, chance = 360} -- bamboo leaves
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 47000, maxCount = 98},
+	{name = "platinum coin", chance = 50590, maxCount = 8},
+	{name = "meat", chance = 50450, maxCount = 4},
+	{name = "great mana potion", chance = 9950, maxCount = 3},
+	{name = "terra hood", chance = 8730},
+	{name = "great spirit potion", chance = 4905, maxCount = 3},
+	{name = "ultimate health potion", chance = 9400, maxCount = 3},
+	{name = "wand of voodoo", chance = 1020},
+	{name = "small topaz", chance = 2900, maxCount = 4},
+	{name = "zaoan armor", chance = 470},
+	{name = "zaoan helmet", chance = 560},
+	{name = "zaoan legs", chance = 780},
+	{name = "eye of corruption", chance = 12110},
+	{name = "tail of corruption", chance = 6240},
+	{name = "scale of corruption", chance = 10940},
+	{name = "shield of corruption", chance = 10},
+	{name = "draken boots", chance = 540},
+	{name = "snake god's wristguard", chance = 10},
+	{name = "bamboo leaves", chance = 360}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -420},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -310, maxDamage = -630, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	-- {name ="draken abomination curse", interval = 2000, chance = 10, range = 5, target = false},
+	{name ="draken abomination curse", interval = 2000, chance = 10, range = 5, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -170, maxDamage = -370, length = 4, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="drunk", interval = 2000, chance = 15, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false, duration = 9000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 3, effect = CONST_ME_HITBYPOISON, target = false}

@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Skeleton")
 local monster = {}
 
@@ -62,8 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -79,14 +77,14 @@ monster.voices = {
 monster.loot = {
 	{id = 2920, chance = 10000}, -- torch
 	{id = 2920, chance = 9880}, -- torch
-	{id = 3031, chance = 43900, maxCount = 10}, -- gold coin
+	{name = "gold coin", chance = 43900, maxCount = 10},
 	{id = 3115, chance = 49100}, -- bone
 	{id = 3264, chance = 1940}, -- sword
-	{id = 3276, chance = 4850}, -- hatchet
-	{id = 3286, chance = 4850}, -- mace
-	{id = 3367, chance = 7520}, -- viking helmet
-	{id = 3411, chance = 2090}, -- brass shield
-	{id = 11481, chance = 9940}, -- pelvis bone
+	{name = "hatchet", chance = 4850},
+	{name = "mace", chance = 4850},
+	{name = "viking helmet", chance = 7520},
+	{name = "brass shield", chance = 2090},
+	{name = "pelvis bone", chance = 9940},
 	{id = 23986, chance = 1000} -- heavy old tome
 }
 
@@ -109,7 +107,7 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_HOLYDAMAGE , percent = -25},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 

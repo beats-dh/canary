@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Bandit")
 local monster = {}
 
@@ -7,9 +6,9 @@ monster.experience = 65
 monster.outfit = {
 	lookType = 129,
 	lookHead = 58,
-	lookBody = 59,
-	lookLegs = 45,
-	lookFeet = 114,
+	lookBody = 40,
+	lookLegs = 24,
+	lookFeet = 95,
 	lookAddons = 0,
 	lookMount = 0
 }
@@ -61,8 +60,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -78,15 +76,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 49000, maxCount = 30}, -- gold coin
-	{id = 3274, chance = 29900}, -- axe
-	{id = 3286, chance = 10100}, -- mace
-	{id = 3352, chance = 5000}, -- chain helmet
-	{id = 3353, chance = 520}, -- iron helmet
-	{id = 3359, chance = 2500}, -- brass armor
-	{id = 3411, chance = 16800}, -- brass shield
-	{id = 3559, chance = 15500}, -- leather legs
-	{id = 3596, chance = 7630, maxCount = 2} -- tomato
+	{name = "gold coin", chance = 49000, maxCount = 30},
+	{name = "axe", chance = 29900},
+	{name = "mace", chance = 10100},
+	{name = "chain helmet", chance = 5000},
+	{name = "iron helmet", chance = 520},
+	{name = "brass armor", chance = 2500},
+	{name = "brass shield", chance = 16800},
+	{name = "leather legs", chance = 15500},
+	{name = "tomato", chance = 7630, maxCount = 2}
 }
 
 monster.attacks = {

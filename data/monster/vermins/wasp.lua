@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Wasp")
 local monster = {}
 
@@ -50,7 +49,7 @@ monster.flags = {
 	summonable = true,
 	attackable = true,
 	hostile = true,
-	convinceable = true,
+	convinceable = false,
 	pushable = true,
 	rewardBoss = false,
 	illusionable = true,
@@ -63,8 +62,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -79,7 +77,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 5902, chance = 3000} -- honeycomb
+	{name = "honeycomb", chance = 3000}
 }
 
 monster.attacks = {

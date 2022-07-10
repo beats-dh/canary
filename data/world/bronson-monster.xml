@@ -8819,7 +8819,6 @@
 	<monster centerx="650" centery="953" centerz="6" radius="5">
 		<monster name="Elf Ranger" x="2" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="667" centery="953" centerz="6" radius="5" />
 	<monster centerx="936" centery="953" centerz="6" radius="1">
 		<monster name="Cyclops" x="0" y="0" z="6" spawntime="768" />
 	</monster>
@@ -8858,7 +8857,6 @@
 	<monster centerx="660" centery="962" centerz="6" radius="5">
 		<monster name="Elf Soldier" x="-2" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="943" centery="964" centerz="6" radius="1" />
 	<monster centerx="1270" centery="966" centerz="6" radius="5">
 		<monster name="Elephant" x="1" y="-3" z="6" spawntime="60" />
 	</monster>
@@ -8938,7 +8936,6 @@
 	<monster centerx="946" centery="982" centerz="6" radius="1">
 		<monster name="Uruk-hai" x="1" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="959" centery="982" centerz="6" radius="1" />
 	<monster centerx="666" centery="984" centerz="6" radius="5">
 		<monster name="Elf Soldier" x="0" y="-2" z="6" spawntime="60" />
 	</monster>
@@ -8982,7 +8979,6 @@
 	<monster centerx="999" centery="993" centerz="6" radius="5">
 		<monster name="Assassin" x="-2" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="936" centery="994" centerz="6" radius="1" />
 	<monster centerx="676" centery="995" centerz="6" radius="5">
 		<monster name="Elf Ranger" x="0" y="1" z="6" spawntime="60" />
 	</monster>
@@ -8995,7 +8991,6 @@
 	<monster centerx="472" centery="998" centerz="6" radius="1">
 		<monster name="Lizard Chosen" x="0" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="693" centery="998" centerz="6" radius="5" />
 	<monster centerx="939" centery="998" centerz="6" radius="1">
 		<monster name="Boar" x="-1" y="0" z="6" spawntime="60" />
 	</monster>
@@ -9008,11 +9003,9 @@
 	<monster centerx="461" centery="1003" centerz="6" radius="1">
 		<monster name="Lizard High Guard" x="0" y="-1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1038" centery="1003" centerz="6" radius="1" />
 	<monster centerx="466" centery="1004" centerz="6" radius="1">
 		<monster name="Lizard High Guard" x="0" y="-1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="684" centery="1005" centerz="6" radius="5" />
 	<monster centerx="957" centery="1005" centerz="6" radius="5">
 		<monster name="Uruk-hai" x="-3" y="-4" z="6" spawntime="60" />
 		<monster name="Uruk-hai" x="1" y="-4" z="6" spawntime="60" />
@@ -9026,41 +9019,24 @@
 	<monster centerx="466" centery="1009" centerz="6" radius="1">
 		<monster name="Lizard Zaogun" x="0" y="-1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1063" centery="1009" centerz="6" radius="1" />
-	<monster centerx="1103" centery="1011" centerz="6" radius="1" />
 	<monster centerx="662" centery="1017" centerz="6" radius="5">
 		<monster name="Elf Soldier" x="0" y="-2" z="6" spawntime="60" />
 	</monster>
 	<monster centerx="651" centery="1018" centerz="6" radius="5">
 		<monster name="Elf Ranger" x="0" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="212" centery="1020" centerz="6" radius="2" />
-	<monster centerx="221" centery="1022" centerz="6" radius="2" />
-	<monster centerx="464" centery="1023" centerz="6" radius="1" />
-	<monster centerx="199" centery="1025" centerz="6" radius="2" />
-	<monster centerx="215" centery="1026" centerz="6" radius="2" />
 	<monster centerx="669" centery="1027" centerz="6" radius="5">
 		<monster name="Elf Ranger" x="-1" y="-1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="187" centery="1028" centerz="6" radius="2" />
 	<monster centerx="695" centery="1028" centerz="6" radius="5">
 		<monster name="Earth Elemental" x="-1" y="0" z="6" spawntime="60" />
 	</monster>
 	<monster centerx="655" centery="1029" centerz="6" radius="5">
 		<monster name="Elf Soldier" x="1" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="181" centery="1034" centerz="6" radius="2" />
-	<monster centerx="214" centery="1034" centerz="6" radius="2" />
-	<monster centerx="222" centery="1034" centerz="6" radius="2" />
-	<monster centerx="189" centery="1035" centerz="6" radius="2" />
 	<monster centerx="666" centery="1035" centerz="6" radius="5">
 		<monster name="Elf Ranger" x="-1" y="2" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="199" centery="1036" centerz="6" radius="2" />
-	<monster centerx="206" centery="1036" centerz="6" radius="2" />
-	<monster centerx="222" centery="1041" centerz="6" radius="2" />
-	<monster centerx="185" centery="1042" centerz="6" radius="2" />
-	<monster centerx="198" centery="1042" centerz="6" radius="2" />
 	<monster centerx="946" centery="1042" centerz="6" radius="1">
 		<monster name="Gargoyle" x="1" y="0" z="6" spawntime="60" />
 		<monster name="Stone Golem" x="-1" y="1" z="6" spawntime="60" />
@@ -9068,14 +9044,12 @@
 	<monster centerx="969" centery="1043" centerz="6" radius="1">
 		<monster name="Stone Golem" x="1" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="211" centery="1044" centerz="6" radius="2" />
 	<monster centerx="981" centery="1046" centerz="6" radius="1">
 		<monster name="Stone Golem" x="1" y="0" z="6" spawntime="60" />
 	</monster>
 	<monster centerx="989" centery="1050" centerz="6" radius="1">
 		<monster name="Gargoyle" x="1" y="0" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="220" centery="1051" centerz="6" radius="2" />
 	<monster centerx="946" centery="1051" centerz="6" radius="1">
 		<monster name="Gargoyle" x="1" y="0" z="6" spawntime="60" />
 		<monster name="Stone Golem" x="-1" y="1" z="6" spawntime="60" />
@@ -9090,7 +9064,6 @@
 		<monster name="Smuggler" x="1" y="0" z="6" spawntime="60" />
 		<monster name="Bandit" x="0" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1003" centery="1055" centerz="6" radius="1" />
 	<monster centerx="1003" centery="1057" centerz="6" radius="1">
 		<monster name="Bandit" x="1" y="0" z="6" spawntime="60" />
 	</monster>
@@ -9103,7 +9076,6 @@
 	<monster centerx="1815" centery="1058" centerz="6" radius="1">
 		<monster name="Nomad" x="0" y="-1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1106" centery="1059" centerz="6" radius="1" />
 	<monster centerx="1833" centery="1059" centerz="6" radius="2">
 		<monster name="Orc Berserker" x="-1" y="1" z="6" spawntime="60" />
 	</monster>
@@ -9155,7 +9127,6 @@
 	<monster centerx="1903" centery="1076" centerz="6" radius="2">
 		<monster name="Orc Leader" x="1" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1837" centery="1077" centerz="6" radius="2" />
 	<monster centerx="1013" centery="1079" centerz="6" radius="1">
 		<monster name="Bandit" x="1" y="0" z="6" spawntime="60" />
 	</monster>
@@ -9310,7 +9281,6 @@
 	<monster centerx="698" centery="1111" centerz="6" radius="5">
 		<monster name="Earth Elemental" x="3" y="1" z="6" spawntime="60" />
 	</monster>
-	<monster centerx="1094" centery="1111" centerz="6" radius="1" />
 	<monster centerx="1664" centery="1111" centerz="6" radius="2">
 		<monster name="Terror Bird" x="2" y="-1" z="6" spawntime="60" />
 		<monster name="Terror Bird" x="-1" y="2" z="6" spawntime="60" />
@@ -9340,7 +9310,6 @@
 	<monster centerx="218" centery="1117" centerz="6" radius="1">
 		<monster name="Faun" x="0" y="0" z="6" spawntime="240" />
 	</monster>
-	<monster centerx="1277" centery="1117" centerz="6" radius="1" />
 	<monster centerx="1778" centery="1117" centerz="6" radius="2">
 		<monster name="Orc Berserker" x="1" y="1" z="6" spawntime="60" />
 	</monster>
@@ -10900,7 +10869,6 @@
 		<monster name="Yeti" x="1" y="0" z="7" spawntime="60" />
 		<monster name="Chakoya Tribewarden" x="0" y="1" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="448" centery="30" centerz="7" radius="1" />
 	<monster centerx="794" centery="30" centerz="7" radius="5">
 		<monster name="Winter Wolf" x="-2" y="-1" z="7" spawntime="60" />
 		<monster name="Polar Bear" x="3" y="2" z="7" spawntime="60" />
@@ -10927,7 +10895,6 @@
 		<monster name="Yeti" x="4" y="0" z="7" spawntime="60" />
 		<monster name="Chakoya Windcaller" x="-1" y="3" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="498" centery="36" centerz="7" radius="1" />
 	<monster centerx="487" centery="38" centerz="7" radius="5">
 		<monster name="Chakoya Tribewarden" x="-5" y="2" z="7" spawntime="60" />
 		<monster name="Chakoya Tribewarden" x="1" y="3" z="7" spawntime="60" />
@@ -10946,7 +10913,6 @@
 		<monster name="Polar Bear" x="-3" y="-4" z="7" spawntime="60" />
 		<monster name="Winter Wolf" x="2" y="3" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="478" centery="42" centerz="7" radius="5" />
 	<monster centerx="984" centery="43" centerz="7" radius="1">
 		<monster name="War Wolf" x="1" y="0" z="7" spawntime="60" />
 	</monster>
@@ -11009,14 +10975,12 @@
 	<monster centerx="984" centery="59" centerz="7" radius="1">
 		<monster name="Barbarian Headsplitter" x="1" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="1016" centery="59" centerz="7" radius="5" />
 	<monster centerx="463" centery="60" centerz="7" radius="5">
 		<monster name="Chakoya Tribewarden" x="2" y="1" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="976" centery="60" centerz="7" radius="1">
 		<monster name="Barbarian Brutetamer" x="1" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="1333" centery="60" centerz="7" radius="5" />
 	<monster centerx="978" centery="61" centerz="7" radius="1">
 		<monster name="War Wolf" x="1" y="0" z="7" spawntime="60" />
 	</monster>
@@ -11053,7 +11017,6 @@
 	<monster centerx="748" centery="67" centerz="7" radius="1">
 		<monster name="Enraged White Deer" x="0" y="-1" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="557" centery="68" centerz="7" radius="5" />
 	<monster centerx="709" centery="69" centerz="7" radius="5">
 		<monster name="Polar Bear" x="-1" y="2" z="7" spawntime="60" />
 	</monster>
@@ -11063,7 +11026,6 @@
 	<monster centerx="732" centery="70" centerz="7" radius="5">
 		<monster name="Polar Bear" x="-2" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="968" centery="71" centerz="7" radius="1" />
 	<monster centerx="1461" centery="72" centerz="7" radius="5">
 		<monster name="Frost Dragon" x="1" y="-2" z="7" spawntime="60" />
 		<monster name="Frost Dragon" x="-2" y="-1" z="7" spawntime="60" />
@@ -11084,7 +11046,6 @@
 		<monster name="Winter Wolf" x="-3" y="-1" z="7" spawntime="60" />
 		<monster name="Polar Bear" x="4" y="4" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="1069" centery="76" centerz="7" radius="5" />
 	<monster centerx="493" centery="77" centerz="7" radius="5">
 		<monster name="Chakoya Windcaller" x="-3" y="-3" z="7" spawntime="60" />
 	</monster>
@@ -11126,8 +11087,6 @@
 		<monster name="Chakoya Windcaller" x="-4" y="-2" z="7" spawntime="60" />
 		<monster name="Yeti" x="4" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="550" centery="92" centerz="7" radius="1" />
-	<monster centerx="725" centery="93" centerz="7" radius="1" />
 	<monster centerx="1583" centery="93" centerz="7" radius="5">
 		<monster name="Frost Dragon" x="1" y="-3" z="7" spawntime="60" />
 		<monster name="Frost Dragon" x="3" y="4" z="7" spawntime="60" />
@@ -11137,7 +11096,6 @@
 		<monster name="Chakoya Windcaller" x="-1" y="-2" z="7" spawntime="60" />
 		<monster name="Yeti" x="-1" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="736" centery="94" centerz="7" radius="1" />
 	<monster centerx="520" centery="95" centerz="7" radius="5">
 		<monster name="Chakoya Toolshaper" x="-2" y="-3" z="7" spawntime="60" />
 		<monster name="Chakoya Windcaller" x="2" y="1" z="7" spawntime="60" />
@@ -11185,12 +11143,10 @@
 		<monster name="Barbarian Brutetamer" x="-2" y="-2" z="7" spawntime="60" />
 		<monster name="Barbarian Skullhunter" x="1" y="-1" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="1080" centery="102" centerz="7" radius="5" />
 	<monster centerx="668" centery="103" centerz="7" radius="5">
 		<monster name="Polar Bear" x="3" y="-4" z="7" spawntime="60" />
 		<monster name="Winter Wolf" x="0" y="4" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="745" centery="103" centerz="7" radius="1" />
 	<monster centerx="1334" centery="103" centerz="7" radius="5">
 		<monster name="Frost Giantess" x="-3" y="-1" z="7" spawntime="60" />
 	</monster>
@@ -11201,7 +11157,6 @@
 		<monster name="Frost Dragon" x="-2" y="0" z="7" spawntime="60" />
 		<monster name="Frost Dragon" x="2" y="4" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="709" centery="107" centerz="7" radius="1" />
 	<monster centerx="782" centery="107" centerz="7" radius="5">
 		<monster name="Polar Bear" x="-4" y="-3" z="7" spawntime="60" />
 		<monster name="Winter Wolf" x="2" y="2" z="7" spawntime="60" />
@@ -11231,12 +11186,10 @@
 	<monster centerx="685" centery="116" centerz="7" radius="5">
 		<monster name="Winter Wolf" x="1" y="2" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="697" centery="116" centerz="7" radius="1" />
 	<monster centerx="1032" centery="118" centerz="7" radius="5">
 		<monster name="Barbarian Bloodwalker" x="1" y="-3" z="7" spawntime="60" />
 		<monster name="Barbarian Headsplitter" x="3" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="738" centery="119" centerz="7" radius="5" />
 	<monster centerx="939" centery="119" centerz="7" radius="2">
 		<monster name="Frost Flower Asura" x="1" y="-1" z="7" spawntime="3600" />
 	</monster>
@@ -11256,12 +11209,10 @@
 	<monster centerx="1308" centery="121" centerz="7" radius="5">
 		<monster name="Frost Giantess" x="-2" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="706" centery="122" centerz="7" radius="5" />
 	<monster centerx="1005" centery="122" centerz="7" radius="5">
 		<monster name="Barbarian Headsplitter" x="-2" y="-3" z="7" spawntime="60" />
 		<monster name="Barbarian Skullhunter" x="2" y="-1" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="695" centery="123" centerz="7" radius="1" />
 	<monster centerx="870" centery="124" centerz="7" radius="5">
 		<monster name="Yeti" x="0" y="-2" z="7" spawntime="60" />
 	</monster>
@@ -11276,7 +11227,6 @@
 		<monster name="Frost Dragon" x="2" y="-2" z="7" spawntime="60" />
 		<monster name="Frost Dragon" x="-1" y="2" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="863" centery="127" centerz="7" radius="1" />
 	<monster centerx="1063" centery="127" centerz="7" radius="5">
 		<monster name="Yeti" x="-3" y="-2" z="7" spawntime="60" />
 	</monster>
@@ -11311,7 +11261,6 @@
 	<monster centerx="784" centery="133" centerz="7" radius="5">
 		<monster name="Yeti" x="1" y="0" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="897" centery="133" centerz="7" radius="2" />
 	<monster centerx="949" centery="133" centerz="7" radius="2">
 		<monster name="Frost Dragon" x="-1" y="0" z="7" spawntime="60" />
 	</monster>
@@ -24114,7 +24063,6 @@
 	<monster centerx="1615" centery="1270" centerz="7" radius="1">
 		<monster name="Hyaena" x="0" y="-1" z="7" spawntime="60" />
 	</monster>
-	<monster centerx="1695" centery="1270" centerz="7" radius="1" />
 	<monster centerx="210" centery="1272" centerz="7" radius="3">
 		<monster name="Frazzlemaw" x="1" y="3" z="7" spawntime="60" />
 	</monster>
@@ -39822,7 +39770,6 @@
 	<monster centerx="1677" centery="601" centerz="11" radius="5">
 		<monster name="Draco" x="0" y="-1" z="11" spawntime="60" />
 	</monster>
-	<monster centerx="1695" centery="601" centerz="11" radius="5" />
 	<monster centerx="1688" centery="608" centerz="11" radius="5">
 		<monster name="Draco" x="-1" y="4" z="11" spawntime="60" />
 	</monster>

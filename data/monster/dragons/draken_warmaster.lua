@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Draken Warmaster")
 local monster = {}
 
@@ -50,7 +49,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
@@ -60,8 +59,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -77,22 +75,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3006, chance = 180}, -- ring of the sky
-	{id = 3030, chance = 1525, maxCount = 5}, -- small ruby
-	{id = 3031, chance = 47000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 50000, maxCount = 100}, -- gold coin
-	{id = 3035, chance = 50625, maxCount = 5}, -- platinum coin
-	{id = 3428, chance = 2035}, -- tower shield
-	{id = 3577, chance = 30300}, -- meat
-	{id = 239, chance = 4850, maxCount = 3}, -- great health potion
-	{id = 7643, chance = 4020}, -- ultimate health potion
-	{id = 10384, chance = 790}, -- Zaoan armor
-	{id = 10386, chance = 1900}, -- Zaoan shoes
-	{id = 10387, chance = 960}, -- Zaoan legs
-	{id = 10388, chance = 860}, -- drakinata
-	{id = 10404, chance = 12010}, -- bone shoulderplate
-	{id = 10405, chance = 7000}, -- warmaster's wristguards
-	{id = 10406, chance = 7925} -- Zaoan halberd
+	{name = "ring of the sky", chance = 180},
+	{name = "small ruby", chance = 1525, maxCount = 5},
+	{name = "gold coin", chance = 47000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "platinum coin", chance = 50625, maxCount = 5},
+	{name = "tower shield", chance = 2035},
+	{name = "meat", chance = 30300},
+	{name = "great health potion", chance = 4850, maxCount = 3},
+	{name = "ultimate health potion", chance = 4020},
+	{name = "zaoan armor", chance = 790},
+	{name = "zaoan shoes", chance = 1900},
+	{name = "zaoan legs", chance = 960},
+	{name = "drakinata", chance = 860},
+	{name = "bone shoulderplate", chance = 12010},
+	{name = "warmaster's wristguards", chance = 7000},
+	{name = "zaoan halberd", chance = 7925}
 }
 
 monster.attacks = {
@@ -107,7 +105,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 5},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},

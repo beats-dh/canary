@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Assassin")
 local monster = {}
 
@@ -6,7 +5,7 @@ monster.description = "an assassin"
 monster.experience = 105
 monster.outfit = {
 	lookType = 152,
-	lookHead = 114,
+	lookHead = 95,
 	lookBody = 95,
 	lookLegs = 95,
 	lookFeet = 95,
@@ -46,7 +45,7 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
 	hostile = true,
 	convinceable = true,
@@ -62,8 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -81,18 +79,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2920, chance = 29980, maxCount = 2}, -- torch
-	{id = 3028, chance = 220}, -- small diamond
-	{id = 3031, chance = 83210, maxCount = 50}, -- gold coin
-	{id = 3031, chance = 7250, maxCount = 14}, -- gold coin
-	{id = 3291, chance = 9500}, -- knife
-	{id = 3292, chance = 4000}, -- combat knife
-	{id = 3351, chance = 3230}, -- steel helmet
-	{id = 3409, chance = 970}, -- steel shield
-	{id = 3410, chance = 1900}, -- plate shield
-	{id = 3413, chance = 1600}, -- battle shield
-	{id = 3404, chance = 480}, -- leopard armor
-	{id = 3405, chance = 230}, -- horseman helmet
-	{id = 7366, chance = 4200, maxCount = 7} -- viper star
+	{name = "small diamond", chance = 220},
+	{name = "gold coin", chance = 83210, maxCount = 50},
+	{name = "gold coin", chance = 7250, maxCount = 14},
+	{name = "knife", chance = 9500},
+	{name = "combat knife", chance = 4000},
+	{name = "steel helmet", chance = 3230},
+	{name = "steel shield", chance = 970},
+	{name = "plate shield", chance = 1900},
+	{name = "battle shield", chance = 1600},
+	{name = "leopard armor", chance = 480},
+	{name = "horseman helmet", chance = 230},
+	{name = "viper star", chance = 4200, maxCount = 7}
 }
 
 monster.attacks = {
@@ -109,7 +107,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},

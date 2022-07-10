@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Crocodile")
 local monster = {}
 
@@ -62,8 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -77,10 +75,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 50000, maxCount = 10}, -- gold coin
-	{id = 3582, chance = 40000}, -- ham
-	{id = 3556, chance = 100}, -- crocodile boots
-	{id = 10279, chance = 20180} -- piece of crocodile leather
+	{name = "gold coin", chance = 50000, maxCount = 10},
+	{name = "ham", chance = 40000},
+	{name = "crocodile boots", chance = 100},
+	{name = "piece of crocodile leather", chance = 20180}
 }
 
 monster.attacks = {
@@ -93,7 +91,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
 	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
 	{type = COMBAT_FIREDAMAGE, percent = -10},

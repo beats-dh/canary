@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Poison Spider")
 local monster = {}
 
@@ -47,7 +46,7 @@ monster.flags = {
 	summonable = true,
 	attackable = true,
 	hostile = true,
-	convinceable = true,
+	convinceable = false,
 	pushable = true,
 	rewardBoss = false,
 	illusionable = true,
@@ -60,8 +59,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -75,8 +73,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 75000, maxCount = 4}, -- gold coin
-	{id = 11485, chance = 1140} -- poison spider shell
+	{name = "gold coin", chance = 75000, maxCount = 4},
+	{name = "poison spider shell", chance = 1140}
 }
 
 monster.attacks = {

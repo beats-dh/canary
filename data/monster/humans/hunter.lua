@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Hunter")
 local monster = {}
 
@@ -8,7 +7,7 @@ monster.outfit = {
 	lookType = 129,
 	lookHead = 95,
 	lookBody = 116,
-	lookLegs = 121,
+	lookLegs = 120,
 	lookFeet = 115,
 	lookAddons = 0,
 	lookMount = 0
@@ -46,7 +45,7 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
 	hostile = true,
 	convinceable = true,
@@ -62,8 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -82,22 +80,22 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2920, chance = 3300}, -- torch
-	{id = 3030, chance = 150}, -- small ruby
-	{id = 3085, chance = 3000}, -- dragon necklace
-	{id = 3350, chance = 5770}, -- bow
-	{id = 3354, chance = 5050}, -- brass helmet
-	{id = 3359, chance = 5070}, -- brass armor
-	{id = 3447, chance = 82000, maxCount = 22}, -- arrow
-	{id = 3448, chance = 4500, maxCount = 4}, -- poison arrow
+	{name = "small ruby", chance = 150},
+	{name = "dragon necklace", chance = 3000},
+	{name = "bow", chance = 5770},
+	{name = "brass helmet", chance = 5050},
+	{name = "brass armor", chance = 5070},
+	{name = "arrow", chance = 82000, maxCount = 22},
+	{name = "poison arrow", chance = 4500, maxCount = 4},
 	{id = 3449, chance = 5360, maxCount = 3}, -- burst arrow
-	{id = 3586, chance = 20300, maxCount = 2}, -- orange
-	{id = 3601, chance = 11370, maxCount = 2}, -- roll
-	{id = 5875, chance = 610}, -- sniper gloves
-	{id = 5907, chance = 120}, -- slingshot
+	{name = "orange", chance = 20300, maxCount = 2},
+	{name = "roll", chance = 11370, maxCount = 2},
+	{name = "sniper gloves", chance = 610},
+	{name = "slingshot", chance = 120},
 	{id = 7394, chance = 190}, -- wolf trophy
 	{id = 7397, chance = 520}, -- deer trophy
 	{id = 7400, chance = 70}, -- lion trophy
-	{id = 11469, chance = 10240} -- hunter's quiver
+	{name = "hunter's quiver", chance = 10240}
 }
 
 monster.attacks = {
@@ -111,7 +109,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},

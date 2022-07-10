@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Grimeleech")
 local monster = {}
 
@@ -53,7 +52,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
@@ -63,8 +62,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -79,37 +77,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 197}, -- gold coin
-	{id = 3035, chance = 100000, maxCount = 8}, -- platinum coin
-	{id = 238, chance = 34850, maxCount = 3}, -- great mana potion
-	{id = 239, chance = 34290, maxCount = 3}, -- great health potion
-	{id = 7642, chance = 30860, maxCount = 3}, -- great spirit potion
-	{id = 6558, chance = 23400, maxCount = 3}, -- concentrated demonic blood
-	{id = 6499, chance = 19240}, -- demonic essence
-	{id = 22730, chance = 19080}, -- some grimeleech wings
-	{id = 3731, chance = 15360, maxCount = 5}, -- fire mushroom
-	{id = 3732, chance = 14800, maxCount = 5}, -- green mushroom
-	{id = 3028, chance = 11290, maxCount = 5}, -- small diamond
-	{id = 3030, chance = 10750, maxCount = 5}, -- small ruby
-	{id = 9057, chance = 9660, maxCount = 5}, -- small topaz
-	{id = 3033, chance = 9640, maxCount = 5}, -- small amethyst
-	{id = 8082, chance = 6890}, -- underworld rod
-	{id = 8094, chance = 4810}, -- wand of voodoo
-	{id = 3039, chance = 3930}, -- red gem
-	{id = 3037, chance = 2900}, -- yellow gem
-	{id = 3356, chance = 1360}, -- devil helmet
-	{id = 821, chance = 1150}, -- magma legs
-	{id = 3420, chance = 1010}, -- demon shield
-	{id = 7418, chance = 930}, -- nightmare blade
-	{id = 3041, chance = 780}, -- blue gem
-	{id = 22867, chance = 720}, -- rift crossbow
-	{id = 3554, chance = 640}, -- steel boots
-	{id = 22726, chance = 620}, -- rift shield
-	{id = 22727, chance = 580}, -- rift lance
-	{id = 22866, chance = 370}, -- rift bow
-	{id = 7414, chance = 210}, -- abyss hammer
-	{id = 7388, chance = 180}, -- vile axe
-	{id = 3366, chance = 60} -- magic plate armor
+	{name = "gold coin", chance = 100000, maxCount = 197},
+	{name = "platinum coin", chance = 100000, maxCount = 8},
+	{name = "great mana potion", chance = 34850, maxCount = 3},
+	{name = "great health potion", chance = 34290, maxCount = 3},
+	{name = "great spirit potion", chance = 30860, maxCount = 3},
+	{name = "flask of demonic blood", chance = 23400, maxCount = 3},
+	{name = "demonic essence", chance = 19240},
+	{name = "some grimeleech wings", chance = 19080},
+	{name = "fire mushroom", chance = 15360, maxCount = 5},
+	{name = "green mushroom", chance = 14800, maxCount = 5},
+	{name = "small diamond", chance = 11290, maxCount = 5},
+	{name = "small ruby", chance = 10750, maxCount = 5},
+	{name = "small topaz", chance = 9660, maxCount = 5},
+	{name = "small amethyst", chance = 9640, maxCount = 5},
+	{name = "underworld rod", chance = 6890},
+	{name = "wand of voodoo", chance = 4810},
+	{id= 3039, chance = 3930}, -- red gem
+	{name = "yellow gem", chance = 2900},
+	{name = "devil helmet", chance = 1360},
+	{name = "magma legs", chance = 1150},
+	{name = "demon shield", chance = 1010},
+	{name = "nightmare blade", chance = 930},
+	{name = "blue gem", chance = 780},
+	{name = "rift crossbow", chance = 720},
+	{name = "steel boots", chance = 640},
+	{name = "rift shield", chance = 620},
+	{name = "rift lance", chance = 580},
+	{name = "rift bow", chance = 370},
+	{name = "abyss hammer", chance = 210},
+	{name = "vile axe", chance = 180},
+	{name = "magic plate armor", chance = 60}
 }
 
 monster.attacks = {
@@ -131,16 +129,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
-	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 40},
-	{type = COMBAT_FIREDAMAGE, percent = -10},
+	{type = COMBAT_FIREDAMAGE, percent = 20},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 65},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 60}
 }
 
 monster.immunities = {

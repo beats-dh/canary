@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Hydra")
 local monster = {}
 
@@ -68,8 +67,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -85,24 +83,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3029, chance = 5000}, -- small sapphire
-	{id = 3031, chance = 34000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 34000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 20000, maxCount = 46}, -- gold coin
-	{id = 3035, chance = 48000, maxCount = 3}, -- platinum coin
-	{id = 3061, chance = 570}, -- life crystal
-	{id = 3079, chance = 130}, -- boots of haste
-	{id = 3081, chance = 900}, -- stone skin amulet
+	{name = "small sapphire", chance = 5000},
+	{name = "gold coin", chance = 34000, maxCount = 100},
+	{name = "gold coin", chance = 34000, maxCount = 100},
+	{name = "gold coin", chance = 20000, maxCount = 46},
+	{name = "platinum coin", chance = 48000, maxCount = 3},
+	{name = "life crystal", chance = 570},
+	{name = "boots of haste", chance = 130},
+	{name = "stone skin amulet", chance = 900},
 	{id = 3098, chance = 1190}, -- ring of healing
-	{id = 3369, chance = 890}, -- warrior helmet
-	{id = 3370, chance = 1000}, -- knight armor
-	{id = 3392, chance = 210}, -- royal helmet
-	{id = 3436, chance = 270}, -- medusa shield
-	{id = 3582, chance = 60000, maxCount = 4}, -- ham
-	{id = 4839, chance = 930}, -- hydra egg
-	{id = 237, chance = 380}, -- strong mana potion
-	{id = 8014, chance = 4780}, -- cucumber
-	{id = 10282, chance = 10120} -- hydra head
+	{name = "warrior helmet", chance = 890},
+	{name = "knight armor", chance = 1000},
+	{name = "royal helmet", chance = 210},
+	{name = "medusa shield", chance = 270},
+	{name = "ham", chance = 60000, maxCount = 4},
+	{name = "hydra egg", chance = 930},
+	{name = "strong mana potion", chance = 380},
+	{name = "cucumber", chance = 4780},
+	{name = "hydra head", chance = 10120}
 }
 
 monster.attacks = {

@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Winter Wolf")
 local monster = {}
 
@@ -60,8 +59,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -76,8 +74,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3577, chance = 30000, maxCount = 2}, -- meat
-	{id = 10295, chance = 10000} -- winter wolf fur
+	{name = "meat", chance = 30000, maxCount = 2},
+	{name = "winter wolf fur", chance = 10000}
 }
 
 monster.attacks = {
@@ -98,8 +96,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 5},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE , percent = 10},
+	{type = COMBAT_DEATHDAMAGE , percent = -10}
 }
 
 monster.immunities = {

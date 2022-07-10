@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Midnight Asura")
 local monster = {}
 
@@ -53,7 +52,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 80,
@@ -63,8 +62,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -85,7 +83,7 @@ monster.loot = {
 	{id = 3035, chance = 18200, maxCount = 6}, -- platinum coin
 	{id = 7368, chance = 2000, maxCount = 2}, -- assassin star
 	{id = 3027, chance = 2000}, -- black pearl
-	{id = 6558, chance = 2000}, -- concentrated demonic blood
+	{id = 6558, chance = 2000}, -- flask of demonic blood
 	{id = 6499, chance = 2210}, -- demonic essence
 	{id = 3028, chance = 800, maxCount = 3}, -- small diamond
 	{id = 3032, chance = 900, maxCount = 3}, -- small emerald
@@ -118,7 +116,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -70, range = 7, target = false},
 	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -200, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	-- {name ="energy strike", interval = 2000, chance = 10, minDamage = -10, maxDamage = -100, range = 1, target = false},
+	{name ="energy strike", interval = 2000, chance = 10, minDamage = -10, maxDamage = -100, range = 1, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -100, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000}
 }
 

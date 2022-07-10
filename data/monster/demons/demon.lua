@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Demon")
 local monster = {}
 
@@ -36,7 +35,6 @@ monster.race = "fire"
 monster.corpse = 5995
 monster.speed = 256
 monster.manaCost = 0
-monster.maxSummons = 1
 
 monster.changeTarget = {
 	interval = 4000,
@@ -67,8 +65,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -76,8 +73,11 @@ monster.light = {
 	color = 0
 }
 
-monster.summons = {
-	{name = "fire elemental", chance = 10, interval = 2000}
+monster.summon = {
+	maxSummons = 1,
+	summons = {
+		{name = "fire elemental", chance = 10, interval = 2000, count = 1}
+	}
 }
 
 monster.voices = {
@@ -91,40 +91,40 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2848, chance = 1180}, -- purple tome
-	{id = 3031, chance = 60000, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 60000, maxCount = 100}, -- gold coin
-	{id = 3032, chance = 9690, maxCount = 5}, -- small emerald
-	{id = 3033, chance = 7250, maxCount = 5}, -- small amethyst
-	{id = 3030, chance = 7430, maxCount = 5}, -- small ruby
-	{id = 9057, chance = 7470, maxCount = 5}, -- small topaz
-	{id = 3039, chance = 2220}, -- red gem
-	{id = 6499, chance = 14630}, -- demonic essence
-	{id = 3034, chance = 3430}, -- talon
-	{id = 3035, chance = 90540, maxCount = 8}, -- platinum coin
-	{id = 3048, chance = 1890}, -- might ring
+	{name = "purple tome", chance = 1180},
+	{name = "gold coin", chance = 60000, maxCount = 100},
+	{name = "gold coin", chance = 60000, maxCount = 100},
+	{name = "small emerald", chance = 9690, maxCount = 5},
+	{name = "small amethyst", chance = 7250, maxCount = 5},
+	{name = "small ruby", chance = 7430, maxCount = 5},
+	{name = "small topaz", chance = 7470, maxCount = 5},
+	{id= 3039, chance = 2220}, -- red gem
+	{name = "demonic essence", chance = 14630},
+	{name = "talon", chance = 3430},
+	{name = "platinum coin", chance = 90540, maxCount = 8},
+	{name = "might ring", chance = 1890},
 	{id = 3049, chance = 2170}, -- stealth ring
-	{id = 3055, chance = 680}, -- platinum amulet
-	{id = 3060, chance = 2854}, -- orb
-	{id = 3063, chance = 1050}, -- gold ring
+	{name = "platinum amulet", chance = 680},
+	{name = "orb", chance = 2854},
+	{name = "gold ring", chance = 1050},
 	{id = 3098, chance = 1990}, -- ring of healing
-	{id = 3281, chance = 1980}, -- giant sword
-	{id = 3284, chance = 1550}, -- ice rapier
-	{id = 3306, chance = 1440}, -- golden sickle
-	{id = 3320, chance = 4030}, -- fire axe
-	{id = 3356, chance = 1180}, -- devil helmet
-	{id = 3364, chance = 440}, -- golden legs
-	{id = 3366, chance = 130}, -- magic plate armor
-	{id = 3414, chance = 480}, -- mastermind shield
-	{id = 3420, chance = 740}, -- demon shield
-	{id = 3731, chance = 19660, maxCount = 6}, -- fire mushroom
-	{id = 5954, chance = 14920}, -- demon horn
-	{id = 7368, chance = 12550, maxCount = 10}, -- assassin star
-	{id = 7382, chance = 70}, -- demonrage sword
+	{name = "giant sword", chance = 1980},
+	{name = "ice rapier", chance = 1550},
+	{name = "golden sickle", chance = 1440},
+	{name = "fire axe", chance = 4030},
+	{name = "devil helmet", chance = 1180},
+	{name = "golden legs", chance = 440},
+	{name = "magic plate armor", chance = 130},
+	{name = "mastermind shield", chance = 480},
+	{name = "demon shield", chance = 740},
+	{name = "fire mushroom", chance = 19660, maxCount = 6},
+	{name = "demon horn", chance = 14920},
+	{name = "assassin star", chance = 12550, maxCount = 10},
+	{name = "demonrage sword", chance = 70},
 	{id = 7393, chance = 90}, -- demon trophy
-	{id = 238, chance = 22220, maxCount = 3}, -- great mana potion
-	{id = 7643, chance = 19540, maxCount = 3}, -- ultimate health potion
-	{id = 7642, chance = 18510, maxCount = 3} -- great spirit potion
+	{name = "great mana potion", chance = 22220, maxCount = 3},
+	{name = "ultimate health potion", chance = 19540, maxCount = 3},
+	{name = "great spirit potion", chance = 18510, maxCount = 3}
 }
 
 monster.attacks = {
@@ -145,16 +145,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 25},
 	{type = COMBAT_ENERGYDAMAGE, percent = 50},
 	{type = COMBAT_EARTHDAMAGE, percent = 40},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_ICEDAMAGE, percent = -12},
+	{type = COMBAT_HOLYDAMAGE , percent = -12},
+	{type = COMBAT_DEATHDAMAGE , percent = 20}
 }
 
 monster.immunities = {

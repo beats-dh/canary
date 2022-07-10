@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Ghastly Dragon")
 local monster = {}
 
@@ -54,7 +53,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 70,
@@ -64,8 +63,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -81,41 +79,41 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 33725, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 33725, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 33725, maxCount = 66}, -- gold coin
-	{id = 3035, chance = 29840, maxCount = 2}, -- platinum coin
-	{id = 5944, chance = 12170}, -- soul orb
-	{id = 6499, chance = 8920}, -- demonic essence
-	{id = 238, chance = 30560, maxCount = 2}, -- great mana potion
-	{id = 812, chance = 3130}, -- terra legs
-	{id = 813, chance = 9510}, -- terra boots
-	{id = 7642, chance = 29460, maxCount = 2}, -- great spirit potion
-	{id = 7643, chance = 24700}, -- ultimate health potion
+	{name = "gold coin", chance = 33725, maxCount = 100},
+	{name = "gold coin", chance = 33725, maxCount = 100},
+	{name = "gold coin", chance = 33725, maxCount = 66},
+	{name = "platinum coin", chance = 29840, maxCount = 2},
+	{name = "soul orb", chance = 12170},
+	{name = "demonic essence", chance = 8920},
+	{name = "great mana potion", chance = 30560, maxCount = 2},
+	{name = "terra legs", chance = 3130},
+	{name = "terra boots", chance = 9510},
+	{name = "great spirit potion", chance = 29460, maxCount = 2},
+	{name = "ultimate health potion", chance = 24700},
 	{id = 8896, chance = 180}, -- slightly rusted armor
-	{id = 10310, chance = 860}, -- shiny stone
-	{id = 10323, chance = 200}, -- guardian boots
-	{id = 10384, chance = 870}, -- Zaoan armor
-	{id = 10385, chance = 150}, -- Zaoan helmet
-	{id = 10386, chance = 870}, -- Zaoan shoes
-	{id = 10387, chance = 1400}, -- Zaoan legs
-	{id = 10388, chance = 1470}, -- drakinata
-	{id = 10390, chance = 100}, -- Zaoan sword
-	{id = 10392, chance = 15100}, -- twin hooks
-	{id = 10406, chance = 15020}, -- Zaoan halberd
-	{id = 10438, chance = 690}, -- spellweaver's robe
-	{id = 10449, chance = 6650}, -- ghastly dragon head
-	{id = 10450, chance = 19830}, -- undead heart
-	{id = 10451, chance = 810} -- jade hat
+	{name = "shiny stone", chance = 860},
+	{name = "guardian boots", chance = 200},
+	{name = "zaoan armor", chance = 870},
+	{name = "zaoan helmet", chance = 150},
+	{name = "zaoan shoes", chance = 870},
+	{name = "zaoan legs", chance = 1400},
+	{name = "drakinata", chance = 1470},
+	{name = "zaoan sword", chance = 100},
+	{name = "twin hooks", chance = 15100},
+	{name = "zaoan halberd", chance = 15020},
+	{name = "spellweaver's robe", chance = 690},
+	{name = "ghastly dragon head", chance = 6650},
+	{name = "undead heart", chance = 19830},
+	{name = "jade hat", chance = 810}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -603},
-	-- {name ="ghastly dragon curse", interval = 2000, chance = 5, range = 5, target = false},
+	{name ="ghastly dragon curse", interval = 2000, chance = 5, range = 5, target = false},
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -920, maxDamage = -1280, range = 5, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -80, maxDamage = -230, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	-- {name ="ghastly dragon wave", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, target = false},
+	{name ="ghastly dragon wave", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -110, maxDamage = -180, radius = 4, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -800, range = 7, effect = CONST_ME_SMALLCLOUDS, target = true, duration = 30000}
 }

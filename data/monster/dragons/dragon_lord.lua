@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Dragon Lord")
 local monster = {}
 
@@ -69,8 +68,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	pet = false
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -87,27 +85,27 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2842, chance = 9000}, -- book
-	{id = 2903, chance = 3190}, -- golden mug
-	{id = 3029, chance = 5300}, -- small sapphire
-	{id = 3031, chance = 33750, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 33750, maxCount = 100}, -- gold coin
-	{id = 3031, chance = 33750, maxCount = 45}, -- gold coin
+	{name = "golden mug", chance = 3190},
+	{name = "small sapphire", chance = 5300},
+	{name = "gold coin", chance = 33750, maxCount = 100},
+	{name = "gold coin", chance = 33750, maxCount = 100},
+	{name = "gold coin", chance = 33750, maxCount = 45},
 	{id = 3051, chance = 5250}, -- energy ring
-	{id = 3061, chance = 680}, -- life crystal
-	{id = 3280, chance = 290}, -- fire sword
-	{id = 3373, chance = 360}, -- strange helmet
-	{id = 3386, chance = 170}, -- dragon scale mail
-	{id = 3392, chance = 280}, -- royal helmet
-	{id = 3428, chance = 250}, -- tower shield
-	{id = 3450, chance = 6700, maxCount = 7}, -- power bolt
-	{id = 3583, chance = 80000, maxCount = 5}, -- dragon ham
-	{id = 3732, chance = 12000}, -- green mushroom
-	{id = 5882, chance = 1920}, -- red dragon scale
-	{id = 5948, chance = 1040}, -- red dragon leather
-	{id = 7378, chance = 8800, maxCount = 3}, -- royal spear
-	{id = 7399, chance = 80}, -- dragon lord trophy
-	{id = 7402, chance = 100}, -- dragon slayer
-	{id = 236, chance = 970} -- strong health potion
+	{name = "life crystal", chance = 680},
+	{name = "fire sword", chance = 290},
+	{name = "strange helmet", chance = 360},
+	{name = "dragon scale mail", chance = 170},
+	{name = "royal helmet", chance = 280},
+	{name = "tower shield", chance = 250},
+	{name = "power bolt", chance = 6700, maxCount = 7},
+	{name = "dragon ham", chance = 80000, maxCount = 5},
+	{name = "green mushroom", chance = 12000},
+	{name = "red dragon scale", chance = 1920},
+	{name = "red dragon leather", chance = 1040},
+	{name = "royal spear", chance = 8800, maxCount = 3},
+	{name = "dragon lord trophy", chance = 80},
+	{name = "dragon slayer", chance = 100},
+	{name = "strong health potion", chance = 970}
 }
 
 monster.attacks = {

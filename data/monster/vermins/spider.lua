@@ -1,4 +1,3 @@
---# Monster converted using Devm monster converter #--
 local mType = Game.createMonsterType("Spider")
 local monster = {}
 
@@ -61,8 +60,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -76,8 +74,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 65150, maxCount = 5}, -- gold coin
-	{id = 8031, chance = 960} -- spider fangs
+	{name = "gold coin", chance = 65150, maxCount = 5},
+	{name = "spider fangs", chance = 960}
 }
 
 monster.attacks = {
