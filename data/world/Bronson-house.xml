@@ -1,417 +1,417 @@
 <?xml version="1.0"?>
 <houses>
-	<house name="Baixa 1" houseid="1" entryx="1078" entryy="998" entryz="6" rent="3000" townid="1" size="12" />
-	<house name="Baixa 2" houseid="2" entryx="1082" entryy="998" entryz="6" rent="1200" townid="1" size="6" />
-	<house name="Baixa 3" houseid="3" entryx="1077" entryy="1007" entryz="6" rent="10000" townid="1" size="15" />
-	<house name="Baixa 4" houseid="4" entryx="1082" entryy="1007" entryz="6" rent="7000" townid="1" size="20" />
-	<house name="Baixa 5" houseid="5" entryx="1091" entryy="1004" entryz="6" rent="1700" townid="1" size="16" />
-	<house name="Baixa 6" houseid="6" entryx="1090" entryy="1013" entryz="6" rent="2000" townid="1" size="20" />
-	<house name="Baixa 7" houseid="7" entryx="1097" entryy="1009" entryz="6" rent="1300" townid="1" size="12" />
-	<house name="Elite 1" houseid="8" entryx="1039" entryy="1028" entryz="5" rent="30000" townid="1" size="46" />
-	<house name="Elite 2" houseid="9" entryx="1045" entryy="1028" entryz="5" rent="35000" townid="1" size="68" />
-	<house name="Elite 3" houseid="10" entryx="1049" entryy="1039" entryz="5" rent="20000" townid="1" size="44" />
-	<house name="Elite 4" houseid="11" entryx="1058" entryy="1059" entryz="5" rent="15000" townid="1" size="51" />
-	<house name="Elite 5" houseid="12" entryx="1058" entryy="1060" entryz="5" rent="15000" townid="1" size="59" />
-	<house name="Depot 1" houseid="13" entryx="1046" entryy="1015" entryz="5" rent="22000" townid="1" size="29" />
-	<house name="Depot 2" houseid="14" entryx="1043" entryy="1021" entryz="5" rent="20000" townid="1" size="32" />
-	<house name="Depot 3" houseid="15" entryx="1049" entryy="1017" entryz="5" rent="24000" townid="1" size="23" />
-	<house name="Depot 4" houseid="16" entryx="1058" entryy="1017" entryz="5" rent="25000" townid="1" size="25" />
-	<house name="Depot 5" houseid="17" entryx="1046" entryy="1012" entryz="4" rent="20000" townid="1" size="25" />
-	<house name="Oeste 1" houseid="18" entryx="1039" entryy="1039" entryz="5" rent="1800" townid="1" size="19" />
-	<house name="Oeste 2" houseid="19" entryx="1042" entryy="1048" entryz="5" rent="2000" townid="1" size="23" />
-	<house name="Oeste 3" houseid="20" entryx="1049" entryy="1056" entryz="5" rent="2900" townid="1" size="32" />
-	<house name="Baixa 8" houseid="21" entryx="1079" entryy="1009" entryz="6" rent="8000" townid="1" size="20" />
-	<house name="Baixa 9" houseid="22" entryx="1074" entryy="1017" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Baixa 10" houseid="23" entryx="1088" entryy="1017" entryz="6" rent="1400" townid="1" size="15" />
-	<house name="Baixa 11" houseid="24" entryx="1088" entryy="1021" entryz="6" rent="900" townid="1" size="10" />
-	<house name="Elite 6" houseid="25" entryx="1096" entryy="1014" entryz="6" rent="15000" townid="1" size="42" />
-	<house name="Cima 1" houseid="26" entryx="1072" entryy="1061" entryz="4" rent="3500" townid="1" size="38" />
-	<house name="Leste 1" houseid="27" entryx="1100" entryy="1018" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Leste 2" houseid="28" entryx="1108" entryy="1015" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Leste 3" houseid="29" entryx="1095" entryy="1026" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Leste 4" houseid="30" entryx="1100" entryy="1032" entryz="6" rent="1400" townid="1" size="15" />
-	<house name="Leste 5" houseid="31" entryx="1102" entryy="1024" entryz="6" rent="2000" townid="1" size="21" />
-	<house name="Leste 6" houseid="32" entryx="1104" entryy="1032" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Leste 7" houseid="33" entryx="1111" entryy="1034" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Leste 8" houseid="34" entryx="1098" entryy="1033" entryz="6" rent="800" townid="1" size="8" />
-	<house name="Leste 9" houseid="35" entryx="1102" entryy="1040" entryz="6" rent="1600" townid="1" size="16" />
-	<house name="Leste 10" houseid="36" entryx="1107" entryy="1039" entryz="6" rent="2000" townid="1" size="21" />
-	<house name="Leste 11" houseid="37" entryx="1107" entryy="1043" entryz="6" rent="2000" townid="1" size="21" />
-	<house name="Leste 12" houseid="38" entryx="1107" entryy="1048" entryz="6" rent="2500" townid="1" size="28" />
-	<house name="Leste 13" houseid="39" entryx="1102" entryy="1046" entryz="6" rent="1600" townid="1" size="16" />
-	<house name="Leste 14" houseid="40" entryx="1098" entryy="1049" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Leste 15" houseid="41" entryx="1107" entryy="1052" entryz="6" rent="1400" townid="1" size="15" />
-	<house name="Leste 18" houseid="42" entryx="1111" entryy="1062" entryz="6" rent="500" townid="1" size="6" />
-	<house name="Leste 16" houseid="43" entryx="1098" entryy="1057" entryz="6" rent="900" townid="1" size="9" />
-	<house name="Leste 17" houseid="44" entryx="1108" entryy="1053" entryz="6" rent="1500" townid="1" size="16" />
-	<house name="Sul 1" houseid="45" entryx="1096" entryy="1062" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Sul 2" houseid="46" entryx="1097" entryy="1066" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Sul 3" houseid="47" entryx="1108" entryy="1062" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Sul 4" houseid="48" entryx="1096" entryy="1070" entryz="6" rent="1600" townid="1" size="16" />
-	<house name="Sul 5" houseid="49" entryx="1100" entryy="1071" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Sul 6" houseid="50" entryx="1085" entryy="1070" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 7" houseid="51" entryx="1084" entryy="1077" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Sul 8" houseid="52" entryx="1090" entryy="1076" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Rohirrims 1" houseid="53" entryx="1154" entryy="905" entryz="6" rent="3200" townid="1" size="36" />
-	<house name="Sul 10" houseid="54" entryx="1091" entryy="1078" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 11" houseid="55" entryx="1074" entryy="1075" entryz="6" rent="900" townid="1" size="9" />
-	<house name="Sul 12" houseid="56" entryx="1078" entryy="1075" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Sul 13" houseid="57" entryx="1073" entryy="1082" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Sul 14" houseid="58" entryx="1075" entryy="1083" entryz="6" rent="2200" townid="1" size="24" />
-	<house name="Sul 15" houseid="59" entryx="1064" entryy="1077" entryz="6" rent="1800" townid="1" size="18" />
-	<house name="Sul 16" houseid="60" entryx="1066" entryy="1084" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Sul 17" houseid="61" entryx="1059" entryy="1075" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 18" houseid="62" entryx="1057" entryy="1077" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Sul 19" houseid="63" entryx="1059" entryy="1084" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 20" houseid="64" entryx="1050" entryy="1076" entryz="6" rent="1500" townid="1" size="15" />
-	<house name="Sul 21" houseid="65" entryx="1051" entryy="1077" entryz="6" rent="1900" townid="1" size="20" />
-	<house name="Sul 22" houseid="66" entryx="1041" entryy="1077" entryz="6" rent="1700" townid="1" size="18" />
-	<house name="Sul 23" houseid="67" entryx="1042" entryy="1076" entryz="6" rent="1000" townid="1" size="10" />
-	<house name="Sul 24" houseid="68" entryx="1040" entryy="1068" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 25" houseid="69" entryx="1035" entryy="1066" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 26" houseid="70" entryx="1037" entryy="1059" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 27" houseid="71" entryx="1029" entryy="1058" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Sul 28" houseid="72" entryx="1024" entryy="1058" entryz="6" rent="700" townid="1" size="8" />
-	<house name="Sul 29" houseid="73" entryx="1025" entryy="1053" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Sul 30" houseid="74" entryx="1029" entryy="1054" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Oeste 4" houseid="75" entryx="1027" entryy="1043" entryz="6" rent="1200" townid="1" size="12" />
-	<house name="Oeste 5" houseid="76" entryx="1019" entryy="1038" entryz="6" rent="1100" townid="1" size="12" />
-	<house name="Oeste 6" houseid="77" entryx="1024" entryy="1036" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Oeste 7" houseid="78" entryx="1024" entryy="1031" entryz="6" rent="1600" townid="1" size="16" />
-	<house name="Oeste 8" houseid="79" entryx="1028" entryy="1029" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Oeste 9" houseid="80" entryx="1029" entryy="1021" entryz="6" rent="2400" townid="1" size="24" />
-	<house name="Oeste 10" houseid="81" entryx="1031" entryy="1014" entryz="6" rent="800" townid="1" size="9" />
-	<house name="Oeste 11" houseid="82" entryx="1032" entryy="1010" entryz="6" rent="500" townid="1" size="6" />
-	<house name="Fazenda 9" houseid="83" entryx="1136" entryy="1016" entryz="7" rent="1600" townid="1" size="15" />
-	<house name="Sul 31" houseid="84" entryx="1068" entryy="1086" entryz="6" rent="1400" townid="1" size="15" />
-	<house name="Fazenda 1" houseid="85" entryx="1089" entryy="979" entryz="7" rent="1400" townid="1" size="15" />
-	<house name="Fazenda 2" houseid="86" entryx="1092" entryy="988" entryz="7" rent="1400" townid="1" size="15" />
-	<house name="Fazenda 3" houseid="87" entryx="1103" entryy="985" entryz="7" rent="1400" townid="1" size="15" />
-	<house name="Fazenda 4" houseid="88" entryx="1112" entryy="992" entryz="7" rent="2700" townid="1" size="28" />
-	<house name="Fazenda 5" houseid="89" entryx="1116" entryy="1003" entryz="7" rent="1100" townid="1" size="12" />
-	<house name="Fazenda 6" houseid="90" entryx="1125" entryy="986" entryz="7" rent="1900" townid="1" size="20" />
-	<house name="Fazenda 7" houseid="91" entryx="1111" entryy="1007" entryz="7" rent="1100" townid="1" size="12" />
-	<house name="Fazenda 8" houseid="92" entryx="1124" entryy="1007" entryz="7" rent="1100" townid="1" size="12" />
-	<house name="Corredor 1" houseid="93" entryx="1216" entryy="749" entryz="7" rent="3000" townid="2" size="15" />
-	<house name="Corredor 2" houseid="94" entryx="1219" entryy="749" entryz="7" rent="3000" townid="2" size="13" />
-	<house name="Corredor 3" houseid="95" entryx="1223" entryy="749" entryz="7" rent="3000" townid="2" size="13" />
-	<house name="Corredor 4" houseid="96" entryx="1228" entryy="749" entryz="7" rent="3000" townid="2" size="13" />
-	<house name="Corredor 5" houseid="97" entryx="1231" entryy="749" entryz="7" rent="3000" townid="2" size="13" />
-	<house name="Corredor 6" houseid="98" entryx="1215" entryy="756" entryz="7" rent="2000" townid="2" size="10" />
-	<house name="Corredor 7" houseid="99" entryx="1219" entryy="756" entryz="7" rent="2000" townid="2" size="10" />
-	<house name="Corredor 8" houseid="100" entryx="1223" entryy="756" entryz="7" rent="2000" townid="2" size="10" />
-	<house name="Corredor 9" houseid="101" entryx="1227" entryy="756" entryz="7" rent="2000" townid="2" size="10" />
-	<house name="Corredor 10" houseid="102" entryx="1231" entryy="756" entryz="7" rent="3000" townid="2" size="11" />
-	<house name="Stronghold 1" houseid="103" entryx="1221" entryy="763" entryz="7" rent="3000" townid="2" size="19" />
-	<house name="Stronghold 2" houseid="104" entryx="1228" entryy="763" entryz="7" rent="1400" townid="2" size="19" />
-	<house name="Stronghold 3" houseid="105" entryx="1214" entryy="746" entryz="6" rent="2700" townid="2" size="29" />
-	<house name="Rohirrims 2" houseid="106" entryx="1159" entryy="903" entryz="6" rent="3200" townid="1" size="36" />
-	<house name="Stronghold 5" houseid="107" entryx="1222" entryy="746" entryz="6" rent="900" townid="2" size="12" />
-	<house name="Stronghold 6" houseid="108" entryx="1227" entryy="746" entryz="6" rent="1000" townid="2" size="17" />
-	<house name="Stronghold 7" houseid="109" entryx="1231" entryy="746" entryz="6" rent="1200" townid="2" size="17" />
-	<house name="Stronghold 8" houseid="110" entryx="1215" entryy="758" entryz="6" rent="2000" townid="2" size="29" />
-	<house name="Rohirrims 3" houseid="111" entryx="1152" entryy="907" entryz="6" rent="2900" townid="1" size="31" />
-	<house name="Stronghold 10" houseid="112" entryx="1223" entryy="758" entryz="6" rent="1100" townid="2" size="13" />
-	<house name="Stronghold 11" houseid="113" entryx="1227" entryy="758" entryz="6" rent="1100" townid="2" size="13" />
-	<house name="Stronghold 12" houseid="114" entryx="1231" entryy="758" entryz="6" rent="1100" townid="2" size="13" />
-	<house name="Cima 2" houseid="115" entryx="1078" entryy="1061" entryz="4" rent="1500" townid="1" size="16" />
-	<house name="Cima 3" houseid="116" entryx="1083" entryy="1057" entryz="4" rent="2300" townid="1" size="26" />
-	<house name="Cima 4" houseid="117" entryx="1085" entryy="1053" entryz="4" rent="1700" townid="1" size="18" />
-	<house name="Elvenpath 1" houseid="118" entryx="1053" entryy="525" entryz="4" rent="3500" townid="3" size="9" />
-	<house name="Elvenpath 2" houseid="119" entryx="1054" entryy="517" entryz="4" rent="3000" townid="3" size="12" />
-	<house name="Elvenpath 3" houseid="120" entryx="1055" entryy="508" entryz="4" rent="1400" townid="3" size="15" />
-	<house name="Elvenpath 4" houseid="121" entryx="1054" entryy="496" entryz="4" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 5" houseid="122" entryx="1055" entryy="486" entryz="4" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 6" houseid="123" entryx="1055" entryy="481" entryz="4" rent="800" townid="3" size="9" />
-	<house name="Elvenpath 7" houseid="124" entryx="1054" entryy="473" entryz="4" rent="800" townid="3" size="9" />
-	<house name="Elvenpath 8" houseid="125" entryx="1054" entryy="469" entryz="4" rent="800" townid="3" size="9" />
-	<house name="Elvenpath 9" houseid="126" entryx="1054" entryy="465" entryz="4" rent="800" townid="3" size="9" />
-	<house name="Elvenpath 10" houseid="127" entryx="1064" entryy="455" entryz="4" rent="1400" townid="3" size="16" />
-	<house name="Elvenpath 11" houseid="128" entryx="1070" entryy="455" entryz="4" rent="1400" townid="3" size="16" />
-	<house name="Elvenpath 12" houseid="129" entryx="1075" entryy="455" entryz="4" rent="1400" townid="3" size="16" />
-	<house name="Elvenpath 13" houseid="130" entryx="1081" entryy="455" entryz="4" rent="1400" townid="3" size="16" />
-	<house name="Elvenpath 14" houseid="131" entryx="1094" entryy="465" entryz="4" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 15" houseid="132" entryx="1095" entryy="474" entryz="4" rent="2500" townid="3" size="28" />
-	<house name="Elvenpath 16" houseid="133" entryx="1094" entryy="484" entryz="4" rent="1500" townid="3" size="16" />
-	<house name="Elvenpath 17" houseid="134" entryx="1095" entryy="492" entryz="4" rent="1700" townid="3" size="18" />
-	<house name="Elvenpath 18" houseid="135" entryx="1090" entryy="504" entryz="4" rent="4000" townid="3" size="36" />
-	<house name="Elvenpath 19" houseid="136" entryx="1090" entryy="512" entryz="4" rent="3500" townid="3" size="33" />
-	<house name="Elvenpath 20" houseid="137" entryx="1096" entryy="530" entryz="4" rent="3500" townid="3" size="25" />
-	<house name="Elvenpath 21" houseid="138" entryx="1096" entryy="539" entryz="4" rent="1900" townid="3" size="20" />
-	<house name="Elvenpath 22" houseid="139" entryx="1092" entryy="553" entryz="4" rent="2900" townid="3" size="30" />
-	<house name="Elvenpath 23" houseid="140" entryx="1089" entryy="565" entryz="4" rent="1500" townid="3" size="16" />
-	<house name="Elvenpath 24" houseid="141" entryx="1072" entryy="573" entryz="4" rent="1700" townid="3" size="19" />
-	<house name="Elvenpath 25" houseid="142" entryx="1062" entryy="572" entryz="4" rent="1500" townid="3" size="17" />
-	<house name="Elvenpath 26" houseid="143" entryx="1053" entryy="572" entryz="4" rent="1900" townid="3" size="21" />
-	<house name="Elvenpath 27" houseid="144" entryx="1041" entryy="558" entryz="4" rent="3600" townid="3" size="20" />
-	<house name="Elvenpath 28" houseid="145" entryx="1042" entryy="553" entryz="4" rent="3500" townid="3" size="12" />
-	<house name="Elvenpath 29" houseid="146" entryx="1055" entryy="536" entryz="5" rent="1900" townid="3" size="20" />
-	<house name="Elvenpath 30" houseid="147" entryx="1061" entryy="525" entryz="5" rent="2300" townid="3" size="24" />
-	<house name="Elvenpath 31" houseid="148" entryx="1062" entryy="517" entryz="5" rent="1900" townid="3" size="20" />
-	<house name="Elvenpath 32" houseid="149" entryx="1061" entryy="510" entryz="5" rent="1400" townid="3" size="15" />
-	<house name="Elvenpath 33" houseid="150" entryx="1061" entryy="506" entryz="5" rent="1900" townid="3" size="20" />
-	<house name="Elvenpath 34" houseid="151" entryx="1060" entryy="496" entryz="5" rent="2900" townid="3" size="30" />
-	<house name="Elvenpath 35" houseid="152" entryx="1062" entryy="486" entryz="5" rent="1700" townid="3" size="18" />
-	<house name="Elvenpath 36" houseid="153" entryx="1061" entryy="480" entryz="5" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 37" houseid="154" entryx="1060" entryy="474" entryz="5" rent="2300" townid="3" size="24" />
-	<house name="Elvenpath 38" houseid="155" entryx="1061" entryy="467" entryz="5" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 39" houseid="156" entryx="1074" entryy="462" entryz="5" rent="6000" townid="3" size="22" />
-	<house name="Elvenpath 40" houseid="157" entryx="1088" entryy="471" entryz="5" rent="1900" townid="3" size="20" />
-	<house name="Elvenpath 41" houseid="158" entryx="1087" entryy="480" entryz="5" rent="2400" townid="3" size="25" />
-	<house name="Elvenpath 42" houseid="159" entryx="1088" entryy="489" entryz="5" rent="2700" townid="3" size="28" />
-	<house name="Elvenpath 43" houseid="160" entryx="1089" entryy="496" entryz="5" rent="2000" townid="3" size="21" />
-	<house name="Elvenpath 44" houseid="161" entryx="1088" entryy="504" entryz="5" rent="3200" townid="3" size="35" />
-	<house name="Elvenpath 45" houseid="162" entryx="1087" entryy="512" entryz="5" rent="2400" townid="3" size="25" />
-	<house name="Elvenpath 46" houseid="163" entryx="1088" entryy="521" entryz="5" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 47" houseid="164" entryx="1088" entryy="525" entryz="5" rent="1100" townid="3" size="12" />
-	<house name="Elvenpath 48" houseid="165" entryx="1081" entryy="542" entryz="5" rent="4500" townid="3" size="24" />
-	<house name="Elvenpath 49" houseid="166" entryx="1051" entryy="564" entryz="5" rent="1500" townid="3" size="17" />
-	<house name="Elvenpath 50" houseid="167" entryx="1048" entryy="551" entryz="5" rent="1400" townid="3" size="15" />
-	<house name="Depot Square 1" houseid="168" entryx="729" entryy="521" entryz="7" rent="18000" townid="4" size="0" />
-	<house name="Depot Square 2" houseid="169" entryx="729" entryy="517" entryz="7" rent="12000" townid="4" size="0" />
-	<house name="Depot Square 3" houseid="170" entryx="728" entryy="510" entryz="7" rent="10000" townid="4" size="0" />
-	<house name="Depot Square 4" houseid="171" entryx="728" entryy="504" entryz="7" rent="3000" townid="4" size="0" />
-	<house name="Depot Square 5" houseid="172" entryx="733" entryy="508" entryz="7" rent="13000" townid="4" size="0" />
-	<house name="Depot Square 6" houseid="173" entryx="738" entryy="508" entryz="7" rent="13000" townid="4" size="0" />
-	<house name="Depot Square 7" houseid="174" entryx="746" entryy="515" entryz="7" rent="12000" townid="4" size="0" />
-	<house name="Depot Square 8" houseid="175" entryx="729" entryy="521" entryz="6" rent="12000" townid="4" size="0" />
-	<house name="Depot Square 9" houseid="176" entryx="729" entryy="518" entryz="6" rent="14000" townid="4" size="0" />
-	<house name="Depot Square 10" houseid="177" entryx="735" entryy="508" entryz="6" rent="30000" townid="4" size="0" />
-	<house name="Depot Square 11" houseid="178" entryx="747" entryy="514" entryz="6" rent="12000" townid="4" size="0" />
-	<house name="Av Elendil 1" houseid="179" entryx="724" entryy="499" entryz="7" rent="1050" townid="4" size="0" />
-	<house name="Av Elendil 2" houseid="180" entryx="731" entryy="499" entryz="7" rent="700" townid="4" size="0" />
-	<house name="Av Elendil 3" houseid="181" entryx="739" entryy="499" entryz="7" rent="700" townid="4" size="0" />
-	<house name="Av Elendil 4" houseid="182" entryx="731" entryy="490" entryz="7" rent="450" townid="4" size="1" />
-	<house name="Av Elendil 5" houseid="183" entryx="742" entryy="493" entryz="7" rent="450" townid="4" size="0" />
-	<house name="Av Elendil 6" houseid="184" entryx="743" entryy="492" entryz="7" rent="550" townid="4" size="1" />
-	<house name="Fazenda 10" houseid="185" entryx="1068" entryy="970" entryz="7" rent="1000" townid="1" size="18" />
-	<house name="Av Elendil 8" houseid="186" entryx="746" entryy="505" entryz="7" rent="1150" townid="4" size="0" />
-	<house name="Av Elendil 9" houseid="187" entryx="751" entryy="505" entryz="7" rent="850" townid="4" size="0" />
-	<house name="Av Elendil 10" houseid="188" entryx="758" entryy="505" entryz="7" rent="1750" townid="4" size="0" />
-	<house name="Av Elendil 11" houseid="189" entryx="722" entryy="492" entryz="6" rent="1050" townid="4" size="1" />
-	<house name="Av Elendil 12" houseid="190" entryx="732" entryy="490" entryz="6" rent="1050" townid="4" size="1" />
-	<house name="Av Elendil 13" houseid="191" entryx="736" entryy="490" entryz="6" rent="1550" townid="4" size="1" />
-	<house name="Av Elendil 14" houseid="192" entryx="759" entryy="497" entryz="6" rent="1500" townid="4" size="1" />
-	<house name="Eriador 1" houseid="193" entryx="718" entryy="504" entryz="7" rent="1100" townid="4" size="0" />
-	<house name="Eriador 2" houseid="194" entryx="718" entryy="513" entryz="7" rent="1350" townid="4" size="0" />
-	<house name="Dark Woods 1" houseid="195" entryx="1226" entryy="640" entryz="7" rent="1000" townid="2" size="29" />
-	<house name="Eriador 4" houseid="196" entryx="718" entryy="525" entryz="7" rent="550" townid="4" size="0" />
-	<house name="Eriador 5" houseid="197" entryx="718" entryy="532" entryz="7" rent="550" townid="4" size="0" />
-	<house name="Eriador 6" houseid="198" entryx="710" entryy="502" entryz="6" rent="1100" townid="4" size="1" />
-	<house name="Eriador 7" houseid="199" entryx="710" entryy="511" entryz="6" rent="1250" townid="4" size="1" />
-	<house name="Eriador 8" houseid="200" entryx="711" entryy="523" entryz="6" rent="1150" townid="4" size="1" />
-	<house name="Everdim 1" houseid="201" entryx="746" entryy="526" entryz="7" rent="1500" townid="4" size="1" />
-	<house name="Everdim 2" houseid="202" entryx="754" entryy="526" entryz="7" rent="650" townid="4" size="1" />
-	<house name="Everdim 3" houseid="203" entryx="755" entryy="516" entryz="7" rent="1050" townid="4" size="1" />
-	<house name="Everdim 4" houseid="204" entryx="760" entryy="516" entryz="7" rent="1050" townid="4" size="1" />
-	<house name="Everdim 5" houseid="205" entryx="750" entryy="515" entryz="7" rent="1050" townid="4" size="0" />
-	<house name="Everdim 6" houseid="206" entryx="755" entryy="515" entryz="7" rent="750" townid="4" size="0" />
-	<house name="Everdim 7" houseid="207" entryx="759" entryy="510" entryz="7" rent="1100" townid="4" size="1" />
-	<house name="Everdim 8" houseid="208" entryx="725" entryy="536" entryz="6" rent="2200" townid="4" size="0" />
-	<house name="Everdim 9" houseid="209" entryx="734" entryy="536" entryz="6" rent="1150" townid="4" size="0" />
-	<house name="Everdim 10" houseid="210" entryx="737" entryy="536" entryz="6" rent="1550" townid="4" size="0" />
-	<house name="Everdim 11" houseid="211" entryx="746" entryy="536" entryz="6" rent="1600" townid="4" size="0" />
-	<house name="Everdim 12" houseid="212" entryx="756" entryy="524" entryz="6" rent="950" townid="4" size="0" />
-	<house name="Everdim 13" houseid="213" entryx="761" entryy="524" entryz="6" rent="950" townid="4" size="0" />
-	<house name="Everdim 14" houseid="214" entryx="749" entryy="514" entryz="6" rent="1850" townid="4" size="1" />
-	<house name="Everdim 15" houseid="215" entryx="765" entryy="513" entryz="6" rent="1100" townid="4" size="0" />
-	<house name="Dark Woods 2" houseid="216" entryx="1223" entryy="636" entryz="7" rent="1250" townid="2" size="29" />
-	<house name="Dark Woods 3" houseid="217" entryx="1227" entryy="634" entryz="7" rent="850" townid="2" size="21" />
-	<house name="Dark Woods 4" houseid="218" entryx="1234" entryy="634" entryz="7" rent="1250" townid="2" size="17" />
-	<house name="Dark Woods " houseid="219" entryx="1232" entryy="638" entryz="7" rent="1250" townid="2" size="17" />
-	<house name="Lake Town 1" houseid="220" entryx="1393" entryy="479" entryz="7" rent="140" townid="5" size="0" />
-	<house name="Lake Town 2" houseid="221" entryx="1400" entryy="479" entryz="7" rent="180" townid="5" size="0" />
-	<house name="Lake Town 3" houseid="222" entryx="1397" entryy="484" entryz="7" rent="140" townid="5" size="0" />
-	<house name="Lake Town 4" houseid="223" entryx="1405" entryy="482" entryz="7" rent="260" townid="5" size="1" />
-	<house name="Lake Town 5" houseid="224" entryx="1396" entryy="494" entryz="7" rent="200" townid="5" size="0" />
-	<house name="Lake Town 6" houseid="225" entryx="1405" entryy="492" entryz="7" rent="260" townid="5" size="0" />
-	<house name="Lake Town 7" houseid="226" entryx="1407" entryy="490" entryz="7" rent="260" townid="5" size="1" />
-	<house name="Lake Town 8" houseid="227" entryx="1419" entryy="490" entryz="7" rent="140" townid="5" size="0" />
-	<house name="Lake Town 9" houseid="228" entryx="1397" entryy="502" entryz="7" rent="200" townid="5" size="0" />
-	<house name="Lake Town 10" houseid="229" entryx="1402" entryy="496" entryz="7" rent="200" townid="5" size="1" />
-	<house name="Lake Town 11" houseid="230" entryx="1411" entryy="494" entryz="7" rent="180" townid="5" size="1" />
-	<house name="Lake Town 12" houseid="231" entryx="1419" entryy="497" entryz="7" rent="260" townid="5" size="0" />
-	<house name="Lake Town 13" houseid="232" entryx="1424" entryy="497" entryz="7" rent="180" townid="5" size="1" />
-	<house name="Lake Town 14" houseid="233" entryx="1400" entryy="504" entryz="7" rent="140" townid="5" size="1" />
-	<house name="Lake Town 15" houseid="234" entryx="1405" entryy="510" entryz="7" rent="320" townid="5" size="1" />
-	<house name="Lake Town 16" houseid="235" entryx="1425" entryy="500" entryz="7" rent="220" townid="5" size="1" />
-	<house name="Lake Town 17" houseid="236" entryx="1421" entryy="510" entryz="7" rent="260" townid="5" size="1" />
-	<house name="Lake Town 18" houseid="237" entryx="1415" entryy="514" entryz="7" rent="260" townid="5" size="0" />
-	<house name="Lake Town 19" houseid="238" entryx="1423" entryy="519" entryz="7" rent="320" townid="5" size="0" />
-	<house name="Lake Town 20" houseid="239" entryx="1417" entryy="521" entryz="7" rent="320" townid="5" size="0" />
-	<house name="Lake Town 21" houseid="240" entryx="1423" entryy="521" entryz="7" rent="260" townid="5" size="1" />
-	<house name="Lake Town 22" houseid="241" entryx="1433" entryy="517" entryz="7" rent="180" townid="5" size="1" />
-	<house name="Lake Town 23" houseid="242" entryx="1433" entryy="524" entryz="7" rent="180" townid="5" size="1" />
-	<house name="Lake Town 24" houseid="243" entryx="1438" entryy="529" entryz="7" rent="260" townid="5" size="1" />
-	<house name="Rohirrims 4" houseid="244" entryx="1161" entryy="906" entryz="6" rent="2500" townid="1" size="29" />
+	<house name="Baixa 1" houseid="1" entryx="1078" entryy="998" entryz="6" rent="3000" townid="1" size="10" />
+	<house name="Baixa 2" houseid="2" entryx="1082" entryy="998" entryz="6" rent="1200" townid="1" size="4" />
+	<house name="Baixa 3" houseid="3" entryx="1077" entryy="1007" entryz="6" rent="10000" townid="1" size="13" />
+	<house name="Baixa 4" houseid="4" entryx="1082" entryy="1007" entryz="6" rent="7000" townid="1" size="18" />
+	<house name="Baixa 5" houseid="5" entryx="1091" entryy="1004" entryz="6" rent="1700" townid="1" size="14" />
+	<house name="Baixa 6" houseid="6" entryx="1090" entryy="1013" entryz="6" rent="2000" townid="1" size="18" />
+	<house name="Baixa 7" houseid="7" entryx="1097" entryy="1009" entryz="6" rent="1300" townid="1" size="10" />
+	<house name="Elite 1" houseid="8" entryx="1039" entryy="1028" entryz="5" rent="30000" townid="1" size="39" />
+	<house name="Elite 2" houseid="9" entryx="1045" entryy="1028" entryz="5" rent="35000" townid="1" size="48" />
+	<house name="Elite 3" houseid="10" entryx="1049" entryy="1039" entryz="5" rent="20000" townid="1" size="38" />
+	<house name="Elite 4" houseid="11" entryx="1058" entryy="1059" entryz="5" rent="15000" townid="1" size="38" />
+	<house name="Elite 5" houseid="12" entryx="1058" entryy="1060" entryz="5" rent="15000" townid="1" size="51" />
+	<house name="Depot 1" houseid="13" entryx="1046" entryy="1015" entryz="5" rent="22000" townid="1" size="23" />
+	<house name="Depot 2" houseid="14" entryx="1043" entryy="1021" entryz="5" rent="20000" townid="1" size="26" />
+	<house name="Depot 3" houseid="15" entryx="1049" entryy="1017" entryz="5" rent="24000" townid="1" size="18" />
+	<house name="Depot 4" houseid="16" entryx="1058" entryy="1017" entryz="5" rent="25000" townid="1" size="16" />
+	<house name="Depot 5" houseid="17" entryx="1046" entryy="1012" entryz="4" rent="20000" townid="1" size="23" />
+	<house name="Oeste 1" houseid="18" entryx="1039" entryy="1039" entryz="5" rent="1800" townid="1" size="16" />
+	<house name="Oeste 2" houseid="19" entryx="1042" entryy="1048" entryz="5" rent="2000" townid="1" size="18" />
+	<house name="Oeste 3" houseid="20" entryx="1049" entryy="1056" entryz="5" rent="2900" townid="1" size="26" />
+	<house name="Baixa 8" houseid="21" entryx="1079" entryy="1009" entryz="6" rent="8000" townid="1" size="18" />
+	<house name="Baixa 9" houseid="22" entryx="1074" entryy="1017" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Baixa 10" houseid="23" entryx="1088" entryy="1017" entryz="6" rent="1400" townid="1" size="13" />
+	<house name="Baixa 11" houseid="24" entryx="1088" entryy="1021" entryz="6" rent="900" townid="1" size="8" />
+	<house name="Elite 6" houseid="25" entryx="1096" entryy="1014" entryz="6" rent="15000" townid="1" size="38" />
+	<house name="Cima 1" houseid="26" entryx="1072" entryy="1061" entryz="4" rent="3500" townid="1" size="34" />
+	<house name="Leste 1" houseid="27" entryx="1100" entryy="1018" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Leste 2" houseid="28" entryx="1108" entryy="1015" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Leste 3" houseid="29" entryx="1095" entryy="1026" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Leste 4" houseid="30" entryx="1100" entryy="1032" entryz="6" rent="1400" townid="1" size="13" />
+	<house name="Leste 5" houseid="31" entryx="1102" entryy="1024" entryz="6" rent="2000" townid="1" size="19" />
+	<house name="Leste 6" houseid="32" entryx="1104" entryy="1032" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Leste 7" houseid="33" entryx="1111" entryy="1034" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Leste 8" houseid="34" entryx="1098" entryy="1033" entryz="6" rent="800" townid="1" size="6" />
+	<house name="Leste 9" houseid="35" entryx="1102" entryy="1040" entryz="6" rent="1600" townid="1" size="14" />
+	<house name="Leste 10" houseid="36" entryx="1107" entryy="1039" entryz="6" rent="2000" townid="1" size="19" />
+	<house name="Leste 11" houseid="37" entryx="1107" entryy="1043" entryz="6" rent="2000" townid="1" size="19" />
+	<house name="Leste 12" houseid="38" entryx="1107" entryy="1048" entryz="6" rent="2500" townid="1" size="26" />
+	<house name="Leste 13" houseid="39" entryx="1102" entryy="1046" entryz="6" rent="1600" townid="1" size="14" />
+	<house name="Leste 14" houseid="40" entryx="1098" entryy="1049" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Leste 15" houseid="41" entryx="1107" entryy="1052" entryz="6" rent="1400" townid="1" size="13" />
+	<house name="Leste 18" houseid="42" entryx="1111" entryy="1062" entryz="6" rent="500" townid="1" size="4" />
+	<house name="Leste 16" houseid="43" entryx="1098" entryy="1057" entryz="6" rent="900" townid="1" size="7" />
+	<house name="Leste 17" houseid="44" entryx="1108" entryy="1053" entryz="6" rent="1500" townid="1" size="14" />
+	<house name="Sul 1" houseid="45" entryx="1096" entryy="1062" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Sul 2" houseid="46" entryx="1097" entryy="1066" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Sul 3" houseid="47" entryx="1108" entryy="1062" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Sul 4" houseid="48" entryx="1096" entryy="1070" entryz="6" rent="1600" townid="1" size="14" />
+	<house name="Sul 5" houseid="49" entryx="1100" entryy="1071" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Sul 6" houseid="50" entryx="1085" entryy="1070" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 7" houseid="51" entryx="1084" entryy="1077" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Sul 8" houseid="52" entryx="1090" entryy="1076" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Rohirrims 1" houseid="53" entryx="1154" entryy="905" entryz="6" rent="3200" townid="1" size="31" />
+	<house name="Sul 10" houseid="54" entryx="1091" entryy="1078" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 11" houseid="55" entryx="1074" entryy="1075" entryz="6" rent="900" townid="1" size="7" />
+	<house name="Sul 12" houseid="56" entryx="1078" entryy="1075" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Sul 13" houseid="57" entryx="1073" entryy="1082" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Sul 14" houseid="58" entryx="1075" entryy="1083" entryz="6" rent="2200" townid="1" size="22" />
+	<house name="Sul 15" houseid="59" entryx="1064" entryy="1077" entryz="6" rent="1800" townid="1" size="16" />
+	<house name="Sul 16" houseid="60" entryx="1066" entryy="1084" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Sul 17" houseid="61" entryx="1059" entryy="1075" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 18" houseid="62" entryx="1057" entryy="1077" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Sul 19" houseid="63" entryx="1059" entryy="1084" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 20" houseid="64" entryx="1050" entryy="1076" entryz="6" rent="1500" townid="1" size="13" />
+	<house name="Sul 21" houseid="65" entryx="1051" entryy="1077" entryz="6" rent="1900" townid="1" size="18" />
+	<house name="Sul 22" houseid="66" entryx="1041" entryy="1077" entryz="6" rent="1700" townid="1" size="16" />
+	<house name="Sul 23" houseid="67" entryx="1042" entryy="1076" entryz="6" rent="1000" townid="1" size="8" />
+	<house name="Sul 24" houseid="68" entryx="1040" entryy="1068" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 25" houseid="69" entryx="1035" entryy="1066" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 26" houseid="70" entryx="1037" entryy="1059" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 27" houseid="71" entryx="1029" entryy="1058" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Sul 28" houseid="72" entryx="1024" entryy="1058" entryz="6" rent="700" townid="1" size="6" />
+	<house name="Sul 29" houseid="73" entryx="1025" entryy="1053" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Sul 30" houseid="74" entryx="1029" entryy="1054" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Oeste 4" houseid="75" entryx="1027" entryy="1043" entryz="6" rent="1200" townid="1" size="10" />
+	<house name="Oeste 5" houseid="76" entryx="1019" entryy="1038" entryz="6" rent="1100" townid="1" size="10" />
+	<house name="Oeste 6" houseid="77" entryx="1024" entryy="1036" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Oeste 7" houseid="78" entryx="1024" entryy="1031" entryz="6" rent="1600" townid="1" size="14" />
+	<house name="Oeste 8" houseid="79" entryx="1028" entryy="1029" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Oeste 9" houseid="80" entryx="1029" entryy="1021" entryz="6" rent="2400" townid="1" size="20" />
+	<house name="Oeste 10" houseid="81" entryx="1031" entryy="1014" entryz="6" rent="800" townid="1" size="7" />
+	<house name="Oeste 11" houseid="82" entryx="1032" entryy="1010" entryz="6" rent="500" townid="1" size="4" />
+	<house name="Fazenda 9" houseid="83" entryx="1136" entryy="1016" entryz="7" rent="1600" townid="1" size="14" />
+	<house name="Sul 31" houseid="84" entryx="1068" entryy="1086" entryz="6" rent="1400" townid="1" size="13" />
+	<house name="Fazenda 1" houseid="85" entryx="1089" entryy="979" entryz="7" rent="1400" townid="1" size="12" />
+	<house name="Fazenda 2" houseid="86" entryx="1092" entryy="988" entryz="7" rent="1400" townid="1" size="12" />
+	<house name="Fazenda 3" houseid="87" entryx="1103" entryy="985" entryz="7" rent="1400" townid="1" size="12" />
+	<house name="Fazenda 4" houseid="88" entryx="1112" entryy="992" entryz="7" rent="2700" townid="1" size="25" />
+	<house name="Fazenda 5" houseid="89" entryx="1116" entryy="1003" entryz="7" rent="1100" townid="1" size="9" />
+	<house name="Fazenda 6" houseid="90" entryx="1125" entryy="986" entryz="7" rent="1900" townid="1" size="17" />
+	<house name="Fazenda 7" houseid="91" entryx="1111" entryy="1007" entryz="7" rent="1100" townid="1" size="9" />
+	<house name="Fazenda 8" houseid="92" entryx="1124" entryy="1007" entryz="7" rent="1100" townid="1" size="9" />
+	<house name="Corredor 1" houseid="93" entryx="1216" entryy="749" entryz="7" rent="3000" townid="2" size="12" />
+	<house name="Corredor 2" houseid="94" entryx="1219" entryy="749" entryz="7" rent="3000" townid="2" size="10" />
+	<house name="Corredor 3" houseid="95" entryx="1223" entryy="749" entryz="7" rent="3000" townid="2" size="10" />
+	<house name="Corredor 4" houseid="96" entryx="1228" entryy="749" entryz="7" rent="3000" townid="2" size="10" />
+	<house name="Corredor 5" houseid="97" entryx="1231" entryy="749" entryz="7" rent="3000" townid="2" size="10" />
+	<house name="Corredor 6" houseid="98" entryx="1215" entryy="756" entryz="7" rent="2000" townid="2" size="7" />
+	<house name="Corredor 7" houseid="99" entryx="1219" entryy="756" entryz="7" rent="2000" townid="2" size="7" />
+	<house name="Corredor 8" houseid="100" entryx="1223" entryy="756" entryz="7" rent="2000" townid="2" size="7" />
+	<house name="Corredor 9" houseid="101" entryx="1227" entryy="756" entryz="7" rent="2000" townid="2" size="7" />
+	<house name="Corredor 10" houseid="102" entryx="1231" entryy="756" entryz="7" rent="3000" townid="2" size="8" />
+	<house name="Stronghold 1" houseid="103" entryx="1221" entryy="763" entryz="7" rent="3000" townid="2" size="16" />
+	<house name="Stronghold 2" houseid="104" entryx="1228" entryy="763" entryz="7" rent="1400" townid="2" size="16" />
+	<house name="Stronghold 3" houseid="105" entryx="1214" entryy="746" entryz="6" rent="2700" townid="2" size="26" />
+	<house name="Rohirrims 2" houseid="106" entryx="1159" entryy="903" entryz="6" rent="3200" townid="1" size="31" />
+	<house name="Stronghold 5" houseid="107" entryx="1222" entryy="746" entryz="6" rent="900" townid="2" size="9" />
+	<house name="Stronghold 6" houseid="108" entryx="1227" entryy="746" entryz="6" rent="1000" townid="2" size="12" />
+	<house name="Stronghold 7" houseid="109" entryx="1231" entryy="746" entryz="6" rent="1200" townid="2" size="14" />
+	<house name="Stronghold 8" houseid="110" entryx="1215" entryy="758" entryz="6" rent="2000" townid="2" size="24" />
+	<house name="Rohirrims 3" houseid="111" entryx="1152" entryy="907" entryz="6" rent="2900" townid="1" size="28" />
+	<house name="Stronghold 10" houseid="112" entryx="1223" entryy="758" entryz="6" rent="1100" townid="2" size="10" />
+	<house name="Stronghold 11" houseid="113" entryx="1227" entryy="758" entryz="6" rent="1100" townid="2" size="10" />
+	<house name="Stronghold 12" houseid="114" entryx="1231" entryy="758" entryz="6" rent="1100" townid="2" size="10" />
+	<house name="Cima 2" houseid="115" entryx="1078" entryy="1061" entryz="4" rent="1500" townid="1" size="14" />
+	<house name="Cima 3" houseid="116" entryx="1083" entryy="1057" entryz="4" rent="2300" townid="1" size="24" />
+	<house name="Cima 4" houseid="117" entryx="1085" entryy="1053" entryz="4" rent="1700" townid="1" size="16" />
+	<house name="Elvenpath 1" houseid="118" entryx="1053" entryy="525" entryz="4" rent="3500" townid="3" size="7" />
+	<house name="Elvenpath 2" houseid="119" entryx="1054" entryy="517" entryz="4" rent="3000" townid="3" size="10" />
+	<house name="Elvenpath 3" houseid="120" entryx="1055" entryy="508" entryz="4" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 4" houseid="121" entryx="1054" entryy="496" entryz="4" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 5" houseid="122" entryx="1055" entryy="486" entryz="4" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 6" houseid="123" entryx="1055" entryy="481" entryz="4" rent="800" townid="3" size="7" />
+	<house name="Elvenpath 7" houseid="124" entryx="1054" entryy="473" entryz="4" rent="800" townid="3" size="7" />
+	<house name="Elvenpath 8" houseid="125" entryx="1054" entryy="469" entryz="4" rent="800" townid="3" size="7" />
+	<house name="Elvenpath 9" houseid="126" entryx="1054" entryy="465" entryz="4" rent="800" townid="3" size="7" />
+	<house name="Elvenpath 10" houseid="127" entryx="1064" entryy="455" entryz="4" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 11" houseid="128" entryx="1070" entryy="455" entryz="4" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 12" houseid="129" entryx="1075" entryy="455" entryz="4" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 13" houseid="130" entryx="1081" entryy="455" entryz="4" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 14" houseid="131" entryx="1094" entryy="465" entryz="4" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 15" houseid="132" entryx="1095" entryy="474" entryz="4" rent="2500" townid="3" size="24" />
+	<house name="Elvenpath 16" houseid="133" entryx="1094" entryy="484" entryz="4" rent="1500" townid="3" size="14" />
+	<house name="Elvenpath 17" houseid="134" entryx="1095" entryy="492" entryz="4" rent="1700" townid="3" size="16" />
+	<house name="Elvenpath 18" houseid="135" entryx="1090" entryy="504" entryz="4" rent="4000" townid="3" size="39" />
+	<house name="Elvenpath 19" houseid="136" entryx="1090" entryy="512" entryz="4" rent="3500" townid="3" size="34" />
+	<house name="Elvenpath 20" houseid="137" entryx="1096" entryy="530" entryz="4" rent="3500" townid="3" size="23" />
+	<house name="Elvenpath 21" houseid="138" entryx="1096" entryy="539" entryz="4" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 22" houseid="139" entryx="1092" entryy="553" entryz="4" rent="2900" townid="3" size="28" />
+	<house name="Elvenpath 23" houseid="140" entryx="1089" entryy="565" entryz="4" rent="1500" townid="3" size="14" />
+	<house name="Elvenpath 24" houseid="141" entryx="1072" entryy="573" entryz="4" rent="1700" townid="3" size="16" />
+	<house name="Elvenpath 25" houseid="142" entryx="1062" entryy="572" entryz="4" rent="1500" townid="3" size="14" />
+	<house name="Elvenpath 26" houseid="143" entryx="1053" entryy="572" entryz="4" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 27" houseid="144" entryx="1041" entryy="558" entryz="4" rent="3600" townid="3" size="18" />
+	<house name="Elvenpath 28" houseid="145" entryx="1042" entryy="553" entryz="4" rent="3500" townid="3" size="10" />
+	<house name="Elvenpath 29" houseid="146" entryx="1055" entryy="536" entryz="5" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 30" houseid="147" entryx="1061" entryy="525" entryz="5" rent="2300" townid="3" size="22" />
+	<house name="Elvenpath 31" houseid="148" entryx="1062" entryy="517" entryz="5" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 32" houseid="149" entryx="1061" entryy="510" entryz="5" rent="1400" townid="3" size="13" />
+	<house name="Elvenpath 33" houseid="150" entryx="1061" entryy="506" entryz="5" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 34" houseid="151" entryx="1060" entryy="496" entryz="5" rent="2900" townid="3" size="28" />
+	<house name="Elvenpath 35" houseid="152" entryx="1062" entryy="486" entryz="5" rent="1700" townid="3" size="16" />
+	<house name="Elvenpath 36" houseid="153" entryx="1061" entryy="480" entryz="5" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 37" houseid="154" entryx="1060" entryy="474" entryz="5" rent="2300" townid="3" size="22" />
+	<house name="Elvenpath 38" houseid="155" entryx="1061" entryy="467" entryz="5" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 39" houseid="156" entryx="1074" entryy="462" entryz="5" rent="6000" townid="3" size="19" />
+	<house name="Elvenpath 40" houseid="157" entryx="1088" entryy="471" entryz="5" rent="1900" townid="3" size="18" />
+	<house name="Elvenpath 41" houseid="158" entryx="1087" entryy="480" entryz="5" rent="2400" townid="3" size="23" />
+	<house name="Elvenpath 42" houseid="159" entryx="1088" entryy="489" entryz="5" rent="2700" townid="3" size="26" />
+	<house name="Elvenpath 43" houseid="160" entryx="1089" entryy="496" entryz="5" rent="2000" townid="3" size="19" />
+	<house name="Elvenpath 44" houseid="161" entryx="1088" entryy="504" entryz="5" rent="3200" townid="3" size="31" />
+	<house name="Elvenpath 45" houseid="162" entryx="1087" entryy="512" entryz="5" rent="2400" townid="3" size="23" />
+	<house name="Elvenpath 46" houseid="163" entryx="1088" entryy="521" entryz="5" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 47" houseid="164" entryx="1088" entryy="525" entryz="5" rent="1100" townid="3" size="10" />
+	<house name="Elvenpath 48" houseid="165" entryx="1081" entryy="542" entryz="5" rent="4500" townid="3" size="22" />
+	<house name="Elvenpath 49" houseid="166" entryx="1051" entryy="564" entryz="5" rent="1500" townid="3" size="14" />
+	<house name="Elvenpath 50" houseid="167" entryx="1048" entryy="551" entryz="5" rent="1400" townid="3" size="13" />
+	<house name="Depot Square 1" houseid="168" entryx="729" entryy="521" entryz="7" rent="18000" townid="4" size="24" />
+	<house name="Depot Square 2" houseid="169" entryx="729" entryy="517" entryz="7" rent="12000" townid="4" size="17" />
+	<house name="Depot Square 3" houseid="170" entryx="728" entryy="510" entryz="7" rent="10000" townid="4" size="26" />
+	<house name="Depot Square 4" houseid="171" entryx="728" entryy="504" entryz="7" rent="3000" townid="4" size="20" />
+	<house name="Depot Square 5" houseid="172" entryx="733" entryy="508" entryz="7" rent="13000" townid="4" size="16" />
+	<house name="Depot Square 6" houseid="173" entryx="738" entryy="508" entryz="7" rent="13000" townid="4" size="21" />
+	<house name="Depot Square 7" houseid="174" entryx="746" entryy="515" entryz="7" rent="12000" townid="4" size="16" />
+	<house name="Depot Square 8" houseid="175" entryx="729" entryy="521" entryz="6" rent="12000" townid="4" size="19" />
+	<house name="Depot Square 9" houseid="176" entryx="729" entryy="518" entryz="6" rent="14000" townid="4" size="26" />
+	<house name="Depot Square 10" houseid="177" entryx="735" entryy="508" entryz="6" rent="30000" townid="4" size="42" />
+	<house name="Depot Square 11" houseid="178" entryx="747" entryy="514" entryz="6" rent="12000" townid="4" size="21" />
+	<house name="Av Elendil 1" houseid="179" entryx="724" entryy="499" entryz="7" rent="1050" townid="4" size="20" />
+	<house name="Av Elendil 2" houseid="180" entryx="731" entryy="499" entryz="7" rent="700" townid="4" size="13" />
+	<house name="Av Elendil 3" houseid="181" entryx="739" entryy="499" entryz="7" rent="700" townid="4" size="13" />
+	<house name="Av Elendil 4" houseid="182" entryx="731" entryy="490" entryz="7" rent="450" townid="4" size="8" />
+	<house name="Av Elendil 5" houseid="183" entryx="742" entryy="493" entryz="7" rent="450" townid="4" size="8" />
+	<house name="Av Elendil 6" houseid="184" entryx="743" entryy="492" entryz="7" rent="550" townid="4" size="10" />
+	<house name="Fazenda 10" houseid="185" entryx="1068" entryy="970" entryz="7" rent="1000" townid="1" size="16" />
+	<house name="Av Elendil 8" houseid="186" entryx="746" entryy="505" entryz="7" rent="1150" townid="4" size="22" />
+	<house name="Av Elendil 9" houseid="187" entryx="751" entryy="505" entryz="7" rent="850" townid="4" size="16" />
+	<house name="Av Elendil 10" houseid="188" entryx="758" entryy="505" entryz="7" rent="1750" townid="4" size="34" />
+	<house name="Av Elendil 11" houseid="189" entryx="722" entryy="492" entryz="6" rent="1050" townid="4" size="20" />
+	<house name="Av Elendil 12" houseid="190" entryx="732" entryy="490" entryz="6" rent="1050" townid="4" size="20" />
+	<house name="Av Elendil 13" houseid="191" entryx="736" entryy="490" entryz="6" rent="1550" townid="4" size="30" />
+	<house name="Av Elendil 14" houseid="192" entryx="759" entryy="497" entryz="6" rent="1500" townid="4" size="29" />
+	<house name="Eriador 1" houseid="193" entryx="718" entryy="504" entryz="7" rent="1100" townid="4" size="21" />
+	<house name="Eriador 2" houseid="194" entryx="718" entryy="513" entryz="7" rent="1350" townid="4" size="26" />
+	<house name="Dark Woods 1" houseid="195" entryx="1226" entryy="640" entryz="7" rent="1000" townid="2" size="24" />
+	<house name="Eriador 4" houseid="196" entryx="718" entryy="525" entryz="7" rent="550" townid="4" size="10" />
+	<house name="Eriador 5" houseid="197" entryx="718" entryy="532" entryz="7" rent="550" townid="4" size="10" />
+	<house name="Eriador 6" houseid="198" entryx="710" entryy="502" entryz="6" rent="1100" townid="4" size="21" />
+	<house name="Eriador 7" houseid="199" entryx="710" entryy="511" entryz="6" rent="1250" townid="4" size="24" />
+	<house name="Eriador 8" houseid="200" entryx="711" entryy="523" entryz="6" rent="1150" townid="4" size="22" />
+	<house name="Everdim 1" houseid="201" entryx="746" entryy="526" entryz="7" rent="1500" townid="4" size="29" />
+	<house name="Everdim 2" houseid="202" entryx="754" entryy="526" entryz="7" rent="650" townid="4" size="12" />
+	<house name="Everdim 3" houseid="203" entryx="755" entryy="516" entryz="7" rent="1050" townid="4" size="20" />
+	<house name="Everdim 4" houseid="204" entryx="760" entryy="516" entryz="7" rent="1050" townid="4" size="20" />
+	<house name="Everdim 5" houseid="205" entryx="750" entryy="515" entryz="7" rent="1050" townid="4" size="20" />
+	<house name="Everdim 6" houseid="206" entryx="755" entryy="515" entryz="7" rent="750" townid="4" size="14" />
+	<house name="Everdim 7" houseid="207" entryx="759" entryy="510" entryz="7" rent="1100" townid="4" size="21" />
+	<house name="Everdim 8" houseid="208" entryx="725" entryy="536" entryz="6" rent="2200" townid="4" size="43" />
+	<house name="Everdim 9" houseid="209" entryx="734" entryy="536" entryz="6" rent="1150" townid="4" size="22" />
+	<house name="Everdim 10" houseid="210" entryx="737" entryy="536" entryz="6" rent="1550" townid="4" size="30" />
+	<house name="Everdim 11" houseid="211" entryx="746" entryy="536" entryz="6" rent="1600" townid="4" size="31" />
+	<house name="Everdim 12" houseid="212" entryx="756" entryy="524" entryz="6" rent="950" townid="4" size="18" />
+	<house name="Everdim 13" houseid="213" entryx="761" entryy="524" entryz="6" rent="950" townid="4" size="18" />
+	<house name="Everdim 14" houseid="214" entryx="749" entryy="514" entryz="6" rent="1850" townid="4" size="36" />
+	<house name="Everdim 15" houseid="215" entryx="765" entryy="513" entryz="6" rent="1100" townid="4" size="21" />
+	<house name="Dark Woods 2" houseid="216" entryx="1223" entryy="636" entryz="7" rent="1250" townid="2" size="24" />
+	<house name="Dark Woods 3" houseid="217" entryx="1227" entryy="634" entryz="7" rent="850" townid="2" size="16" />
+	<house name="Dark Woods 4" houseid="218" entryx="1234" entryy="634" entryz="7" rent="1250" townid="2" size="14" />
+	<house name="Dark Woods " houseid="219" entryx="1232" entryy="638" entryz="7" rent="1250" townid="2" size="14" />
+	<house name="Lake Town 1" houseid="220" entryx="1393" entryy="479" entryz="7" rent="140" townid="5" size="4" />
+	<house name="Lake Town 2" houseid="221" entryx="1400" entryy="479" entryz="7" rent="180" townid="5" size="6" />
+	<house name="Lake Town 3" houseid="222" entryx="1397" entryy="484" entryz="7" rent="140" townid="5" size="4" />
+	<house name="Lake Town 4" houseid="223" entryx="1405" entryy="482" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 5" houseid="224" entryx="1396" entryy="494" entryz="7" rent="200" townid="5" size="7" />
+	<house name="Lake Town 6" houseid="225" entryx="1405" entryy="492" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 7" houseid="226" entryx="1407" entryy="490" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 8" houseid="227" entryx="1419" entryy="490" entryz="7" rent="140" townid="5" size="4" />
+	<house name="Lake Town 9" houseid="228" entryx="1397" entryy="502" entryz="7" rent="200" townid="5" size="7" />
+	<house name="Lake Town 10" houseid="229" entryx="1402" entryy="496" entryz="7" rent="200" townid="5" size="7" />
+	<house name="Lake Town 11" houseid="230" entryx="1411" entryy="494" entryz="7" rent="180" townid="5" size="6" />
+	<house name="Lake Town 12" houseid="231" entryx="1419" entryy="497" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 13" houseid="232" entryx="1424" entryy="497" entryz="7" rent="180" townid="5" size="6" />
+	<house name="Lake Town 14" houseid="233" entryx="1400" entryy="504" entryz="7" rent="140" townid="5" size="4" />
+	<house name="Lake Town 15" houseid="234" entryx="1405" entryy="510" entryz="7" rent="320" townid="5" size="13" />
+	<house name="Lake Town 16" houseid="235" entryx="1425" entryy="500" entryz="7" rent="220" townid="5" size="8" />
+	<house name="Lake Town 17" houseid="236" entryx="1421" entryy="510" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 18" houseid="237" entryx="1415" entryy="514" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 19" houseid="238" entryx="1423" entryy="519" entryz="7" rent="320" townid="5" size="13" />
+	<house name="Lake Town 20" houseid="239" entryx="1417" entryy="521" entryz="7" rent="320" townid="5" size="13" />
+	<house name="Lake Town 21" houseid="240" entryx="1423" entryy="521" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Lake Town 22" houseid="241" entryx="1433" entryy="517" entryz="7" rent="180" townid="5" size="6" />
+	<house name="Lake Town 23" houseid="242" entryx="1433" entryy="524" entryz="7" rent="180" townid="5" size="6" />
+	<house name="Lake Town 24" houseid="243" entryx="1438" entryy="529" entryz="7" rent="260" townid="5" size="10" />
+	<house name="Rohirrims 4" houseid="244" entryx="1161" entryy="906" entryz="6" rent="2500" townid="1" size="24" />
 	<house name="Mordor 1" houseid="245" entryx="1454" entryy="1188" entryz="7" rent="220" townid="12" size="21" />
-	<house name="Ship 1" houseid="246" entryx="150" entryy="643" entryz="6" rent="700" townid="6" size="36" />
-	<house name="Ship 2" houseid="247" entryx="150" entryy="651" entryz="6" rent="780" townid="6" size="42" />
-	<house name="Ship 3" houseid="248" entryx="150" entryy="657" entryz="6" rent="660" townid="6" size="36" />
-	<house name="Ship 4" houseid="249" entryx="150" entryy="666" entryz="6" rent="780" townid="6" size="42" />
-	<house name="Ship 5" houseid="250" entryx="150" entryy="674" entryz="6" rent="780" townid="6" size="42" />
-	<house name="Ship 6" houseid="251" entryx="150" entryy="680" entryz="6" rent="540" townid="6" size="30" />
-	<house name="Ship 7" houseid="252" entryx="154" entryy="680" entryz="6" rent="540" townid="6" size="30" />
-	<house name="Ship 8" houseid="253" entryx="154" entryy="673" entryz="6" rent="820" townid="6" size="42" />
-	<house name="Ship 9" houseid="254" entryx="154" entryy="665" entryz="6" rent="780" townid="6" size="42" />
-	<house name="Ship 10" houseid="255" entryx="154" entryy="657" entryz="6" rent="660" townid="6" size="36" />
-	<house name="Ship 11" houseid="256" entryx="154" entryy="650" entryz="6" rent="780" townid="6" size="42" />
-	<house name="Ship 12" houseid="257" entryx="154" entryy="643" entryz="6" rent="700" townid="6" size="36" />
-	<house name="Argond 1" houseid="258" entryx="591" entryy="900" entryz="7" rent="2400" townid="7" size="23" />
-	<house name="Argond 2" houseid="259" entryx="579" entryy="897" entryz="7" rent="1500" townid="7" size="17" />
-	<house name="Argond 3" houseid="260" entryx="574" entryy="900" entryz="7" rent="1600" townid="7" size="34" />
-	<house name="Argond 4" houseid="261" entryx="574" entryy="886" entryz="7" rent="4000" townid="7" size="35" />
-	<house name="Argond 5" houseid="262" entryx="568" entryy="881" entryz="7" rent="2500" townid="7" size="22" />
-	<house name="Argond 6" houseid="263" entryx="577" entryy="881" entryz="7" rent="2500" townid="7" size="36" />
-	<house name="Argond 7" houseid="264" entryx="587" entryy="881" entryz="7" rent="2000" townid="7" size="41" />
-	<house name="Argond 8" houseid="265" entryx="597" entryy="872" entryz="7" rent="2400" townid="7" size="42" />
-	<house name="Argond 9" houseid="266" entryx="611" entryy="872" entryz="7" rent="2400" townid="7" size="34" />
-	<house name="Argond 10" houseid="267" entryx="611" entryy="893" entryz="7" rent="2400" townid="7" size="29" />
-	<house name="Argond 11" houseid="268" entryx="599" entryy="893" entryz="7" rent="4200" townid="7" size="37" />
-	<house name="Argond 12" houseid="269" entryx="584" entryy="893" entryz="7" rent="5000" townid="7" size="52" />
-	<house name="Minas 1" houseid="270" entryx="1320" entryy="1375" entryz="6" rent="15000" townid="13" size="80" />
-	<house name="Minas 2" houseid="271" entryx="1327" entryy="1381" entryz="6" rent="12000" townid="13" size="36" />
-	<house name="Minas 3" houseid="272" entryx="1335" entryy="1388" entryz="6" rent="16000" townid="13" size="83" />
-	<house name="Minas 4" houseid="273" entryx="1351" entryy="1388" entryz="6" rent="14000" townid="13" size="52" />
-	<house name="Minas 5" houseid="275" entryx="1360" entryy="1350" entryz="6" rent="13000" townid="13" size="31" />
-	<house name="Minas 6" houseid="276" entryx="1349" entryy="1342" entryz="6" rent="15000" townid="13" size="62" />
-	<house name="Minas 7" houseid="277" entryx="1341" entryy="1345" entryz="6" rent="25000" townid="13" size="131" />
-	<house name="Minas Depot 1" houseid="278" entryx="1327" entryy="1359" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 2" houseid="279" entryx="1327" entryy="1358" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 3" houseid="280" entryx="1320" entryy="1359" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 4" houseid="281" entryx="1321" entryy="1358" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 5" houseid="282" entryx="1313" entryy="1359" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 6" houseid="283" entryx="1314" entryy="1358" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 7" houseid="284" entryx="1307" entryy="1359" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 8" houseid="285" entryx="1307" entryy="1358" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 9" houseid="286" entryx="1304" entryy="1359" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 10" houseid="287" entryx="1340" entryy="1356" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Minas Depot 11" houseid="288" entryx="1340" entryy="1357" entryz="6" rent="1500" townid="13" size="0" />
-	<house name="Shire 1" houseid="289" entryx="613" entryy="534" entryz="7" rent="1600" townid="4" size="78" />
-	<house name="Shire 2" houseid="290" entryx="621" entryy="532" entryz="7" rent="1600" townid="4" size="70" />
-	<house name="Shire 3" houseid="291" entryx="622" entryy="537" entryz="7" rent="1600" townid="4" size="67" />
-	<house name="Shire 4" houseid="292" entryx="614" entryy="535" entryz="7" rent="1600" townid="4" size="85" />
-	<house name="Mines 1" houseid="294" entryx="1016" entryy="665" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 2" houseid="295" entryx="1016" entryy="672" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 3" houseid="296" entryx="1016" entryy="679" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 4" houseid="297" entryx="1016" entryy="686" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 5" houseid="298" entryx="1016" entryy="693" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 6" houseid="299" entryx="1016" entryy="700" entryz="7" rent="260" townid="10" size="0" />
-	<house name="Mines 7" houseid="300" entryx="1016" entryy="707" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 8" houseid="301" entryx="1025" entryy="666" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 9" houseid="302" entryx="1040" entryy="668" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 10" houseid="303" entryx="1047" entryy="668" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 11" houseid="304" entryx="1054" entryy="668" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 12" houseid="305" entryx="1061" entryy="668" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 13" houseid="306" entryx="1068" entryy="668" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 14" houseid="307" entryx="1069" entryy="670" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 15" houseid="308" entryx="1025" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 16" houseid="309" entryx="1032" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 18" houseid="310" entryx="1039" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 19" houseid="311" entryx="1045" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 20" houseid="312" entryx="1053" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 21" houseid="313" entryx="1060" entryy="682" entryz="7" rent="260" townid="10" size="0" />
-	<house name="Mines 22" houseid="314" entryx="1067" entryy="682" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 23" houseid="315" entryx="1068" entryy="684" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 24" houseid="316" entryx="1067" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 25" houseid="317" entryx="1060" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 26" houseid="318" entryx="1053" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 27" houseid="319" entryx="1046" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 28" houseid="320" entryx="1039" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 29" houseid="321" entryx="1032" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 30" houseid="322" entryx="1025" entryy="685" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 31" houseid="323" entryx="1025" entryy="702" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 32" houseid="324" entryx="1031" entryy="702" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 33" houseid="325" entryx="1039" entryy="702" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 34" houseid="326" entryx="1046" entryy="702" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 35" houseid="327" entryx="1054" entryy="702" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 36" houseid="328" entryx="1061" entryy="702" entryz="7" rent="260" townid="10" size="0" />
-	<house name="Mines 37" houseid="329" entryx="1068" entryy="702" entryz="7" rent="260" townid="10" size="0" />
-	<house name="Mines 38" houseid="330" entryx="1069" entryy="704" entryz="7" rent="260" townid="10" size="0" />
-	<house name="Mines 39" houseid="331" entryx="1068" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 40" houseid="332" entryx="1061" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 41" houseid="333" entryx="1054" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 42" houseid="334" entryx="1046" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 43" houseid="335" entryx="1038" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 44" houseid="336" entryx="1032" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Mines 45" houseid="337" entryx="1025" entryy="705" entryz="7" rent="300" townid="10" size="0" />
-	<house name="Dwarf Square" houseid="338" entryx="1020" entryy="634" entryz="7" rent="17000" townid="10" size="0" />
-	<house name="Fazenda Dwarf 1" houseid="339" entryx="916" entryy="740" entryz="7" rent="550" townid="10" size="11" />
-	<house name="Fazenda Dwarf 2" houseid="340" entryx="924" entryy="729" entryz="7" rent="700" townid="10" size="14" />
-	<house name="Fazenda Dwarf 3" houseid="341" entryx="938" entryy="733" entryz="7" rent="350" townid="10" size="8" />
-	<house name="Fazenda Dwarf 4" houseid="342" entryx="933" entryy="723" entryz="7" rent="500" townid="10" size="11" />
-	<house name="Fazenda Dwarf 5" houseid="343" entryx="941" entryy="710" entryz="7" rent="450" townid="10" size="10" />
-	<house name="Lower Village 1" houseid="344" entryx="954" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 2" houseid="345" entryx="963" entryy="671" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 3" houseid="346" entryx="970" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 4" houseid="347" entryx="978" entryy="671" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 5" houseid="348" entryx="986" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 6" houseid="349" entryx="1000" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 7" houseid="350" entryx="1007" entryy="671" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 8" houseid="351" entryx="1016" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 9" houseid="352" entryx="1024" entryy="671" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 10" houseid="353" entryx="1032" entryy="679" entryz="8" rent="480" townid="10" size="0" />
-	<house name="Lower Village 11" houseid="354" entryx="950" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 12" houseid="355" entryx="958" entryy="682" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 13" houseid="356" entryx="965" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 14" houseid="357" entryx="974" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 15" houseid="358" entryx="982" entryy="683" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 16" houseid="359" entryx="991" entryy="685" entryz="8" rent="420" townid="10" size="0" />
-	<house name="Lower Village 17" houseid="360" entryx="994" entryy="685" entryz="8" rent="420" townid="10" size="0" />
-	<house name="Lower Village 18" houseid="361" entryx="1003" entryy="682" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 19" houseid="362" entryx="1011" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 20" houseid="363" entryx="1020" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 21" houseid="364" entryx="1027" entryy="682" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 22" houseid="365" entryx="1035" entryy="687" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 23" houseid="366" entryx="955" entryy="696" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Lower Village 24" houseid="367" entryx="962" entryy="696" entryz="8" rent="140" townid="10" size="0" />
-	<house name="Lower Village 25" houseid="368" entryx="978" entryy="696" entryz="8" rent="140" townid="10" size="0" />
-	<house name="Lower Village 26" houseid="369" entryx="1008" entryy="696" entryz="8" rent="140" townid="10" size="0" />
-	<house name="Lower Village 27" houseid="370" entryx="1024" entryy="696" entryz="8" rent="140" townid="10" size="0" />
-	<house name="Lower Village 28" houseid="371" entryx="1031" entryy="696" entryz="8" rent="220" townid="10" size="0" />
-	<house name="Dwarven Elite 1" houseid="372" entryx="957" entryy="700" entryz="8" rent="4500" townid="10" size="6" />
-	<house name="Dwarven Elite 2" houseid="373" entryx="1029" entryy="700" entryz="8" rent="4500" townid="10" size="4" />
-	<house name="Dwarven Elite 3" houseid="374" entryx="957" entryy="721" entryz="8" rent="4500" townid="10" size="8" />
-	<house name="Dwarven Elite 4" houseid="375" entryx="1029" entryy="721" entryz="8" rent="4500" townid="10" size="11" />
+	<house name="Ship 1" houseid="246" entryx="150" entryy="643" entryz="6" rent="700" townid="6" size="34" />
+	<house name="Ship 2" houseid="247" entryx="150" entryy="651" entryz="6" rent="780" townid="6" size="38" />
+	<house name="Ship 3" houseid="248" entryx="150" entryy="657" entryz="6" rent="660" townid="6" size="32" />
+	<house name="Ship 4" houseid="249" entryx="150" entryy="666" entryz="6" rent="780" townid="6" size="38" />
+	<house name="Ship 5" houseid="250" entryx="150" entryy="674" entryz="6" rent="780" townid="6" size="38" />
+	<house name="Ship 6" houseid="251" entryx="150" entryy="680" entryz="6" rent="540" townid="6" size="26" />
+	<house name="Ship 7" houseid="252" entryx="154" entryy="680" entryz="6" rent="540" townid="6" size="26" />
+	<house name="Ship 8" houseid="253" entryx="154" entryy="673" entryz="6" rent="820" townid="6" size="40" />
+	<house name="Ship 9" houseid="254" entryx="154" entryy="665" entryz="6" rent="780" townid="6" size="38" />
+	<house name="Ship 10" houseid="255" entryx="154" entryy="657" entryz="6" rent="660" townid="6" size="32" />
+	<house name="Ship 11" houseid="256" entryx="154" entryy="650" entryz="6" rent="780" townid="6" size="38" />
+	<house name="Ship 12" houseid="257" entryx="154" entryy="643" entryz="6" rent="700" townid="6" size="34" />
+	<house name="Argond 1" houseid="258" entryx="591" entryy="900" entryz="7" rent="2400" townid="7" size="19" />
+	<house name="Argond 2" houseid="259" entryx="579" entryy="897" entryz="7" rent="1500" townid="7" size="13" />
+	<house name="Argond 3" houseid="260" entryx="574" entryy="900" entryz="7" rent="1600" townid="7" size="30" />
+	<house name="Argond 4" houseid="261" entryx="574" entryy="886" entryz="7" rent="4000" townid="7" size="34" />
+	<house name="Argond 5" houseid="262" entryx="568" entryy="881" entryz="7" rent="2500" townid="7" size="18" />
+	<house name="Argond 6" houseid="263" entryx="577" entryy="881" entryz="7" rent="2500" townid="7" size="32" />
+	<house name="Argond 7" houseid="264" entryx="587" entryy="881" entryz="7" rent="2000" townid="7" size="37" />
+	<house name="Argond 8" houseid="265" entryx="597" entryy="872" entryz="7" rent="2400" townid="7" size="38" />
+	<house name="Argond 9" houseid="266" entryx="611" entryy="872" entryz="7" rent="2400" townid="7" size="30" />
+	<house name="Argond 10" houseid="267" entryx="611" entryy="893" entryz="7" rent="2400" townid="7" size="25" />
+	<house name="Argond 11" houseid="268" entryx="599" entryy="893" entryz="7" rent="4200" townid="7" size="33" />
+	<house name="Argond 12" houseid="269" entryx="584" entryy="893" entryz="7" rent="5000" townid="7" size="46" />
+	<house name="Minas 1" houseid="270" entryx="1320" entryy="1375" entryz="6" rent="15000" townid="13" size="76" />
+	<house name="Minas 2" houseid="271" entryx="1327" entryy="1381" entryz="6" rent="12000" townid="13" size="34" />
+	<house name="Minas 3" houseid="272" entryx="1335" entryy="1388" entryz="6" rent="16000" townid="13" size="81" />
+	<house name="Minas 4" houseid="273" entryx="1351" entryy="1388" entryz="6" rent="14000" townid="13" size="49" />
+	<house name="Minas 5" houseid="275" entryx="1360" entryy="1350" entryz="6" rent="13000" townid="13" size="32" />
+	<house name="Minas 6" houseid="276" entryx="1349" entryy="1342" entryz="6" rent="15000" townid="13" size="57" />
+	<house name="Minas 7" houseid="277" entryx="1341" entryy="1345" entryz="6" rent="25000" townid="13" size="127" />
+	<house name="Minas Depot 1" houseid="278" entryx="1327" entryy="1359" entryz="6" rent="1500" townid="13" size="16" />
+	<house name="Minas Depot 2" houseid="279" entryx="1327" entryy="1358" entryz="6" rent="1500" townid="13" size="11" />
+	<house name="Minas Depot 3" houseid="280" entryx="1320" entryy="1359" entryz="6" rent="1500" townid="13" size="16" />
+	<house name="Minas Depot 4" houseid="281" entryx="1321" entryy="1358" entryz="6" rent="1500" townid="13" size="11" />
+	<house name="Minas Depot 5" houseid="282" entryx="1313" entryy="1359" entryz="6" rent="1500" townid="13" size="20" />
+	<house name="Minas Depot 6" houseid="283" entryx="1314" entryy="1358" entryz="6" rent="1500" townid="13" size="14" />
+	<house name="Minas Depot 7" houseid="284" entryx="1307" entryy="1359" entryz="6" rent="1500" townid="13" size="20" />
+	<house name="Minas Depot 8" houseid="285" entryx="1307" entryy="1358" entryz="6" rent="1500" townid="13" size="14" />
+	<house name="Minas Depot 9" houseid="286" entryx="1304" entryy="1359" entryz="6" rent="1500" townid="13" size="52" />
+	<house name="Minas Depot 10" houseid="287" entryx="1340" entryy="1356" entryz="6" rent="1500" townid="13" size="24" />
+	<house name="Minas Depot 11" houseid="288" entryx="1340" entryy="1357" entryz="6" rent="1500" townid="13" size="28" />
+	<house name="Shire 1" houseid="289" entryx="613" entryy="534" entryz="7" rent="1600" townid="4" size="76" />
+	<house name="Shire 2" houseid="290" entryx="621" entryy="532" entryz="7" rent="1600" townid="4" size="68" />
+	<house name="Shire 3" houseid="291" entryx="622" entryy="537" entryz="7" rent="1600" townid="4" size="65" />
+	<house name="Shire 4" houseid="292" entryx="614" entryy="535" entryz="7" rent="1600" townid="4" size="83" />
+	<house name="Mines 1" houseid="294" entryx="1016" entryy="665" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 2" houseid="295" entryx="1016" entryy="672" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 3" houseid="296" entryx="1016" entryy="679" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 4" houseid="297" entryx="1016" entryy="686" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 5" houseid="298" entryx="1016" entryy="693" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 6" houseid="299" entryx="1016" entryy="700" entryz="7" rent="260" townid="10" size="12" />
+	<house name="Mines 7" houseid="300" entryx="1016" entryy="707" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 8" houseid="301" entryx="1025" entryy="666" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 9" houseid="302" entryx="1040" entryy="668" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 10" houseid="303" entryx="1047" entryy="668" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 11" houseid="304" entryx="1054" entryy="668" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 12" houseid="305" entryx="1061" entryy="668" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 13" houseid="306" entryx="1068" entryy="668" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 14" houseid="307" entryx="1069" entryy="670" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 15" houseid="308" entryx="1025" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 16" houseid="309" entryx="1032" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 18" houseid="310" entryx="1039" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 19" houseid="311" entryx="1045" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 20" houseid="312" entryx="1053" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 21" houseid="313" entryx="1060" entryy="682" entryz="7" rent="260" townid="10" size="12" />
+	<house name="Mines 22" houseid="314" entryx="1067" entryy="682" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 23" houseid="315" entryx="1068" entryy="684" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 24" houseid="316" entryx="1067" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 25" houseid="317" entryx="1060" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 26" houseid="318" entryx="1053" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 27" houseid="319" entryx="1046" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 28" houseid="320" entryx="1039" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 29" houseid="321" entryx="1032" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 30" houseid="322" entryx="1025" entryy="685" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 31" houseid="323" entryx="1025" entryy="702" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 32" houseid="324" entryx="1031" entryy="702" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 33" houseid="325" entryx="1039" entryy="702" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 34" houseid="326" entryx="1046" entryy="702" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 35" houseid="327" entryx="1054" entryy="702" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 36" houseid="328" entryx="1061" entryy="702" entryz="7" rent="260" townid="10" size="12" />
+	<house name="Mines 37" houseid="329" entryx="1068" entryy="702" entryz="7" rent="260" townid="10" size="12" />
+	<house name="Mines 38" houseid="330" entryx="1069" entryy="704" entryz="7" rent="260" townid="10" size="12" />
+	<house name="Mines 39" houseid="331" entryx="1068" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 40" houseid="332" entryx="1061" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 41" houseid="333" entryx="1054" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 42" houseid="334" entryx="1046" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 43" houseid="335" entryx="1038" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 44" houseid="336" entryx="1032" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Mines 45" houseid="337" entryx="1025" entryy="705" entryz="7" rent="300" townid="10" size="14" />
+	<house name="Dwarf Square" houseid="338" entryx="1020" entryy="634" entryz="7" rent="17000" townid="10" size="28" />
+	<house name="Fazenda Dwarf 1" houseid="339" entryx="916" entryy="740" entryz="7" rent="550" townid="10" size="9" />
+	<house name="Fazenda Dwarf 2" houseid="340" entryx="924" entryy="729" entryz="7" rent="700" townid="10" size="13" />
+	<house name="Fazenda Dwarf 3" houseid="341" entryx="938" entryy="733" entryz="7" rent="350" townid="10" size="6" />
+	<house name="Fazenda Dwarf 4" houseid="342" entryx="933" entryy="723" entryz="7" rent="500" townid="10" size="9" />
+	<house name="Fazenda Dwarf 5" houseid="343" entryx="941" entryy="710" entryz="7" rent="450" townid="10" size="8" />
+	<house name="Lower Village 1" houseid="344" entryx="954" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 2" houseid="345" entryx="963" entryy="671" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 3" houseid="346" entryx="970" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 4" houseid="347" entryx="978" entryy="671" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 5" houseid="348" entryx="986" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 6" houseid="349" entryx="1000" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 7" houseid="350" entryx="1007" entryy="671" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 8" houseid="351" entryx="1016" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 9" houseid="352" entryx="1024" entryy="671" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 10" houseid="353" entryx="1032" entryy="679" entryz="8" rent="480" townid="10" size="23" />
+	<house name="Lower Village 11" houseid="354" entryx="950" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 12" houseid="355" entryx="958" entryy="682" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 13" houseid="356" entryx="965" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 14" houseid="357" entryx="974" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 15" houseid="358" entryx="982" entryy="683" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 16" houseid="359" entryx="991" entryy="685" entryz="8" rent="420" townid="10" size="20" />
+	<house name="Lower Village 17" houseid="360" entryx="994" entryy="685" entryz="8" rent="420" townid="10" size="20" />
+	<house name="Lower Village 18" houseid="361" entryx="1003" entryy="682" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 19" houseid="362" entryx="1011" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 20" houseid="363" entryx="1020" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 21" houseid="364" entryx="1027" entryy="682" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 22" houseid="365" entryx="1035" entryy="687" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 23" houseid="366" entryx="955" entryy="696" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Lower Village 24" houseid="367" entryx="962" entryy="696" entryz="8" rent="140" townid="10" size="6" />
+	<house name="Lower Village 25" houseid="368" entryx="978" entryy="696" entryz="8" rent="140" townid="10" size="6" />
+	<house name="Lower Village 26" houseid="369" entryx="1008" entryy="696" entryz="8" rent="140" townid="10" size="6" />
+	<house name="Lower Village 27" houseid="370" entryx="1024" entryy="696" entryz="8" rent="140" townid="10" size="6" />
+	<house name="Lower Village 28" houseid="371" entryx="1031" entryy="696" entryz="8" rent="220" townid="10" size="10" />
+	<house name="Dwarven Elite 1" houseid="372" entryx="957" entryy="700" entryz="8" rent="4500" townid="10" size="52" />
+	<house name="Dwarven Elite 2" houseid="373" entryx="1029" entryy="700" entryz="8" rent="4500" townid="10" size="52" />
+	<house name="Dwarven Elite 3" houseid="374" entryx="957" entryy="721" entryz="8" rent="4500" townid="10" size="55" />
+	<house name="Dwarven Elite 4" houseid="375" entryx="1029" entryy="721" entryz="8" rent="4500" townid="10" size="56" />
 	<house name="Capial 1" houseid="376" entryx="739" entryy="481" entryz="7" rent="400" townid="4" size="6" />
 	<house name="Capial 2" houseid="377" entryx="746" entryy="483" entryz="7" rent="400" townid="4" size="7" />
 	<house name="Mordor 2" houseid="378" entryx="1449" entryy="1196" entryz="7" rent="150" townid="12" size="14" />
-	<house name="Forod 1" houseid="379" entryx="706" entryy="113" entryz="7" rent="280" townid="11" size="15" />
-	<house name="Forod 2" houseid="380" entryx="706" entryy="113" entryz="7" rent="280" townid="11" size="15" />
-	<house name="Forod 3" houseid="381" entryx="694" entryy="102" entryz="7" rent="220" townid="11" size="12" />
-	<house name="Forod 4" houseid="382" entryx="691" entryy="103" entryz="7" rent="160" townid="11" size="9" />
-	<house name="Forod 5" houseid="383" entryx="691" entryy="99" entryz="7" rent="220" townid="11" size="12" />
-	<house name="Forod 6" houseid="384" entryx="692" entryy="97" entryz="7" rent="300" townid="11" size="18" />
-	<house name="Forod 7" houseid="385" entryx="696" entryy="97" entryz="7" rent="220" townid="11" size="12" />
-	<house name="Forod 8" houseid="386" entryx="707" entryy="90" entryz="7" rent="280" townid="11" size="15" />
-	<house name="Forod 10" houseid="387" entryx="708" entryy="89" entryz="7" rent="300" townid="11" size="16" />
-	<house name="Forod 11" houseid="388" entryx="709" entryy="90" entryz="7" rent="180" townid="11" size="10" />
-	<house name="Forod 12" houseid="389" entryx="721" entryy="85" entryz="7" rent="220" townid="11" size="14" />
-	<house name="Ice 1" houseid="390" entryx="745" entryy="81" entryz="7" rent="280" townid="11" size="15" />
-	<house name="Ice 2" houseid="391" entryx="750" entryy="82" entryz="7" rent="220" townid="11" size="12" />
-	<house name="Ice 3" houseid="392" entryx="750" entryy="83" entryz="7" rent="340" townid="11" size="18" />
-	<house name="Forod 13" houseid="393" entryx="720" entryy="105" entryz="7" rent="200" townid="11" size="12" />
-	<house name="Forod 14" houseid="394" entryx="716" entryy="112" entryz="7" rent="280" townid="11" size="15" />
-	<house name="Forod 15" houseid="395" entryx="728" entryy="113" entryz="7" rent="180" townid="11" size="10" />
-	<house name="Forod 16" houseid="396" entryx="721" entryy="120" entryz="7" rent="320" townid="11" size="17" />
-	<house name="Forod 17" houseid="397" entryx="721" entryy="121" entryz="7" rent="320" townid="11" size="17" />
-	<house name="Forod 18" houseid="398" entryx="722" entryy="121" entryz="7" rent="240" townid="11" size="15" />
-	<house name="Forod 19" houseid="399" entryx="729" entryy="121" entryz="7" rent="220" townid="11" size="12" />
-	<house name="Forod 20" houseid="400" entryx="722" entryy="101" entryz="7" rent="740" townid="11" size="42" />
-	<house name="Forod 21" houseid="401" entryx="728" entryy="93" entryz="6" rent="280" townid="11" size="15" />
-	<house name="Forod 22" houseid="402" entryx="724" entryy="85" entryz="6" rent="220" townid="11" size="12" />
-	<house name="Forod 23" houseid="403" entryx="733" entryy="107" entryz="7" rent="160" townid="11" size="9" />
-	<house name="Forod 24" houseid="404" entryx="696" entryy="97" entryz="6" rent="220" townid="11" size="12" />
-	<house name="Forod 25" houseid="405" entryx="692" entryy="97" entryz="6" rent="300" townid="11" size="18" />
-	<house name="Forod 26" houseid="406" entryx="691" entryy="101" entryz="6" rent="240" townid="11" size="13" />
-	<house name="Forod 27" houseid="407" entryx="704" entryy="115" entryz="6" rent="320" townid="11" size="16" />
-	<house name="Forod 28" houseid="408" entryx="709" entryy="115" entryz="6" rent="320" townid="11" size="16" />
-	<house name="Forod 29" houseid="409" entryx="739" entryy="104" entryz="6" rent="300" townid="11" size="15" />
-	<house name="Forod 30" houseid="410" entryx="740" entryy="104" entryz="6" rent="300" townid="11" size="15" />
-	<house name="Ice 4" houseid="411" entryx="758" entryy="79" entryz="6" rent="220" townid="11" size="12" />
-	<house name="Ice 5" houseid="412" entryx="761" entryy="84" entryz="6" rent="280" townid="11" size="15" />
-	<house name="Ice 6" houseid="413" entryx="755" entryy="77" entryz="5" rent="220" townid="11" size="12" />
-	<house name="Top" houseid="414" entryx="736" entryy="78" entryz="5" rent="220" townid="11" size="12" />
+	<house name="Forod 1" houseid="379" entryx="706" entryy="113" entryz="7" rent="280" townid="11" size="13" />
+	<house name="Forod 2" houseid="380" entryx="706" entryy="113" entryz="7" rent="280" townid="11" size="13" />
+	<house name="Forod 3" houseid="381" entryx="694" entryy="102" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Forod 4" houseid="382" entryx="691" entryy="103" entryz="7" rent="160" townid="11" size="7" />
+	<house name="Forod 5" houseid="383" entryx="691" entryy="99" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Forod 6" houseid="384" entryx="692" entryy="97" entryz="7" rent="300" townid="11" size="14" />
+	<house name="Forod 7" houseid="385" entryx="696" entryy="97" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Forod 8" houseid="386" entryx="707" entryy="90" entryz="7" rent="280" townid="11" size="13" />
+	<house name="Forod 10" houseid="387" entryx="708" entryy="89" entryz="7" rent="300" townid="11" size="14" />
+	<house name="Forod 11" houseid="388" entryx="709" entryy="90" entryz="7" rent="180" townid="11" size="8" />
+	<house name="Forod 12" houseid="389" entryx="721" entryy="85" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Ice 1" houseid="390" entryx="745" entryy="81" entryz="7" rent="280" townid="11" size="13" />
+	<house name="Ice 2" houseid="391" entryx="750" entryy="82" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Ice 3" houseid="392" entryx="750" entryy="83" entryz="7" rent="340" townid="11" size="16" />
+	<house name="Forod 13" houseid="393" entryx="720" entryy="105" entryz="7" rent="200" townid="11" size="10" />
+	<house name="Forod 14" houseid="394" entryx="716" entryy="112" entryz="7" rent="280" townid="11" size="13" />
+	<house name="Forod 15" houseid="395" entryx="728" entryy="113" entryz="7" rent="180" townid="11" size="8" />
+	<house name="Forod 16" houseid="396" entryx="721" entryy="120" entryz="7" rent="320" townid="11" size="15" />
+	<house name="Forod 17" houseid="397" entryx="721" entryy="121" entryz="7" rent="320" townid="11" size="15" />
+	<house name="Forod 18" houseid="398" entryx="722" entryy="121" entryz="7" rent="240" townid="11" size="11" />
+	<house name="Forod 19" houseid="399" entryx="729" entryy="121" entryz="7" rent="220" townid="11" size="10" />
+	<house name="Forod 20" houseid="400" entryx="722" entryy="101" entryz="7" rent="740" townid="11" size="38" />
+	<house name="Forod 21" houseid="401" entryx="728" entryy="93" entryz="6" rent="280" townid="11" size="13" />
+	<house name="Forod 22" houseid="402" entryx="724" entryy="85" entryz="6" rent="220" townid="11" size="10" />
+	<house name="Forod 23" houseid="403" entryx="733" entryy="107" entryz="7" rent="160" townid="11" size="7" />
+	<house name="Forod 24" houseid="404" entryx="696" entryy="97" entryz="6" rent="220" townid="11" size="10" />
+	<house name="Forod 25" houseid="405" entryx="692" entryy="97" entryz="6" rent="300" townid="11" size="14" />
+	<house name="Forod 26" houseid="406" entryx="691" entryy="101" entryz="6" rent="240" townid="11" size="11" />
+	<house name="Forod 27" houseid="407" entryx="704" entryy="115" entryz="6" rent="320" townid="11" size="14" />
+	<house name="Forod 28" houseid="408" entryx="709" entryy="115" entryz="6" rent="320" townid="11" size="14" />
+	<house name="Forod 29" houseid="409" entryx="739" entryy="104" entryz="6" rent="300" townid="11" size="13" />
+	<house name="Forod 30" houseid="410" entryx="740" entryy="104" entryz="6" rent="300" townid="11" size="13" />
+	<house name="Ice 4" houseid="411" entryx="758" entryy="79" entryz="6" rent="220" townid="11" size="10" />
+	<house name="Ice 5" houseid="412" entryx="761" entryy="84" entryz="6" rent="280" townid="11" size="13" />
+	<house name="Ice 6" houseid="413" entryx="755" entryy="77" entryz="5" rent="220" townid="11" size="10" />
+	<house name="Top" houseid="414" entryx="736" entryy="78" entryz="5" rent="220" townid="11" size="10" />
 	<house name="Mordor 3" houseid="415" entryx="1450" entryy="1200" entryz="7" rent="150" townid="12" size="14" />
 	<house name="Mordor 4" houseid="416" entryx="1462" entryy="1204" entryz="7" rent="330" townid="12" size="32" />
 	<house name="Mordor 5" houseid="417" entryx="1454" entryy="1186" entryz="6" rent="220" townid="12" size="21" />
@@ -455,114 +455,114 @@
 	<house name="Mordor 44" houseid="455" entryx="1541" entryy="1243" entryz="6" rent="380" townid="12" size="37" />
 	<house name="Mordor 45" houseid="456" entryx="1535" entryy="1251" entryz="7" rent="230" townid="12" size="22" />
 	<house name="Mordor 46" houseid="457" entryx="1539" entryy="1249" entryz="6" rent="250" townid="12" size="24" />
-	<house name="Minas Depot 12" houseid="458" entryx="1349" entryy="1355" entryz="6" rent="1000" townid="13" size="0" />
-	<house name="Minas Depot 13" houseid="459" entryx="1349" entryy="1358" entryz="6" rent="1000" townid="13" size="0" />
-	<house name="Minas Depot 14" houseid="460" entryx="1351" entryy="1357" entryz="6" rent="1000" townid="13" size="0" />
-	<house name="Minas Top 1" houseid="461" entryx="1329" entryy="1374" entryz="5" rent="1000" townid="13" size="35" />
-	<house name="Minas Top 2" houseid="462" entryx="1337" entryy="1377" entryz="5" rent="1000" townid="13" size="22" />
-	<house name="Minas Top 3" houseid="463" entryx="1354" entryy="1372" entryz="5" rent="1000" townid="13" size="30" />
-	<house name="Minas Top 4" houseid="464" entryx="1354" entryy="1354" entryz="5" rent="1000" townid="13" size="37" />
-	<house name="Minas Top 5" houseid="465" entryx="1348" entryy="1352" entryz="5" rent="1000" townid="13" size="54" />
-	<house name="Minas Top 6" houseid="466" entryx="1335" entryy="1370" entryz="4" rent="1000" townid="13" size="61" />
-	<house name="Minas Top 7" houseid="467" entryx="1350" entryy="1368" entryz="4" rent="1000" townid="13" size="41" />
-	<house name="Minas Mirante" houseid="468" entryx="1356" entryy="1360" entryz="3" rent="1000" townid="13" size="0" />
-	<house name="Anubis 1" houseid="470" entryx="1502" entryy="379" entryz="7" rent="500" townid="14" size="13" />
-	<house name="Anubis 2" houseid="471" entryx="1499" entryy="390" entryz="7" rent="500" townid="14" size="13" />
-	<house name="Anubis 3" houseid="472" entryx="1510" entryy="362" entryz="7" rent="550" townid="14" size="17" />
-	<house name="Anubis 4" houseid="473" entryx="1510" entryy="370" entryz="7" rent="550" townid="14" size="17" />
-	<house name="Anubis 5" houseid="474" entryx="1511" entryy="379" entryz="7" rent="520" townid="14" size="13" />
-	<house name="Anubis 6" houseid="475" entryx="1508" entryy="390" entryz="7" rent="520" townid="14" size="13" />
-	<house name="Anubis 7" houseid="476" entryx="1510" entryy="396" entryz="7" rent="550" townid="14" size="17" />
-	<house name="Anubis 8" houseid="477" entryx="1510" entryy="403" entryz="7" rent="540" townid="14" size="17" />
-	<house name="Anubis 9" houseid="478" entryx="1510" entryy="410" entryz="7" rent="530" townid="14" size="17" />
-	<house name="Anubis 10" houseid="479" entryx="1540" entryy="357" entryz="7" rent="580" townid="14" size="17" />
-	<house name="Anubis 11" houseid="480" entryx="1538" entryy="440" entryz="7" rent="520" townid="14" size="17" />
-	<house name="Anubis 12" houseid="481" entryx="1546" entryy="440" entryz="7" rent="520" townid="14" size="17" />
-	<house name="Anubis 13" houseid="482" entryx="1554" entryy="440" entryz="7" rent="520" townid="14" size="17" />
-	<house name="Horus 1" houseid="483" entryx="1521" entryy="418" entryz="7" rent="600" townid="14" size="17" />
-	<house name="Horus 2" houseid="484" entryx="1521" entryy="425" entryz="7" rent="600" townid="14" size="17" />
-	<house name="Horus 3" houseid="485" entryx="1528" entryy="431" entryz="7" rent="600" townid="14" size="17" />
-	<house name="Horus 4" houseid="486" entryx="1531" entryy="359" entryz="7" rent="700" townid="14" size="17" />
-	<house name="Horus 5" houseid="487" entryx="1540" entryy="370" entryz="7" rent="1200" townid="14" size="72" />
-	<house name="Horus 6" houseid="488" entryx="1544" entryy="376" entryz="7" rent="700" townid="14" size="19" />
-	<house name="Horus 7" houseid="489" entryx="1540" entryy="382" entryz="7" rent="700" townid="14" size="19" />
-	<house name="Horus 8" houseid="490" entryx="1544" entryy="388" entryz="7" rent="1100" townid="14" size="48" />
-	<house name="Horus 9" houseid="491" entryx="1544" entryy="394" entryz="7" rent="1200" townid="14" size="54" />
-	<house name="Horus 10" houseid="492" entryx="1544" entryy="404" entryz="7" rent="700" townid="14" size="25" />
-	<house name="Horus 11" houseid="493" entryx="1540" entryy="412" entryz="7" rent="750" townid="14" size="31" />
-	<house name="Horus 12" houseid="494" entryx="1540" entryy="431" entryz="7" rent="700" townid="14" size="25" />
-	<house name="Horus 13" houseid="495" entryx="1551" entryy="401" entryz="7" rent="700" townid="14" size="19" />
-	<house name="Horus 14" houseid="496" entryx="1555" entryy="409" entryz="7" rent="750" townid="14" size="25" />
-	<house name="Horus 15" houseid="497" entryx="1551" entryy="421" entryz="7" rent="650" townid="14" size="25" />
-	<house name="Horus 16" houseid="498" entryx="1551" entryy="429" entryz="7" rent="650" townid="14" size="19" />
-	<house name="Horus 17" houseid="499" entryx="1551" entryy="431" entryz="7" rent="650" townid="14" size="25" />
-	<house name="Horus 18" houseid="500" entryx="1557" entryy="405" entryz="7" rent="750" townid="14" size="16" />
-	<house name="Horus 19" houseid="501" entryx="1576" entryy="405" entryz="7" rent="700" townid="14" size="12" />
-	<house name="Horus 20" houseid="502" entryx="1584" entryy="406" entryz="7" rent="700" townid="14" size="20" />
-	<house name="Horus 21" houseid="503" entryx="1591" entryy="406" entryz="7" rent="700" townid="14" size="20" />
-	<house name="Piramide 1" houseid="504" entryx="1522" entryy="373" entryz="7" rent="800" townid="14" size="20" />
-	<house name="Piramide 2" houseid="505" entryx="1522" entryy="377" entryz="7" rent="600" townid="14" size="9" />
-	<house name="Piramide 3" houseid="506" entryx="1523" entryy="374" entryz="7" rent="850" townid="14" size="25" />
-	<house name="Piramide 4" houseid="507" entryx="1522" entryy="390" entryz="7" rent="750" townid="14" size="21" />
-	<house name="Piramide 5" houseid="508" entryx="1523" entryy="390" entryz="7" rent="750" townid="14" size="21" />
-	<house name="Piramide 6" houseid="509" entryx="1522" entryy="405" entryz="7" rent="700" townid="14" size="21" />
-	<house name="Piramide 7" houseid="510" entryx="1523" entryy="405" entryz="7" rent="700" townid="14" size="21" />
-	<house name="Piramide 8" houseid="511" entryx="1533" entryy="420" entryz="7" rent="650" townid="14" size="13" />
-	<house name="Piramide 9" houseid="512" entryx="1533" entryy="424" entryz="7" rent="650" townid="14" size="13" />
-	<house name="Piramide 10" houseid="513" entryx="1534" entryy="421" entryz="7" rent="800" townid="14" size="29" />
-	<house name="Osiris 1" houseid="514" entryx="1520" entryy="394" entryz="6" rent="800" townid="14" size="21" />
-	<house name="Osiris 2" houseid="515" entryx="1527" entryy="394" entryz="6" rent="800" townid="14" size="21" />
-	<house name="Osiris 3" houseid="516" entryx="1520" entryy="409" entryz="6" rent="750" townid="14" size="21" />
-	<house name="Osiris 4" houseid="517" entryx="1527" entryy="409" entryz="6" rent="750" townid="14" size="21" />
-	<house name="Osiris 5" houseid="518" entryx="1540" entryy="421" entryz="6" rent="700" townid="14" size="26" />
-	<house name="Seth 1" houseid="519" entryx="1521" entryy="418" entryz="6" rent="3000" townid="14" size="32" />
-	<house name="Seth 2" houseid="520" entryx="1521" entryy="425" entryz="6" rent="3000" townid="14" size="32" />
-	<house name="Seth 3" houseid="521" entryx="1531" entryy="435" entryz="6" rent="3000" townid="14" size="32" />
-	<house name="Seth 4" houseid="522" entryx="1544" entryy="435" entryz="6" rent="3000" townid="14" size="48" />
-	<house name="Seth 5" houseid="523" entryx="1544" entryy="408" entryz="6" rent="3000" townid="14" size="54" />
-	<house name="Seth 6" houseid="524" entryx="1544" entryy="403" entryz="6" rent="3000" townid="14" size="48" />
-	<house name="Seth 7" houseid="525" entryx="1573" entryy="408" entryz="6" rent="3000" townid="14" size="24" />
-	<house name="Isis 1" houseid="526" entryx="1579" entryy="414" entryz="7" rent="600" townid="14" size="11" />
-	<house name="Isis 2" houseid="527" entryx="1591" entryy="414" entryz="7" rent="600" townid="14" size="11" />
-	<house name="Isis 3" houseid="528" entryx="1579" entryy="424" entryz="7" rent="550" townid="14" size="11" />
-	<house name="Isis 4" houseid="529" entryx="1591" entryy="424" entryz="7" rent="550" townid="14" size="11" />
-	<house name="Isis 5" houseid="530" entryx="1584" entryy="434" entryz="7" rent="550" townid="14" size="13" />
-	<house name="Isis 6" houseid="531" entryx="1586" entryy="434" entryz="7" rent="550" townid="14" size="13" />
-	<house name="Isis 7" houseid="532" entryx="1584" entryy="442" entryz="7" rent="500" townid="14" size="13" />
-	<house name="Isis 8" houseid="533" entryx="1589" entryy="445" entryz="7" rent="500" townid="14" size="13" />
-	<house name="Ra 1" houseid="534" entryx="1554" entryy="368" entryz="6" rent="15000" townid="14" size="9" />
-	<house name="Ra 2" houseid="535" entryx="1554" entryy="384" entryz="6" rent="15000" townid="14" size="9" />
-	<house name="Ra 3" houseid="536" entryx="1571" entryy="369" entryz="6" rent="15000" townid="14" size="9" />
-	<house name="Ra 4" houseid="537" entryx="1571" entryy="385" entryz="6" rent="15000" townid="14" size="9" />
-	<house name="Ra 5 " houseid="542" entryx="1599" entryy="377" entryz="3" rent="25000" townid="14" size="66" />
-	<house name="Anfallas 1" houseid="543" entryx="963" entryy="1285" entryz="6" rent="850" townid="15" size="20" />
-	<house name="Anfallas 2" houseid="544" entryx="1000" entryy="1290" entryz="6" rent="850" townid="15" size="24" />
-	<house name="Anfallas 3" houseid="545" entryx="974" entryy="1267" entryz="6" rent="800" townid="15" size="21" />
-	<house name="Anfallas 4" houseid="546" entryx="983" entryy="1270" entryz="6" rent="650" townid="15" size="9" />
-	<house name="Anfallas 5" houseid="547" entryx="973" entryy="1264" entryz="6" rent="850" townid="15" size="18" />
-	<house name="Anfallas 6" houseid="548" entryx="982" entryy="1264" entryz="6" rent="900" townid="15" size="21" />
-	<house name="Anfallas 7" houseid="549" entryx="974" entryy="1243" entryz="6" rent="850" townid="15" size="42" />
-	<house name="Anfallas 8" houseid="550" entryx="1006" entryy="1267" entryz="6" rent="650" townid="15" size="21" />
-	<house name="Anfallas 9" houseid="551" entryx="1008" entryy="1264" entryz="6" rent="600" townid="15" size="12" />
-	<house name="Anfallas 10" houseid="552" entryx="1002" entryy="1245" entryz="6" rent="550" townid="15" size="12" />
-	<house name="Anfallas 11" houseid="553" entryx="1029" entryy="1279" entryz="6" rent="700" townid="15" size="28" />
-	<house name="Anfallas 12" houseid="554" entryx="1025" entryy="1267" entryz="6" rent="450" townid="15" size="8" />
-	<house name="Anfallas 13" houseid="555" entryx="1028" entryy="1263" entryz="6" rent="600" townid="15" size="18" />
-	<house name="Anfallas 14" houseid="556" entryx="1023" entryy="1245" entryz="6" rent="750" townid="15" size="30" />
-	<house name="Anfallas 15" houseid="557" entryx="1029" entryy="1245" entryz="6" rent="700" townid="15" size="25" />
-	<house name="Anfallas Top 1" houseid="558" entryx="963" entryy="1286" entryz="5" rent="900" townid="15" size="20" />
-	<house name="Anfallas Top 2" houseid="559" entryx="986" entryy="1273" entryz="5" rent="650" townid="15" size="8" />
-	<house name="Anfallas Top 3" houseid="560" entryx="974" entryy="1264" entryz="5" rent="850" townid="15" size="18" />
+	<house name="Minas Depot 12" houseid="458" entryx="1349" entryy="1355" entryz="6" rent="1000" townid="13" size="25" />
+	<house name="Minas Depot 13" houseid="459" entryx="1349" entryy="1358" entryz="6" rent="1000" townid="13" size="26" />
+	<house name="Minas Depot 14" houseid="460" entryx="1351" entryy="1357" entryz="6" rent="1000" townid="13" size="13" />
+	<house name="Minas Top 1" houseid="461" entryx="1329" entryy="1374" entryz="5" rent="1000" townid="13" size="33" />
+	<house name="Minas Top 2" houseid="462" entryx="1337" entryy="1377" entryz="5" rent="1000" townid="13" size="19" />
+	<house name="Minas Top 3" houseid="463" entryx="1354" entryy="1372" entryz="5" rent="1000" townid="13" size="28" />
+	<house name="Minas Top 4" houseid="464" entryx="1354" entryy="1354" entryz="5" rent="1000" townid="13" size="32" />
+	<house name="Minas Top 5" houseid="465" entryx="1348" entryy="1352" entryz="5" rent="1000" townid="13" size="49" />
+	<house name="Minas Top 6" houseid="466" entryx="1335" entryy="1370" entryz="4" rent="1000" townid="13" size="54" />
+	<house name="Minas Top 7" houseid="467" entryx="1350" entryy="1368" entryz="4" rent="1000" townid="13" size="34" />
+	<house name="Minas Mirante" houseid="468" entryx="1356" entryy="1360" entryz="3" rent="1000" townid="13" size="27" />
+	<house name="Anubis 1" houseid="470" entryx="1502" entryy="379" entryz="7" rent="500" townid="14" size="10" />
+	<house name="Anubis 2" houseid="471" entryx="1499" entryy="390" entryz="7" rent="500" townid="14" size="10" />
+	<house name="Anubis 3" houseid="472" entryx="1510" entryy="362" entryz="7" rent="550" townid="14" size="14" />
+	<house name="Anubis 4" houseid="473" entryx="1510" entryy="370" entryz="7" rent="550" townid="14" size="14" />
+	<house name="Anubis 5" houseid="474" entryx="1511" entryy="379" entryz="7" rent="520" townid="14" size="10" />
+	<house name="Anubis 6" houseid="475" entryx="1508" entryy="390" entryz="7" rent="520" townid="14" size="10" />
+	<house name="Anubis 7" houseid="476" entryx="1510" entryy="396" entryz="7" rent="550" townid="14" size="14" />
+	<house name="Anubis 8" houseid="477" entryx="1510" entryy="403" entryz="7" rent="540" townid="14" size="14" />
+	<house name="Anubis 9" houseid="478" entryx="1510" entryy="410" entryz="7" rent="530" townid="14" size="14" />
+	<house name="Anubis 10" houseid="479" entryx="1540" entryy="357" entryz="7" rent="580" townid="14" size="14" />
+	<house name="Anubis 11" houseid="480" entryx="1538" entryy="440" entryz="7" rent="520" townid="14" size="14" />
+	<house name="Anubis 12" houseid="481" entryx="1546" entryy="440" entryz="7" rent="520" townid="14" size="14" />
+	<house name="Anubis 13" houseid="482" entryx="1554" entryy="440" entryz="7" rent="520" townid="14" size="14" />
+	<house name="Horus 1" houseid="483" entryx="1521" entryy="418" entryz="7" rent="600" townid="14" size="14" />
+	<house name="Horus 2" houseid="484" entryx="1521" entryy="425" entryz="7" rent="600" townid="14" size="14" />
+	<house name="Horus 3" houseid="485" entryx="1528" entryy="431" entryz="7" rent="600" townid="14" size="14" />
+	<house name="Horus 4" houseid="486" entryx="1531" entryy="359" entryz="7" rent="700" townid="14" size="14" />
+	<house name="Horus 5" houseid="487" entryx="1540" entryy="370" entryz="7" rent="1200" townid="14" size="68" />
+	<house name="Horus 6" houseid="488" entryx="1544" entryy="376" entryz="7" rent="700" townid="14" size="16" />
+	<house name="Horus 7" houseid="489" entryx="1540" entryy="382" entryz="7" rent="700" townid="14" size="16" />
+	<house name="Horus 8" houseid="490" entryx="1544" entryy="388" entryz="7" rent="1100" townid="14" size="46" />
+	<house name="Horus 9" houseid="491" entryx="1544" entryy="394" entryz="7" rent="1200" townid="14" size="52" />
+	<house name="Horus 10" houseid="492" entryx="1544" entryy="404" entryz="7" rent="700" townid="14" size="22" />
+	<house name="Horus 11" houseid="493" entryx="1540" entryy="412" entryz="7" rent="750" townid="14" size="26" />
+	<house name="Horus 12" houseid="494" entryx="1540" entryy="431" entryz="7" rent="700" townid="14" size="22" />
+	<house name="Horus 13" houseid="495" entryx="1551" entryy="401" entryz="7" rent="700" townid="14" size="16" />
+	<house name="Horus 14" houseid="496" entryx="1555" entryy="409" entryz="7" rent="750" townid="14" size="22" />
+	<house name="Horus 15" houseid="497" entryx="1551" entryy="421" entryz="7" rent="650" townid="14" size="22" />
+	<house name="Horus 16" houseid="498" entryx="1551" entryy="429" entryz="7" rent="650" townid="14" size="16" />
+	<house name="Horus 17" houseid="499" entryx="1551" entryy="431" entryz="7" rent="650" townid="14" size="22" />
+	<house name="Horus 18" houseid="500" entryx="1557" entryy="405" entryz="7" rent="750" townid="14" size="13" />
+	<house name="Horus 19" houseid="501" entryx="1576" entryy="405" entryz="7" rent="700" townid="14" size="10" />
+	<house name="Horus 20" houseid="502" entryx="1584" entryy="406" entryz="7" rent="700" townid="14" size="18" />
+	<house name="Horus 21" houseid="503" entryx="1591" entryy="406" entryz="7" rent="700" townid="14" size="18" />
+	<house name="Piramide 1" houseid="504" entryx="1522" entryy="373" entryz="7" rent="800" townid="14" size="18" />
+	<house name="Piramide 2" houseid="505" entryx="1522" entryy="377" entryz="7" rent="600" townid="14" size="6" />
+	<house name="Piramide 3" houseid="506" entryx="1523" entryy="374" entryz="7" rent="850" townid="14" size="22" />
+	<house name="Piramide 4" houseid="507" entryx="1522" entryy="390" entryz="7" rent="750" townid="14" size="18" />
+	<house name="Piramide 5" houseid="508" entryx="1523" entryy="390" entryz="7" rent="750" townid="14" size="18" />
+	<house name="Piramide 6" houseid="509" entryx="1522" entryy="405" entryz="7" rent="700" townid="14" size="18" />
+	<house name="Piramide 7" houseid="510" entryx="1523" entryy="405" entryz="7" rent="700" townid="14" size="18" />
+	<house name="Piramide 8" houseid="511" entryx="1533" entryy="420" entryz="7" rent="650" townid="14" size="10" />
+	<house name="Piramide 9" houseid="512" entryx="1533" entryy="424" entryz="7" rent="650" townid="14" size="10" />
+	<house name="Piramide 10" houseid="513" entryx="1534" entryy="421" entryz="7" rent="800" townid="14" size="24" />
+	<house name="Osiris 1" houseid="514" entryx="1520" entryy="394" entryz="6" rent="800" townid="14" size="18" />
+	<house name="Osiris 2" houseid="515" entryx="1527" entryy="394" entryz="6" rent="800" townid="14" size="18" />
+	<house name="Osiris 3" houseid="516" entryx="1520" entryy="409" entryz="6" rent="750" townid="14" size="18" />
+	<house name="Osiris 4" houseid="517" entryx="1527" entryy="409" entryz="6" rent="750" townid="14" size="18" />
+	<house name="Osiris 5" houseid="518" entryx="1540" entryy="421" entryz="6" rent="700" townid="14" size="23" />
+	<house name="Seth 1" houseid="519" entryx="1521" entryy="418" entryz="6" rent="3000" townid="14" size="30" />
+	<house name="Seth 2" houseid="520" entryx="1521" entryy="425" entryz="6" rent="3000" townid="14" size="30" />
+	<house name="Seth 3" houseid="521" entryx="1531" entryy="435" entryz="6" rent="3000" townid="14" size="30" />
+	<house name="Seth 4" houseid="522" entryx="1544" entryy="435" entryz="6" rent="3000" townid="14" size="46" />
+	<house name="Seth 5" houseid="523" entryx="1544" entryy="408" entryz="6" rent="3000" townid="14" size="52" />
+	<house name="Seth 6" houseid="524" entryx="1544" entryy="403" entryz="6" rent="3000" townid="14" size="46" />
+	<house name="Seth 7" houseid="525" entryx="1573" entryy="408" entryz="6" rent="3000" townid="14" size="22" />
+	<house name="Isis 1" houseid="526" entryx="1579" entryy="414" entryz="7" rent="600" townid="14" size="8" />
+	<house name="Isis 2" houseid="527" entryx="1591" entryy="414" entryz="7" rent="600" townid="14" size="8" />
+	<house name="Isis 3" houseid="528" entryx="1579" entryy="424" entryz="7" rent="550" townid="14" size="8" />
+	<house name="Isis 4" houseid="529" entryx="1591" entryy="424" entryz="7" rent="550" townid="14" size="8" />
+	<house name="Isis 5" houseid="530" entryx="1584" entryy="434" entryz="7" rent="550" townid="14" size="10" />
+	<house name="Isis 6" houseid="531" entryx="1586" entryy="434" entryz="7" rent="550" townid="14" size="10" />
+	<house name="Isis 7" houseid="532" entryx="1584" entryy="442" entryz="7" rent="500" townid="14" size="10" />
+	<house name="Isis 8" houseid="533" entryx="1589" entryy="445" entryz="7" rent="500" townid="14" size="10" />
+	<house name="Ra 1" houseid="534" entryx="1554" entryy="368" entryz="6" rent="15000" townid="14" size="32" />
+	<house name="Ra 2" houseid="535" entryx="1554" entryy="384" entryz="6" rent="15000" townid="14" size="32" />
+	<house name="Ra 3" houseid="536" entryx="1571" entryy="369" entryz="6" rent="15000" townid="14" size="32" />
+	<house name="Ra 4" houseid="537" entryx="1571" entryy="385" entryz="6" rent="15000" townid="14" size="32" />
+	<house name="Ra 5 " houseid="542" entryx="1599" entryy="377" entryz="3" rent="25000" townid="14" size="61" />
+	<house name="Anfallas 1" houseid="543" entryx="963" entryy="1285" entryz="6" rent="850" townid="15" size="18" />
+	<house name="Anfallas 2" houseid="544" entryx="1000" entryy="1290" entryz="6" rent="850" townid="15" size="20" />
+	<house name="Anfallas 3" houseid="545" entryx="974" entryy="1267" entryz="6" rent="800" townid="15" size="17" />
+	<house name="Anfallas 4" houseid="546" entryx="983" entryy="1270" entryz="6" rent="650" townid="15" size="7" />
+	<house name="Anfallas 5" houseid="547" entryx="973" entryy="1264" entryz="6" rent="850" townid="15" size="16" />
+	<house name="Anfallas 6" houseid="548" entryx="982" entryy="1264" entryz="6" rent="900" townid="15" size="17" />
+	<house name="Anfallas 7" houseid="549" entryx="974" entryy="1243" entryz="6" rent="850" townid="15" size="38" />
+	<house name="Anfallas 8" houseid="550" entryx="1006" entryy="1267" entryz="6" rent="650" townid="15" size="19" />
+	<house name="Anfallas 9" houseid="551" entryx="1008" entryy="1264" entryz="6" rent="600" townid="15" size="10" />
+	<house name="Anfallas 10" houseid="552" entryx="1002" entryy="1245" entryz="6" rent="550" townid="15" size="10" />
+	<house name="Anfallas 11" houseid="553" entryx="1029" entryy="1279" entryz="6" rent="700" townid="15" size="26" />
+	<house name="Anfallas 12" houseid="554" entryx="1025" entryy="1267" entryz="6" rent="450" townid="15" size="6" />
+	<house name="Anfallas 13" houseid="555" entryx="1028" entryy="1263" entryz="6" rent="600" townid="15" size="16" />
+	<house name="Anfallas 14" houseid="556" entryx="1023" entryy="1245" entryz="6" rent="750" townid="15" size="26" />
+	<house name="Anfallas 15" houseid="557" entryx="1029" entryy="1245" entryz="6" rent="700" townid="15" size="23" />
+	<house name="Anfallas Top 1" houseid="558" entryx="963" entryy="1286" entryz="5" rent="900" townid="15" size="18" />
+	<house name="Anfallas Top 2" houseid="559" entryx="986" entryy="1273" entryz="5" rent="650" townid="15" size="7" />
+	<house name="Anfallas Top 3" houseid="560" entryx="974" entryy="1264" entryz="5" rent="850" townid="15" size="16" />
 	<house name="Anfallas Top 4" houseid="561" entryx="982" entryy="1264" entryz="5" rent="950" townid="15" size="19" />
-	<house name="Anfallas Top 5" houseid="562" entryx="979" entryy="1240" entryz="5" rent="800" townid="15" size="40" />
-	<house name="Anfallas Top 6 " houseid="563" entryx="1000" entryy="1290" entryz="5" rent="750" townid="15" size="21" />
-	<house name="Anfallas Top 7" houseid="564" entryx="1011" entryy="1271" entryz="5" rent="650" townid="15" size="21" />
-	<house name="Anfallas Top 8" houseid="565" entryx="1008" entryy="1264" entryz="5" rent="600" townid="15" size="12" />
-	<house name="Anfallas Top 9" houseid="566" entryx="1004" entryy="1243" entryz="5" rent="550" townid="15" size="12" />
-	<house name="Anfallas Top 10" houseid="567" entryx="1031" entryy="1267" entryz="5" rent="700" townid="15" size="18" />
-	<house name="Anfallas Top 11" houseid="568" entryx="1022" entryy="1245" entryz="5" rent="800" townid="15" size="27" />
-	<house name="Anfallas Top 12" houseid="569" entryx="1029" entryy="1245" entryz="5" rent="800" townid="15" size="22" />
-	<house name="Casa 01 fora" houseid="573" entryx="1178" entryy="761" entryz="7" rent="3000" townid="2" size="133" />
-	<house name="Casa 02 fora" houseid="574" entryx="1176" entryy="769" entryz="7" rent="3000" townid="2" size="141" />
-	<house name="Casa 03 fora" houseid="575" entryx="1172" entryy="780" entryz="7" rent="3000" townid="2" size="126" />
+	<house name="Anfallas Top 5" houseid="562" entryx="979" entryy="1240" entryz="5" rent="800" townid="15" size="38" />
+	<house name="Anfallas Top 6 " houseid="563" entryx="1000" entryy="1290" entryz="5" rent="750" townid="15" size="22" />
+	<house name="Anfallas Top 7" houseid="564" entryx="1011" entryy="1271" entryz="5" rent="650" townid="15" size="19" />
+	<house name="Anfallas Top 8" houseid="565" entryx="1008" entryy="1264" entryz="5" rent="600" townid="15" size="10" />
+	<house name="Anfallas Top 9" houseid="566" entryx="1004" entryy="1243" entryz="5" rent="550" townid="15" size="10" />
+	<house name="Anfallas Top 10" houseid="567" entryx="1031" entryy="1267" entryz="5" rent="700" townid="15" size="16" />
+	<house name="Anfallas Top 11" houseid="568" entryx="1022" entryy="1245" entryz="5" rent="800" townid="15" size="28" />
+	<house name="Anfallas Top 12" houseid="569" entryx="1029" entryy="1245" entryz="5" rent="800" townid="15" size="23" />
+	<house name="Casa 01 fora" houseid="573" entryx="1178" entryy="761" entryz="7" rent="3000" townid="2" size="120" />
+	<house name="Casa 02 fora" houseid="574" entryx="1176" entryy="769" entryz="7" rent="3000" townid="2" size="134" />
+	<house name="Casa 03 fora" houseid="575" entryx="1172" entryy="780" entryz="7" rent="3000" townid="2" size="120" />
 </houses>
