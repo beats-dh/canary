@@ -27,6 +27,7 @@
 #include "items/thing.h"
 #include "items/items.h"
 #include "lua/scripts/luascript.h"
+#include "protobuf/itemsserialization.pb.h"
 #include "utils/tools.h"
 #include <typeinfo>
 
@@ -249,6 +250,60 @@ class ItemAttributes
 					propWriteStream.write<T>(v);
 				}
 			};
+
+			void serializeToProtobuf(Canary::protobuf::itemsserialization::Attribute* attribute) const {
+				switch (static_cast<uint8_t>(value.which())) {
+					case 1: { // std::string
+						attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_STRING);
+						attribute->set_data(getString());
+						break;
+					}
+					case 2: { // int64_t
+						attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_NUMERIC);
+						attribute->set_data(std::to_string(getInt()));
+						break;
+					}
+					case 3: { // double
+						attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_FLOAT);
+						attribute->set_data(std::to_string(getDouble()));
+						break;
+					}
+					case 4: { // bool
+						attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_BOOLEAN);
+						attribute->set_data(getBool() ? "1" : "0");
+						break;
+					}
+					default: {
+						attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_STRING);
+						attribute->set_data("");
+						break;
+					}
+				}
+			}
+
+			void unserializeFromProtobuf(Canary::protobuf::itemsserialization::Attribute attribute) {
+				switch (attribute.type()) {
+					case Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_NUMERIC: { // int64_t
+						value = static_cast<int64_t>(std::stoi(attribute.data()));
+						break;
+					}
+
+					case Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_FLOAT: { // double
+						value = std::stod(attribute.data());
+						break;
+					}
+
+					case Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_BOOLEAN: { // bool
+						value = attribute.data() == "1";
+						break;
+					}
+
+					default: {
+						value = attribute.data();
+						break;
+					}
+				}
+			}
 
 			void serialize(PropWriteStream& propWriteStream) const {
 				propWriteStream.write<uint8_t>(static_cast<uint8_t>(value.which()));
@@ -810,8 +865,10 @@ class Item : virtual public Thing
 		//serialization
 		virtual Attr_ReadValue readAttr(AttrTypes_t attr, PropStream& propStream);
 		bool unserializeAttr(PropStream& propStream);
+		bool unserializeAttrFromProtobuf(Canary::protobuf::itemsserialization::Item itemProtobuf);
 		virtual bool unserializeItemNode(OTB::Loader&, const OTB::Node&, PropStream& propStream);
 
+		virtual bool serializeAttrToProtobuf(Canary::protobuf::itemsserialization::Item* itemProtobuf) const;
 		virtual void serializeAttr(PropWriteStream& propWriteStream) const;
 
 		bool isPushable() const override final {

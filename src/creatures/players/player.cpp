@@ -1626,6 +1626,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 	Creature::onRemoveCreature(creature, isLogout);
 
 	if (creature == this) {
+		uint64_t savingTime = OTSYS_TIME();
 		if (isLogout) {
 			if (party) {
 				party->leaveParty(this);
@@ -1636,7 +1637,6 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 
 			loginPosition = getPosition();
 			lastLogout = time(nullptr);
-			SPDLOG_INFO("{} has logged out", getName());
 			g_chat().removeUserFromAllChannels(*this);
 			clearPartyInvitations();
 			IOLoginData::updateOnlineStatus(guid, false);
@@ -1662,6 +1662,10 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 
 		if (!saved) {
 			SPDLOG_WARN("Error while saving player: {}", getName());
+		}
+
+		if (isLogout) {
+			SPDLOG_INFO("{} has logged out. (Saved in {}ms)", getName(), OTSYS_TIME() - savingTime);
 		}
 	}
 

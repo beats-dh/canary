@@ -25,6 +25,7 @@
 #include "game/scheduling/scheduler.h"
 #include "creatures/monsters/monster.h"
 #include "io/ioprey.h"
+#include "protobuf/itemsserialization.pb.h"
 
 #include <limits>
 
@@ -380,11 +381,13 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   // Stash load items
   query.str(std::string());
-  query << "SELECT `item_count`, `item_id`  FROM `player_stash` WHERE `player_id` = " << player->getGUID();
+  query << "SELECT `data` FROM `player_stash` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
-    do {
-      player->addItemOnStash(result->getNumber<uint16_t>("item_id"), result->getNumber<uint32_t>("item_count"));
-    } while (result->next());
+    std::map<uint16_t, uint32_t> stashMap;
+    loadStash(stashMap, result);
+    for (auto it = stashMap.rbegin(), end = stashMap.rend(); it != end; ++it) {
+      player->addItemOnStash(it->first, it->second);
+    }
   }
 
   // Bestiary charms
@@ -458,7 +461,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   }
 
   query.str(std::string());
-  query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
+  query << "SELECT `data` FROM `player_items` WHERE `player_id` = " << player->getGUID();
 
   std::vector<std::pair<uint8_t, Container*>> openContainersList;
 
@@ -526,7 +529,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   itemMap.clear();
 
   query.str(std::string());
-  query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
+  query << "SELECT `data` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
     loadItems(itemMap, result);
 
@@ -560,7 +563,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   itemMap.clear();
 
   query.str(std::string());
-  query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
+  query << "SELECT `data` FROM `player_rewards` WHERE `player_id` = " << player->getGUID();
     if ((result = db.storeQuery(query.str()))) {
     loadItems(itemMap, result);
 
@@ -608,7 +611,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   itemMap.clear();
 
   query.str(std::string());
-  query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
+  query << "SELECT `data` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
     loadItems(itemMap, result);
 
@@ -730,15 +733,13 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
 bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList, DBInsert& query_insert, PropWriteStream& propWriteStream)
 {
+  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
   Database& db = Database::getInstance();
-
-  std::ostringstream ss;
 
   using ContainerBlock = std::pair<Container*, int32_t>;
   std::list<ContainerBlock> queue;
 
   int32_t runningId = 100;
-
   const auto& openContainers = player->getOpenContainers();
   for (const auto& it : itemList) {
     int32_t pid = it.first;
@@ -765,17 +766,12 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
       queue.emplace_back(container, runningId);
     }
 
-    propWriteStream.clear();
-    item->serializeAttr(propWriteStream);
-
-    size_t attributesSize;
-    const char* attributes = propWriteStream.getStream(attributesSize);
-
-    ss << player->getGUID() << ',' << pid << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ',' << db.escapeBlob(attributes, attributesSize);
-    if (!query_insert.addRow(ss)) {
-      return false;
-    }
-
+    auto itemProtobuf = itemsProtobufList.add_object();
+    itemProtobuf->set_pid(pid);
+    itemProtobuf->set_sid(runningId);
+    itemProtobuf->set_id(item->getID());
+    itemProtobuf->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(itemProtobuf);
   }
 
   while (!queue.empty()) {
@@ -807,18 +803,48 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
         }
       }
 
-      propWriteStream.clear();
-      item->serializeAttr(propWriteStream);
-
-      size_t attributesSize;
-      const char* attributes = propWriteStream.getStream(attributesSize);
-
-      ss << player->getGUID() << ',' << parentId << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ',' << db.escapeBlob(attributes, attributesSize);
-      if (!query_insert.addRow(ss)) {
-        return false;
-      }
+      auto itemProtobuf = itemsProtobufList.add_object();
+      itemProtobuf->set_pid(parentId);
+      itemProtobuf->set_sid(runningId);
+      itemProtobuf->set_id(item->getID());
+      itemProtobuf->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(itemProtobuf);
     }
   }
+
+  size_t size = itemsProtobufList.ByteSizeLong();
+  std::unique_ptr<char[]> serialized(new char[size]);
+  itemsProtobufList.SerializeToArray(&serialized[0], static_cast<int>(size));
+
+  std::ostringstream ss;
+  ss << player->getGUID() << ',' << db.escapeBlob(&serialized[0], size);
+  if (!query_insert.addRow(ss)) {
+    return false;
+  }
+
+  return query_insert.execute();
+}
+
+bool IOLoginData::saveStash(const Player* player, DBInsert& query_insert)
+{
+  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  Database& db = Database::getInstance();
+  for (auto const [itemId, count] : player->getStashItems()) {
+    auto itemProtobuf = itemsProtobufList.add_object();
+    itemProtobuf->set_id(itemId);
+    itemProtobuf->set_subtype(count);
+  }
+
+  size_t size = itemsProtobufList.ByteSizeLong();
+  std::unique_ptr<char[]> serialized(new char[size]);
+  itemsProtobufList.SerializeToArray(&serialized[0], static_cast<int>(size));
+
+  std::ostringstream ss;
+  ss << player->getGUID() << ',' << db.escapeBlob(&serialized[0], size);
+  if (!query_insert.addRow(ss)) {
+    return false;
+  }
+
   return query_insert.execute();
 }
 
@@ -979,14 +1005,15 @@ bool IOLoginData::savePlayer(Player* player)
   // Stash save items
   query.str(std::string());
   query << "DELETE FROM `player_stash` WHERE `player_id` = " << player->getGUID();
-  db.executeQuery(query.str());
-  for (auto it : player->getStashItems()) {
-	query.str(std::string());
-    query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
-    query << player->getGUID() << ", ";
-    query << it.first << ", ";
-    query << it.second << ")";
-	db.executeQuery(query.str());
+  if (!db.executeQuery(query.str())) {
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Error delete query 'player_stash' from player: {}", player->getName());
+    return false;
+  }
+
+  DBInsert stashQuery("INSERT INTO `player_stash` (`player_id`, `data`) VALUES ");
+  if (!saveStash(player, stashQuery)) {
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save stash items from player: {}", player->getName());
+    return false;
   }
 
   // learned spells
@@ -1080,7 +1107,7 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
-  DBInsert itemsQuery("INSERT INTO `player_items` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
+  DBInsert itemsQuery("INSERT INTO `player_items` (`player_id`, `data`) VALUES ");
 
   ItemBlockList itemList;
   for (int32_t slotId = CONST_SLOT_FIRST; slotId <= CONST_SLOT_LAST; ++slotId) {
@@ -1104,7 +1131,7 @@ bool IOLoginData::savePlayer(Player* player)
       return false;
     }
 
-    DBInsert depotQuery("INSERT INTO `player_depotitems` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
+    DBInsert depotQuery("INSERT INTO `player_depotitems` (`player_id`, `data`) VALUES ");
     itemList.clear();
 
     for (const auto& it : player->depotChests) {
@@ -1131,7 +1158,7 @@ bool IOLoginData::savePlayer(Player* player)
   player->getRewardList(rewardList);
 
   if (!rewardList.empty()) {
-    DBInsert rewardQuery("INSERT INTO `player_rewards` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
+    DBInsert rewardQuery("INSERT INTO `player_rewards` (`player_id`, `data`) VALUES ");
     itemList.clear();
 
     int running = 0;
@@ -1155,7 +1182,7 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
-  DBInsert inboxQuery("INSERT INTO `player_inboxitems` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
+  DBInsert inboxQuery("INSERT INTO `player_inboxitems` (`player_id`, `data`) VALUES ");
   itemList.clear();
 
   for (Item* item : player->getInbox()->getItemList()) {
@@ -1344,25 +1371,34 @@ bool IOLoginData::formatPlayerName(std::string& name)
 void IOLoginData::loadItems(ItemMap& itemMap, DBResult_ptr result)
 {
   do {
-    uint32_t sid = result->getNumber<uint32_t>("sid");
-    uint32_t pid = result->getNumber<uint32_t>("pid");
-    uint16_t type = result->getNumber<uint16_t>("itemtype");
-    uint16_t count = result->getNumber<uint16_t>("count");
+    auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+    unsigned long itemsSize;
+    const char* itemsData = result->getStream("data", itemsSize);
+    itemsProtobufList.ParseFromArray(itemsData, itemsSize);
 
-    unsigned long attrSize;
-    const char* attr = result->getStream("attributes", attrSize);
+    for (const auto& object : itemsProtobufList.object()) {
+      if (Item* item = Item::CreateItem(static_cast<uint16_t>(object.id()), static_cast<uint16_t>(object.subtype()))) {
+        if (object.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(object)) {
+          SPDLOG_WARN("[IOLoginData::loadItems] - Failed to unserialize");
+        }
 
-    PropStream propStream;
-    propStream.init(attr, attrSize);
-
-    Item* item = Item::CreateItem(type, count);
-    if (item) {
-      if (!item->unserializeAttr(propStream)) {
-        SPDLOG_WARN("[IOLoginData::loadItems] - Failed to serialize");
+        std::pair<Item*, uint32_t> pair(item, object.pid());
+        itemMap[object.sid()] = pair;
       }
+    }
+  } while (result->next());
+}
 
-      std::pair<Item*, uint32_t> pair(item, pid);
-      itemMap[sid] = pair;
+void IOLoginData::loadStash(std::map<uint16_t, uint32_t>& itemMap, DBResult_ptr result)
+{
+  do {
+    auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+    unsigned long itemsSize;
+    const char* itemsData = result->getStream("data", itemsSize);
+    itemsProtobufList.ParseFromArray(itemsData, itemsSize);
+
+    for (const auto& object : itemsProtobufList.object()) {
+      itemMap[static_cast<uint16_t>(object.id())] = object.subtype();
     }
   } while (result->next());
 }

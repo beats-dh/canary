@@ -186,6 +186,7 @@ target_sources(${PROJECT_NAME}
     io/iomarket.cpp
     io/ioprey.cpp
     protobuf/appearances.pb.cc
+    protobuf/itemsserialization.pb.cc
     items/bed.cpp
     items/containers/container.cpp
     items/containers/depot/depotchest.cpp

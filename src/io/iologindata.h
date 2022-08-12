@@ -65,6 +65,8 @@ class IOLoginData
 
 		static void loadItems(ItemMap& itemMap, DBResult_ptr result);
 		static bool saveItems(const Player* player, const ItemBlockList& itemList, DBInsert& query_insert, PropWriteStream& stream);
+		static void loadStash(std::map<uint16_t, uint32_t>& itemMap, DBResult_ptr result);
+		static bool saveStash(const Player* player, DBInsert& query_insert);
 };
 
 #endif  // SRC_IO_IOLOGINDATA_H_

@@ -510,13 +510,9 @@ CREATE TABLE IF NOT EXISTS `player_deaths` (
 
 -- Table structure `player_depotitems`
 CREATE TABLE IF NOT EXISTS `player_depotitems` (
-    `player_id` int(11) NOT NULL,
-    `sid` int(11) NOT NULL COMMENT 'any given range eg 0-100 will be reserved for depot lockers and all > 100 will be then normal items inside depots',
-    `pid` int(11) NOT NULL DEFAULT '0',
-    `itemtype` int(11) NOT NULL DEFAULT '0',
-    `count` int(11) NOT NULL DEFAULT '0',
-    `attributes` blob NOT NULL,
-    CONSTRAINT `player_depotitems_unique` UNIQUE (`player_id`, `sid`),
+    `player_id` int(11) NOT NULL DEFAULT '0',
+    `data` longblob NOT NULL,
+    CONSTRAINT `player_depotitems_unique` UNIQUE (`player_id`),
     CONSTRAINT `player_depotitems_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
@@ -543,13 +539,9 @@ CREATE TABLE IF NOT EXISTS `player_hirelings` (
 
 -- Table structure `player_inboxitems`
 CREATE TABLE IF NOT EXISTS `player_inboxitems` (
-    `player_id` int(11) NOT NULL,
-    `sid` int(11) NOT NULL,
-    `pid` int(11) NOT NULL DEFAULT '0',
-    `itemtype` int(11) NOT NULL DEFAULT '0',
-    `count` int(11) NOT NULL DEFAULT '0',
-    `attributes` blob NOT NULL,
-    CONSTRAINT `player_inboxitems_unique` UNIQUE (`player_id`, `sid`),
+    `player_id` int(11) NOT NULL DEFAULT '0',
+    `data` longblob NOT NULL,
+    CONSTRAINT `player_inboxitems_unique` UNIQUE (`player_id`),
     CONSTRAINT `player_inboxitems_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
@@ -558,13 +550,8 @@ CREATE TABLE IF NOT EXISTS `player_inboxitems` (
 -- Table structure `player_items`
 CREATE TABLE IF NOT EXISTS `player_items` (
     `player_id` int(11) NOT NULL DEFAULT '0',
-    `pid` int(11) NOT NULL DEFAULT '0',
-    `sid` int(11) NOT NULL DEFAULT '0',
-    `itemtype` int(11) NOT NULL DEFAULT '0',
-    `count` int(11) NOT NULL DEFAULT '0',
-    `attributes` blob NOT NULL,
+    `data` longblob NOT NULL,
     INDEX `player_id` (`player_id`),
-    INDEX `sid` (`sid`),
     CONSTRAINT `player_items_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
@@ -633,13 +620,9 @@ CREATE TABLE IF NOT EXISTS `player_taskhunt` (
 
 -- Table structure `player_rewards`
 CREATE TABLE IF NOT EXISTS `player_rewards` (
-    `player_id` int(11) NOT NULL,
-    `sid` int(11) NOT NULL,
-    `pid` int(11) NOT NULL DEFAULT '0',
-    `itemtype` int(11) NOT NULL DEFAULT '0',
-    `count` int(11) NOT NULL DEFAULT '0',
-    `attributes` blob NOT NULL,
-    CONSTRAINT `player_rewards_unique` UNIQUE (`player_id`, `sid`),
+    `player_id` int(11) NOT NULL DEFAULT '0',
+    `data` longblob NOT NULL,
+    CONSTRAINT `player_rewards_unique` UNIQUE (`player_id`),
     CONSTRAINT `player_rewards_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
@@ -657,9 +640,8 @@ CREATE TABLE IF NOT EXISTS `player_spells` (
 
 -- Table structure `player_stash`
 CREATE TABLE IF NOT EXISTS `player_stash` (
-    `player_id` INT(16) NOT NULL,
-    `item_id` INT(16) NOT NULL,
-    `item_count` INT(32) NOT NULL
+    `player_id` int(11) NOT NULL DEFAULT '0',
+    `data` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_storage`
