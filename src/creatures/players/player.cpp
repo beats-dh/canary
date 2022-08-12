@@ -1518,8 +1518,6 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			bed->wakeUp(this);
 		}
 
-		SPDLOG_INFO("{} has logged in", name);
-
 		if (guild) {
 			guild->addMember(this);
 		}
