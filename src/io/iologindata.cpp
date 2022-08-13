@@ -1247,6 +1247,276 @@ bool IOLoginData::savePlayer(Player* player)
   return transaction.commit();
 }
 
+// Migration
+// To be removed before PR merge
+void IOLoginData::initializeItemsDatabaseMigration()
+{
+  Database& db = Database::getInstance();
+  std::ostringstream query;
+  query << "ALTER TABLE `players` ADD `items` LONGBLOB NOT NULL AFTER `istutorial`";
+  DBResult_ptr mainResult = db.storeQuery(query.str());
+  uint64_t playersUpdated = 0;
+  uint64_t playersFailed = 0;
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Players migration has started");
+  query.str(std::string());
+  query << "SELECT `id`, `name` FROM `players`";
+  mainResult = db.storeQuery(query.str());
+  if (mainResult) {
+    do {
+      uint32_t guid = mainResult->getNumber<uint32_t>("id");
+	    SPDLOG_INFO("[Database migration (BIN ITEMS)] - Migrating player '{}'", mainResult->getString("name"));
+
+			auto player = new Player(nullptr);
+      DBResult_ptr result;
+
+      // START LOAD
+
+      // load inventory items
+      ItemMap itemMap;
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+
+      std::vector<std::pair<uint8_t, Container*>> openContainersList;
+
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          if (!item) {
+            continue;
+          }
+          int32_t pid = pair.second;
+          if (pid >= CONST_SLOT_FIRST && pid <= CONST_SLOT_LAST) {
+            player->internalAddThing(pid, item);
+            item->startDecaying();
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+          Container* itemContainer = item->getContainer();
+          if (itemContainer) {
+            int64_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+            if (cid > 0) {
+              openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+            }
+            if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+              int64_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+              for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+                if (hasBitSet(1 << category, flags)) {
+                  player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+                }
+              }
+            }
+          }
+        }
+      }
+      std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+        return left.first < right.first;
+      });
+      for (auto& it : openContainersList) {
+        player->addContainer(it.first - 1, it.second);
+        player->onSendContainer(it.second);
+      }
+
+      // load depot items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            DepotChest* depotChest = player->getDepotChest(pid, true);
+            if (depotChest) {
+              depotChest->internalAddThing(item);
+              item->startDecaying();
+            }
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+        }
+      }
+
+      //load reward chest items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+        if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        // first loop handles the reward containers to retrieve its date attribute
+        for (auto& it : itemMap) {
+          const std::pair<Item*, int32_t>& pair = it.second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            Reward* reward = player->getReward(item->getIntAttr(ITEM_ATTRIBUTE_DATE), true);
+            if (reward) {
+              it.second = std::pair<Item*, int32_t>(reward->getItem(), pid); //update the map with the special reward container
+            }
+          } else {
+            break;
+          }
+        }
+        // second loop (this time a reverse one) to insert the items in the correct order
+        for (const auto& it : boost::adaptors::reverse(itemMap)) {
+          const std::pair<Item*, int32_t>& pair = it.second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            break;
+          }
+          ItemMap::const_iterator it2 = itemMap.find(pid);
+          if (it2 == itemMap.end()) {
+            continue;
+          }
+          Container* container = it2->second.first->getContainer();
+          if (container) {
+            container->internalAddThing(item);
+          }
+        }
+      }
+
+      // load inbox items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            player->getInbox()->internalAddThing(item);
+            item->startDecaying();
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+        }
+      }
+
+      // Stash load items
+      query.str(std::string());
+      query << "SELECT `item_count`, `item_id` FROM `player_stash` WHERE `player_id` = " << guid;
+      if ((result = db.storeQuery(query.str()))) {
+        do {
+          player->addItemOnStash(result->getNumber<uint16_t>("item_id"), result->getNumber<uint32_t>("item_count"));
+        } while (result->next());
+      }
+      // END LOAD
+
+      // START SAVE
+      query.str(std::string());
+      query << "UPDATE `players` SET ";
+      saveItemsToProtobufArray(player, query);
+      query.seekp(-1, std::ios_base::end);
+      query << " WHERE `id` = " << guid;
+      if (db.executeQuery(query.str())) {
+        playersUpdated++;
+      } else {
+        playersFailed++;
+      }
+      // END SAVE
+
+      delete player;
+    } while (mainResult->next());
+  }
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - {} players updated, {} failed", playersUpdated, playersFailed);
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_items'");
+  query.str(std::string());
+  query << "DROP TABLE `player_items`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_depotitems'");
+  query.str(std::string());
+  query << "DROP TABLE `player_depotitems`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_rewards'");
+  query.str(std::string());
+  query << "DROP TABLE `player_rewards`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_inboxitems'");
+  query.str(std::string());
+  query << "DROP TABLE `player_inboxitems`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_items'");
+  query.str(std::string());
+  query << "DROP TABLE `player_stash`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+}
+
+void IOLoginData::loadMigrationItems(ItemMap& itemMap, DBResult_ptr result)
+{
+	do {
+		uint32_t sid = result->getNumber<uint32_t>("sid");
+		uint32_t pid = result->getNumber<uint32_t>("pid");
+		uint16_t type = result->getNumber<uint16_t>("itemtype");
+		uint16_t count = result->getNumber<uint16_t>("count");
+
+		unsigned long attrSize;
+		const char* attr = result->getStream("attributes", attrSize);
+
+		PropStream propStream;
+		propStream.init(attr, attrSize);
+
+		Item* item = Item::CreateItem(type, count);
+		if (item) {
+			if (!item->unserializeAttr(propStream)) {
+				SPDLOG_WARN("[IOLoginData::loadItems] - Failed to serialize");
+			}
+
+			std::pair<Item*, uint32_t> pair(item, pid);
+			itemMap[sid] = pair;
+		}
+	} while (result->next());
+}
+
+// End migration
+
 std::string IOLoginData::getNameByGuid(uint32_t guid)
 {
   std::ostringstream query;
