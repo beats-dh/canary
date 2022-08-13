@@ -229,25 +229,101 @@ class ItemsSerialization final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kObjectFieldNumber = 1,
+    kInventoryFieldNumber = 1,
+    kDepotFieldNumber = 2,
+    kInboxFieldNumber = 3,
+    kStashFieldNumber = 4,
+    kRewardFieldNumber = 5,
   };
-  // repeated .Canary.protobuf.itemsserialization.Item object = 1;
-  int object_size() const;
+  // repeated .Canary.protobuf.itemsserialization.Item inventory = 1;
+  int inventory_size() const;
   private:
-  int _internal_object_size() const;
+  int _internal_inventory_size() const;
   public:
-  void clear_object();
-  ::Canary::protobuf::itemsserialization::Item* mutable_object(int index);
+  void clear_inventory();
+  ::Canary::protobuf::itemsserialization::Item* mutable_inventory(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
-      mutable_object();
+      mutable_inventory();
   private:
-  const ::Canary::protobuf::itemsserialization::Item& _internal_object(int index) const;
-  ::Canary::protobuf::itemsserialization::Item* _internal_add_object();
+  const ::Canary::protobuf::itemsserialization::Item& _internal_inventory(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* _internal_add_inventory();
   public:
-  const ::Canary::protobuf::itemsserialization::Item& object(int index) const;
-  ::Canary::protobuf::itemsserialization::Item* add_object();
+  const ::Canary::protobuf::itemsserialization::Item& inventory(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* add_inventory();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
-      object() const;
+      inventory() const;
+
+  // repeated .Canary.protobuf.itemsserialization.Item depot = 2;
+  int depot_size() const;
+  private:
+  int _internal_depot_size() const;
+  public:
+  void clear_depot();
+  ::Canary::protobuf::itemsserialization::Item* mutable_depot(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+      mutable_depot();
+  private:
+  const ::Canary::protobuf::itemsserialization::Item& _internal_depot(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* _internal_add_depot();
+  public:
+  const ::Canary::protobuf::itemsserialization::Item& depot(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* add_depot();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+      depot() const;
+
+  // repeated .Canary.protobuf.itemsserialization.Item inbox = 3;
+  int inbox_size() const;
+  private:
+  int _internal_inbox_size() const;
+  public:
+  void clear_inbox();
+  ::Canary::protobuf::itemsserialization::Item* mutable_inbox(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+      mutable_inbox();
+  private:
+  const ::Canary::protobuf::itemsserialization::Item& _internal_inbox(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* _internal_add_inbox();
+  public:
+  const ::Canary::protobuf::itemsserialization::Item& inbox(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* add_inbox();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+      inbox() const;
+
+  // repeated .Canary.protobuf.itemsserialization.Item stash = 4;
+  int stash_size() const;
+  private:
+  int _internal_stash_size() const;
+  public:
+  void clear_stash();
+  ::Canary::protobuf::itemsserialization::Item* mutable_stash(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+      mutable_stash();
+  private:
+  const ::Canary::protobuf::itemsserialization::Item& _internal_stash(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* _internal_add_stash();
+  public:
+  const ::Canary::protobuf::itemsserialization::Item& stash(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* add_stash();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+      stash() const;
+
+  // repeated .Canary.protobuf.itemsserialization.Item reward = 5;
+  int reward_size() const;
+  private:
+  int _internal_reward_size() const;
+  public:
+  void clear_reward();
+  ::Canary::protobuf::itemsserialization::Item* mutable_reward(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+      mutable_reward();
+  private:
+  const ::Canary::protobuf::itemsserialization::Item& _internal_reward(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* _internal_add_reward();
+  public:
+  const ::Canary::protobuf::itemsserialization::Item& reward(int index) const;
+  ::Canary::protobuf::itemsserialization::Item* add_reward();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+      reward() const;
 
   // @@protoc_insertion_point(class_scope:Canary.protobuf.itemsserialization.ItemsSerialization)
  private:
@@ -257,7 +333,11 @@ class ItemsSerialization final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > object_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > inventory_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > depot_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > inbox_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > stash_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item > reward_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -809,7 +889,7 @@ class Attribute final :
 
   enum : int {
     kExtendedFieldNumber = 3,
-    kBufferFieldNumber = 4,
+    kDataFieldNumber = 4,
     kPositionFieldNumber = 5,
     kIdFieldNumber = 1,
     kTypeFieldNumber = 2,
@@ -832,22 +912,22 @@ class Attribute final :
   std::string* _internal_mutable_extended();
   public:
 
-  // optional bytes buffer = 4;
-  bool has_buffer() const;
+  // optional bytes data = 4;
+  bool has_data() const;
   private:
-  bool _internal_has_buffer() const;
+  bool _internal_has_data() const;
   public:
-  void clear_buffer();
-  const std::string& buffer() const;
+  void clear_data();
+  const std::string& data() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_buffer(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_buffer();
-  PROTOBUF_NODISCARD std::string* release_buffer();
-  void set_allocated_buffer(std::string* buffer);
+  void set_data(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_data();
+  PROTOBUF_NODISCARD std::string* release_data();
+  void set_allocated_data(std::string* data);
   private:
-  const std::string& _internal_buffer() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_buffer(const std::string& value);
-  std::string* _internal_mutable_buffer();
+  const std::string& _internal_data() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data(const std::string& value);
+  std::string* _internal_mutable_data();
   public:
 
   // optional .Canary.protobuf.itemsserialization.Position position = 5;
@@ -905,7 +985,7 @@ class Attribute final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr extended_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr buffer_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
     ::Canary::protobuf::itemsserialization::Position* position_;
     uint32_t id_;
     int type_;
@@ -924,44 +1004,204 @@ class Attribute final :
 #endif  // __GNUC__
 // ItemsSerialization
 
-// repeated .Canary.protobuf.itemsserialization.Item object = 1;
-inline int ItemsSerialization::_internal_object_size() const {
-  return _impl_.object_.size();
+// repeated .Canary.protobuf.itemsserialization.Item inventory = 1;
+inline int ItemsSerialization::_internal_inventory_size() const {
+  return _impl_.inventory_.size();
 }
-inline int ItemsSerialization::object_size() const {
-  return _internal_object_size();
+inline int ItemsSerialization::inventory_size() const {
+  return _internal_inventory_size();
 }
-inline void ItemsSerialization::clear_object() {
-  _impl_.object_.Clear();
+inline void ItemsSerialization::clear_inventory() {
+  _impl_.inventory_.Clear();
 }
-inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_object(int index) {
-  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.object)
-  return _impl_.object_.Mutable(index);
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_inventory(int index) {
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.inventory)
+  return _impl_.inventory_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
-ItemsSerialization::mutable_object() {
-  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.object)
-  return &_impl_.object_;
+ItemsSerialization::mutable_inventory() {
+  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.inventory)
+  return &_impl_.inventory_;
 }
-inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_object(int index) const {
-  return _impl_.object_.Get(index);
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_inventory(int index) const {
+  return _impl_.inventory_.Get(index);
 }
-inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::object(int index) const {
-  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.object)
-  return _internal_object(index);
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::inventory(int index) const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.inventory)
+  return _internal_inventory(index);
 }
-inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_object() {
-  return _impl_.object_.Add();
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_inventory() {
+  return _impl_.inventory_.Add();
 }
-inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_object() {
-  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_object();
-  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.object)
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_inventory() {
+  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_inventory();
+  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.inventory)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
-ItemsSerialization::object() const {
-  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.object)
-  return _impl_.object_;
+ItemsSerialization::inventory() const {
+  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.inventory)
+  return _impl_.inventory_;
+}
+
+// repeated .Canary.protobuf.itemsserialization.Item depot = 2;
+inline int ItemsSerialization::_internal_depot_size() const {
+  return _impl_.depot_.size();
+}
+inline int ItemsSerialization::depot_size() const {
+  return _internal_depot_size();
+}
+inline void ItemsSerialization::clear_depot() {
+  _impl_.depot_.Clear();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_depot(int index) {
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.depot)
+  return _impl_.depot_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+ItemsSerialization::mutable_depot() {
+  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.depot)
+  return &_impl_.depot_;
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_depot(int index) const {
+  return _impl_.depot_.Get(index);
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::depot(int index) const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.depot)
+  return _internal_depot(index);
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_depot() {
+  return _impl_.depot_.Add();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_depot() {
+  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_depot();
+  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.depot)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+ItemsSerialization::depot() const {
+  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.depot)
+  return _impl_.depot_;
+}
+
+// repeated .Canary.protobuf.itemsserialization.Item inbox = 3;
+inline int ItemsSerialization::_internal_inbox_size() const {
+  return _impl_.inbox_.size();
+}
+inline int ItemsSerialization::inbox_size() const {
+  return _internal_inbox_size();
+}
+inline void ItemsSerialization::clear_inbox() {
+  _impl_.inbox_.Clear();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_inbox(int index) {
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.inbox)
+  return _impl_.inbox_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+ItemsSerialization::mutable_inbox() {
+  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.inbox)
+  return &_impl_.inbox_;
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_inbox(int index) const {
+  return _impl_.inbox_.Get(index);
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::inbox(int index) const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.inbox)
+  return _internal_inbox(index);
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_inbox() {
+  return _impl_.inbox_.Add();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_inbox() {
+  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_inbox();
+  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.inbox)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+ItemsSerialization::inbox() const {
+  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.inbox)
+  return _impl_.inbox_;
+}
+
+// repeated .Canary.protobuf.itemsserialization.Item stash = 4;
+inline int ItemsSerialization::_internal_stash_size() const {
+  return _impl_.stash_.size();
+}
+inline int ItemsSerialization::stash_size() const {
+  return _internal_stash_size();
+}
+inline void ItemsSerialization::clear_stash() {
+  _impl_.stash_.Clear();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_stash(int index) {
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.stash)
+  return _impl_.stash_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+ItemsSerialization::mutable_stash() {
+  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.stash)
+  return &_impl_.stash_;
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_stash(int index) const {
+  return _impl_.stash_.Get(index);
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::stash(int index) const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.stash)
+  return _internal_stash(index);
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_stash() {
+  return _impl_.stash_.Add();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_stash() {
+  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_stash();
+  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.stash)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+ItemsSerialization::stash() const {
+  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.stash)
+  return _impl_.stash_;
+}
+
+// repeated .Canary.protobuf.itemsserialization.Item reward = 5;
+inline int ItemsSerialization::_internal_reward_size() const {
+  return _impl_.reward_.size();
+}
+inline int ItemsSerialization::reward_size() const {
+  return _internal_reward_size();
+}
+inline void ItemsSerialization::clear_reward() {
+  _impl_.reward_.Clear();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::mutable_reward(int index) {
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.ItemsSerialization.reward)
+  return _impl_.reward_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >*
+ItemsSerialization::mutable_reward() {
+  // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.itemsserialization.ItemsSerialization.reward)
+  return &_impl_.reward_;
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::_internal_reward(int index) const {
+  return _impl_.reward_.Get(index);
+}
+inline const ::Canary::protobuf::itemsserialization::Item& ItemsSerialization::reward(int index) const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.ItemsSerialization.reward)
+  return _internal_reward(index);
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::_internal_add_reward() {
+  return _impl_.reward_.Add();
+}
+inline ::Canary::protobuf::itemsserialization::Item* ItemsSerialization::add_reward() {
+  ::Canary::protobuf::itemsserialization::Item* _add = _internal_add_reward();
+  // @@protoc_insertion_point(field_add:Canary.protobuf.itemsserialization.ItemsSerialization.reward)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::itemsserialization::Item >&
+ItemsSerialization::reward() const {
+  // @@protoc_insertion_point(field_list:Canary.protobuf.itemsserialization.ItemsSerialization.reward)
+  return _impl_.reward_;
 }
 
 // -------------------------------------------------------------------
@@ -1337,72 +1577,72 @@ inline void Attribute::set_allocated_extended(std::string* extended) {
   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.itemsserialization.Attribute.extended)
 }
 
-// optional bytes buffer = 4;
-inline bool Attribute::_internal_has_buffer() const {
+// optional bytes data = 4;
+inline bool Attribute::_internal_has_data() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool Attribute::has_buffer() const {
-  return _internal_has_buffer();
+inline bool Attribute::has_data() const {
+  return _internal_has_data();
 }
-inline void Attribute::clear_buffer() {
-  _impl_.buffer_.ClearToEmpty();
+inline void Attribute::clear_data() {
+  _impl_.data_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const std::string& Attribute::buffer() const {
-  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.Attribute.buffer)
-  return _internal_buffer();
+inline const std::string& Attribute::data() const {
+  // @@protoc_insertion_point(field_get:Canary.protobuf.itemsserialization.Attribute.data)
+  return _internal_data();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Attribute::set_buffer(ArgT0&& arg0, ArgT... args) {
+void Attribute::set_data(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.buffer_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Canary.protobuf.itemsserialization.Attribute.buffer)
+ _impl_.data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Canary.protobuf.itemsserialization.Attribute.data)
 }
-inline std::string* Attribute::mutable_buffer() {
-  std::string* _s = _internal_mutable_buffer();
-  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.Attribute.buffer)
+inline std::string* Attribute::mutable_data() {
+  std::string* _s = _internal_mutable_data();
+  // @@protoc_insertion_point(field_mutable:Canary.protobuf.itemsserialization.Attribute.data)
   return _s;
 }
-inline const std::string& Attribute::_internal_buffer() const {
-  return _impl_.buffer_.Get();
+inline const std::string& Attribute::_internal_data() const {
+  return _impl_.data_.Get();
 }
-inline void Attribute::_internal_set_buffer(const std::string& value) {
+inline void Attribute::_internal_set_data(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.buffer_.Set(value, GetArenaForAllocation());
+  _impl_.data_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Attribute::_internal_mutable_buffer() {
+inline std::string* Attribute::_internal_mutable_data() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.buffer_.Mutable(GetArenaForAllocation());
+  return _impl_.data_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Attribute::release_buffer() {
-  // @@protoc_insertion_point(field_release:Canary.protobuf.itemsserialization.Attribute.buffer)
-  if (!_internal_has_buffer()) {
+inline std::string* Attribute::release_data() {
+  // @@protoc_insertion_point(field_release:Canary.protobuf.itemsserialization.Attribute.data)
+  if (!_internal_has_data()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.buffer_.Release();
+  auto* p = _impl_.data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.buffer_.IsDefault()) {
-    _impl_.buffer_.Set("", GetArenaForAllocation());
+  if (_impl_.data_.IsDefault()) {
+    _impl_.data_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void Attribute::set_allocated_buffer(std::string* buffer) {
-  if (buffer != nullptr) {
+inline void Attribute::set_allocated_data(std::string* data) {
+  if (data != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.buffer_.SetAllocated(buffer, GetArenaForAllocation());
+  _impl_.data_.SetAllocated(data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.buffer_.IsDefault()) {
-    _impl_.buffer_.Set("", GetArenaForAllocation());
+  if (_impl_.data_.IsDefault()) {
+    _impl_.data_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.itemsserialization.Attribute.buffer)
+  // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.itemsserialization.Attribute.data)
 }
 
 // optional .Canary.protobuf.itemsserialization.Position position = 5;

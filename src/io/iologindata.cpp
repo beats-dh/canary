@@ -337,6 +337,9 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->setManaShield(result->getNumber<uint16_t>("manashield"));
   player->setMaxManaShield(result->getNumber<uint16_t>("max_manashield"));
 
+  // Load items from protobuf
+  loadItemsFromProtobufArray(player, result);
+
   std::ostringstream query;
   query << "SELECT `guild_id`, `rank_id`, `nick` FROM `guild_membership` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
@@ -379,63 +382,50 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     }
   }
 
-  // Stash load items
-  query.str(std::string());
-  query << "SELECT `data` FROM `player_stash` WHERE `player_id` = " << player->getGUID();
-  if ((result = db.storeQuery(query.str()))) {
-    std::map<uint16_t, uint32_t> stashMap;
-    loadStash(stashMap, result);
-    for (auto it = stashMap.rbegin(), end = stashMap.rend(); it != end; ++it) {
-      player->addItemOnStash(it->first, it->second);
-    }
-  }
-
   // Bestiary charms
   query.str(std::string());
   query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
-	player->charmPoints = result->getNumber<uint32_t>("charm_points");
-	player->charmExpansion = result->getNumber<bool>("charm_expansion");
-	player->charmRuneWound = result->getNumber<uint16_t>("rune_wound");
-	player->charmRuneEnflame = result->getNumber<uint16_t>("rune_enflame");
-	player->charmRunePoison = result->getNumber<uint16_t>("rune_poison");
-	player->charmRuneFreeze = result->getNumber<uint16_t>("rune_freeze");
-	player->charmRuneZap = result->getNumber<uint16_t>("rune_zap");
-	player->charmRuneCurse = result->getNumber<uint16_t>("rune_curse");
-	player->charmRuneCripple = result->getNumber<uint16_t>("rune_cripple");
-	player->charmRuneParry = result->getNumber<uint16_t>("rune_parry");
-	player->charmRuneDodge = result->getNumber<uint16_t>("rune_dodge");
-	player->charmRuneAdrenaline = result->getNumber<uint16_t>("rune_adrenaline");
-	player->charmRuneNumb = result->getNumber<uint16_t>("rune_numb");
-	player->charmRuneCleanse = result->getNumber<uint16_t>("rune_cleanse");
-	player->charmRuneBless = result->getNumber<uint16_t>("rune_bless");
-	player->charmRuneScavenge = result->getNumber<uint16_t>("rune_scavenge");
-	player->charmRuneGut = result->getNumber<uint16_t>("rune_gut");
-	player->charmRuneLowBlow = result->getNumber<uint16_t>("rune_low_blow");
-	player->charmRuneDivine = result->getNumber<uint16_t>("rune_divine");
-	player->charmRuneVamp = result->getNumber<uint16_t>("rune_vamp");
-	player->charmRuneVoid = result->getNumber<uint16_t>("rune_void");
-	player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
-	player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");
+    player->charmPoints = result->getNumber<uint32_t>("charm_points");
+    player->charmExpansion = result->getNumber<bool>("charm_expansion");
+    player->charmRuneWound = result->getNumber<uint16_t>("rune_wound");
+    player->charmRuneEnflame = result->getNumber<uint16_t>("rune_enflame");
+    player->charmRunePoison = result->getNumber<uint16_t>("rune_poison");
+    player->charmRuneFreeze = result->getNumber<uint16_t>("rune_freeze");
+    player->charmRuneZap = result->getNumber<uint16_t>("rune_zap");
+    player->charmRuneCurse = result->getNumber<uint16_t>("rune_curse");
+    player->charmRuneCripple = result->getNumber<uint16_t>("rune_cripple");
+    player->charmRuneParry = result->getNumber<uint16_t>("rune_parry");
+    player->charmRuneDodge = result->getNumber<uint16_t>("rune_dodge");
+    player->charmRuneAdrenaline = result->getNumber<uint16_t>("rune_adrenaline");
+    player->charmRuneNumb = result->getNumber<uint16_t>("rune_numb");
+    player->charmRuneCleanse = result->getNumber<uint16_t>("rune_cleanse");
+    player->charmRuneBless = result->getNumber<uint16_t>("rune_bless");
+    player->charmRuneScavenge = result->getNumber<uint16_t>("rune_scavenge");
+    player->charmRuneGut = result->getNumber<uint16_t>("rune_gut");
+    player->charmRuneLowBlow = result->getNumber<uint16_t>("rune_low_blow");
+    player->charmRuneDivine = result->getNumber<uint16_t>("rune_divine");
+    player->charmRuneVamp = result->getNumber<uint16_t>("rune_vamp");
+    player->charmRuneVoid = result->getNumber<uint16_t>("rune_void");
+    player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
+    player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");
 
-	unsigned long attrBestSize;
-	const char* Bestattr = result->getStream("tracker list", attrBestSize);
-	PropStream propBestStream;
-	propBestStream.init(Bestattr, attrBestSize);
+    unsigned long attrBestSize;
+    const char* Bestattr = result->getStream("tracker list", attrBestSize);
+    PropStream propBestStream;
+    propBestStream.init(Bestattr, attrBestSize);
 
-  uint16_t raceid_t;
-  while (propBestStream.read<uint16_t>(raceid_t)) {
-    MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
-    if (tmp_tt) {
-      player->addBestiaryTrackerList(tmp_tt);
+    uint16_t raceid_t;
+    while (propBestStream.read<uint16_t>(raceid_t)) {
+      MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
+      if (tmp_tt) {
+        player->addBestiaryTrackerList(tmp_tt);
+      }
     }
-  }
-
-
   } else {
-	query.str(std::string());
-	query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
-	Database::getInstance().executeQuery(query.str());
+    query.str(std::string());
+    query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
+    Database::getInstance().executeQuery(query.str());
   }
 
   query.str(std::string());
@@ -445,9 +435,6 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
       player->learnedInstantSpellList.emplace_front(result->getString("name"));
     } while (result->next());
   }
-
-  //load inventory items
-  ItemMap itemMap;
 
   query.str(std::string());
   query << "SELECT `player_id`, `time`, `target`, `unavenged` FROM `player_kills` WHERE `player_id` = " << player->getGUID();
@@ -460,183 +447,9 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     } while (result->next());
   }
 
-  query.str(std::string());
-  query << "SELECT `data` FROM `player_items` WHERE `player_id` = " << player->getGUID();
-
-  std::vector<std::pair<uint8_t, Container*>> openContainersList;
-
-  if ((result = db.storeQuery(query.str()))) {
-    loadItems(itemMap, result);
-
-    for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-      const std::pair<Item*, int32_t>& pair = it->second;
-      Item* item = pair.first;
-      if (!item) {
-        continue;
-      }
-
-      int32_t pid = pair.second;
-
-      if (pid >= CONST_SLOT_FIRST && pid <= CONST_SLOT_LAST) {
-        player->internalAddThing(pid, item);
-        item->startDecaying();
-      } else {
-        ItemMap::const_iterator it2 = itemMap.find(pid);
-        if (it2 == itemMap.end()) {
-          continue;
-        }
-
-        Container* container = it2->second.first->getContainer();
-        if (container) {
-          container->internalAddThing(item);
-          item->startDecaying();
-        }
-      }
-
-      Container* itemContainer = item->getContainer();
-      if (itemContainer) {
-        int64_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
-        if (cid > 0) {
-          openContainersList.emplace_back(std::make_pair(cid, itemContainer));
-        }
-        if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
-          int64_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
-          for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
-            if (hasBitSet(1 << category, flags)) {
-              player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
-    return left.first < right.first;
-  });
-
-  for (auto& it : openContainersList) {
-    player->addContainer(it.first - 1, it.second);
-    player->onSendContainer(it.second);
-  }
-
   // Store Inbox
   if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
     player->internalAddThing(CONST_SLOT_STORE_INBOX, Item::CreateItem(ITEM_STORE_INBOX));
-  }
-
-  //load depot items
-  itemMap.clear();
-
-  query.str(std::string());
-  query << "SELECT `data` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID();
-  if ((result = db.storeQuery(query.str()))) {
-    loadItems(itemMap, result);
-
-    for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-      const std::pair<Item*, int32_t>& pair = it->second;
-      Item* item = pair.first;
-
-      int32_t pid = pair.second;
-      if (pid >= 0 && pid < 100) {
-        DepotChest* depotChest = player->getDepotChest(pid, true);
-        if (depotChest) {
-          depotChest->internalAddThing(item);
-          item->startDecaying();
-        }
-      } else {
-        ItemMap::const_iterator it2 = itemMap.find(pid);
-        if (it2 == itemMap.end()) {
-          continue;
-        }
-
-        Container* container = it2->second.first->getContainer();
-        if (container) {
-          container->internalAddThing(item);
-          item->startDecaying();
-        }
-      }
-    }
-  }
-
-  //load reward chest items
-  itemMap.clear();
-
-  query.str(std::string());
-  query << "SELECT `data` FROM `player_rewards` WHERE `player_id` = " << player->getGUID();
-    if ((result = db.storeQuery(query.str()))) {
-    loadItems(itemMap, result);
-
-    //first loop handles the reward containers to retrieve its date attribute
-    //for (ItemMap::iterator it = itemMap.begin(), end = itemMap.end(); it != end; ++it) {
-    for (auto& it : itemMap) {
-      const std::pair<Item*, int32_t>& pair = it.second;
-      Item* item = pair.first;
-
-      int32_t pid = pair.second;
-      if (pid >= 0 && pid < 100) {
-        Reward* reward = player->getReward(item->getIntAttr(ITEM_ATTRIBUTE_DATE), true);
-        if (reward) {
-          it.second = std::pair<Item*, int32_t>(reward->getItem(), pid); //update the map with the special reward container
-        }
-      } else {
-        break;
-      }
-    }
-
-    //second loop (this time a reverse one) to insert the items in the correct order
-    //for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-    for (const auto& it : boost::adaptors::reverse(itemMap)) {
-      const std::pair<Item*, int32_t>& pair = it.second;
-      Item* item = pair.first;
-
-      int32_t pid = pair.second;
-      if (pid >= 0 && pid < 100) {
-        break;
-      }
-
-      ItemMap::const_iterator it2 = itemMap.find(pid);
-      if (it2 == itemMap.end()) {
-        continue;
-      }
-
-      Container* container = it2->second.first->getContainer();
-      if (container) {
-        container->internalAddThing(item);
-      }
-    }
-  }
-
-  //load inbox items
-  itemMap.clear();
-
-  query.str(std::string());
-  query << "SELECT `data` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID();
-  if ((result = db.storeQuery(query.str()))) {
-    loadItems(itemMap, result);
-
-    for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-      const std::pair<Item*, int32_t>& pair = it->second;
-      Item* item = pair.first;
-      int32_t pid = pair.second;
-
-      if (pid >= 0 && pid < 100) {
-        player->getInbox()->internalAddThing(item);
-        item->startDecaying();
-      } else {
-        ItemMap::const_iterator it2 = itemMap.find(pid);
-
-        if (it2 == itemMap.end()) {
-          continue;
-        }
-
-        Container* container = it2->second.first->getContainer();
-        if (container) {
-          container->internalAddThing(item);
-          item->startDecaying();
-        }
-      }
-    }
   }
 
   //load storage map
@@ -731,16 +544,31 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   return true;
 }
 
-bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList, DBInsert& query_insert, PropWriteStream& propWriteStream)
+void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& query)
 {
+	Database& db = Database::getInstance();
   auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
-  Database& db = Database::getInstance();
-
   using ContainerBlock = std::pair<Container*, int32_t>;
   std::list<ContainerBlock> queue;
-
+  ItemBlockList itemList;
   int32_t runningId = 100;
   const auto& openContainers = player->getOpenContainers();
+
+  // Stash
+  for (auto const [itemId, count] : player->getStashItems()) {
+    auto stashItem = itemsProtobufList.add_stash();
+    stashItem->set_id(itemId);
+    stashItem->set_subtype(count);
+  }
+  // End stash
+
+  // Inventory
+  for (int32_t slotId = CONST_SLOT_FIRST; slotId <= CONST_SLOT_LAST; ++slotId) {
+    if (Item* item = player->inventory[slotId]) {
+      itemList.emplace_back(slotId, item);
+    }
+  }
+
   for (const auto& it : itemList) {
     int32_t pid = it.first;
     Item* item = it.second;
@@ -766,12 +594,12 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
       queue.emplace_back(container, runningId);
     }
 
-    auto itemProtobuf = itemsProtobufList.add_object();
-    itemProtobuf->set_pid(pid);
-    itemProtobuf->set_sid(runningId);
-    itemProtobuf->set_id(item->getID());
-    itemProtobuf->set_subtype(item->getSubType());
-    item->serializeAttrToProtobuf(itemProtobuf);
+    auto inventoryItem = itemsProtobufList.add_inventory();
+    inventoryItem->set_pid(pid);
+    inventoryItem->set_sid(runningId);
+    inventoryItem->set_id(item->getID());
+    inventoryItem->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(inventoryItem);
   }
 
   while (!queue.empty()) {
@@ -783,8 +611,7 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
     for (Item* item : container->getItemList()) {
       ++runningId;
 
-      Container* subContainer = item->getContainer();
-      if (subContainer) {
+      if (Container* subContainer = item->getContainer()) {
         queue.emplace_back(subContainer, runningId);
         if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
           subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
@@ -803,49 +630,270 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
         }
       }
 
-      auto itemProtobuf = itemsProtobufList.add_object();
-      itemProtobuf->set_pid(parentId);
-      itemProtobuf->set_sid(runningId);
-      itemProtobuf->set_id(item->getID());
-      itemProtobuf->set_subtype(item->getSubType());
-      item->serializeAttrToProtobuf(itemProtobuf);
+      auto inventoryItem = itemsProtobufList.add_inventory();
+      inventoryItem->set_pid(parentId);
+      inventoryItem->set_sid(runningId);
+      inventoryItem->set_id(item->getID());
+      inventoryItem->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(inventoryItem);
+    }
+  }
+  // End inventory
+
+  // Depot items
+  queue.clear();
+  itemList.clear();
+  runningId = 100;
+  for (const auto& it : player->depotChests) {
+    DepotChest* depotChest = it.second;
+    for (Item* item : depotChest->getItemList()) {
+      itemList.emplace_back(it.first, item);
     }
   }
 
+  for (const auto& it : itemList) {
+    int32_t pid = it.first;
+    Item* item = it.second;
+    ++runningId;
+
+    if (Container* container = item->getContainer()) {
+      if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+        container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+      }
+
+      if (!openContainers.empty()) {
+        for (const auto& its : openContainers) {
+          auto openContainer = its.second;
+          auto opcontainer = openContainer.container;
+
+          if (opcontainer == container) {
+            container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
+            break;
+          }
+        }
+      }
+
+      queue.emplace_back(container, runningId);
+    }
+
+    auto depotItem = itemsProtobufList.add_depot();
+    depotItem->set_pid(pid);
+    depotItem->set_sid(runningId);
+    depotItem->set_id(item->getID());
+    depotItem->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(depotItem);
+  }
+
+  while (!queue.empty()) {
+    const ContainerBlock& cb = queue.front();
+    Container* container = cb.first;
+    int32_t parentId = cb.second;
+    queue.pop_front();
+
+    for (Item* item : container->getItemList()) {
+      ++runningId;
+
+      if (Container* subContainer = item->getContainer()) {
+        queue.emplace_back(subContainer, runningId);
+        if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+          subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+        }
+
+        if (!openContainers.empty()) {
+          for (const auto& it : openContainers) {
+            auto openContainer = it.second;
+            auto opcontainer = openContainer.container;
+
+            if (opcontainer == subContainer) {
+              subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
+              break;
+            }
+          }
+        }
+      }
+
+      auto depotItem = itemsProtobufList.add_depot();
+      depotItem->set_pid(parentId);
+      depotItem->set_sid(runningId);
+      depotItem->set_id(item->getID());
+      depotItem->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(depotItem);
+    }
+  }
+  // End depot
+
+  // Reward
+  std::vector<uint32_t> rewardList;
+  player->getRewardList(rewardList);
+  queue.clear();
+  itemList.clear();
+  runningId = 100;
+
+  int running = 0;
+  for (const auto& rewardId : rewardList) {
+    // rewards that are empty or older than 7 days aren't stored
+    if (Reward* reward = player->getReward(rewardId, false);
+        !reward->empty() && (time(nullptr) - rewardId <= 60 * 60 * 24 * 7)) {
+      itemList.emplace_back(++running, reward);
+    }
+  }
+
+  for (const auto& it : itemList) {
+    int32_t pid = it.first;
+    Item* item = it.second;
+    ++runningId;
+
+    if (Container* container = item->getContainer()) {
+      if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+        container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+      }
+
+      if (!openContainers.empty()) {
+        for (const auto& its : openContainers) {
+          auto openContainer = its.second;
+          auto opcontainer = openContainer.container;
+
+          if (opcontainer == container) {
+            container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
+            break;
+          }
+        }
+      }
+
+      queue.emplace_back(container, runningId);
+    }
+
+    auto rewardItem = itemsProtobufList.add_reward();
+    rewardItem->set_pid(pid);
+    rewardItem->set_sid(runningId);
+    rewardItem->set_id(item->getID());
+    rewardItem->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(rewardItem);
+  }
+
+  while (!queue.empty()) {
+    const ContainerBlock& cb = queue.front();
+    Container* container = cb.first;
+    int32_t parentId = cb.second;
+    queue.pop_front();
+
+    for (Item* item : container->getItemList()) {
+      ++runningId;
+
+      if (Container* subContainer = item->getContainer()) {
+        queue.emplace_back(subContainer, runningId);
+        if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+          subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+        }
+
+        if (!openContainers.empty()) {
+          for (const auto& it : openContainers) {
+            auto openContainer = it.second;
+            auto opcontainer = openContainer.container;
+
+            if (opcontainer == subContainer) {
+              subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
+              break;
+            }
+          }
+        }
+      }
+
+      auto rewardItem = itemsProtobufList.add_reward();
+      rewardItem->set_pid(parentId);
+      rewardItem->set_sid(runningId);
+      rewardItem->set_id(item->getID());
+      rewardItem->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(rewardItem);
+    }
+  }
+  // End reward
+
+  // Inbox
+  queue.clear();
+  itemList.clear();
+  runningId = 100;
+
+  for (Item* item : player->getInbox()->getItemList()) {
+    itemList.emplace_back(0, item);
+  }
+
+  for (const auto& it : itemList) {
+    int32_t pid = it.first;
+    Item* item = it.second;
+    ++runningId;
+
+    if (Container* container = item->getContainer()) {
+      if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+        container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+      }
+
+      if (!openContainers.empty()) {
+        for (const auto& its : openContainers) {
+          auto openContainer = its.second;
+          auto opcontainer = openContainer.container;
+
+          if (opcontainer == container) {
+            container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
+            break;
+          }
+        }
+      }
+
+      queue.emplace_back(container, runningId);
+    }
+
+    auto inboxItem = itemsProtobufList.add_inbox();
+    inboxItem->set_pid(pid);
+    inboxItem->set_sid(runningId);
+    inboxItem->set_id(item->getID());
+    inboxItem->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(inboxItem);
+  }
+
+  while (!queue.empty()) {
+    const ContainerBlock& cb = queue.front();
+    Container* container = cb.first;
+    int32_t parentId = cb.second;
+    queue.pop_front();
+
+    for (Item* item : container->getItemList()) {
+      ++runningId;
+
+      if (Container* subContainer = item->getContainer()) {
+        queue.emplace_back(subContainer, runningId);
+        if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+          subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+        }
+
+        if (!openContainers.empty()) {
+          for (const auto& it : openContainers) {
+            auto openContainer = it.second;
+            auto opcontainer = openContainer.container;
+
+            if (opcontainer == subContainer) {
+              subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
+              break;
+            }
+          }
+        }
+      }
+
+      auto inboxItem = itemsProtobufList.add_inbox();
+      inboxItem->set_pid(parentId);
+      inboxItem->set_sid(runningId);
+      inboxItem->set_id(item->getID());
+      inboxItem->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(inboxItem);
+    }
+  }
+  // End inbox
+
   size_t size = itemsProtobufList.ByteSizeLong();
   std::unique_ptr<char[]> serialized(new char[size]);
   itemsProtobufList.SerializeToArray(&serialized[0], static_cast<int>(size));
 
-  std::ostringstream ss;
-  ss << player->getGUID() << ',' << db.escapeBlob(&serialized[0], size);
-  if (!query_insert.addRow(ss)) {
-    return false;
-  }
-
-  return query_insert.execute();
-}
-
-bool IOLoginData::saveStash(const Player* player, DBInsert& query_insert)
-{
-  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
-  Database& db = Database::getInstance();
-  for (auto const [itemId, count] : player->getStashItems()) {
-    auto itemProtobuf = itemsProtobufList.add_object();
-    itemProtobuf->set_id(itemId);
-    itemProtobuf->set_subtype(count);
-  }
-
-  size_t size = itemsProtobufList.ByteSizeLong();
-  std::unique_ptr<char[]> serialized(new char[size]);
-  itemsProtobufList.SerializeToArray(&serialized[0], static_cast<int>(size));
-
-  std::ostringstream ss;
-  ss << player->getGUID() << ',' << db.escapeBlob(&serialized[0], size);
-  if (!query_insert.addRow(ss)) {
-    return false;
-  }
-
-  return query_insert.execute();
+  query << "`items` = " << db.escapeBlob(&serialized[0], size) << ',';
 }
 
 bool IOLoginData::savePlayer(Player* player)
@@ -930,6 +978,9 @@ bool IOLoginData::savePlayer(Player* player)
 
   query << "`conditions` = " << db.escapeBlob(attributes, attributesSize) << ',';
 
+  // Save items to protobuf
+  saveItemsToProtobufArray(player, query);
+
   if (g_game().getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     int64_t skullTime = 0;
 
@@ -991,6 +1042,7 @@ bool IOLoginData::savePlayer(Player* player)
   for (int i = 1; i <= 8; i++) {
     query << "`blessings" << i << "`" << " = " << static_cast<uint32_t>(player->getBlessingCount(i)) << ((i == 8) ? ' ' : ',');
   }
+
   query << " WHERE `id` = " << player->getGUID();
 
   DBTransaction transaction;
@@ -999,20 +1051,6 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   if (!db.executeQuery(query.str())) {
-    return false;
-  }
-
-  // Stash save items
-  query.str(std::string());
-  query << "DELETE FROM `player_stash` WHERE `player_id` = " << player->getGUID();
-  if (!db.executeQuery(query.str())) {
-    SPDLOG_WARN("[IOLoginData::savePlayer] - Error delete query 'player_stash' from player: {}", player->getName());
-    return false;
-  }
-
-  DBInsert stashQuery("INSERT INTO `player_stash` (`player_id`, `data`) VALUES ");
-  if (!saveStash(player, stashQuery)) {
-    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save stash items from player: {}", player->getName());
     return false;
   }
 
@@ -1097,99 +1135,6 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   if (!killsQuery.execute()) {
-    return false;
-  }
-
-  //item saving
-  query << "DELETE FROM `player_items` WHERE `player_id` = " << player->getGUID();
-  if (!db.executeQuery(query.str())) {
-    SPDLOG_WARN("[IOLoginData::savePlayer] - Error delete query 'player_items' from player: {}", player->getName());
-    return false;
-  }
-
-  DBInsert itemsQuery("INSERT INTO `player_items` (`player_id`, `data`) VALUES ");
-
-  ItemBlockList itemList;
-  for (int32_t slotId = CONST_SLOT_FIRST; slotId <= CONST_SLOT_LAST; ++slotId) {
-    Item* item = player->inventory[slotId];
-    if (item) {
-      itemList.emplace_back(slotId, item);
-    }
-  }
-
-  if (!saveItems(player, itemList, itemsQuery, propWriteStream)) {
-    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save items from player: {}", player->getName());
-    return false;
-  }
-
-  if (player->lastDepotId != -1) {
-    //save depot items
-    query.str(std::string());
-    query << "DELETE FROM `player_depotitems` WHERE `player_id` = " << player->getGUID();
-
-    if (!db.executeQuery(query.str())) {
-      return false;
-    }
-
-    DBInsert depotQuery("INSERT INTO `player_depotitems` (`player_id`, `data`) VALUES ");
-    itemList.clear();
-
-    for (const auto& it : player->depotChests) {
-      DepotChest* depotChest = it.second;
-      for (Item* item : depotChest->getItemList()) {
-        itemList.emplace_back(it.first, item);
-      }
-    }
-
-    if (!saveItems(player, itemList, depotQuery, propWriteStream)) {
-      return false;
-    }
-  }
-
-  //save reward items
-  query.str(std::string());
-  query << "DELETE FROM `player_rewards` WHERE `player_id` = " << player->getGUID();
-
-  if (!db.executeQuery(query.str())) {
-    return false;
-  }
-
-  std::vector<uint32_t> rewardList;
-  player->getRewardList(rewardList);
-
-  if (!rewardList.empty()) {
-    DBInsert rewardQuery("INSERT INTO `player_rewards` (`player_id`, `data`) VALUES ");
-    itemList.clear();
-
-    int running = 0;
-    for (const auto& rewardId : rewardList) {
-      Reward* reward = player->getReward(rewardId, false);
-      // rewards that are empty or older than 7 days aren't stored
-      if (!reward->empty() && (time(nullptr) - rewardId <= 60 * 60 * 24 * 7)) {
-        itemList.emplace_back(++running, reward);
-      }
-    }
-
-    if (!saveItems(player, itemList, rewardQuery, propWriteStream)) {
-      return false;
-    }
-  }
-
-  //save inbox items
-  query.str(std::string());
-  query << "DELETE FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID();
-  if (!db.executeQuery(query.str())) {
-    return false;
-  }
-
-  DBInsert inboxQuery("INSERT INTO `player_inboxitems` (`player_id`, `data`) VALUES ");
-  itemList.clear();
-
-  for (Item* item : player->getInbox()->getItemList()) {
-    itemList.emplace_back(0, item);
-  }
-
-  if (!saveItems(player, itemList, inboxQuery, propWriteStream)) {
     return false;
   }
 
@@ -1368,39 +1313,235 @@ bool IOLoginData::formatPlayerName(std::string& name)
   return true;
 }
 
-void IOLoginData::loadItems(ItemMap& itemMap, DBResult_ptr result)
+void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result)
 {
-  do {
-    auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
-    unsigned long itemsSize;
-    const char* itemsData = result->getStream("data", itemsSize);
-    itemsProtobufList.ParseFromArray(itemsData, itemsSize);
+  unsigned long itemsSize;
+  const char* itemsArray = result->getStream("items", itemsSize);
 
-    for (const auto& object : itemsProtobufList.object()) {
-      if (Item* item = Item::CreateItem(static_cast<uint16_t>(object.id()), static_cast<uint16_t>(object.subtype()))) {
-        if (object.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(object)) {
-          SPDLOG_WARN("[IOLoginData::loadItems] - Failed to unserialize");
-        }
+  if (itemsSize == 0 || !itemsArray) {
+    return;
+  }
 
-        std::pair<Item*, uint32_t> pair(item, object.pid());
-        itemMap[object.sid()] = pair;
+  ItemMap itemMap;
+  std::vector<std::pair<uint8_t, Container*>> openContainersList;
+  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  itemsProtobufList.ParseFromArray(itemsArray, itemsSize);
+
+  // Stash
+  for (const auto& stashItem : itemsProtobufList.inventory()) {
+    player->addItemOnStash(static_cast<uint16_t>(stashItem.id()), stashItem.subtype());
+  }
+  // End stash
+
+  // Inventory
+  for (const auto& inventoryItem : itemsProtobufList.inventory()) {
+    Item* item = Item::CreateItem(static_cast<uint16_t>(inventoryItem.id()), static_cast<uint16_t>(inventoryItem.subtype()));
+    if (!item) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inventory] - Item with id '{}' could not be created and was ignored.", inventoryItem.id());
+      continue;
+    }
+
+    if (inventoryItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(inventoryItem)) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inventory] - Item with id '{}' attributes could not be unserialized and was ignored.", inventoryItem.id());
+      delete item;
+      continue;
+    }
+
+    std::pair<Item*, uint32_t> pair(item, inventoryItem.pid());
+    itemMap[inventoryItem.sid()] = pair;
+  }
+
+  for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+    const std::pair<Item*, int32_t>& pair = it->second;
+    Item* item = pair.first;
+    if (!item) {
+      continue;
+    }
+
+    int32_t pid = pair.second;
+
+    if (pid >= CONST_SLOT_FIRST && pid <= CONST_SLOT_LAST) {
+      player->internalAddThing(pid, item);
+      item->startDecaying();
+    } else {
+      ItemMap::const_iterator it2 = itemMap.find(pid);
+      if (it2 == itemMap.end()) {
+        continue;
+      }
+
+      if (Container* container = it2->second.first->getContainer()) {
+        container->internalAddThing(item);
+        item->startDecaying();
       }
     }
-  } while (result->next());
-}
 
-void IOLoginData::loadStash(std::map<uint16_t, uint32_t>& itemMap, DBResult_ptr result)
-{
-  do {
-    auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
-    unsigned long itemsSize;
-    const char* itemsData = result->getStream("data", itemsSize);
-    itemsProtobufList.ParseFromArray(itemsData, itemsSize);
+    if (Container* itemContainer = item->getContainer()) {
+      int64_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+      if (cid > 0) {
+        openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+      }
 
-    for (const auto& object : itemsProtobufList.object()) {
-      itemMap[static_cast<uint16_t>(object.id())] = object.subtype();
+      if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+        int64_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+        for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+          if (hasBitSet(1 << category, flags)) {
+            player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+          }
+        }
+      }
     }
-  } while (result->next());
+  }
+
+  std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+    return left.first < right.first;
+  });
+
+  for (auto& it : openContainersList) {
+    player->addContainer(it.first - 1, it.second);
+    player->onSendContainer(it.second);
+  }
+  // End inventory
+
+  // Depot
+  itemMap.clear();
+  for (const auto& depotItem : itemsProtobufList.depot()) {
+    Item* item = Item::CreateItem(static_cast<uint16_t>(depotItem.id()), static_cast<uint16_t>(depotItem.subtype()));
+    if (!item) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Depot] - Item with id '{}' could not be created and was ignored.", depotItem.id());
+      continue;
+    }
+
+    if (depotItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(depotItem)) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Depot] - Item with id '{}' attributes could not be unserialized and was ignored.", depotItem.id());
+      delete item;
+      continue;
+    }
+
+    std::pair<Item*, uint32_t> pair(item, depotItem.pid());
+    itemMap[depotItem.sid()] = pair;
+  }
+
+  for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+    const std::pair<Item*, int32_t>& pair = it->second;
+    Item* item = pair.first;
+
+    int32_t pid = pair.second;
+    if (pid >= 0 && pid < 100) {
+      if (DepotChest* depotChest = player->getDepotChest(pid, true)) {
+        depotChest->internalAddThing(item);
+        item->startDecaying();
+      }
+    } else {
+      ItemMap::const_iterator it2 = itemMap.find(pid);
+      if (it2 == itemMap.end()) {
+        continue;
+      }
+
+      if (Container* container = it2->second.first->getContainer()) {
+        container->internalAddThing(item);
+        item->startDecaying();
+      }
+    }
+  }
+  // End depot
+
+  // Reward
+  itemMap.clear();
+  for (const auto& rewardItem : itemsProtobufList.reward()) {
+    Item* item = Item::CreateItem(static_cast<uint16_t>(rewardItem.id()), static_cast<uint16_t>(rewardItem.subtype()));
+    if (!item) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Reward] - Item with id '{}' could not be created and was ignored.", rewardItem.id());
+      continue;
+    }
+
+    if (rewardItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(rewardItem)) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Reward] - Item with id '{}' attributes could not be unserialized and was ignored.", rewardItem.id());
+      delete item;
+      continue;
+    }
+
+    std::pair<Item*, uint32_t> pair(item, rewardItem.pid());
+    itemMap[rewardItem.sid()] = pair;
+  }
+
+  // First loop handles the reward containers to retrieve it's date attribute
+  for (auto& it : itemMap) {
+    const std::pair<Item*, int32_t>& pair = it.second;
+    Item* item = pair.first;
+
+    int32_t pid = pair.second;
+    if (pid < 0 || pid >= 100) {
+      break;
+    }
+
+    // Update the map with the special reward container
+    if (Reward* reward = player->getReward(item->getIntAttr(ITEM_ATTRIBUTE_DATE), true)) {
+      it.second = std::pair<Item*, int32_t>(reward->getItem(), pid); 
+    }
+  }
+
+  // Second loop (this time a reverse one) to insert the items in the correct order
+  for (const auto& it : boost::adaptors::reverse(itemMap)) {
+    const std::pair<Item*, int32_t>& pair = it.second;
+    Item* item = pair.first;
+
+    int32_t pid = pair.second;
+    if (pid >= 0 && pid < 100) {
+      break;
+    }
+
+    ItemMap::const_iterator it2 = itemMap.find(pid);
+    if (it2 == itemMap.end()) {
+      continue;
+    }
+
+    if (Container* container = it2->second.first->getContainer()) {
+      container->internalAddThing(item);
+    }
+  }
+  // End reward
+
+  // Inbox
+  itemMap.clear();
+  for (const auto& inboxtem : itemsProtobufList.inbox()) {
+    Item* item = Item::CreateItem(static_cast<uint16_t>(inboxtem.id()), static_cast<uint16_t>(inboxtem.subtype()));
+    if (!item) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inbox] - Item with id '{}' could not be created and was ignored.", inboxtem.id());
+      continue;
+    }
+
+    if (inboxtem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(inboxtem)) {
+      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inbox] - Item with id '{}' attributes could not be unserialized and was ignored.", inboxtem.id());
+      delete item;
+      continue;
+    }
+
+    std::pair<Item*, uint32_t> pair(item, inboxtem.pid());
+    itemMap[inboxtem.sid()] = pair;
+  }
+
+  for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+    const std::pair<Item*, int32_t>& pair = it->second;
+    Item* item = pair.first;
+    int32_t pid = pair.second;
+
+    if (pid >= 0 && pid < 100) {
+      player->getInbox()->internalAddThing(item);
+      item->startDecaying();
+    } else {
+      ItemMap::const_iterator it2 = itemMap.find(pid);
+
+      if (it2 == itemMap.end()) {
+        continue;
+      }
+
+      if (Container* container = it2->second.first->getContainer()) {
+        container->internalAddThing(item);
+        item->startDecaying();
+      }
+    }
+  }
+  // End inbox
 }
 
 void IOLoginData::increaseBankBalance(uint32_t guid, uint64_t bankBalance)

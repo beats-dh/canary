@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `players` (
     `lookfamiliarstype` int(11) unsigned NOT NULL DEFAULT '0',
     `isreward` tinyint(1) NOT NULL DEFAULT '1',
     `istutorial` tinyint(1) NOT NULL DEFAULT '0',
+    `items` longblob NOT NULL,
     INDEX `account_id` (`account_id`),
     INDEX `vocation` (`vocation`),
     CONSTRAINT `players_pk` PRIMARY KEY (`id`),
@@ -508,16 +509,6 @@ CREATE TABLE IF NOT EXISTS `player_deaths` (
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Table structure `player_depotitems`
-CREATE TABLE IF NOT EXISTS `player_depotitems` (
-    `player_id` int(11) NOT NULL DEFAULT '0',
-    `data` longblob NOT NULL,
-    CONSTRAINT `player_depotitems_unique` UNIQUE (`player_id`),
-    CONSTRAINT `player_depotitems_players_fk`
-        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-        ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- Table structure `player_hirelings`
 CREATE TABLE IF NOT EXISTS `player_hirelings` (
     `id` INT NOT NULL PRIMARY KEY auto_increment,
@@ -534,26 +525,6 @@ CREATE TABLE IF NOT EXISTS `player_hirelings` (
     `looklegs` int(11) NOT NULL DEFAULT '0',
     `looktype` int(11) NOT NULL DEFAULT '136',
         FOREIGN KEY(`player_id`) REFERENCES `players`(`id`)
-        ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Table structure `player_inboxitems`
-CREATE TABLE IF NOT EXISTS `player_inboxitems` (
-    `player_id` int(11) NOT NULL DEFAULT '0',
-    `data` longblob NOT NULL,
-    CONSTRAINT `player_inboxitems_unique` UNIQUE (`player_id`),
-    CONSTRAINT `player_inboxitems_players_fk`
-        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-        ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Table structure `player_items`
-CREATE TABLE IF NOT EXISTS `player_items` (
-    `player_id` int(11) NOT NULL DEFAULT '0',
-    `data` longblob NOT NULL,
-    INDEX `player_id` (`player_id`),
-    CONSTRAINT `player_items_players_fk`
-        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -618,16 +589,6 @@ CREATE TABLE IF NOT EXISTS `player_taskhunt` (
     `monster_list` BLOB NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Table structure `player_rewards`
-CREATE TABLE IF NOT EXISTS `player_rewards` (
-    `player_id` int(11) NOT NULL DEFAULT '0',
-    `data` longblob NOT NULL,
-    CONSTRAINT `player_rewards_unique` UNIQUE (`player_id`),
-    CONSTRAINT `player_rewards_players_fk`
-        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-        ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- Table structure `player_spells`
 CREATE TABLE IF NOT EXISTS `player_spells` (
     `player_id` int(11) NOT NULL,
@@ -636,12 +597,6 @@ CREATE TABLE IF NOT EXISTS `player_spells` (
     CONSTRAINT `player_spells_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Table structure `player_stash`
-CREATE TABLE IF NOT EXISTS `player_stash` (
-    `player_id` int(11) NOT NULL DEFAULT '0',
-    `data` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_storage`
