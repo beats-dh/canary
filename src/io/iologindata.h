@@ -60,14 +60,11 @@ class IOLoginData
 		static void addPremiumDays(uint32_t accountId, int32_t addDays);
 		static void removePremiumDays(uint32_t accountId, int32_t removeDays);
 
-		static void initializeItemsDatabaseMigration();
-
 	private:
 		using ItemMap = std::map<uint32_t, std::pair<Item*, uint32_t>>;
 
 		static void loadItemsFromProtobufArray(Player* player, DBResult_ptr result);
 		static void saveItemsToProtobufArray(Player* player, std::ostringstream& query);
-		static void loadMigrationItems(ItemMap& itemMap, DBResult_ptr result);
 };
 
 #endif  // SRC_IO_IOLOGINDATA_H_
