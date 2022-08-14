@@ -1328,7 +1328,7 @@ void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result
   itemsProtobufList.ParseFromArray(itemsArray, itemsSize);
 
   // Stash
-  for (const auto& stashItem : itemsProtobufList.inventory()) {
+  for (const auto& stashItem : itemsProtobufList.stash()) {
     player->addItemOnStash(static_cast<uint16_t>(stashItem.id()), stashItem.subtype());
   }
   // End stash
