@@ -440,6 +440,440 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   return true;
 }
 
+// Migration
+// To be removed before PR merge
+void IOLoginData::initializeItemsDatabaseMigration()
+{
+  /*
+  ALTER TABLE `players` ADD `charm_points` bigint(21) NOT NULL DEFAULT '0' AFTER `task_points`
+
+  ALTER TABLE `players` ADD `charm_upgrade` BOOLEAN NOT NULL AFTER `charm_points`
+
+CREATE TABLE IF NOT EXISTS `player_bin_data` (
+    `player_id` int(11) NOT NULL,
+    `inventory` longblob NOT NULL,
+    `depot` longblob NOT NULL,
+    `inbox` longblob NOT NULL,
+    `stash` longblob NOT NULL,
+    `reward` longblob NOT NULL,
+    `systems` longblob NOT NULL,
+    INDEX `player_id` (`player_id`),
+    CONSTRAINT `player_bin_data_pk` PRIMARY KEY (`id`),
+    CONSTRAINT `player_bin_data_players_fk`
+        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  */
+
+  uint64_t playersUpdated = 0;
+  uint64_t playersFailed = 0;
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Players migration has started");
+  Database& db = Database::getInstance();
+  std::ostringstream query;
+  query << "SELECT `id`, `name` FROM `players`";
+  if (DBResult_ptr mainResult = db.storeQuery(query.str())) {
+    do {
+      uint32_t guid = mainResult->getNumber<uint32_t>("id");
+	    SPDLOG_INFO("[Database migration (BIN ITEMS)] - Migrating player '{}'", mainResult->getString("name"));
+
+			auto player = new Player(nullptr);
+      DBResult_ptr result;
+
+      // START LOAD
+
+      // load inventory items
+      ItemMap itemMap;
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+
+      std::vector<std::pair<uint8_t, Container*>> openContainersList;
+
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          if (!item) {
+            continue;
+          }
+          int32_t pid = pair.second;
+          if (pid >= CONST_SLOT_FIRST && pid <= CONST_SLOT_LAST) {
+            player->internalAddThing(pid, item);
+            item->startDecaying();
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+          Container* itemContainer = item->getContainer();
+          if (itemContainer) {
+            int64_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+            if (cid > 0) {
+              openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+            }
+            if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+              int64_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+              for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+                if (hasBitSet(1 << category, flags)) {
+                  player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+                }
+              }
+            }
+          }
+        }
+      }
+      std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+        return left.first < right.first;
+      });
+      for (auto& it : openContainersList) {
+        player->addContainer(it.first - 1, it.second);
+        player->onSendContainer(it.second);
+      }
+
+      // load depot items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            DepotChest* depotChest = player->getDepotChest(pid, true);
+            if (depotChest) {
+              depotChest->internalAddThing(item);
+              item->startDecaying();
+            }
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+        }
+      }
+
+      //load reward chest items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+        if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        // first loop handles the reward containers to retrieve its date attribute
+        for (auto& it : itemMap) {
+          const std::pair<Item*, int32_t>& pair = it.second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            Reward* reward = player->getReward(item->getIntAttr(ITEM_ATTRIBUTE_DATE), true);
+            if (reward) {
+              it.second = std::pair<Item*, int32_t>(reward->getItem(), pid); //update the map with the special reward container
+            }
+          } else {
+            break;
+          }
+        }
+        // second loop (this time a reverse one) to insert the items in the correct order
+        for (const auto& it : boost::adaptors::reverse(itemMap)) {
+          const std::pair<Item*, int32_t>& pair = it.second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            break;
+          }
+          ItemMap::const_iterator it2 = itemMap.find(pid);
+          if (it2 == itemMap.end()) {
+            continue;
+          }
+          Container* container = it2->second.first->getContainer();
+          if (container) {
+            container->internalAddThing(item);
+          }
+        }
+      }
+
+      // load inbox items
+      itemMap.clear();
+
+      query.str(std::string());
+      query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << guid << " ORDER BY `sid` DESC";
+      if ((result = db.storeQuery(query.str()))) {
+        loadMigrationItems(itemMap, result);
+
+        for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+          const std::pair<Item*, int32_t>& pair = it->second;
+          Item* item = pair.first;
+          int32_t pid = pair.second;
+          if (pid >= 0 && pid < 100) {
+            player->getInbox()->internalAddThing(item);
+            item->startDecaying();
+          } else {
+            ItemMap::const_iterator it2 = itemMap.find(pid);
+            if (it2 == itemMap.end()) {
+              continue;
+            }
+            Container* container = it2->second.first->getContainer();
+            if (container) {
+              container->internalAddThing(item);
+              item->startDecaying();
+            }
+          }
+        }
+      }
+
+      // Stash load items
+      query.str(std::string());
+      query << "SELECT `item_count`, `item_id` FROM `player_stash` WHERE `player_id` = " << guid;
+      if ((result = db.storeQuery(query.str()))) {
+        do {
+          player->addItemOnStash(result->getNumber<uint16_t>("item_id"), result->getNumber<uint32_t>("item_count"));
+        } while (result->next());
+      }
+      // END LOAD
+
+      // Charm load
+      query.str(std::string());
+      query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << guid;
+      if ((result = db.storeQuery(query.str()))) {
+        player->charmPoints = result->getNumber<uint32_t>("charm_points");
+        player->charmExpansion = result->getNumber<bool>("charm_expansion");
+        player->charmRuneWound = result->getNumber<uint16_t>("rune_wound");
+        player->charmRuneEnflame = result->getNumber<uint16_t>("rune_enflame");
+        player->charmRunePoison = result->getNumber<uint16_t>("rune_poison");
+        player->charmRuneFreeze = result->getNumber<uint16_t>("rune_freeze");
+        player->charmRuneZap = result->getNumber<uint16_t>("rune_zap");
+        player->charmRuneCurse = result->getNumber<uint16_t>("rune_curse");
+        player->charmRuneCripple = result->getNumber<uint16_t>("rune_cripple");
+        player->charmRuneParry = result->getNumber<uint16_t>("rune_parry");
+        player->charmRuneDodge = result->getNumber<uint16_t>("rune_dodge");
+        player->charmRuneAdrenaline = result->getNumber<uint16_t>("rune_adrenaline");
+        player->charmRuneNumb = result->getNumber<uint16_t>("rune_numb");
+        player->charmRuneCleanse = result->getNumber<uint16_t>("rune_cleanse");
+        player->charmRuneBless = result->getNumber<uint16_t>("rune_bless");
+        player->charmRuneScavenge = result->getNumber<uint16_t>("rune_scavenge");
+        player->charmRuneGut = result->getNumber<uint16_t>("rune_gut");
+        player->charmRuneLowBlow = result->getNumber<uint16_t>("rune_low_blow");
+        player->charmRuneDivine = result->getNumber<uint16_t>("rune_divine");
+        player->charmRuneVamp = result->getNumber<uint16_t>("rune_vamp");
+        player->charmRuneVoid = result->getNumber<uint16_t>("rune_void");
+        player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
+        player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");
+
+        unsigned long attrBestSize;
+        const char* Bestattr = result->getStream("tracker list", attrBestSize);
+        PropStream propBestStream;
+        propBestStream.init(Bestattr, attrBestSize);
+
+        uint16_t raceid_t;
+        while (propBestStream.read<uint16_t>(raceid_t)) {
+          MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
+          if (tmp_tt) {
+            player->addBestiaryTrackerList(tmp_tt);
+          }
+        }
+      }
+      // END CHARM
+
+      // Prey load
+      query.str(std::string());
+      query << "SELECT * FROM `player_prey` WHERE `player_id` = " << guid;
+      if (result = db.storeQuery(query.str())) {
+        do {
+          auto slot = new PreySlot(static_cast<PreySlot_t>(result->getNumber<uint16_t>("slot")));
+          slot->state = static_cast<PreyDataState_t>(result->getNumber<uint16_t>("state"));
+          slot->selectedRaceId = result->getNumber<uint16_t>("raceid");
+          slot->option = static_cast<PreyOption_t>(result->getNumber<uint16_t>("option"));
+          slot->bonus = static_cast<PreyBonus_t>(result->getNumber<uint16_t>("bonus_type"));
+          slot->bonusRarity = static_cast<uint8_t>(result->getNumber<uint16_t>("bonus_rarity"));
+          slot->bonusPercentage = result->getNumber<uint16_t>("bonus_percentage");
+          slot->bonusTimeLeft = result->getNumber<uint16_t>("bonus_time");
+          slot->freeRerollTimeStamp = result->getNumber<int64_t>("free_reroll");
+
+          unsigned long preySize;
+          const char* preyStream = result->getStream("monster_list", preySize);
+          PropStream propPreyStream;
+          propPreyStream.init(preyStream, preySize);
+
+          uint16_t raceId;
+          while (propPreyStream.read<uint16_t>(raceId)) {
+            slot->raceIdList.push_back(raceId);
+          }
+          player->setPreySlotClass(slot);
+        } while (result->next());
+      }
+      // END PREY
+
+      // Task hunting load
+      query.str(std::string());
+      query << "SELECT * FROM `player_taskhunt` WHERE `player_id` = " << guid;
+      if (result = db.storeQuery(query.str())) {
+        do {
+          auto slot = new TaskHuntingSlot(static_cast<PreySlot_t>(result->getNumber<uint16_t>("slot")));
+          slot->state = static_cast<PreyTaskDataState_t>(result->getNumber<uint16_t>("state"));
+          slot->selectedRaceId = result->getNumber<uint16_t>("raceid");
+          slot->upgrade = result->getNumber<bool>("upgrade");
+          slot->rarity = static_cast<uint8_t>(result->getNumber<uint16_t>("rarity"));
+          slot->currentKills = result->getNumber<uint16_t>("kills");
+          slot->disabledUntilTimeStamp = result->getNumber<int64_t>("disabled_time");
+          slot->freeRerollTimeStamp = result->getNumber<int64_t>("free_reroll");
+
+          unsigned long taskHuntSize;
+          const char* taskHuntStream = result->getStream("monster_list", taskHuntSize);
+          PropStream propTaskHuntStream;
+          propTaskHuntStream.init(taskHuntStream, taskHuntSize);
+
+          uint16_t raceId;
+          while (propTaskHuntStream.read<uint16_t>(raceId)) {
+            slot->raceIdList.push_back(raceId);
+          }
+
+          if (slot->state == PreyTaskDataState_Inactive && slot->disabledUntilTimeStamp < OTSYS_TIME()) {
+            slot->state = PreyTaskDataState_Selection;
+          }
+
+          player->setTaskHuntingSlotClass(slot);
+        } while (result->next());
+      }
+      // END TASK HUNTING
+
+      // Auto loot load
+      //query.str(std::string());
+      //query << "SELECT `autoloot_list` FROM `player_autoloot` WHERE `player_id` = " << guid;
+      //if ((result = db.storeQuery(query.str()))) {
+      //  unsigned long lootlistSize;
+      //  const char* autolootlist = result->getStream("autoloot_list", lootlistSize);
+      //  PropStream propStreamList;
+      //  propStreamList.init(autolootlist, lootlistSize);
+      //
+      //  uint16_t itemId, bpId;
+      //  while (propStreamList.read<uint16_t>(itemId) && propStreamList.read<uint16_t>(bpId)) {
+      //    player->addAutoLootItem(itemId, bpId);
+      //  }
+      //}
+      // END AUTO LOOT
+
+      // START SAVE
+      query.str(std::string());
+      query << "UPDATE `players` SET ";
+      query << "`charm_points` = " << player->charmPoints << ',';
+      query << "`charm_upgrade` = " << ((player->charmExpansion) ? 1 : 0);
+      query << " WHERE `id` = " << guid;
+      if (db.executeQuery(query.str())) {
+        query.str(std::string());
+        query << "INSERT INTO `player_bin_data` (`player_id`, `inventory`, `depot`, `inbox`, `stash`, `reward`, `systems`) VALUES (" << guid;
+        savePlayerDataToProtobufArray(player, query);
+        query << ")";
+        if (db.executeQuery(query.str())) {
+          playersUpdated++;
+        } else {
+          playersFailed++;
+        }
+      } else {
+        playersFailed++;
+      }
+      // END SAVE
+
+      delete player;
+    } while (mainResult->next());
+  }
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - {} players updated, {} failed", playersUpdated, playersFailed);
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_items'");
+  query.str(std::string());
+  query << "DROP TABLE `player_items`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_depotitems'");
+  query.str(std::string());
+  query << "DROP TABLE `player_depotitems`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_rewards'");
+  query.str(std::string());
+  query << "DROP TABLE `player_rewards`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_inboxitems'");
+  query.str(std::string());
+  query << "DROP TABLE `player_inboxitems`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_taskhunt'");
+  query.str(std::string());
+  query << "DROP TABLE `player_taskhunt`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_prey'");
+  query.str(std::string());
+  query << "DROP TABLE `player_prey`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_charms'");
+  query.str(std::string());
+  query << "DROP TABLE `player_charms`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deleting 'player_items'");
+  query.str(std::string());
+  query << "DROP TABLE `player_stash`";
+  db.executeQuery(query.str());
+	SPDLOG_INFO("[Database migration (BIN ITEMS)] - Deletion finished");
+
+}
+
+void IOLoginData::loadMigrationItems(ItemMap& itemMap, DBResult_ptr result)
+{
+	do {
+		uint32_t sid = result->getNumber<uint32_t>("sid");
+		uint32_t pid = result->getNumber<uint32_t>("pid");
+		uint16_t type = result->getNumber<uint16_t>("itemtype");
+		uint16_t count = result->getNumber<uint16_t>("count");
+
+		unsigned long attrSize;
+		const char* attr = result->getStream("attributes", attrSize);
+
+		PropStream propStream;
+		propStream.init(attr, attrSize);
+
+		Item* item = Item::CreateItem(type, count);
+		if (item) {
+			if (!item->unserializeAttr(propStream)) {
+				SPDLOG_WARN("[IOLoginData::loadItems] - Failed to serialize");
+			}
+
+			std::pair<Item*, uint32_t> pair(item, pid);
+			itemMap[sid] = pair;
+		}
+	} while (result->next());
+}
+
+// End migration
+
 void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstream& query)
 {
 	Database& db = Database::getInstance();
@@ -533,7 +967,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> inventorySerialized(new char[protobufSize]);
   inventoryItemsProtobuf.SerializeToArray(&inventorySerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&inventorySerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&inventorySerialized[0], protobufSize);
   // End inventory
 
   // Depot items
@@ -622,7 +1056,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> depotSerialized(new char[protobufSize]);
   depotItemsProtobuf.SerializeToArray(&depotSerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&depotSerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&depotSerialized[0], protobufSize);
   // End depot
 
   // Inbox
@@ -708,7 +1142,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> inboxSerialized(new char[protobufSize]);
   inboxItemsProtobuf.SerializeToArray(&inboxSerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&inboxSerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&inboxSerialized[0], protobufSize);
   // End inbox
 
   // Stash
@@ -723,7 +1157,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> stashSerialized(new char[protobufSize]);
   stashItemsProtobuf.SerializeToArray(&stashSerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&stashSerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&stashSerialized[0], protobufSize);
   // End stash
 
   // Reward
@@ -816,7 +1250,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> rewardSerialized(new char[protobufSize]);
   rewardItemsProtobuf.SerializeToArray(&rewardSerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&rewardSerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&rewardSerialized[0], protobufSize);
   // End reward
 
   // Player systems
@@ -864,6 +1298,14 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
     }
   }
   // End task hunting
+
+  // Auto loot
+  //for (const auto& it : player->autoLootMap) {
+  //  auto autoLootProtobuf = playerSystemsList.add_auto_loot();
+  //  autoLootProtobuf->set_id(static_cast<uint32_t>(it.first));
+  //  autoLootProtobuf->set_container(static_cast<uint32_t>(it.second));
+  //}
+  // End auto loot
 
   // Charm
   auto charmProtobuf = playerSystemsList.add_charms();
@@ -961,7 +1403,7 @@ void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstre
   std::unique_ptr<char[]> systemsSerialized(new char[protobufSize]);
   playerSystemsList.SerializeToArray(&systemsSerialized[0], static_cast<int>(protobufSize));
 
-  query << "," << db.escapeBlob(&systemsSerialized[0], protobufSize);
+  query << ', ' << db.escapeBlob(&systemsSerialized[0], protobufSize);
   // End player systems
 }
 
@@ -1513,6 +1955,12 @@ void IOLoginData::loadPlayerDataFromProtobufArray(Player* player, DBResult_ptr r
   protobufArray = result->getStream("systems", protobufSize);
   auto systemsProtobufList = Canary::protobuf::playersystems::PlayerSystems();
   systemsProtobufList.ParseFromArray(protobufArray, protobufSize);
+
+  // Auto loot
+  //for (const auto& autoLootIt : systemsProtobufList.auto_loot()) {
+  //    player->addAutoLootItem(static_cast<uint16_t>(autoLootIt.id()), static_cast<uint16_t>(autoLootIt.container()));
+  //}
+  // End auto loot
 
   // Task hunting
   for (const auto& taskHuntingIt : systemsProtobufList.task_hunting()) {
