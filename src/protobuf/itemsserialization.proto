@@ -3,11 +3,7 @@ syntax = "proto2";
 package Canary.protobuf.itemsserialization;
 
 message ItemsSerialization {
-	repeated Item inventory = 1;
-	repeated Item depot = 2;
-	repeated Item inbox = 3;
-	repeated Item stash = 4;
-	repeated Item reward = 5;
+	repeated Item item = 1;
 }
 
 enum ATTRIBUTE_TYPE {

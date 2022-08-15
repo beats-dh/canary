@@ -25,11 +25,7 @@ namespace protobuf {
 namespace itemsserialization {
 PROTOBUF_CONSTEXPR ItemsSerialization::ItemsSerialization(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.inventory_)*/{}
-  , /*decltype(_impl_.depot_)*/{}
-  , /*decltype(_impl_.inbox_)*/{}
-  , /*decltype(_impl_.stash_)*/{}
-  , /*decltype(_impl_.reward_)*/{}
+    /*decltype(_impl_.item_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ItemsSerializationDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ItemsSerializationDefaultTypeInternal()
@@ -106,11 +102,7 @@ const uint32_t TableStruct_itemsserialization_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.inventory_),
-  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.depot_),
-  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.inbox_),
-  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.stash_),
-  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.reward_),
+  PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::ItemsSerialization, _impl_.item_),
   PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::Position, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::Canary::protobuf::itemsserialization::Position, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -158,9 +150,9 @@ const uint32_t TableStruct_itemsserialization_2eproto::offsets[] PROTOBUF_SECTIO
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::Canary::protobuf::itemsserialization::ItemsSerialization)},
-  { 11, 20, -1, sizeof(::Canary::protobuf::itemsserialization::Position)},
-  { 23, 34, -1, sizeof(::Canary::protobuf::itemsserialization::Item)},
-  { 39, 50, -1, sizeof(::Canary::protobuf::itemsserialization::Attribute)},
+  { 7, 16, -1, sizeof(::Canary::protobuf::itemsserialization::Position)},
+  { 19, 30, -1, sizeof(::Canary::protobuf::itemsserialization::Item)},
+  { 35, 46, -1, sizeof(::Canary::protobuf::itemsserialization::Attribute)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -172,32 +164,26 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_itemsserialization_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030itemsserialization.proto\022\"Canary.proto"
-  "buf.itemsserialization\"\266\002\n\022ItemsSerializ"
-  "ation\022;\n\tinventory\030\001 \003(\0132(.Canary.protob"
-  "uf.itemsserialization.Item\0227\n\005depot\030\002 \003("
-  "\0132(.Canary.protobuf.itemsserialization.I"
-  "tem\0227\n\005inbox\030\003 \003(\0132(.Canary.protobuf.ite"
-  "msserialization.Item\0227\n\005stash\030\004 \003(\0132(.Ca"
-  "nary.protobuf.itemsserialization.Item\0228\n"
-  "\006reward\030\005 \003(\0132(.Canary.protobuf.itemsser"
-  "ialization.Item\"+\n\010Position\022\t\n\001x\030\001 \001(\r\022\t"
-  "\n\001y\030\002 \001(\r\022\t\n\001z\030\003 \001(\r\"\177\n\004Item\022\013\n\003pid\030\001 \001("
-  "\r\022\013\n\003sid\030\002 \001(\r\022\n\n\002id\030\003 \001(\r\022\017\n\007subtype\030\004 "
-  "\001(\r\022@\n\tattribute\030\005 \003(\0132-.Canary.protobuf"
-  ".itemsserialization.Attribute\"\271\001\n\tAttrib"
-  "ute\022\n\n\002id\030\001 \001(\r\022@\n\004type\030\002 \001(\01622.Canary.p"
-  "rotobuf.itemsserialization.ATTRIBUTE_TYP"
-  "E\022\020\n\010extended\030\003 \001(\014\022\014\n\004data\030\004 \001(\014\022>\n\010pos"
-  "ition\030\005 \001(\0132,.Canary.protobuf.itemsseria"
-  "lization.Position*\232\001\n\016ATTRIBUTE_TYPE\022\031\n\025"
-  "ATTRIBUTE_TYPE_STRING\020\000\022\032\n\026ATTRIBUTE_TYP"
-  "E_NUMERIC\020\001\022\030\n\024ATTRIBUTE_TYPE_FLOAT\020\002\022\032\n"
-  "\026ATTRIBUTE_TYPE_BOOLEAN\020\003\022\033\n\027ATTRIBUTE_T"
-  "YPE_POSITION\020\004"
+  "buf.itemsserialization\"L\n\022ItemsSerializa"
+  "tion\0226\n\004item\030\001 \003(\0132(.Canary.protobuf.ite"
+  "msserialization.Item\"+\n\010Position\022\t\n\001x\030\001 "
+  "\001(\r\022\t\n\001y\030\002 \001(\r\022\t\n\001z\030\003 \001(\r\"\177\n\004Item\022\013\n\003pid"
+  "\030\001 \001(\r\022\013\n\003sid\030\002 \001(\r\022\n\n\002id\030\003 \001(\r\022\017\n\007subty"
+  "pe\030\004 \001(\r\022@\n\tattribute\030\005 \003(\0132-.Canary.pro"
+  "tobuf.itemsserialization.Attribute\"\271\001\n\tA"
+  "ttribute\022\n\n\002id\030\001 \001(\r\022@\n\004type\030\002 \001(\01622.Can"
+  "ary.protobuf.itemsserialization.ATTRIBUT"
+  "E_TYPE\022\020\n\010extended\030\003 \001(\014\022\014\n\004data\030\004 \001(\014\022>"
+  "\n\010position\030\005 \001(\0132,.Canary.protobuf.items"
+  "serialization.Position*\232\001\n\016ATTRIBUTE_TYP"
+  "E\022\031\n\025ATTRIBUTE_TYPE_STRING\020\000\022\032\n\026ATTRIBUT"
+  "E_TYPE_NUMERIC\020\001\022\030\n\024ATTRIBUTE_TYPE_FLOAT"
+  "\020\002\022\032\n\026ATTRIBUTE_TYPE_BOOLEAN\020\003\022\033\n\027ATTRIB"
+  "UTE_TYPE_POSITION\020\004"
   ;
 static ::_pbi::once_flag descriptor_table_itemsserialization_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_itemsserialization_2eproto = {
-    false, false, 894, descriptor_table_protodef_itemsserialization_2eproto,
+    false, false, 659, descriptor_table_protodef_itemsserialization_2eproto,
     "itemsserialization.proto",
     &descriptor_table_itemsserialization_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_itemsserialization_2eproto::offsets,
@@ -247,11 +233,7 @@ ItemsSerialization::ItemsSerialization(const ItemsSerialization& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   ItemsSerialization* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.inventory_){from._impl_.inventory_}
-    , decltype(_impl_.depot_){from._impl_.depot_}
-    , decltype(_impl_.inbox_){from._impl_.inbox_}
-    , decltype(_impl_.stash_){from._impl_.stash_}
-    , decltype(_impl_.reward_){from._impl_.reward_}
+      decltype(_impl_.item_){from._impl_.item_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -263,11 +245,7 @@ inline void ItemsSerialization::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.inventory_){arena}
-    , decltype(_impl_.depot_){arena}
-    , decltype(_impl_.inbox_){arena}
-    , decltype(_impl_.stash_){arena}
-    , decltype(_impl_.reward_){arena}
+      decltype(_impl_.item_){arena}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -283,11 +261,7 @@ ItemsSerialization::~ItemsSerialization() {
 
 inline void ItemsSerialization::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.inventory_.~RepeatedPtrField();
-  _impl_.depot_.~RepeatedPtrField();
-  _impl_.inbox_.~RepeatedPtrField();
-  _impl_.stash_.~RepeatedPtrField();
-  _impl_.reward_.~RepeatedPtrField();
+  _impl_.item_.~RepeatedPtrField();
 }
 
 void ItemsSerialization::SetCachedSize(int size) const {
@@ -300,11 +274,7 @@ void ItemsSerialization::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.inventory_.Clear();
-  _impl_.depot_.Clear();
-  _impl_.inbox_.Clear();
-  _impl_.stash_.Clear();
-  _impl_.reward_.Clear();
+  _impl_.item_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -314,68 +284,16 @@ const char* ItemsSerialization::_InternalParse(const char* ptr, ::_pbi::ParseCon
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .Canary.protobuf.itemsserialization.Item inventory = 1;
+      // repeated .Canary.protobuf.itemsserialization.Item item = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_inventory(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_item(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .Canary.protobuf.itemsserialization.Item depot = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_depot(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .Canary.protobuf.itemsserialization.Item inbox = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_inbox(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .Canary.protobuf.itemsserialization.Item stash = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_stash(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .Canary.protobuf.itemsserialization.Item reward = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_reward(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -408,44 +326,12 @@ uint8_t* ItemsSerialization::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .Canary.protobuf.itemsserialization.Item inventory = 1;
+  // repeated .Canary.protobuf.itemsserialization.Item item = 1;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_inventory_size()); i < n; i++) {
-    const auto& repfield = this->_internal_inventory(i);
+      n = static_cast<unsigned>(this->_internal_item_size()); i < n; i++) {
+    const auto& repfield = this->_internal_item(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item depot = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_depot_size()); i < n; i++) {
-    const auto& repfield = this->_internal_depot(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item inbox = 3;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_inbox_size()); i < n; i++) {
-    const auto& repfield = this->_internal_inbox(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item stash = 4;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_stash_size()); i < n; i++) {
-    const auto& repfield = this->_internal_stash(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item reward = 5;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_reward_size()); i < n; i++) {
-    const auto& repfield = this->_internal_reward(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -464,37 +350,9 @@ size_t ItemsSerialization::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .Canary.protobuf.itemsserialization.Item inventory = 1;
-  total_size += 1UL * this->_internal_inventory_size();
-  for (const auto& msg : this->_impl_.inventory_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item depot = 2;
-  total_size += 1UL * this->_internal_depot_size();
-  for (const auto& msg : this->_impl_.depot_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item inbox = 3;
-  total_size += 1UL * this->_internal_inbox_size();
-  for (const auto& msg : this->_impl_.inbox_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item stash = 4;
-  total_size += 1UL * this->_internal_stash_size();
-  for (const auto& msg : this->_impl_.stash_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .Canary.protobuf.itemsserialization.Item reward = 5;
-  total_size += 1UL * this->_internal_reward_size();
-  for (const auto& msg : this->_impl_.reward_) {
+  // repeated .Canary.protobuf.itemsserialization.Item item = 1;
+  total_size += 1UL * this->_internal_item_size();
+  for (const auto& msg : this->_impl_.item_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -517,11 +375,7 @@ void ItemsSerialization::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.inventory_.MergeFrom(from._impl_.inventory_);
-  _this->_impl_.depot_.MergeFrom(from._impl_.depot_);
-  _this->_impl_.inbox_.MergeFrom(from._impl_.inbox_);
-  _this->_impl_.stash_.MergeFrom(from._impl_.stash_);
-  _this->_impl_.reward_.MergeFrom(from._impl_.reward_);
+  _this->_impl_.item_.MergeFrom(from._impl_.item_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -539,11 +393,7 @@ bool ItemsSerialization::IsInitialized() const {
 void ItemsSerialization::InternalSwap(ItemsSerialization* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.inventory_.InternalSwap(&other->_impl_.inventory_);
-  _impl_.depot_.InternalSwap(&other->_impl_.depot_);
-  _impl_.inbox_.InternalSwap(&other->_impl_.inbox_);
-  _impl_.stash_.InternalSwap(&other->_impl_.stash_);
-  _impl_.reward_.InternalSwap(&other->_impl_.reward_);
+  _impl_.item_.InternalSwap(&other->_impl_.item_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ItemsSerialization::GetMetadata() const {

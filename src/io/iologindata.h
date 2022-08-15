@@ -63,8 +63,8 @@ class IOLoginData
 	private:
 		using ItemMap = std::map<uint32_t, std::pair<Item*, uint32_t>>;
 
-		static void loadItemsFromProtobufArray(Player* player, DBResult_ptr result);
-		static void saveItemsToProtobufArray(Player* player, std::ostringstream& query);
+		static void loadPlayerDataFromProtobufArray(Player* player, DBResult_ptr result);
+		static void savePlayerDataToProtobufArray(Player* player, std::ostringstream& query);
 };
 
 #endif  // SRC_IO_IOLOGINDATA_H_

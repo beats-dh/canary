@@ -26,6 +26,7 @@
 #include "creatures/monsters/monster.h"
 #include "io/ioprey.h"
 #include "protobuf/itemsserialization.pb.h"
+#include "protobuf/playersystems.pb.h"
 
 #include <limits>
 
@@ -294,6 +295,9 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->addPreyCards(result->getNumber<uint64_t>("prey_wildcard"));
   player->addTaskHuntingPoints(result->getNumber<uint16_t>("task_points"));
 
+  player->charmPoints = result->getNumber<uint32_t>("charm_points");
+  player->charmExpansion = result->getNumber<bool>("charm_upgrade");
+
   player->lastLoginSaved = result->getNumber<time_t>("lastlogin");
   player->lastLogout = result->getNumber<time_t>("lastlogout");
 
@@ -337,9 +341,6 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->setManaShield(result->getNumber<uint16_t>("manashield"));
   player->setMaxManaShield(result->getNumber<uint16_t>("max_manashield"));
 
-  // Load items from protobuf
-  loadItemsFromProtobufArray(player, result);
-
   std::ostringstream query;
   query << "SELECT `guild_id`, `rank_id`, `nick` FROM `guild_membership` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
@@ -382,50 +383,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     }
   }
 
-  // Bestiary charms
   query.str(std::string());
-  query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << player->getGUID();
+  query << "SELECT * FROM `player_bin_data` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
-    player->charmPoints = result->getNumber<uint32_t>("charm_points");
-    player->charmExpansion = result->getNumber<bool>("charm_expansion");
-    player->charmRuneWound = result->getNumber<uint16_t>("rune_wound");
-    player->charmRuneEnflame = result->getNumber<uint16_t>("rune_enflame");
-    player->charmRunePoison = result->getNumber<uint16_t>("rune_poison");
-    player->charmRuneFreeze = result->getNumber<uint16_t>("rune_freeze");
-    player->charmRuneZap = result->getNumber<uint16_t>("rune_zap");
-    player->charmRuneCurse = result->getNumber<uint16_t>("rune_curse");
-    player->charmRuneCripple = result->getNumber<uint16_t>("rune_cripple");
-    player->charmRuneParry = result->getNumber<uint16_t>("rune_parry");
-    player->charmRuneDodge = result->getNumber<uint16_t>("rune_dodge");
-    player->charmRuneAdrenaline = result->getNumber<uint16_t>("rune_adrenaline");
-    player->charmRuneNumb = result->getNumber<uint16_t>("rune_numb");
-    player->charmRuneCleanse = result->getNumber<uint16_t>("rune_cleanse");
-    player->charmRuneBless = result->getNumber<uint16_t>("rune_bless");
-    player->charmRuneScavenge = result->getNumber<uint16_t>("rune_scavenge");
-    player->charmRuneGut = result->getNumber<uint16_t>("rune_gut");
-    player->charmRuneLowBlow = result->getNumber<uint16_t>("rune_low_blow");
-    player->charmRuneDivine = result->getNumber<uint16_t>("rune_divine");
-    player->charmRuneVamp = result->getNumber<uint16_t>("rune_vamp");
-    player->charmRuneVoid = result->getNumber<uint16_t>("rune_void");
-    player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
-    player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");
-
-    unsigned long attrBestSize;
-    const char* Bestattr = result->getStream("tracker list", attrBestSize);
-    PropStream propBestStream;
-    propBestStream.init(Bestattr, attrBestSize);
-
-    uint16_t raceid_t;
-    while (propBestStream.read<uint16_t>(raceid_t)) {
-      MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
-      if (tmp_tt) {
-        player->addBestiaryTrackerList(tmp_tt);
-      }
-    }
-  } else {
-    query.str(std::string());
-    query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
-    Database::getInstance().executeQuery(query.str());
+    loadPlayerDataFromProtobufArray(player, result);
   }
 
   query.str(std::string());
@@ -470,71 +431,6 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     } while (result->next());
   }
 
-  // Load prey class
-  if (g_configManager().getBoolean(PREY_ENABLED)) {
-    query.str(std::string());
-    query << "SELECT * FROM `player_prey` WHERE `player_id` = " << player->getGUID();
-    if (result = db.storeQuery(query.str())) {
-      do {
-        auto slot = new PreySlot(static_cast<PreySlot_t>(result->getNumber<uint16_t>("slot")));
-        slot->state = static_cast<PreyDataState_t>(result->getNumber<uint16_t>("state"));
-        slot->selectedRaceId = result->getNumber<uint16_t>("raceid");
-        slot->option = static_cast<PreyOption_t>(result->getNumber<uint16_t>("option"));
-        slot->bonus = static_cast<PreyBonus_t>(result->getNumber<uint16_t>("bonus_type"));
-        slot->bonusRarity = static_cast<uint8_t>(result->getNumber<uint16_t>("bonus_rarity"));
-        slot->bonusPercentage = result->getNumber<uint16_t>("bonus_percentage");
-        slot->bonusTimeLeft = result->getNumber<uint16_t>("bonus_time");
-        slot->freeRerollTimeStamp = result->getNumber<int64_t>("free_reroll");
-
-        unsigned long preySize;
-        const char* preyStream = result->getStream("monster_list", preySize);
-        PropStream propPreyStream;
-        propPreyStream.init(preyStream, preySize);
-
-        uint16_t raceId;
-        while (propPreyStream.read<uint16_t>(raceId)) {
-          slot->raceIdList.push_back(raceId);
-        }
-
-        player->setPreySlotClass(slot);
-      } while (result->next());
-    }
-  }
-
-  // Load task hunting class
-  if (g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
-    query.str(std::string());
-    query << "SELECT * FROM `player_taskhunt` WHERE `player_id` = " << player->getGUID();
-    if (result = db.storeQuery(query.str())) {
-      do {
-        auto slot = new TaskHuntingSlot(static_cast<PreySlot_t>(result->getNumber<uint16_t>("slot")));
-        slot->state = static_cast<PreyTaskDataState_t>(result->getNumber<uint16_t>("state"));
-        slot->selectedRaceId = result->getNumber<uint16_t>("raceid");
-        slot->upgrade = result->getNumber<bool>("upgrade");
-        slot->rarity = static_cast<uint8_t>(result->getNumber<uint16_t>("rarity"));
-        slot->currentKills = result->getNumber<uint16_t>("kills");
-        slot->disabledUntilTimeStamp = result->getNumber<int64_t>("disabled_time");
-        slot->freeRerollTimeStamp = result->getNumber<int64_t>("free_reroll");
-
-        unsigned long taskHuntSize;
-        const char* taskHuntStream = result->getStream("monster_list", taskHuntSize);
-        PropStream propTaskHuntStream;
-        propTaskHuntStream.init(taskHuntStream, taskHuntSize);
-
-        uint16_t raceId;
-        while (propTaskHuntStream.read<uint16_t>(raceId)) {
-          slot->raceIdList.push_back(raceId);
-        }
-
-        if (slot->state == PreyTaskDataState_Inactive && slot->disabledUntilTimeStamp < OTSYS_TIME()) {
-          slot->state = PreyTaskDataState_Selection;
-        }
-
-        player->setTaskHuntingSlotClass(slot);
-      } while (result->next());
-    }
-  }
-
   player->initializePrey();
 	player->initializeTaskHunting();
   player->updateBaseSpeed();
@@ -544,25 +440,19 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   return true;
 }
 
-void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& query)
+void IOLoginData::savePlayerDataToProtobufArray(Player* player, std::ostringstream& query)
 {
 	Database& db = Database::getInstance();
-  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
   using ContainerBlock = std::pair<Container*, int32_t>;
   std::list<ContainerBlock> queue;
   ItemBlockList itemList;
   int32_t runningId = 100;
   const auto& openContainers = player->getOpenContainers();
-
-  // Stash
-  for (auto const [itemId, count] : player->getStashItems()) {
-    auto stashItem = itemsProtobufList.add_stash();
-    stashItem->set_id(itemId);
-    stashItem->set_subtype(count);
-  }
-  // End stash
+  size_t protobufSize;
+  std::unique_ptr<char[]> protobufSerialized;
 
   // Inventory
+  auto inventoryItemsProtobuf = Canary::protobuf::itemsserialization::ItemsSerialization();
   for (int32_t slotId = CONST_SLOT_FIRST; slotId <= CONST_SLOT_LAST; ++slotId) {
     if (Item* item = player->inventory[slotId]) {
       itemList.emplace_back(slotId, item);
@@ -594,7 +484,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       queue.emplace_back(container, runningId);
     }
 
-    auto inventoryItem = itemsProtobufList.add_inventory();
+    auto inventoryItem = inventoryItemsProtobuf.add_item();
     inventoryItem->set_pid(pid);
     inventoryItem->set_sid(runningId);
     inventoryItem->set_id(item->getID());
@@ -630,7 +520,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
         }
       }
 
-      auto inventoryItem = itemsProtobufList.add_inventory();
+      auto inventoryItem = inventoryItemsProtobuf.add_item();
       inventoryItem->set_pid(parentId);
       inventoryItem->set_sid(runningId);
       inventoryItem->set_id(item->getID());
@@ -638,12 +528,19 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       item->serializeAttrToProtobuf(inventoryItem);
     }
   }
+
+  protobufSize = inventoryItemsProtobuf.ByteSizeLong();
+  std::unique_ptr<char[]> inventorySerialized(new char[protobufSize]);
+  inventoryItemsProtobuf.SerializeToArray(&inventorySerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&inventorySerialized[0], protobufSize);
   // End inventory
 
   // Depot items
   queue.clear();
   itemList.clear();
   runningId = 100;
+  auto depotItemsProtobuf = Canary::protobuf::itemsserialization::ItemsSerialization();
   for (const auto& it : player->depotChests) {
     DepotChest* depotChest = it.second;
     for (Item* item : depotChest->getItemList()) {
@@ -676,7 +573,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       queue.emplace_back(container, runningId);
     }
 
-    auto depotItem = itemsProtobufList.add_depot();
+    auto depotItem = depotItemsProtobuf.add_item();
     depotItem->set_pid(pid);
     depotItem->set_sid(runningId);
     depotItem->set_id(item->getID());
@@ -712,7 +609,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
         }
       }
 
-      auto depotItem = itemsProtobufList.add_depot();
+      auto depotItem = depotItemsProtobuf.add_item();
       depotItem->set_pid(parentId);
       depotItem->set_sid(runningId);
       depotItem->set_id(item->getID());
@@ -720,100 +617,19 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       item->serializeAttrToProtobuf(depotItem);
     }
   }
+
+  protobufSize = depotItemsProtobuf.ByteSizeLong();
+  std::unique_ptr<char[]> depotSerialized(new char[protobufSize]);
+  depotItemsProtobuf.SerializeToArray(&depotSerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&depotSerialized[0], protobufSize);
   // End depot
-
-  // Reward
-  std::vector<uint32_t> rewardList;
-  player->getRewardList(rewardList);
-  queue.clear();
-  itemList.clear();
-  runningId = 100;
-
-  int running = 0;
-  for (const auto& rewardId : rewardList) {
-    // rewards that are empty or older than 7 days aren't stored
-    if (Reward* reward = player->getReward(rewardId, false);
-        !reward->empty() && (time(nullptr) - rewardId <= 60 * 60 * 24 * 7)) {
-      itemList.emplace_back(++running, reward);
-    }
-  }
-
-  for (const auto& it : itemList) {
-    int32_t pid = it.first;
-    Item* item = it.second;
-    ++runningId;
-
-    if (Container* container = item->getContainer()) {
-      if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
-        container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
-      }
-
-      if (!openContainers.empty()) {
-        for (const auto& its : openContainers) {
-          auto openContainer = its.second;
-          auto opcontainer = openContainer.container;
-
-          if (opcontainer == container) {
-            container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
-            break;
-          }
-        }
-      }
-
-      queue.emplace_back(container, runningId);
-    }
-
-    auto rewardItem = itemsProtobufList.add_reward();
-    rewardItem->set_pid(pid);
-    rewardItem->set_sid(runningId);
-    rewardItem->set_id(item->getID());
-    rewardItem->set_subtype(item->getSubType());
-    item->serializeAttrToProtobuf(rewardItem);
-  }
-
-  while (!queue.empty()) {
-    const ContainerBlock& cb = queue.front();
-    Container* container = cb.first;
-    int32_t parentId = cb.second;
-    queue.pop_front();
-
-    for (Item* item : container->getItemList()) {
-      ++runningId;
-
-      if (Container* subContainer = item->getContainer()) {
-        queue.emplace_back(subContainer, runningId);
-        if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
-          subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
-        }
-
-        if (!openContainers.empty()) {
-          for (const auto& it : openContainers) {
-            auto openContainer = it.second;
-            auto opcontainer = openContainer.container;
-
-            if (opcontainer == subContainer) {
-              subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
-              break;
-            }
-          }
-        }
-      }
-
-      auto rewardItem = itemsProtobufList.add_reward();
-      rewardItem->set_pid(parentId);
-      rewardItem->set_sid(runningId);
-      rewardItem->set_id(item->getID());
-      rewardItem->set_subtype(item->getSubType());
-      item->serializeAttrToProtobuf(rewardItem);
-    }
-  }
-  // End reward
 
   // Inbox
   queue.clear();
   itemList.clear();
   runningId = 100;
-
+  auto inboxItemsProtobuf = Canary::protobuf::itemsserialization::ItemsSerialization();
   for (Item* item : player->getInbox()->getItemList()) {
     itemList.emplace_back(0, item);
   }
@@ -843,7 +659,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       queue.emplace_back(container, runningId);
     }
 
-    auto inboxItem = itemsProtobufList.add_inbox();
+    auto inboxItem = inboxItemsProtobuf.add_item();
     inboxItem->set_pid(pid);
     inboxItem->set_sid(runningId);
     inboxItem->set_id(item->getID());
@@ -879,7 +695,7 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
         }
       }
 
-      auto inboxItem = itemsProtobufList.add_inbox();
+      auto inboxItem = inboxItemsProtobuf.add_item();
       inboxItem->set_pid(parentId);
       inboxItem->set_sid(runningId);
       inboxItem->set_id(item->getID());
@@ -887,13 +703,266 @@ void IOLoginData::saveItemsToProtobufArray(Player* player, std::ostringstream& q
       item->serializeAttrToProtobuf(inboxItem);
     }
   }
+
+  protobufSize = inboxItemsProtobuf.ByteSizeLong();
+  std::unique_ptr<char[]> inboxSerialized(new char[protobufSize]);
+  inboxItemsProtobuf.SerializeToArray(&inboxSerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&inboxSerialized[0], protobufSize);
   // End inbox
 
-  size_t size = itemsProtobufList.ByteSizeLong();
-  std::unique_ptr<char[]> serialized(new char[size]);
-  itemsProtobufList.SerializeToArray(&serialized[0], static_cast<int>(size));
+  // Stash
+  auto stashItemsProtobuf = Canary::protobuf::itemsserialization::ItemsSerialization();
+  for (auto const [itemId, count] : player->getStashItems()) {
+    auto stashItem = stashItemsProtobuf.add_item();
+    stashItem->set_id(itemId);
+    stashItem->set_subtype(count);
+  }
 
-  query << "`items` = " << db.escapeBlob(&serialized[0], size) << ',';
+  protobufSize = stashItemsProtobuf.ByteSizeLong();
+  std::unique_ptr<char[]> stashSerialized(new char[protobufSize]);
+  stashItemsProtobuf.SerializeToArray(&stashSerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&stashSerialized[0], protobufSize);
+  // End stash
+
+  // Reward
+  std::vector<uint32_t> rewardList;
+  player->getRewardList(rewardList);
+  queue.clear();
+  itemList.clear();
+  runningId = 100;
+  int running = 0;
+  auto rewardItemsProtobuf = Canary::protobuf::itemsserialization::ItemsSerialization();
+  for (const auto& rewardId : rewardList) {
+    // rewards that are empty or older than 7 days aren't stored
+    if (Reward* reward = player->getReward(rewardId, false);
+        !reward->empty() && (time(nullptr) - rewardId <= 60 * 60 * 24 * 7)) {
+      itemList.emplace_back(++running, reward);
+    }
+  }
+
+  for (const auto& it : itemList) {
+    int32_t pid = it.first;
+    Item* item = it.second;
+    ++runningId;
+
+    if (Container* container = item->getContainer()) {
+      if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+        container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+      }
+
+      if (!openContainers.empty()) {
+        for (const auto& its : openContainers) {
+          auto openContainer = its.second;
+          auto opcontainer = openContainer.container;
+
+          if (opcontainer == container) {
+            container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
+            break;
+          }
+        }
+      }
+
+      queue.emplace_back(container, runningId);
+    }
+
+    auto rewardItem = rewardItemsProtobuf.add_item();
+    rewardItem->set_pid(pid);
+    rewardItem->set_sid(runningId);
+    rewardItem->set_id(item->getID());
+    rewardItem->set_subtype(item->getSubType());
+    item->serializeAttrToProtobuf(rewardItem);
+  }
+
+  while (!queue.empty()) {
+    const ContainerBlock& cb = queue.front();
+    Container* container = cb.first;
+    int32_t parentId = cb.second;
+    queue.pop_front();
+
+    for (Item* item : container->getItemList()) {
+      ++runningId;
+
+      if (Container* subContainer = item->getContainer()) {
+        queue.emplace_back(subContainer, runningId);
+        if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+          subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+        }
+
+        if (!openContainers.empty()) {
+          for (const auto& it : openContainers) {
+            auto openContainer = it.second;
+            auto opcontainer = openContainer.container;
+
+            if (opcontainer == subContainer) {
+              subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
+              break;
+            }
+          }
+        }
+      }
+
+      auto rewardItem = rewardItemsProtobuf.add_item();
+      rewardItem->set_pid(parentId);
+      rewardItem->set_sid(runningId);
+      rewardItem->set_id(item->getID());
+      rewardItem->set_subtype(item->getSubType());
+      item->serializeAttrToProtobuf(rewardItem);
+    }
+  }
+
+  protobufSize = rewardItemsProtobuf.ByteSizeLong();
+  std::unique_ptr<char[]> rewardSerialized(new char[protobufSize]);
+  rewardItemsProtobuf.SerializeToArray(&rewardSerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&rewardSerialized[0], protobufSize);
+  // End reward
+
+  // Player systems
+  auto playerSystemsList = Canary::protobuf::playersystems::PlayerSystems();
+  
+  // Prey
+  for (uint8_t slotId = PreySlot_First; slotId <= PreySlot_Last; slotId++) {
+    PreySlot* slot = player->getPreySlotById(static_cast<PreySlot_t>(slotId));
+    if (slot) {
+      auto preyProtobuf = playerSystemsList.add_prey();
+      preyProtobuf->set_slot(static_cast<uint32_t>(slot->id));
+      preyProtobuf->set_state(static_cast<uint32_t>(slot->state));
+      preyProtobuf->set_raceid(static_cast<uint32_t>(slot->selectedRaceId));
+      preyProtobuf->set_option(static_cast<uint32_t>(slot->option));
+      preyProtobuf->set_bonus_type(static_cast<uint32_t>(slot->bonus));
+      preyProtobuf->set_bonus_rarity(static_cast<uint32_t>(slot->bonusRarity));
+      preyProtobuf->set_bonus_percentage(static_cast<uint32_t>(slot->bonusPercentage));
+      preyProtobuf->set_bonus_time(static_cast<uint32_t>(slot->bonusTimeLeft));
+      preyProtobuf->set_free_reroll(static_cast<uint64_t>(slot->freeRerollTimeStamp));
+      std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [preyProtobuf](uint16_t raceId)
+      {
+        preyProtobuf->add_grid(static_cast<uint32_t>(raceId));
+      });
+    }
+  }
+  // End prey
+
+  // Task hunting
+  for (uint8_t slotId = PreySlot_First; slotId <= PreySlot_Last; slotId++) {
+    TaskHuntingSlot* slot = player->getTaskHuntingSlotById(static_cast<PreySlot_t>(slotId));
+    if (slot) {
+      auto taskHuntingProtobuf = playerSystemsList.add_task_hunting();
+      taskHuntingProtobuf->set_slot(static_cast<uint32_t>(slot->id));
+      taskHuntingProtobuf->set_state(static_cast<uint32_t>(slot->state));
+      taskHuntingProtobuf->set_raceid(static_cast<uint32_t>(slot->selectedRaceId));
+      taskHuntingProtobuf->set_upgrade(slot->upgrade);
+      taskHuntingProtobuf->set_rarity(static_cast<uint32_t>(slot->rarity));
+      taskHuntingProtobuf->set_kills(static_cast<uint32_t>(slot->currentKills));
+      taskHuntingProtobuf->set_disable_time(static_cast<uint32_t>(slot->disabledUntilTimeStamp));
+      taskHuntingProtobuf->set_free_reroll(static_cast<uint64_t>(slot->freeRerollTimeStamp));
+      std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [taskHuntingProtobuf](uint16_t raceId)
+      {
+        taskHuntingProtobuf->add_grid(static_cast<uint32_t>(raceId));
+      });
+    }
+  }
+  // End task hunting
+
+  // Charm
+  auto charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_USED);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->UsedRunesBit));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_UNLOCKED);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->UnlockedRunesBit));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_WOUND);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneWound));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ENFLAME);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneEnflame));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_POISON);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRunePoison));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_FREEZE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneFreeze));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ZAP);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneZap));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CURSE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneCurse));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CRIPPLE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneCripple));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_PARRY);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneParry));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_DODGE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneDodge));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ADRENALINE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneAdrenaline));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_NUMB);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneNumb));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CLEANSE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneCleanse));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_BLESS);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneBless));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_SCAVENGE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneScavenge));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_GUT);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneGut));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_LOW_BLOW);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneLowBlow));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_DIVINE);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneDivine));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_VAMP);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneVamp));
+
+  charmProtobuf = playerSystemsList.add_charms();
+  charmProtobuf->set_type(Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_VOID);
+  charmProtobuf->set_raceid(static_cast<uint32_t>(player->charmRuneVoid));
+  // End charm
+
+  // Bestiary tracker
+  for (MonsterType* mType : player->getBestiaryTrackerList()) {
+    playerSystemsList.add_bestiary_tracker(static_cast<uint32_t>(mType->info.raceid));
+  }
+  // End bestiary tracker
+
+  protobufSize = playerSystemsList.ByteSizeLong();
+  std::unique_ptr<char[]> systemsSerialized(new char[protobufSize]);
+  playerSystemsList.SerializeToArray(&systemsSerialized[0], static_cast<int>(protobufSize));
+
+  query << "," << db.escapeBlob(&systemsSerialized[0], protobufSize);
+  // End player systems
 }
 
 bool IOLoginData::savePlayer(Player* player)
@@ -952,6 +1021,8 @@ bool IOLoginData::savePlayer(Player* player)
 
   query << "`prey_wildcard` = " << player->getPreyCards() << ',';
   query << "`task_points` = " << player->getTaskHuntingPoints() << ',';
+  query << "`charm_points` = " << player->charmPoints << ',';
+  query << "`charm_upgrade` = " << ((player->charmExpansion) ? 1 : 0) << ',';
 
   query << "`cap` = " << (player->capacity / 100) << ',';
   query << "`sex` = " << static_cast<uint16_t>(player->sex) << ',';
@@ -977,9 +1048,6 @@ bool IOLoginData::savePlayer(Player* player)
   const char* attributes = propWriteStream.getStream(attributesSize);
 
   query << "`conditions` = " << db.escapeBlob(attributes, attributesSize) << ',';
-
-  // Save items to protobuf
-  saveItemsToProtobufArray(player, query);
 
   if (g_game().getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     int64_t skullTime = 0;
@@ -1054,6 +1122,21 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
+  // Save items to protobuf
+  query.str(std::string());
+  query << "DELETE FROM `player_bin_data` WHERE `player_id` = " << player->getGUID();
+  if (!db.executeQuery(query.str())) {
+    return false;
+  }
+
+  query.str(std::string());
+  query << "INSERT INTO `player_bin_data` (`player_id`, `inventory`, `depot`, `inbox`, `stash`, `reward`, `systems`) VALUES (" << player->getGUID();
+  savePlayerDataToProtobufArray(player, query);
+  query << ")";
+  if (!db.executeQuery(query.str())) {
+    return false;
+  }
+
   // learned spells
   query.str(std::string());
   query << "DELETE FROM `player_spells` WHERE `player_id` = " << player->getGUID();
@@ -1061,8 +1144,8 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
+  // Player spells
   query.str(std::string());
-
   DBInsert spellsQuery("INSERT INTO `player_spells` (`player_id`, `name` ) VALUES ");
   for (const std::string& spellName : player->learnedInstantSpellList) {
     query << player->getGUID() << ',' << db.escapeString(spellName);
@@ -1082,50 +1165,8 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
-  //player bestiary charms
+  // Player kills
   query.str(std::string());
-  query << "UPDATE `player_charms` SET ";
-  query << "`charm_points` = " << player->charmPoints << ',';
-  query << "`charm_expansion` = " << ((player->charmExpansion) ? 1 : 0) << ',';
-  query << "`rune_wound` = " << player->charmRuneWound << ',';
-  query << "`rune_enflame` = " << player->charmRuneEnflame << ',';
-  query << "`rune_poison` = " << player->charmRunePoison << ',';
-  query << "`rune_freeze` = " << player->charmRuneFreeze << ',';
-  query << "`rune_zap` = " << player->charmRuneZap << ',';
-  query << "`rune_curse` = " << player->charmRuneCurse << ',';
-  query << "`rune_cripple` = " << player->charmRuneCripple << ',';
-  query << "`rune_parry` = " << player->charmRuneParry << ',';
-  query << "`rune_dodge` = " << player->charmRuneDodge << ',';
-  query << "`rune_adrenaline` = " << player->charmRuneAdrenaline << ',';
-  query << "`rune_numb` = " << player->charmRuneNumb << ',';
-  query << "`rune_cleanse` = " << player->charmRuneCleanse << ',';
-  query << "`rune_bless` = " << player->charmRuneBless << ',';
-  query << "`rune_scavenge` = " << player->charmRuneScavenge << ',';
-  query << "`rune_gut` = " << player->charmRuneGut << ',';
-  query << "`rune_low_blow` = " << player->charmRuneLowBlow << ',';
-  query << "`rune_divine` = " << player->charmRuneDivine << ',';
-  query << "`rune_vamp` = " << player->charmRuneVamp << ',';
-  query << "`rune_void` = " << player->charmRuneVoid << ',';
-  query << "`UsedRunesBit` = " << player->UsedRunesBit << ',';
-  query << "`UnlockedRunesBit` = " << player->UnlockedRunesBit << ',';
-
-  // Bestiary tracker
-  PropWriteStream propBestiaryStream;
-  for (MonsterType* trackedType : player->getBestiaryTrackerList()) {
-   propBestiaryStream.write<uint16_t>(trackedType->info.raceid);
-  }
-  size_t trackerSize;
-  const char* trackerList = propBestiaryStream.getStream(trackerSize);
-  query << " `tracker list` = " << db.escapeBlob(trackerList, trackerSize);
-  query << " WHERE `player_guid` = " << player->getGUID();
-
-  if (!db.executeQuery(query.str())) {
-    SPDLOG_WARN("[IOLoginData::savePlayer] - Error saving bestiary data from player: {}", player->getName());
-    return false;
-  }
-
-  query.str(std::string());
-
   DBInsert killsQuery("INSERT INTO `player_kills` (`player_id`, `target`, `time`, `unavenged`) VALUES");
   for (const auto& kill : player->unjustifiedKills) {
     query << player->getGUID() << ',' << kill.target << ',' << kill.time << ',' << kill.unavenged;
@@ -1138,97 +1179,8 @@ bool IOLoginData::savePlayer(Player* player)
     return false;
   }
 
-  // Save prey class
-  if (g_configManager().getBoolean(PREY_ENABLED)) {
-    query.str(std::string());
-    query << "DELETE FROM `player_prey` WHERE `player_id` = " << player->getGUID();
-    if (!db.executeQuery(query.str())) {
-      return false;
-    }
-
-    for (uint8_t slotId = PreySlot_First; slotId <= PreySlot_Last; slotId++) {
-      PreySlot* slot = player->getPreySlotById(static_cast<PreySlot_t>(slotId));
-      if (slot) {
-        query.str(std::string());
-        query << "INSERT INTO `player_prey` (`player_id`, `slot`, `state`, `raceid`, `option`, `bonus_type`, `bonus_rarity`, `bonus_percentage`, `bonus_time`, `free_reroll`, `monster_list`) VALUES (";
-          query << player->getGUID() << ", ";
-          query << static_cast<uint16_t>(slot->id) << ", ";
-          query << static_cast<uint16_t>(slot->state) << ", ";
-          query << slot->selectedRaceId << ", ";
-          query << static_cast<uint16_t>(slot->option) << ", ";
-          query << static_cast<uint16_t>(slot->bonus) << ", ";
-          query << static_cast<uint16_t>(slot->bonusRarity) << ", ";
-          query << slot->bonusPercentage << ", ";
-          query << slot->bonusTimeLeft << ", ";
-          query << slot->freeRerollTimeStamp << ", ";
-
-        PropWriteStream propPreyStream;
-        std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&propPreyStream](uint16_t raceId)
-        {
-            propPreyStream.write<uint16_t>(raceId);
-        });
-
-        size_t preySize;
-        const char* preyList = propPreyStream.getStream(preySize);
-        query << db.escapeBlob(preyList, static_cast<uint32_t>(preySize)) << ")";
-
-        if (!db.executeQuery(query.str())) {
-          SPDLOG_WARN("[IOLoginData::savePlayer] - Error saving prey slot data from player: {}", player->getName());
-          return false;
-        }
-      }
-    }
-  }
-
-  // Save task hunting class
-  if (g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
-    query.str(std::string());
-    query << "DELETE FROM `player_taskhunt` WHERE `player_id` = " << player->getGUID();
-    if (!db.executeQuery(query.str())) {
-      return false;
-    }
-
-    for (uint8_t slotId = PreySlot_First; slotId <= PreySlot_Last; slotId++) {
-      TaskHuntingSlot* slot = player->getTaskHuntingSlotById(static_cast<PreySlot_t>(slotId));
-      if (slot) {
-        query.str(std::string());
-        query << "INSERT INTO `player_taskhunt` (`player_id`, `slot`, `state`, `raceid`, `upgrade`, `rarity`, `kills`, `disabled_time`, `free_reroll`, `monster_list`) VALUES (";
-          query << player->getGUID() << ", ";
-          query << static_cast<uint16_t>(slot->id) << ", ";
-          query << static_cast<uint16_t>(slot->state) << ", ";
-          query << slot->selectedRaceId << ", ";
-          query << (slot->upgrade ? 1 : 0) << ", ";
-          query << static_cast<uint16_t>(slot->rarity) << ", ";
-          query << slot->currentKills << ", ";
-          query << slot->disabledUntilTimeStamp << ", ";
-          query << slot->freeRerollTimeStamp << ", ";
-
-        PropWriteStream propTaskHuntingStream;
-        std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&propTaskHuntingStream](uint16_t raceId)
-        {
-            propTaskHuntingStream.write<uint16_t>(raceId);
-        });
-
-        size_t taskHuntingSize;
-        const char* taskHuntingList = propTaskHuntingStream.getStream(taskHuntingSize);
-        query << db.escapeBlob(taskHuntingList, static_cast<uint32_t>(taskHuntingSize)) << ")";
-
-        if (!db.executeQuery(query.str())) {
-          SPDLOG_WARN("[IOLoginData::savePlayer] - Error saving task hunting slot data from player: {}", player->getName());
-          return false;
-        }
-      }
-    }
-  }
-
+  // Player storages
   query.str(std::string());
-  query << "DELETE FROM `player_storage` WHERE `player_id` = " << player->getGUID();
-  if (!db.executeQuery(query.str())) {
-    return false;
-  }
-
-  query.str(std::string());
-
   DBInsert storageQuery("INSERT INTO `player_storage` (`player_id`, `key`, `value`) VALUES ");
   player->genReservedStorageRange();
 
@@ -1313,36 +1265,37 @@ bool IOLoginData::formatPlayerName(std::string& name)
   return true;
 }
 
-void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result)
+void IOLoginData::loadPlayerDataFromProtobufArray(Player* player, DBResult_ptr result)
 {
-  unsigned long itemsSize;
-  const char* itemsArray = result->getStream("items", itemsSize);
-
-  if (itemsSize == 0 || !itemsArray) {
-    return;
-  }
-
   ItemMap itemMap;
+  unsigned long protobufSize;
+  const char* protobufArray;
   std::vector<std::pair<uint8_t, Container*>> openContainersList;
-  auto itemsProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
-  itemsProtobufList.ParseFromArray(itemsArray, itemsSize);
 
   // Stash
-  for (const auto& stashItem : itemsProtobufList.stash()) {
+  protobufSize = 0;
+  protobufArray = result->getStream("stash", protobufSize);
+  auto stashProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  stashProtobufList.ParseFromArray(protobufArray, protobufSize);
+  for (const auto& stashItem : stashProtobufList.item()) {
     player->addItemOnStash(static_cast<uint16_t>(stashItem.id()), stashItem.subtype());
   }
   // End stash
 
   // Inventory
-  for (const auto& inventoryItem : itemsProtobufList.inventory()) {
+  protobufSize = 0;
+  protobufArray = result->getStream("inventory", protobufSize);
+  auto inventoryProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  inventoryProtobufList.ParseFromArray(protobufArray, protobufSize);
+  for (const auto& inventoryItem : inventoryProtobufList.item()) {
     Item* item = Item::CreateItem(static_cast<uint16_t>(inventoryItem.id()), static_cast<uint16_t>(inventoryItem.subtype()));
     if (!item) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inventory] - Item with id '{}' could not be created and was ignored.", inventoryItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Inventory] - Item with id '{}' could not be created and was ignored.", inventoryItem.id());
       continue;
     }
 
     if (inventoryItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(inventoryItem)) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inventory] - Item with id '{}' attributes could not be unserialized and was ignored.", inventoryItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Inventory] - Item with id '{}' attributes could not be unserialized and was ignored.", inventoryItem.id());
       delete item;
       continue;
     }
@@ -1404,15 +1357,19 @@ void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result
 
   // Depot
   itemMap.clear();
-  for (const auto& depotItem : itemsProtobufList.depot()) {
+  protobufSize = 0;
+  protobufArray = result->getStream("depot", protobufSize);
+  auto depotProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  depotProtobufList.ParseFromArray(protobufArray, protobufSize);
+  for (const auto& depotItem : depotProtobufList.item()) {
     Item* item = Item::CreateItem(static_cast<uint16_t>(depotItem.id()), static_cast<uint16_t>(depotItem.subtype()));
     if (!item) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Depot] - Item with id '{}' could not be created and was ignored.", depotItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Depot] - Item with id '{}' could not be created and was ignored.", depotItem.id());
       continue;
     }
 
     if (depotItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(depotItem)) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Depot] - Item with id '{}' attributes could not be unserialized and was ignored.", depotItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Depot] - Item with id '{}' attributes could not be unserialized and was ignored.", depotItem.id());
       delete item;
       continue;
     }
@@ -1447,15 +1404,19 @@ void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result
 
   // Reward
   itemMap.clear();
-  for (const auto& rewardItem : itemsProtobufList.reward()) {
+  protobufSize = 0;
+  protobufArray = result->getStream("reward", protobufSize);
+  auto rewardProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  rewardProtobufList.ParseFromArray(protobufArray, protobufSize);
+  for (const auto& rewardItem : rewardProtobufList.item()) {
     Item* item = Item::CreateItem(static_cast<uint16_t>(rewardItem.id()), static_cast<uint16_t>(rewardItem.subtype()));
     if (!item) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Reward] - Item with id '{}' could not be created and was ignored.", rewardItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Reward] - Item with id '{}' could not be created and was ignored.", rewardItem.id());
       continue;
     }
 
     if (rewardItem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(rewardItem)) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Reward] - Item with id '{}' attributes could not be unserialized and was ignored.", rewardItem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Reward] - Item with id '{}' attributes could not be unserialized and was ignored.", rewardItem.id());
       delete item;
       continue;
     }
@@ -1503,15 +1464,19 @@ void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result
 
   // Inbox
   itemMap.clear();
-  for (const auto& inboxtem : itemsProtobufList.inbox()) {
+  protobufSize = 0;
+  protobufArray = result->getStream("inbox", protobufSize);
+  auto inboxProtobufList = Canary::protobuf::itemsserialization::ItemsSerialization();
+  inboxProtobufList.ParseFromArray(protobufArray, protobufSize);
+  for (const auto& inboxtem : inboxProtobufList.item()) {
     Item* item = Item::CreateItem(static_cast<uint16_t>(inboxtem.id()), static_cast<uint16_t>(inboxtem.subtype()));
     if (!item) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inbox] - Item with id '{}' could not be created and was ignored.", inboxtem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Inbox] - Item with id '{}' could not be created and was ignored.", inboxtem.id());
       continue;
     }
 
     if (inboxtem.attribute_size() > 0 && !item->unserializeAttrFromProtobuf(inboxtem)) {
-      SPDLOG_WARN("[IOLoginData::loadItemsFromProtobufArray::Inbox] - Item with id '{}' attributes could not be unserialized and was ignored.", inboxtem.id());
+      SPDLOG_WARN("[IOLoginData::loadPlayerDataFromProtobufArray::Inbox] - Item with id '{}' attributes could not be unserialized and was ignored.", inboxtem.id());
       delete item;
       continue;
     }
@@ -1542,6 +1507,159 @@ void IOLoginData::loadItemsFromProtobufArray(Player* player, DBResult_ptr result
     }
   }
   // End inbox
+
+  // Player systems
+  protobufSize = 0;
+  protobufArray = result->getStream("systems", protobufSize);
+  auto systemsProtobufList = Canary::protobuf::playersystems::PlayerSystems();
+  systemsProtobufList.ParseFromArray(protobufArray, protobufSize);
+
+  // Task hunting
+  for (const auto& taskHuntingIt : systemsProtobufList.task_hunting()) {
+    auto slot = new TaskHuntingSlot(static_cast<PreySlot_t>(taskHuntingIt.slot()));
+    slot->state = static_cast<PreyTaskDataState_t>(taskHuntingIt.state());
+    slot->selectedRaceId = static_cast<uint16_t>(taskHuntingIt.raceid());
+    slot->upgrade = taskHuntingIt.upgrade();
+    slot->rarity = static_cast<uint8_t>(taskHuntingIt.rarity());
+    slot->currentKills = static_cast<uint16_t>(taskHuntingIt.kills());
+    slot->disabledUntilTimeStamp = taskHuntingIt.disable_time();
+    slot->freeRerollTimeStamp = taskHuntingIt.free_reroll();
+  
+    for (const auto& raceId : taskHuntingIt.grid()) {
+      slot->raceIdList.push_back(static_cast<uint16_t>(raceId));
+    }
+
+    if (slot->state == PreyTaskDataState_Inactive && slot->disabledUntilTimeStamp < OTSYS_TIME()) {
+      slot->state = PreyTaskDataState_Selection;
+    }
+
+    player->setTaskHuntingSlotClass(slot);
+  }
+  // End task hunting
+
+  // Prey
+  for (const auto& preyIt : systemsProtobufList.prey()) {
+    auto slot = new PreySlot(static_cast<PreySlot_t>(preyIt.slot()));
+
+    slot->state = static_cast<PreyDataState_t>(preyIt.state());
+    slot->selectedRaceId = static_cast<uint16_t>(preyIt.raceid());
+    slot->option = static_cast<PreyOption_t>(preyIt.option());
+    slot->bonus = static_cast<PreyBonus_t>(preyIt.bonus_type());
+    slot->bonusRarity = static_cast<uint8_t>(preyIt.bonus_rarity());
+    slot->bonusPercentage = static_cast<uint16_t>(preyIt.bonus_percentage());
+    slot->bonusTimeLeft = static_cast<uint16_t>(preyIt.bonus_time());
+    slot->freeRerollTimeStamp = preyIt.free_reroll();
+
+    for (const auto& raceId : preyIt.grid()) {
+      slot->raceIdList.push_back(static_cast<uint16_t>(raceId));
+    }
+
+    player->setPreySlotClass(slot);
+  }
+  // End prey
+
+  // Charm
+  for (const auto& charmIt : systemsProtobufList.charms()) {
+    switch (charmIt.type()) {
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_USED): {
+        player->UsedRunesBit = charmIt.raceid();
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_UNLOCKED): {
+        player->UnlockedRunesBit = charmIt.raceid();
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_WOUND): {
+        player->charmRuneWound = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ENFLAME): {
+        player->charmRuneEnflame = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_POISON): {
+        player->charmRunePoison = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_FREEZE): {
+        player->charmRuneFreeze = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ZAP): {
+        player->charmRuneZap = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CURSE): {
+        player->charmRuneCurse = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CRIPPLE): {
+        player->charmRuneCripple = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_PARRY): {
+        player->charmRuneParry = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_DODGE): {
+        player->charmRuneDodge = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_ADRENALINE): {
+        player->charmRuneAdrenaline = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_NUMB): {
+        player->charmRuneNumb = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_CLEANSE): {
+        player->charmRuneCleanse = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_BLESS): {
+        player->charmRuneBless = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_SCAVENGE): {
+        player->charmRuneScavenge = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_GUT): {
+        player->charmRuneGut = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_LOW_BLOW): {
+        player->charmRuneLowBlow = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_DIVINE): {
+        player->charmRuneDivine = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_VAMP): {
+        player->charmRuneVamp = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      case (Canary::protobuf::playersystems::CHARM_TYPE::CHARM_TYPE_VOID): {
+        player->charmRuneVoid = static_cast<uint16_t>(charmIt.raceid());
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+  // End charm
+
+  // Bestiary tracker
+  for (const auto& trackerRaceId : systemsProtobufList.bestiary_tracker()) {
+    if (MonsterType* mType = g_monsters().getMonsterTypeByRaceId(static_cast<uint16_t>(trackerRaceId))) {
+      player->addBestiaryTrackerList(mType);
+    }
+  }
+  // End bestiary tracker
+  // End player systems
 }
 
 void IOLoginData::increaseBankBalance(uint32_t guid, uint64_t bankBalance)

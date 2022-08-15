@@ -131,6 +131,8 @@ CREATE TABLE IF NOT EXISTS `players` (
     `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
     `prey_wildcard` bigint(21) NOT NULL DEFAULT '0',
     `task_points` bigint(21) NOT NULL DEFAULT '0',
+    `charm_points` bigint(21) NOT NULL DEFAULT '0',
+    `charm_upgrade` BOOLEAN NOT NULL DEFAULT,
     `quickloot_fallback` tinyint(1) DEFAULT '0',
     `lookmountbody` tinyint(3) unsigned NOT NULL DEFAULT '0',
     `lookmountfeet` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -139,7 +141,6 @@ CREATE TABLE IF NOT EXISTS `players` (
     `lookfamiliarstype` int(11) unsigned NOT NULL DEFAULT '0',
     `isreward` tinyint(1) NOT NULL DEFAULT '1',
     `istutorial` tinyint(1) NOT NULL DEFAULT '0',
-    `items` longblob NOT NULL,
     INDEX `account_id` (`account_id`),
     INDEX `vocation` (`vocation`),
     CONSTRAINT `players_pk` PRIMARY KEY (`id`),
@@ -461,35 +462,6 @@ CREATE TABLE IF NOT EXISTS `players_online` (
     CONSTRAINT `players_online_pk` PRIMARY KEY (`player_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
--- Table structure `player_charm`
-CREATE TABLE IF NOT EXISTS `player_charms` (
-    `player_guid` INT(250) NOT NULL,
-    `charm_points` VARCHAR(250) NULL,
-    `charm_expansion` BOOLEAN NULL,
-    `rune_wound` INT(250) NULL,
-    `rune_enflame` INT(250) NULL,
-    `rune_poison` INT(250) NULL,
-    `rune_freeze` INT(250) NULL,
-    `rune_zap` INT(250) NULL,
-    `rune_curse` INT(250) NULL,
-    `rune_cripple` INT(250) NULL,
-    `rune_parry` INT(250) NULL,
-    `rune_dodge` INT(250) NULL,
-    `rune_adrenaline` INT(250) NULL,
-    `rune_numb` INT(250) NULL,
-    `rune_cleanse` INT(250) NULL,
-    `rune_bless` INT(250) NULL,
-    `rune_scavenge` INT(250) NULL,
-    `rune_gut` INT(250) NULL,
-    `rune_low_blow` INT(250) NULL,
-    `rune_divine` INT(250) NULL,
-    `rune_vamp` INT(250) NULL,
-    `rune_void` INT(250) NULL,
-    `UsedRunesBit` VARCHAR(250) NULL,
-    `UnlockedRunesBit` VARCHAR(250) NULL,
-    `tracker list` BLOB NULL
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
 -- Table structure `player_deaths`
 CREATE TABLE IF NOT EXISTS `player_deaths` (
     `player_id` int(11) NOT NULL,
@@ -560,35 +532,6 @@ CREATE TABLE IF NOT EXISTS `player_namelocks` (
         ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Table structure `player_prey`
-CREATE TABLE IF NOT EXISTS `player_prey` (
-    `player_id` int(11) NOT NULL,
-    `slot` tinyint(1) NOT NULL,
-    `state` tinyint(1) NOT NULL,
-    `raceid` varchar(250) NOT NULL,
-    `option` tinyint(1) NOT NULL,
-    `bonus_type` tinyint(1) NOT NULL,
-    `bonus_rarity` tinyint(1) NOT NULL,
-    `bonus_percentage` varchar(250) NOT NULL,
-    `bonus_time` varchar(250) NOT NULL,
-    `free_reroll` bigint(20) NOT NULL,
-    `monster_list` BLOB NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Table structure `player_taskhunt`
-CREATE TABLE IF NOT EXISTS `player_taskhunt` (
-    `player_id` int(11) NOT NULL,
-    `slot` tinyint(1) NOT NULL,
-    `state` tinyint(1) NOT NULL,
-    `raceid` varchar(250) NOT NULL,
-    `upgrade` tinyint(1) NOT NULL,
-    `rarity` tinyint(1) NOT NULL,
-    `kills` varchar(250) NOT NULL,
-    `disabled_time` bigint(20) NOT NULL,
-    `free_reroll` bigint(20) NOT NULL,
-    `monster_list` BLOB NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- Table structure `player_spells`
 CREATE TABLE IF NOT EXISTS `player_spells` (
     `player_id` int(11) NOT NULL,
@@ -606,6 +549,22 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
     `value` int(11) NOT NULL DEFAULT '0',
     CONSTRAINT `player_storage_pk` PRIMARY KEY (`player_id`, `key`),
     CONSTRAINT `player_storage_players_fk`
+        FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Table structure `player_bin_data`
+CREATE TABLE IF NOT EXISTS `player_bin_data` (
+    `player_id` int(11) NOT NULL,
+    `inventory` longblob NOT NULL,
+    `depot` longblob NOT NULL,
+    `inbox` longblob NOT NULL,
+    `stash` longblob NOT NULL,
+    `reward` longblob NOT NULL,
+    `systems` longblob NOT NULL,
+    INDEX `player_id` (`player_id`),
+    CONSTRAINT `player_bin_data_pk` PRIMARY KEY (`id`),
+    CONSTRAINT `player_bin_data_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
