@@ -1144,6 +1144,8 @@ bool Item::serializeAttrToProtobuf(Canary::protobuf::itemsserialization::Item* i
         attribute->set_type(Canary::protobuf::itemsserialization::ATTRIBUTE_TYPE::ATTRIBUTE_TYPE_STRING);
 		attribute->set_data(getStrAttr(ITEM_ATTRIBUTE_IMBUEMENT_TYPE));
 	}
+
+	return true;
 }
 
 void Item::serializeAttr(PropWriteStream& propWriteStream) const
