@@ -4,8 +4,8 @@ function talk.onSay(player, words, param)
 local config = {
 pz = false, -- players precisam estar em protection zone para usar? (true or false)
 battle = true, -- players deve estar sem battle (true or false)
-custo = true, -- se os teleport irão custa (true or false)
-need_level = false, -- se os teleport irão precisar de level (true or false)
+custo = true, -- se os teleport irï¿½o custa (true or false)
+need_level = false, -- se os teleport irï¿½o precisar de level (true or false)
 premium = false -- se precisa ser premium account (true or false)
 }
 --[[ Config lugares]]--
@@ -195,17 +195,17 @@ local lugar = {
 local a = lugar[param]
 
 if config.need_level == true and player:getLevel() < a.level then
-	player:sendTextMessage(MESSAGE_EVENT_DEFAULT, "Você precisa do level ".. a.level .." para ir até essa hunt.")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ precisa do level ".. a.level .." para ir atï¿½ essa hunt.")
 	player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	return false
 end
 
 if not a then
 	player:popupFYI(
-					"[+] As cidades que você pode ir sâo: promo, edoras, belfallas, ashenport, bree, riv \z
+					"[+] As cidades que vocï¿½ pode ir sï¿½o: promo, edoras, belfallas, ashenport, bree, riv \z
 					dol, esg, zargond, moria, mordor, forod, condado, dunedain, anfallas, minas. \n\n\z
 					
-					As hunts que você pode ir sâo: \n\n\z
+					As hunts que vocï¿½ pode ir sï¿½o: \n\n\z
 					
 					[+] Level 0 - 30 [+] \n\z
 					troll1, troll2, rot, pirata, mino1, mino2, pantano, eriador, dwarf1, dwarf2, macacos1, \z
@@ -233,7 +233,7 @@ if not a then
 end
 
 if config.custo == true and player:getMoney() < a.price then
-	player:sendTextMessage(MESSAGE_EVENT_DEFAULT, "Você precisa de ".. a.price .." money para ir até essa hunt.")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ precisa de ".. a.price .." money para ir atï¿½ essa hunt.")
 	player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	return false
 end
@@ -245,7 +245,7 @@ if player:getPremiumDays() <= 0 and config.premium == true then
 end
 
 if  player:hasCondition(CONDITION_INFIGHT) and config.battle == true then
-	player:sendTextMessage(MESSAGE_EVENT_DEFAULT, "Você não pode se teleportar em uma batalha.")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce nao pode se teleportar em uma batalha.")
 	player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	return false
 end
