@@ -28,7 +28,7 @@ jobs:
           - os: ubuntu-22.04
             triplet: x64-linux
           - OS: ubuntu-22.04
-            tripet: x64-ARM
+            tripet: arm
 
     steps:
       - name: Checkout repository
