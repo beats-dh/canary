@@ -429,8 +429,10 @@ FIXED_FRAME_GROUP_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
 }
 // ===================================================================
 
-class Coordinate final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Coordinate)
-                                                                  */
+class Coordinate final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Coordinate)
+                   */
 {
 public:
   inline Coordinate() : Coordinate(nullptr) {}
@@ -640,8 +642,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class Appearances final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearances)
-                                                                   */
+class Appearances final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearances)
+                   */
 {
 public:
   inline Appearances() : Appearances(nullptr) {}
@@ -953,8 +957,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class SpritePhase final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpritePhase)
-                                                                   */
+class SpritePhase final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpritePhase)
+                   */
 {
 public:
   inline SpritePhase() : SpritePhase(nullptr) {}
@@ -1150,8 +1156,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class SpriteAnimation final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteAnimation)
-                                                                       */
+class SpriteAnimation final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteAnimation)
+                   */
 {
 public:
   inline SpriteAnimation() : SpriteAnimation(nullptr) {}
@@ -1434,8 +1442,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class Box final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Box)
-                                                           */
+class Box final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Box)
+                   */
 {
 public:
   inline Box() : Box(nullptr) {}
@@ -1659,8 +1669,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class SpriteInfo final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteInfo)
-                                                                  */
+class SpriteInfo final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteInfo)
+                   */
 {
 public:
   inline SpriteInfo() : SpriteInfo(nullptr) {}
@@ -2011,8 +2023,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class FrameGroup final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.FrameGroup)
-                                                                  */
+class FrameGroup final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.FrameGroup)
+                   */
 {
 public:
   inline FrameGroup() : FrameGroup(nullptr) {}
@@ -2236,8 +2250,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class Appearance final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearance)
-                                                                  */
+class Appearance final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearance)
+                   */
 {
 public:
   inline Appearance() : Appearance(nullptr) {}
@@ -2517,8 +2533,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlags final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlags)
-                                                                       */
+class AppearanceFlags final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlags)
+                   */
 {
 public:
   inline AppearanceFlags() : AppearanceFlags(nullptr) {}
@@ -3750,8 +3768,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagUpgradeClassification final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification)
+                   */
 {
 public:
   inline AppearanceFlagUpgradeClassification()
@@ -3939,8 +3958,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagBank final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagBank)
-                                                                          */
+class AppearanceFlagBank final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagBank)
+                   */
 {
 public:
   inline AppearanceFlagBank() : AppearanceFlagBank(nullptr) {}
@@ -4119,8 +4140,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagWrite final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWrite)
-                                                                           */
+class AppearanceFlagWrite final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWrite)
+                   */
 {
 public:
   inline AppearanceFlagWrite() : AppearanceFlagWrite(nullptr) {}
@@ -4302,8 +4325,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagWriteOnce final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWriteOnce)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWriteOnce)
+                   */
 {
 public:
   inline AppearanceFlagWriteOnce() : AppearanceFlagWriteOnce(nullptr) {}
@@ -4486,8 +4510,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagLight final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLight)
-                                                                           */
+class AppearanceFlagLight final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLight)
+                   */
 {
 public:
   inline AppearanceFlagLight() : AppearanceFlagLight(nullptr) {}
@@ -4686,8 +4712,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagHeight final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHeight)
-                                                                            */
+class AppearanceFlagHeight final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHeight)
+                   */
 {
 public:
   inline AppearanceFlagHeight() : AppearanceFlagHeight(nullptr) {}
@@ -4868,8 +4896,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagShift final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagShift)
-                                                                           */
+class AppearanceFlagShift final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagShift)
+                   */
 {
 public:
   inline AppearanceFlagShift() : AppearanceFlagShift(nullptr) {}
@@ -5069,8 +5099,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagClothes final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagClothes)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagClothes)
+                   */
 {
 public:
   inline AppearanceFlagClothes() : AppearanceFlagClothes(nullptr) {}
@@ -5253,8 +5284,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagDefaultAction final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagDefaultAction)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagDefaultAction)
+                   */
 {
 public:
   inline AppearanceFlagDefaultAction() : AppearanceFlagDefaultAction(nullptr) {}
@@ -5439,8 +5471,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagMarket final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagMarket)
-                                                                            */
+class AppearanceFlagMarket final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagMarket)
+                   */
 {
 public:
   inline AppearanceFlagMarket() : AppearanceFlagMarket(nullptr) {}
@@ -5707,8 +5741,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagNPC final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagNPC)
-                                                                         */
+class AppearanceFlagNPC final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagNPC)
+                   */
 {
 public:
   inline AppearanceFlagNPC() : AppearanceFlagNPC(nullptr) {}
@@ -5997,8 +6033,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagAutomap final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagAutomap)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagAutomap)
+                   */
 {
 public:
   inline AppearanceFlagAutomap() : AppearanceFlagAutomap(nullptr) {}
@@ -6180,8 +6217,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagHook final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHook)
-                                                                          */
+class AppearanceFlagHook final
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHook)
+                   */
 {
 public:
   inline AppearanceFlagHook() : AppearanceFlagHook(nullptr) {}
@@ -6362,8 +6401,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagLenshelp final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLenshelp)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLenshelp)
+                   */
 {
 public:
   inline AppearanceFlagLenshelp() : AppearanceFlagLenshelp(nullptr) {}
@@ -6546,8 +6586,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagChangedToExpire final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagChangedToExpire)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagChangedToExpire)
+                   */
 {
 public:
   inline AppearanceFlagChangedToExpire()
@@ -6734,8 +6775,9 @@ private:
 // -------------------------------------------------------------------
 
 class AppearanceFlagCyclopedia final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagCyclopedia)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagCyclopedia)
+                   */
 {
 public:
   inline AppearanceFlagCyclopedia() : AppearanceFlagCyclopedia(nullptr) {}
@@ -6919,8 +6961,9 @@ private:
 // -------------------------------------------------------------------
 
 class SpecialMeaningAppearanceIds final
-    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpecialMeaningAppearanceIds)
-                                               */
+    : public ::PROTOBUF_NAMESPACE_ID::
+          Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpecialMeaningAppearanceIds)
+                   */
 {
 public:
   inline SpecialMeaningAppearanceIds() : SpecialMeaningAppearanceIds(nullptr) {}
