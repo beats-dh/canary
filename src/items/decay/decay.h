@@ -15,37 +15,36 @@
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
+ */
 
 #ifndef SRC_ITEMS_DECAY_DECAY_H_
 #define SRC_ITEMS_DECAY_DECAY_H_
 
 #include "items/item.h"
 
-class Decay
-{
-	public:
-		Decay(Decay const&) = delete;
-		void operator=(Decay const&) = delete;
+class Decay {
+public:
+  Decay(Decay const &) = delete;
+  void operator=(Decay const &) = delete;
 
-		static Decay& getInstance() {
-			// Guaranteed to be destroyed
-			static Decay instance;
-			// Instantiated on first use
-			return instance;
-		}
+  static Decay &getInstance() {
+    // Guaranteed to be destroyed
+    static Decay instance;
+    // Instantiated on first use
+    return instance;
+  }
 
-		void startDecay(Item* item);
-		void stopDecay(Item* item);
+  void startDecay(Item *item);
+  void stopDecay(Item *item);
 
-	private:
-		Decay() = default;
+private:
+  Decay() = default;
 
-		void checkDecay();
-		void internalDecayItem(Item* item);
+  void checkDecay();
+  void internalDecayItem(Item *item);
 
-		uint32_t eventId {0};
-		std::map<int64_t, std::vector<Item*>> decayMap;
+  uint32_t eventId{0};
+  std::map<int64_t, std::vector<Item *>> decayMap;
 };
 
 constexpr auto g_decay = &Decay::getInstance;

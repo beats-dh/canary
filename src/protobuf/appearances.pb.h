@@ -19,17 +19,17 @@
 #error regenerate this file with a newer version of protoc.
 #endif
 
-#include <google/protobuf/port_undef.inc>
-#include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/metadata_lite.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/repeated_field.h>  // IWYU pragma: export
-#include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/extension_set.h> // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/generated_message_util.h>
+#include <google/protobuf/io/coded_stream.h>
+#include <google/protobuf/message.h>
+#include <google/protobuf/metadata_lite.h>
+#include <google/protobuf/port_undef.inc>
+#include <google/protobuf/repeated_field.h> // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -37,14 +37,15 @@
 PROTOBUF_NAMESPACE_OPEN
 namespace internal {
 class AnyMetadata;
-}  // namespace internal
+} // namespace internal
 PROTOBUF_NAMESPACE_CLOSE
 
 // Internal implementation detail -- do not use these members.
 struct TableStruct_appearances_2eproto {
   static const uint32_t offsets[];
 };
-extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_appearances_2eproto;
+extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable
+    descriptor_table_appearances_2eproto;
 namespace Canary {
 namespace protobuf {
 namespace appearances {
@@ -53,52 +54,68 @@ struct AppearanceDefaultTypeInternal;
 extern AppearanceDefaultTypeInternal _Appearance_default_instance_;
 class AppearanceFlagAutomap;
 struct AppearanceFlagAutomapDefaultTypeInternal;
-extern AppearanceFlagAutomapDefaultTypeInternal _AppearanceFlagAutomap_default_instance_;
+extern AppearanceFlagAutomapDefaultTypeInternal
+    _AppearanceFlagAutomap_default_instance_;
 class AppearanceFlagBank;
 struct AppearanceFlagBankDefaultTypeInternal;
-extern AppearanceFlagBankDefaultTypeInternal _AppearanceFlagBank_default_instance_;
+extern AppearanceFlagBankDefaultTypeInternal
+    _AppearanceFlagBank_default_instance_;
 class AppearanceFlagChangedToExpire;
 struct AppearanceFlagChangedToExpireDefaultTypeInternal;
-extern AppearanceFlagChangedToExpireDefaultTypeInternal _AppearanceFlagChangedToExpire_default_instance_;
+extern AppearanceFlagChangedToExpireDefaultTypeInternal
+    _AppearanceFlagChangedToExpire_default_instance_;
 class AppearanceFlagClothes;
 struct AppearanceFlagClothesDefaultTypeInternal;
-extern AppearanceFlagClothesDefaultTypeInternal _AppearanceFlagClothes_default_instance_;
+extern AppearanceFlagClothesDefaultTypeInternal
+    _AppearanceFlagClothes_default_instance_;
 class AppearanceFlagCyclopedia;
 struct AppearanceFlagCyclopediaDefaultTypeInternal;
-extern AppearanceFlagCyclopediaDefaultTypeInternal _AppearanceFlagCyclopedia_default_instance_;
+extern AppearanceFlagCyclopediaDefaultTypeInternal
+    _AppearanceFlagCyclopedia_default_instance_;
 class AppearanceFlagDefaultAction;
 struct AppearanceFlagDefaultActionDefaultTypeInternal;
-extern AppearanceFlagDefaultActionDefaultTypeInternal _AppearanceFlagDefaultAction_default_instance_;
+extern AppearanceFlagDefaultActionDefaultTypeInternal
+    _AppearanceFlagDefaultAction_default_instance_;
 class AppearanceFlagHeight;
 struct AppearanceFlagHeightDefaultTypeInternal;
-extern AppearanceFlagHeightDefaultTypeInternal _AppearanceFlagHeight_default_instance_;
+extern AppearanceFlagHeightDefaultTypeInternal
+    _AppearanceFlagHeight_default_instance_;
 class AppearanceFlagHook;
 struct AppearanceFlagHookDefaultTypeInternal;
-extern AppearanceFlagHookDefaultTypeInternal _AppearanceFlagHook_default_instance_;
+extern AppearanceFlagHookDefaultTypeInternal
+    _AppearanceFlagHook_default_instance_;
 class AppearanceFlagLenshelp;
 struct AppearanceFlagLenshelpDefaultTypeInternal;
-extern AppearanceFlagLenshelpDefaultTypeInternal _AppearanceFlagLenshelp_default_instance_;
+extern AppearanceFlagLenshelpDefaultTypeInternal
+    _AppearanceFlagLenshelp_default_instance_;
 class AppearanceFlagLight;
 struct AppearanceFlagLightDefaultTypeInternal;
-extern AppearanceFlagLightDefaultTypeInternal _AppearanceFlagLight_default_instance_;
+extern AppearanceFlagLightDefaultTypeInternal
+    _AppearanceFlagLight_default_instance_;
 class AppearanceFlagMarket;
 struct AppearanceFlagMarketDefaultTypeInternal;
-extern AppearanceFlagMarketDefaultTypeInternal _AppearanceFlagMarket_default_instance_;
+extern AppearanceFlagMarketDefaultTypeInternal
+    _AppearanceFlagMarket_default_instance_;
 class AppearanceFlagNPC;
 struct AppearanceFlagNPCDefaultTypeInternal;
-extern AppearanceFlagNPCDefaultTypeInternal _AppearanceFlagNPC_default_instance_;
+extern AppearanceFlagNPCDefaultTypeInternal
+    _AppearanceFlagNPC_default_instance_;
 class AppearanceFlagShift;
 struct AppearanceFlagShiftDefaultTypeInternal;
-extern AppearanceFlagShiftDefaultTypeInternal _AppearanceFlagShift_default_instance_;
+extern AppearanceFlagShiftDefaultTypeInternal
+    _AppearanceFlagShift_default_instance_;
 class AppearanceFlagUpgradeClassification;
 struct AppearanceFlagUpgradeClassificationDefaultTypeInternal;
-extern AppearanceFlagUpgradeClassificationDefaultTypeInternal _AppearanceFlagUpgradeClassification_default_instance_;
+extern AppearanceFlagUpgradeClassificationDefaultTypeInternal
+    _AppearanceFlagUpgradeClassification_default_instance_;
 class AppearanceFlagWrite;
 struct AppearanceFlagWriteDefaultTypeInternal;
-extern AppearanceFlagWriteDefaultTypeInternal _AppearanceFlagWrite_default_instance_;
+extern AppearanceFlagWriteDefaultTypeInternal
+    _AppearanceFlagWrite_default_instance_;
 class AppearanceFlagWriteOnce;
 struct AppearanceFlagWriteOnceDefaultTypeInternal;
-extern AppearanceFlagWriteOnceDefaultTypeInternal _AppearanceFlagWriteOnce_default_instance_;
+extern AppearanceFlagWriteOnceDefaultTypeInternal
+    _AppearanceFlagWriteOnce_default_instance_;
 class AppearanceFlags;
 struct AppearanceFlagsDefaultTypeInternal;
 extern AppearanceFlagsDefaultTypeInternal _AppearanceFlags_default_instance_;
@@ -116,7 +133,8 @@ struct FrameGroupDefaultTypeInternal;
 extern FrameGroupDefaultTypeInternal _FrameGroup_default_instance_;
 class SpecialMeaningAppearanceIds;
 struct SpecialMeaningAppearanceIdsDefaultTypeInternal;
-extern SpecialMeaningAppearanceIdsDefaultTypeInternal _SpecialMeaningAppearanceIds_default_instance_;
+extern SpecialMeaningAppearanceIdsDefaultTypeInternal
+    _SpecialMeaningAppearanceIds_default_instance_;
 class SpriteAnimation;
 struct SpriteAnimationDefaultTypeInternal;
 extern SpriteAnimationDefaultTypeInternal _SpriteAnimation_default_instance_;
@@ -126,36 +144,110 @@ extern SpriteInfoDefaultTypeInternal _SpriteInfo_default_instance_;
 class SpritePhase;
 struct SpritePhaseDefaultTypeInternal;
 extern SpritePhaseDefaultTypeInternal _SpritePhase_default_instance_;
-}  // namespace appearances
-}  // namespace protobuf
-}  // namespace Canary
+} // namespace appearances
+} // namespace protobuf
+} // namespace Canary
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Canary::protobuf::appearances::Appearance* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Appearance>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagAutomap* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagAutomap>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagBank* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagBank>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagChangedToExpire>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagClothes* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagClothes>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagCyclopedia>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagDefaultAction>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagHeight* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHeight>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagHook* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHook>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagLenshelp* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagLenshelp>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagLight* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagLight>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagMarket* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagMarket>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagNPC* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagNPC>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagShift* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagShift>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagWrite* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagWrite>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagWriteOnce>(Arena*);
-template<> ::Canary::protobuf::appearances::AppearanceFlags* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlags>(Arena*);
-template<> ::Canary::protobuf::appearances::Appearances* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Appearances>(Arena*);
-template<> ::Canary::protobuf::appearances::Box* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Box>(Arena*);
-template<> ::Canary::protobuf::appearances::Coordinate* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Coordinate>(Arena*);
-template<> ::Canary::protobuf::appearances::FrameGroup* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::FrameGroup>(Arena*);
-template<> ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpecialMeaningAppearanceIds>(Arena*);
-template<> ::Canary::protobuf::appearances::SpriteAnimation* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpriteAnimation>(Arena*);
-template<> ::Canary::protobuf::appearances::SpriteInfo* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpriteInfo>(Arena*);
-template<> ::Canary::protobuf::appearances::SpritePhase* Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpritePhase>(Arena*);
+template <>
+::Canary::protobuf::appearances::Appearance *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Appearance>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagAutomap *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagAutomap>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagBank *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagBank>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagClothes *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagClothes>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagHeight *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagHeight>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagHook *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHook>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagLenshelp>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagLight *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagLight>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagMarket *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagMarket>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagNPC *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagNPC>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagShift *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagShift>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagWrite *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagWrite>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce>(Arena *);
+template <>
+::Canary::protobuf::appearances::AppearanceFlags *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlags>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::Appearances *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Appearances>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::Box *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Box>(Arena *);
+template <>
+::Canary::protobuf::appearances::Coordinate *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::Coordinate>(Arena *);
+template <>
+::Canary::protobuf::appearances::FrameGroup *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::FrameGroup>(Arena *);
+template <>
+::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+Arena::CreateMaybeMessage<
+    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds>(Arena *);
+template <>
+::Canary::protobuf::appearances::SpriteAnimation *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpriteAnimation>(
+    Arena *);
+template <>
+::Canary::protobuf::appearances::SpriteInfo *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpriteInfo>(Arena *);
+template <>
+::Canary::protobuf::appearances::SpritePhase *
+Arena::CreateMaybeMessage<::Canary::protobuf::appearances::SpritePhase>(
+    Arena *);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Canary {
 namespace protobuf {
@@ -173,19 +265,19 @@ constexpr PLAYER_ACTION PLAYER_ACTION_MIN = PLAYER_ACTION_NONE;
 constexpr PLAYER_ACTION PLAYER_ACTION_MAX = PLAYER_ACTION_AUTOWALK_HIGHLIGHT;
 constexpr int PLAYER_ACTION_ARRAYSIZE = PLAYER_ACTION_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PLAYER_ACTION_descriptor();
-template<typename T>
-inline const std::string& PLAYER_ACTION_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *PLAYER_ACTION_descriptor();
+template <typename T>
+inline const std::string &PLAYER_ACTION_Name(T enum_t_value) {
   static_assert(::std::is_same<T, PLAYER_ACTION>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function PLAYER_ACTION_Name.");
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function PLAYER_ACTION_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    PLAYER_ACTION_descriptor(), enum_t_value);
+      PLAYER_ACTION_descriptor(), enum_t_value);
 }
-inline bool PLAYER_ACTION_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PLAYER_ACTION* value) {
+inline bool PLAYER_ACTION_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                                PLAYER_ACTION *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PLAYER_ACTION>(
-    PLAYER_ACTION_descriptor(), name, value);
+      PLAYER_ACTION_descriptor(), name, value);
 }
 enum ITEM_CATEGORY : int {
   ITEM_CATEGORY_ARMORS = 1,
@@ -219,19 +311,19 @@ constexpr ITEM_CATEGORY ITEM_CATEGORY_MIN = ITEM_CATEGORY_ARMORS;
 constexpr ITEM_CATEGORY ITEM_CATEGORY_MAX = ITEM_CATEGORY_QUIVER;
 constexpr int ITEM_CATEGORY_ARRAYSIZE = ITEM_CATEGORY_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ITEM_CATEGORY_descriptor();
-template<typename T>
-inline const std::string& ITEM_CATEGORY_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *ITEM_CATEGORY_descriptor();
+template <typename T>
+inline const std::string &ITEM_CATEGORY_Name(T enum_t_value) {
   static_assert(::std::is_same<T, ITEM_CATEGORY>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function ITEM_CATEGORY_Name.");
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function ITEM_CATEGORY_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    ITEM_CATEGORY_descriptor(), enum_t_value);
+      ITEM_CATEGORY_descriptor(), enum_t_value);
 }
-inline bool ITEM_CATEGORY_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ITEM_CATEGORY* value) {
+inline bool ITEM_CATEGORY_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                                ITEM_CATEGORY *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ITEM_CATEGORY>(
-    ITEM_CATEGORY_descriptor(), name, value);
+      ITEM_CATEGORY_descriptor(), name, value);
 }
 enum PLAYER_PROFESSION : int {
   PLAYER_PROFESSION_ANY = -1,
@@ -247,19 +339,20 @@ constexpr PLAYER_PROFESSION PLAYER_PROFESSION_MIN = PLAYER_PROFESSION_ANY;
 constexpr PLAYER_PROFESSION PLAYER_PROFESSION_MAX = PLAYER_PROFESSION_PROMOTED;
 constexpr int PLAYER_PROFESSION_ARRAYSIZE = PLAYER_PROFESSION_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PLAYER_PROFESSION_descriptor();
-template<typename T>
-inline const std::string& PLAYER_PROFESSION_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *PLAYER_PROFESSION_descriptor();
+template <typename T>
+inline const std::string &PLAYER_PROFESSION_Name(T enum_t_value) {
   static_assert(::std::is_same<T, PLAYER_PROFESSION>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function PLAYER_PROFESSION_Name.");
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function PLAYER_PROFESSION_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    PLAYER_PROFESSION_descriptor(), enum_t_value);
+      PLAYER_PROFESSION_descriptor(), enum_t_value);
 }
-inline bool PLAYER_PROFESSION_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PLAYER_PROFESSION* value) {
+inline bool
+PLAYER_PROFESSION_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                        PLAYER_PROFESSION *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PLAYER_PROFESSION>(
-    PLAYER_PROFESSION_descriptor(), name, value);
+      PLAYER_PROFESSION_descriptor(), name, value);
 }
 enum ANIMATION_LOOP_TYPE : int {
   ANIMATION_LOOP_TYPE_PINGPONG = -1,
@@ -267,46 +360,45 @@ enum ANIMATION_LOOP_TYPE : int {
   ANIMATION_LOOP_TYPE_COUNTED = 1
 };
 bool ANIMATION_LOOP_TYPE_IsValid(int value);
-constexpr ANIMATION_LOOP_TYPE ANIMATION_LOOP_TYPE_MIN = ANIMATION_LOOP_TYPE_PINGPONG;
-constexpr ANIMATION_LOOP_TYPE ANIMATION_LOOP_TYPE_MAX = ANIMATION_LOOP_TYPE_COUNTED;
+constexpr ANIMATION_LOOP_TYPE ANIMATION_LOOP_TYPE_MIN =
+    ANIMATION_LOOP_TYPE_PINGPONG;
+constexpr ANIMATION_LOOP_TYPE ANIMATION_LOOP_TYPE_MAX =
+    ANIMATION_LOOP_TYPE_COUNTED;
 constexpr int ANIMATION_LOOP_TYPE_ARRAYSIZE = ANIMATION_LOOP_TYPE_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ANIMATION_LOOP_TYPE_descriptor();
-template<typename T>
-inline const std::string& ANIMATION_LOOP_TYPE_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *ANIMATION_LOOP_TYPE_descriptor();
+template <typename T>
+inline const std::string &ANIMATION_LOOP_TYPE_Name(T enum_t_value) {
   static_assert(::std::is_same<T, ANIMATION_LOOP_TYPE>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function ANIMATION_LOOP_TYPE_Name.");
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function ANIMATION_LOOP_TYPE_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    ANIMATION_LOOP_TYPE_descriptor(), enum_t_value);
+      ANIMATION_LOOP_TYPE_descriptor(), enum_t_value);
 }
-inline bool ANIMATION_LOOP_TYPE_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ANIMATION_LOOP_TYPE* value) {
+inline bool
+ANIMATION_LOOP_TYPE_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                          ANIMATION_LOOP_TYPE *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ANIMATION_LOOP_TYPE>(
-    ANIMATION_LOOP_TYPE_descriptor(), name, value);
+      ANIMATION_LOOP_TYPE_descriptor(), name, value);
 }
-enum HOOK_TYPE : int {
-  HOOK_TYPE_SOUTH = 1,
-  HOOK_TYPE_EAST = 2
-};
+enum HOOK_TYPE : int { HOOK_TYPE_SOUTH = 1, HOOK_TYPE_EAST = 2 };
 bool HOOK_TYPE_IsValid(int value);
 constexpr HOOK_TYPE HOOK_TYPE_MIN = HOOK_TYPE_SOUTH;
 constexpr HOOK_TYPE HOOK_TYPE_MAX = HOOK_TYPE_EAST;
 constexpr int HOOK_TYPE_ARRAYSIZE = HOOK_TYPE_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* HOOK_TYPE_descriptor();
-template<typename T>
-inline const std::string& HOOK_TYPE_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *HOOK_TYPE_descriptor();
+template <typename T> inline const std::string &HOOK_TYPE_Name(T enum_t_value) {
   static_assert(::std::is_same<T, HOOK_TYPE>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function HOOK_TYPE_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    HOOK_TYPE_descriptor(), enum_t_value);
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function HOOK_TYPE_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(HOOK_TYPE_descriptor(),
+                                                       enum_t_value);
 }
-inline bool HOOK_TYPE_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, HOOK_TYPE* value) {
+inline bool HOOK_TYPE_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                            HOOK_TYPE *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<HOOK_TYPE>(
-    HOOK_TYPE_descriptor(), name, value);
+      HOOK_TYPE_descriptor(), name, value);
 }
 enum FIXED_FRAME_GROUP : int {
   FIXED_FRAME_GROUP_OUTFIT_IDLE = 0,
@@ -314,49 +406,54 @@ enum FIXED_FRAME_GROUP : int {
   FIXED_FRAME_GROUP_OBJECT_INITIAL = 2
 };
 bool FIXED_FRAME_GROUP_IsValid(int value);
-constexpr FIXED_FRAME_GROUP FIXED_FRAME_GROUP_MIN = FIXED_FRAME_GROUP_OUTFIT_IDLE;
-constexpr FIXED_FRAME_GROUP FIXED_FRAME_GROUP_MAX = FIXED_FRAME_GROUP_OBJECT_INITIAL;
+constexpr FIXED_FRAME_GROUP FIXED_FRAME_GROUP_MIN =
+    FIXED_FRAME_GROUP_OUTFIT_IDLE;
+constexpr FIXED_FRAME_GROUP FIXED_FRAME_GROUP_MAX =
+    FIXED_FRAME_GROUP_OBJECT_INITIAL;
 constexpr int FIXED_FRAME_GROUP_ARRAYSIZE = FIXED_FRAME_GROUP_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FIXED_FRAME_GROUP_descriptor();
-template<typename T>
-inline const std::string& FIXED_FRAME_GROUP_Name(T enum_t_value) {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *FIXED_FRAME_GROUP_descriptor();
+template <typename T>
+inline const std::string &FIXED_FRAME_GROUP_Name(T enum_t_value) {
   static_assert(::std::is_same<T, FIXED_FRAME_GROUP>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function FIXED_FRAME_GROUP_Name.");
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to function FIXED_FRAME_GROUP_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    FIXED_FRAME_GROUP_descriptor(), enum_t_value);
+      FIXED_FRAME_GROUP_descriptor(), enum_t_value);
 }
-inline bool FIXED_FRAME_GROUP_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, FIXED_FRAME_GROUP* value) {
+inline bool
+FIXED_FRAME_GROUP_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+                        FIXED_FRAME_GROUP *value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FIXED_FRAME_GROUP>(
-    FIXED_FRAME_GROUP_descriptor(), name, value);
+      FIXED_FRAME_GROUP_descriptor(), name, value);
 }
 // ===================================================================
 
-class Coordinate final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Coordinate) */ {
- public:
+class Coordinate final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Coordinate)
+                                                                  */
+{
+public:
   inline Coordinate() : Coordinate(nullptr) {}
   ~Coordinate() override;
-  explicit PROTOBUF_CONSTEXPR Coordinate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      Coordinate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Coordinate(const Coordinate& from);
-  Coordinate(Coordinate&& from) noexcept
-    : Coordinate() {
+  Coordinate(const Coordinate &from);
+  Coordinate(Coordinate &&from) noexcept : Coordinate() {
     *this = ::std::move(from);
   }
 
-  inline Coordinate& operator=(const Coordinate& from) {
+  inline Coordinate &operator=(const Coordinate &from) {
     CopyFrom(from);
     return *this;
   }
-  inline Coordinate& operator=(Coordinate&& from) noexcept {
-    if (this == &from) return *this;
+  inline Coordinate &operator=(Coordinate &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -365,95 +462,102 @@ class Coordinate final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Coordinate& default_instance() {
+  static const Coordinate &default_instance() {
     return *internal_default_instance();
   }
-  static inline const Coordinate* internal_default_instance() {
-    return reinterpret_cast<const Coordinate*>(
-               &_Coordinate_default_instance_);
+  static inline const Coordinate *internal_default_instance() {
+    return reinterpret_cast<const Coordinate *>(&_Coordinate_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    0;
+  static constexpr int kIndexInFileMessages = 0;
 
-  friend void swap(Coordinate& a, Coordinate& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Coordinate* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(Coordinate &a, Coordinate &b) { a.Swap(&b); }
+  inline void Swap(Coordinate *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Coordinate* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(Coordinate *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  Coordinate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  Coordinate *New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<Coordinate>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Coordinate& from);
+  void CopyFrom(const Coordinate &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Coordinate& from) {
-    Coordinate::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+  void MergeFrom(const Coordinate &from) { Coordinate::MergeImpl(*this, from); }
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Coordinate* other);
+  void InternalSwap(Coordinate *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.Coordinate";
   }
-  protected:
-  explicit Coordinate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit Coordinate(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                      bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -468,48 +572,58 @@ class Coordinate final :
   };
   // optional uint32 x = 1;
   bool has_x() const;
-  private:
+
+private:
   bool _internal_has_x() const;
-  public:
+
+public:
   void clear_x();
   uint32_t x() const;
   void set_x(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_x() const;
   void _internal_set_x(uint32_t value);
-  public:
 
+public:
   // optional uint32 y = 2;
   bool has_y() const;
-  private:
+
+private:
   bool _internal_has_y() const;
-  public:
+
+public:
   void clear_y();
   uint32_t y() const;
   void set_y(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_y() const;
   void _internal_set_y(uint32_t value);
-  public:
 
+public:
   // optional uint32 z = 3;
   bool has_z() const;
-  private:
+
+private:
   bool _internal_has_z() const;
-  public:
+
+public:
   void clear_z();
   uint32_t z() const;
   void set_z(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_z() const;
   void _internal_set_z(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.Coordinate)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -519,34 +633,38 @@ class Coordinate final :
     uint32_t y_;
     uint32_t z_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Appearances final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearances) */ {
- public:
+class Appearances final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearances)
+                                                                   */
+{
+public:
   inline Appearances() : Appearances(nullptr) {}
   ~Appearances() override;
-  explicit PROTOBUF_CONSTEXPR Appearances(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      Appearances(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Appearances(const Appearances& from);
-  Appearances(Appearances&& from) noexcept
-    : Appearances() {
+  Appearances(const Appearances &from);
+  Appearances(Appearances &&from) noexcept : Appearances() {
     *this = ::std::move(from);
   }
 
-  inline Appearances& operator=(const Appearances& from) {
+  inline Appearances &operator=(const Appearances &from) {
     CopyFrom(from);
     return *this;
   }
-  inline Appearances& operator=(Appearances&& from) noexcept {
-    if (this == &from) return *this;
+  inline Appearances &operator=(Appearances &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -555,95 +673,106 @@ class Appearances final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Appearances& default_instance() {
+  static const Appearances &default_instance() {
     return *internal_default_instance();
   }
-  static inline const Appearances* internal_default_instance() {
-    return reinterpret_cast<const Appearances*>(
-               &_Appearances_default_instance_);
+  static inline const Appearances *internal_default_instance() {
+    return reinterpret_cast<const Appearances *>(
+        &_Appearances_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    1;
+  static constexpr int kIndexInFileMessages = 1;
 
-  friend void swap(Appearances& a, Appearances& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Appearances* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(Appearances &a, Appearances &b) { a.Swap(&b); }
+  inline void Swap(Appearances *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Appearances* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(Appearances *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  Appearances* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  Appearances *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<Appearances>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Appearances& from);
+  void CopyFrom(const Appearances &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Appearances& from) {
+  void MergeFrom(const Appearances &from) {
     Appearances::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Appearances* other);
+  void InternalSwap(Appearances *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.Appearances";
   }
-  protected:
-  explicit Appearances(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit Appearances(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                       bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -660,138 +789,195 @@ class Appearances final :
   };
   // repeated .Canary.protobuf.appearances.Appearance object = 1;
   int object_size() const;
-  private:
+
+private:
   int _internal_object_size() const;
-  public:
+
+public:
   void clear_object();
-  ::Canary::protobuf::appearances::Appearance* mutable_object(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
-      mutable_object();
-  private:
-  const ::Canary::protobuf::appearances::Appearance& _internal_object(int index) const;
-  ::Canary::protobuf::appearances::Appearance* _internal_add_object();
-  public:
-  const ::Canary::protobuf::appearances::Appearance& object(int index) const;
-  ::Canary::protobuf::appearances::Appearance* add_object();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
-      object() const;
+  ::Canary::protobuf::appearances::Appearance *mutable_object(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> *
+  mutable_object();
+
+private:
+  const ::Canary::protobuf::appearances::Appearance &
+  _internal_object(int index) const;
+  ::Canary::protobuf::appearances::Appearance *_internal_add_object();
+
+public:
+  const ::Canary::protobuf::appearances::Appearance &object(int index) const;
+  ::Canary::protobuf::appearances::Appearance *add_object();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> &
+  object() const;
 
   // repeated .Canary.protobuf.appearances.Appearance outfit = 2;
   int outfit_size() const;
-  private:
+
+private:
   int _internal_outfit_size() const;
-  public:
+
+public:
   void clear_outfit();
-  ::Canary::protobuf::appearances::Appearance* mutable_outfit(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
-      mutable_outfit();
-  private:
-  const ::Canary::protobuf::appearances::Appearance& _internal_outfit(int index) const;
-  ::Canary::protobuf::appearances::Appearance* _internal_add_outfit();
-  public:
-  const ::Canary::protobuf::appearances::Appearance& outfit(int index) const;
-  ::Canary::protobuf::appearances::Appearance* add_outfit();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
-      outfit() const;
+  ::Canary::protobuf::appearances::Appearance *mutable_outfit(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> *
+  mutable_outfit();
+
+private:
+  const ::Canary::protobuf::appearances::Appearance &
+  _internal_outfit(int index) const;
+  ::Canary::protobuf::appearances::Appearance *_internal_add_outfit();
+
+public:
+  const ::Canary::protobuf::appearances::Appearance &outfit(int index) const;
+  ::Canary::protobuf::appearances::Appearance *add_outfit();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> &
+  outfit() const;
 
   // repeated .Canary.protobuf.appearances.Appearance effect = 3;
   int effect_size() const;
-  private:
+
+private:
   int _internal_effect_size() const;
-  public:
+
+public:
   void clear_effect();
-  ::Canary::protobuf::appearances::Appearance* mutable_effect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
-      mutable_effect();
-  private:
-  const ::Canary::protobuf::appearances::Appearance& _internal_effect(int index) const;
-  ::Canary::protobuf::appearances::Appearance* _internal_add_effect();
-  public:
-  const ::Canary::protobuf::appearances::Appearance& effect(int index) const;
-  ::Canary::protobuf::appearances::Appearance* add_effect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
-      effect() const;
+  ::Canary::protobuf::appearances::Appearance *mutable_effect(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> *
+  mutable_effect();
+
+private:
+  const ::Canary::protobuf::appearances::Appearance &
+  _internal_effect(int index) const;
+  ::Canary::protobuf::appearances::Appearance *_internal_add_effect();
+
+public:
+  const ::Canary::protobuf::appearances::Appearance &effect(int index) const;
+  ::Canary::protobuf::appearances::Appearance *add_effect();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> &
+  effect() const;
 
   // repeated .Canary.protobuf.appearances.Appearance missile = 4;
   int missile_size() const;
-  private:
-  int _internal_missile_size() const;
-  public:
-  void clear_missile();
-  ::Canary::protobuf::appearances::Appearance* mutable_missile(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
-      mutable_missile();
-  private:
-  const ::Canary::protobuf::appearances::Appearance& _internal_missile(int index) const;
-  ::Canary::protobuf::appearances::Appearance* _internal_add_missile();
-  public:
-  const ::Canary::protobuf::appearances::Appearance& missile(int index) const;
-  ::Canary::protobuf::appearances::Appearance* add_missile();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
-      missile() const;
 
-  // optional .Canary.protobuf.appearances.SpecialMeaningAppearanceIds special_meaning_appearance_ids = 5;
+private:
+  int _internal_missile_size() const;
+
+public:
+  void clear_missile();
+  ::Canary::protobuf::appearances::Appearance *mutable_missile(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> *
+  mutable_missile();
+
+private:
+  const ::Canary::protobuf::appearances::Appearance &
+  _internal_missile(int index) const;
+  ::Canary::protobuf::appearances::Appearance *_internal_add_missile();
+
+public:
+  const ::Canary::protobuf::appearances::Appearance &missile(int index) const;
+  ::Canary::protobuf::appearances::Appearance *add_missile();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Appearance> &
+  missile() const;
+
+  // optional .Canary.protobuf.appearances.SpecialMeaningAppearanceIds
+  // special_meaning_appearance_ids = 5;
   bool has_special_meaning_appearance_ids() const;
-  private:
+
+private:
   bool _internal_has_special_meaning_appearance_ids() const;
-  public:
+
+public:
   void clear_special_meaning_appearance_ids();
-  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds& special_meaning_appearance_ids() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* release_special_meaning_appearance_ids();
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* mutable_special_meaning_appearance_ids();
-  void set_allocated_special_meaning_appearance_ids(::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* special_meaning_appearance_ids);
-  private:
-  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds& _internal_special_meaning_appearance_ids() const;
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* _internal_mutable_special_meaning_appearance_ids();
-  public:
+  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds &
+  special_meaning_appearance_ids() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::
+      SpecialMeaningAppearanceIds *
+      release_special_meaning_appearance_ids();
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+  mutable_special_meaning_appearance_ids();
+  void set_allocated_special_meaning_appearance_ids(
+      ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds
+          *special_meaning_appearance_ids);
+
+private:
+  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds &
+  _internal_special_meaning_appearance_ids() const;
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+  _internal_mutable_special_meaning_appearance_ids();
+
+public:
   void unsafe_arena_set_allocated_special_meaning_appearance_ids(
-      ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* special_meaning_appearance_ids);
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* unsafe_arena_release_special_meaning_appearance_ids();
+      ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds
+          *special_meaning_appearance_ids);
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+  unsafe_arena_release_special_meaning_appearance_ids();
 
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.Appearances)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance > object_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance > outfit_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance > effect_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance > missile_;
-    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* special_meaning_appearance_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::Appearance>
+        object_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::Appearance>
+        outfit_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::Appearance>
+        effect_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::Appearance>
+        missile_;
+    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds
+        *special_meaning_appearance_ids_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SpritePhase final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpritePhase) */ {
- public:
+class SpritePhase final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpritePhase)
+                                                                   */
+{
+public:
   inline SpritePhase() : SpritePhase(nullptr) {}
   ~SpritePhase() override;
-  explicit PROTOBUF_CONSTEXPR SpritePhase(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      SpritePhase(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SpritePhase(const SpritePhase& from);
-  SpritePhase(SpritePhase&& from) noexcept
-    : SpritePhase() {
+  SpritePhase(const SpritePhase &from);
+  SpritePhase(SpritePhase &&from) noexcept : SpritePhase() {
     *this = ::std::move(from);
   }
 
-  inline SpritePhase& operator=(const SpritePhase& from) {
+  inline SpritePhase &operator=(const SpritePhase &from) {
     CopyFrom(from);
     return *this;
   }
-  inline SpritePhase& operator=(SpritePhase&& from) noexcept {
-    if (this == &from) return *this;
+  inline SpritePhase &operator=(SpritePhase &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -800,95 +986,106 @@ class SpritePhase final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SpritePhase& default_instance() {
+  static const SpritePhase &default_instance() {
     return *internal_default_instance();
   }
-  static inline const SpritePhase* internal_default_instance() {
-    return reinterpret_cast<const SpritePhase*>(
-               &_SpritePhase_default_instance_);
+  static inline const SpritePhase *internal_default_instance() {
+    return reinterpret_cast<const SpritePhase *>(
+        &_SpritePhase_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    2;
+  static constexpr int kIndexInFileMessages = 2;
 
-  friend void swap(SpritePhase& a, SpritePhase& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SpritePhase* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(SpritePhase &a, SpritePhase &b) { a.Swap(&b); }
+  inline void Swap(SpritePhase *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SpritePhase* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(SpritePhase *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  SpritePhase* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  SpritePhase *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<SpritePhase>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SpritePhase& from);
+  void CopyFrom(const SpritePhase &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SpritePhase& from) {
+  void MergeFrom(const SpritePhase &from) {
     SpritePhase::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SpritePhase* other);
+  void InternalSwap(SpritePhase *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.SpritePhase";
   }
-  protected:
-  explicit SpritePhase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit SpritePhase(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                       bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -902,35 +1099,42 @@ class SpritePhase final :
   };
   // optional uint32 duration_min = 1;
   bool has_duration_min() const;
-  private:
+
+private:
   bool _internal_has_duration_min() const;
-  public:
+
+public:
   void clear_duration_min();
   uint32_t duration_min() const;
   void set_duration_min(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_duration_min() const;
   void _internal_set_duration_min(uint32_t value);
-  public:
 
+public:
   // optional uint32 duration_max = 2;
   bool has_duration_max() const;
-  private:
+
+private:
   bool _internal_has_duration_max() const;
-  public:
+
+public:
   void clear_duration_max();
   uint32_t duration_max() const;
   void set_duration_max(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_duration_max() const;
   void _internal_set_duration_max(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.SpritePhase)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -939,34 +1143,38 @@ class SpritePhase final :
     uint32_t duration_min_;
     uint32_t duration_max_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SpriteAnimation final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteAnimation) */ {
- public:
+class SpriteAnimation final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteAnimation)
+                                                                       */
+{
+public:
   inline SpriteAnimation() : SpriteAnimation(nullptr) {}
   ~SpriteAnimation() override;
-  explicit PROTOBUF_CONSTEXPR SpriteAnimation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      SpriteAnimation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SpriteAnimation(const SpriteAnimation& from);
-  SpriteAnimation(SpriteAnimation&& from) noexcept
-    : SpriteAnimation() {
+  SpriteAnimation(const SpriteAnimation &from);
+  SpriteAnimation(SpriteAnimation &&from) noexcept : SpriteAnimation() {
     *this = ::std::move(from);
   }
 
-  inline SpriteAnimation& operator=(const SpriteAnimation& from) {
+  inline SpriteAnimation &operator=(const SpriteAnimation &from) {
     CopyFrom(from);
     return *this;
   }
-  inline SpriteAnimation& operator=(SpriteAnimation&& from) noexcept {
-    if (this == &from) return *this;
+  inline SpriteAnimation &operator=(SpriteAnimation &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -975,95 +1183,106 @@ class SpriteAnimation final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SpriteAnimation& default_instance() {
+  static const SpriteAnimation &default_instance() {
     return *internal_default_instance();
   }
-  static inline const SpriteAnimation* internal_default_instance() {
-    return reinterpret_cast<const SpriteAnimation*>(
-               &_SpriteAnimation_default_instance_);
+  static inline const SpriteAnimation *internal_default_instance() {
+    return reinterpret_cast<const SpriteAnimation *>(
+        &_SpriteAnimation_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    3;
+  static constexpr int kIndexInFileMessages = 3;
 
-  friend void swap(SpriteAnimation& a, SpriteAnimation& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SpriteAnimation* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(SpriteAnimation &a, SpriteAnimation &b) { a.Swap(&b); }
+  inline void Swap(SpriteAnimation *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SpriteAnimation* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(SpriteAnimation *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  SpriteAnimation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  SpriteAnimation *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<SpriteAnimation>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SpriteAnimation& from);
+  void CopyFrom(const SpriteAnimation &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SpriteAnimation& from) {
+  void MergeFrom(const SpriteAnimation &from) {
     SpriteAnimation::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SpriteAnimation* other);
+  void InternalSwap(SpriteAnimation *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.SpriteAnimation";
   }
-  protected:
-  explicit SpriteAnimation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit SpriteAnimation(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                           bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -1081,132 +1300,163 @@ class SpriteAnimation final :
   };
   // repeated .Canary.protobuf.appearances.SpritePhase sprite_phase = 6;
   int sprite_phase_size() const;
-  private:
+
+private:
   int _internal_sprite_phase_size() const;
-  public:
+
+public:
   void clear_sprite_phase();
-  ::Canary::protobuf::appearances::SpritePhase* mutable_sprite_phase(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::SpritePhase >*
-      mutable_sprite_phase();
-  private:
-  const ::Canary::protobuf::appearances::SpritePhase& _internal_sprite_phase(int index) const;
-  ::Canary::protobuf::appearances::SpritePhase* _internal_add_sprite_phase();
-  public:
-  const ::Canary::protobuf::appearances::SpritePhase& sprite_phase(int index) const;
-  ::Canary::protobuf::appearances::SpritePhase* add_sprite_phase();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::SpritePhase >&
-      sprite_phase() const;
+  ::Canary::protobuf::appearances::SpritePhase *mutable_sprite_phase(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::SpritePhase> *
+  mutable_sprite_phase();
+
+private:
+  const ::Canary::protobuf::appearances::SpritePhase &
+  _internal_sprite_phase(int index) const;
+  ::Canary::protobuf::appearances::SpritePhase *_internal_add_sprite_phase();
+
+public:
+  const ::Canary::protobuf::appearances::SpritePhase &
+  sprite_phase(int index) const;
+  ::Canary::protobuf::appearances::SpritePhase *add_sprite_phase();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::SpritePhase> &
+  sprite_phase() const;
 
   // optional uint32 default_start_phase = 1;
   bool has_default_start_phase() const;
-  private:
+
+private:
   bool _internal_has_default_start_phase() const;
-  public:
+
+public:
   void clear_default_start_phase();
   uint32_t default_start_phase() const;
   void set_default_start_phase(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_default_start_phase() const;
   void _internal_set_default_start_phase(uint32_t value);
-  public:
 
+public:
   // optional bool synchronized = 2;
   bool has_synchronized() const;
-  private:
+
+private:
   bool _internal_has_synchronized() const;
-  public:
+
+public:
   void clear_synchronized();
   bool synchronized() const;
   void set_synchronized(bool value);
-  private:
+
+private:
   bool _internal_synchronized() const;
   void _internal_set_synchronized(bool value);
-  public:
 
+public:
   // optional bool random_start_phase = 3;
   bool has_random_start_phase() const;
-  private:
+
+private:
   bool _internal_has_random_start_phase() const;
-  public:
+
+public:
   void clear_random_start_phase();
   bool random_start_phase() const;
   void set_random_start_phase(bool value);
-  private:
+
+private:
   bool _internal_random_start_phase() const;
   void _internal_set_random_start_phase(bool value);
-  public:
 
+public:
   // optional uint32 loop_count = 5;
   bool has_loop_count() const;
-  private:
+
+private:
   bool _internal_has_loop_count() const;
-  public:
+
+public:
   void clear_loop_count();
   uint32_t loop_count() const;
   void set_loop_count(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_loop_count() const;
   void _internal_set_loop_count(uint32_t value);
-  public:
 
+public:
   // optional .Canary.protobuf.appearances.ANIMATION_LOOP_TYPE loop_type = 4;
   bool has_loop_type() const;
-  private:
+
+private:
   bool _internal_has_loop_type() const;
-  public:
+
+public:
   void clear_loop_type();
   ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE loop_type() const;
-  void set_loop_type(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value);
-  private:
-  ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE _internal_loop_type() const;
-  void _internal_set_loop_type(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value);
-  public:
+  void
+  set_loop_type(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value);
 
+private:
+  ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE
+  _internal_loop_type() const;
+  void _internal_set_loop_type(
+      ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value);
+
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.SpriteAnimation)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::SpritePhase > sprite_phase_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::SpritePhase>
+        sprite_phase_;
     uint32_t default_start_phase_;
     bool synchronized_;
     bool random_start_phase_;
     uint32_t loop_count_;
     int loop_type_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Box final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Box) */ {
- public:
+class Box final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Box)
+                                                           */
+{
+public:
   inline Box() : Box(nullptr) {}
   ~Box() override;
-  explicit PROTOBUF_CONSTEXPR Box(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      Box(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Box(const Box& from);
-  Box(Box&& from) noexcept
-    : Box() {
-    *this = ::std::move(from);
-  }
+  Box(const Box &from);
+  Box(Box &&from) noexcept : Box() { *this = ::std::move(from); }
 
-  inline Box& operator=(const Box& from) {
+  inline Box &operator=(const Box &from) {
     CopyFrom(from);
     return *this;
   }
-  inline Box& operator=(Box&& from) noexcept {
-    if (this == &from) return *this;
+  inline Box &operator=(Box &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -1215,95 +1465,100 @@ class Box final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Box& default_instance() {
-    return *internal_default_instance();
+  static const Box &default_instance() { return *internal_default_instance(); }
+  static inline const Box *internal_default_instance() {
+    return reinterpret_cast<const Box *>(&_Box_default_instance_);
   }
-  static inline const Box* internal_default_instance() {
-    return reinterpret_cast<const Box*>(
-               &_Box_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
+  static constexpr int kIndexInFileMessages = 4;
 
-  friend void swap(Box& a, Box& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Box* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(Box &a, Box &b) { a.Swap(&b); }
+  inline void Swap(Box *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Box* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(Box *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  Box* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  Box *New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<Box>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Box& from);
+  void CopyFrom(const Box &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Box& from) {
-    Box::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+  void MergeFrom(const Box &from) { Box::MergeImpl(*this, from); }
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Box* other);
+  void InternalSwap(Box *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.Box";
   }
-  protected:
-  explicit Box(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit Box(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+               bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -1319,61 +1574,74 @@ class Box final :
   };
   // optional uint32 x = 1;
   bool has_x() const;
-  private:
+
+private:
   bool _internal_has_x() const;
-  public:
+
+public:
   void clear_x();
   uint32_t x() const;
   void set_x(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_x() const;
   void _internal_set_x(uint32_t value);
-  public:
 
+public:
   // optional uint32 y = 2;
   bool has_y() const;
-  private:
+
+private:
   bool _internal_has_y() const;
-  public:
+
+public:
   void clear_y();
   uint32_t y() const;
   void set_y(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_y() const;
   void _internal_set_y(uint32_t value);
-  public:
 
+public:
   // optional uint32 width = 3;
   bool has_width() const;
-  private:
+
+private:
   bool _internal_has_width() const;
-  public:
+
+public:
   void clear_width();
   uint32_t width() const;
   void set_width(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_width() const;
   void _internal_set_width(uint32_t value);
-  public:
 
+public:
   // optional uint32 height = 4;
   bool has_height() const;
-  private:
+
+private:
   bool _internal_has_height() const;
-  public:
+
+public:
   void clear_height();
   uint32_t height() const;
   void set_height(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_height() const;
   void _internal_set_height(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.Box)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -1384,34 +1652,38 @@ class Box final :
     uint32_t width_;
     uint32_t height_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SpriteInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteInfo) */ {
- public:
+class SpriteInfo final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpriteInfo)
+                                                                  */
+{
+public:
   inline SpriteInfo() : SpriteInfo(nullptr) {}
   ~SpriteInfo() override;
-  explicit PROTOBUF_CONSTEXPR SpriteInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      SpriteInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SpriteInfo(const SpriteInfo& from);
-  SpriteInfo(SpriteInfo&& from) noexcept
-    : SpriteInfo() {
+  SpriteInfo(const SpriteInfo &from);
+  SpriteInfo(SpriteInfo &&from) noexcept : SpriteInfo() {
     *this = ::std::move(from);
   }
 
-  inline SpriteInfo& operator=(const SpriteInfo& from) {
+  inline SpriteInfo &operator=(const SpriteInfo &from) {
     CopyFrom(from);
     return *this;
   }
-  inline SpriteInfo& operator=(SpriteInfo&& from) noexcept {
-    if (this == &from) return *this;
+  inline SpriteInfo &operator=(SpriteInfo &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -1420,95 +1692,102 @@ class SpriteInfo final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SpriteInfo& default_instance() {
+  static const SpriteInfo &default_instance() {
     return *internal_default_instance();
   }
-  static inline const SpriteInfo* internal_default_instance() {
-    return reinterpret_cast<const SpriteInfo*>(
-               &_SpriteInfo_default_instance_);
+  static inline const SpriteInfo *internal_default_instance() {
+    return reinterpret_cast<const SpriteInfo *>(&_SpriteInfo_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    5;
+  static constexpr int kIndexInFileMessages = 5;
 
-  friend void swap(SpriteInfo& a, SpriteInfo& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SpriteInfo* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(SpriteInfo &a, SpriteInfo &b) { a.Swap(&b); }
+  inline void Swap(SpriteInfo *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SpriteInfo* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(SpriteInfo *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  SpriteInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  SpriteInfo *New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<SpriteInfo>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SpriteInfo& from);
+  void CopyFrom(const SpriteInfo &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SpriteInfo& from) {
-    SpriteInfo::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+  void MergeFrom(const SpriteInfo &from) { SpriteInfo::MergeImpl(*this, from); }
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SpriteInfo* other);
+  void InternalSwap(SpriteInfo *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.SpriteInfo";
   }
-  protected:
-  explicit SpriteInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit SpriteInfo(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                      bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -1529,153 +1808,195 @@ class SpriteInfo final :
   };
   // repeated uint32 sprite_id = 5;
   int sprite_id_size() const;
-  private:
+
+private:
   int _internal_sprite_id_size() const;
-  public:
+
+public:
   void clear_sprite_id();
-  private:
+
+private:
   uint32_t _internal_sprite_id(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_sprite_id() const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> &
+  _internal_sprite_id() const;
   void _internal_add_sprite_id(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_sprite_id();
-  public:
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> *
+  _internal_mutable_sprite_id();
+
+public:
   uint32_t sprite_id(int index) const;
   void set_sprite_id(int index, uint32_t value);
   void add_sprite_id(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      sprite_id() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_sprite_id();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> &sprite_id() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> *mutable_sprite_id();
 
   // repeated .Canary.protobuf.appearances.Box bounding_box_per_direction = 9;
   int bounding_box_per_direction_size() const;
-  private:
+
+private:
   int _internal_bounding_box_per_direction_size() const;
-  public:
+
+public:
   void clear_bounding_box_per_direction();
-  ::Canary::protobuf::appearances::Box* mutable_bounding_box_per_direction(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Box >*
-      mutable_bounding_box_per_direction();
-  private:
-  const ::Canary::protobuf::appearances::Box& _internal_bounding_box_per_direction(int index) const;
-  ::Canary::protobuf::appearances::Box* _internal_add_bounding_box_per_direction();
-  public:
-  const ::Canary::protobuf::appearances::Box& bounding_box_per_direction(int index) const;
-  ::Canary::protobuf::appearances::Box* add_bounding_box_per_direction();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Box >&
-      bounding_box_per_direction() const;
+  ::Canary::protobuf::appearances::Box *
+  mutable_bounding_box_per_direction(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Box> *
+  mutable_bounding_box_per_direction();
+
+private:
+  const ::Canary::protobuf::appearances::Box &
+  _internal_bounding_box_per_direction(int index) const;
+  ::Canary::protobuf::appearances::Box *
+  _internal_add_bounding_box_per_direction();
+
+public:
+  const ::Canary::protobuf::appearances::Box &
+  bounding_box_per_direction(int index) const;
+  ::Canary::protobuf::appearances::Box *add_bounding_box_per_direction();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::Box> &
+  bounding_box_per_direction() const;
 
   // optional .Canary.protobuf.appearances.SpriteAnimation animation = 6;
   bool has_animation() const;
-  private:
+
+private:
   bool _internal_has_animation() const;
-  public:
+
+public:
   void clear_animation();
-  const ::Canary::protobuf::appearances::SpriteAnimation& animation() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::SpriteAnimation* release_animation();
-  ::Canary::protobuf::appearances::SpriteAnimation* mutable_animation();
-  void set_allocated_animation(::Canary::protobuf::appearances::SpriteAnimation* animation);
-  private:
-  const ::Canary::protobuf::appearances::SpriteAnimation& _internal_animation() const;
-  ::Canary::protobuf::appearances::SpriteAnimation* _internal_mutable_animation();
-  public:
+  const ::Canary::protobuf::appearances::SpriteAnimation &animation() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::SpriteAnimation *
+  release_animation();
+  ::Canary::protobuf::appearances::SpriteAnimation *mutable_animation();
+  void set_allocated_animation(
+      ::Canary::protobuf::appearances::SpriteAnimation *animation);
+
+private:
+  const ::Canary::protobuf::appearances::SpriteAnimation &
+  _internal_animation() const;
+  ::Canary::protobuf::appearances::SpriteAnimation *
+  _internal_mutable_animation();
+
+public:
   void unsafe_arena_set_allocated_animation(
-      ::Canary::protobuf::appearances::SpriteAnimation* animation);
-  ::Canary::protobuf::appearances::SpriteAnimation* unsafe_arena_release_animation();
+      ::Canary::protobuf::appearances::SpriteAnimation *animation);
+  ::Canary::protobuf::appearances::SpriteAnimation *
+  unsafe_arena_release_animation();
 
   // optional uint32 pattern_width = 1;
   bool has_pattern_width() const;
-  private:
+
+private:
   bool _internal_has_pattern_width() const;
-  public:
+
+public:
   void clear_pattern_width();
   uint32_t pattern_width() const;
   void set_pattern_width(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_pattern_width() const;
   void _internal_set_pattern_width(uint32_t value);
-  public:
 
+public:
   // optional uint32 pattern_height = 2;
   bool has_pattern_height() const;
-  private:
+
+private:
   bool _internal_has_pattern_height() const;
-  public:
+
+public:
   void clear_pattern_height();
   uint32_t pattern_height() const;
   void set_pattern_height(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_pattern_height() const;
   void _internal_set_pattern_height(uint32_t value);
-  public:
 
+public:
   // optional uint32 pattern_depth = 3;
   bool has_pattern_depth() const;
-  private:
+
+private:
   bool _internal_has_pattern_depth() const;
-  public:
+
+public:
   void clear_pattern_depth();
   uint32_t pattern_depth() const;
   void set_pattern_depth(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_pattern_depth() const;
   void _internal_set_pattern_depth(uint32_t value);
-  public:
 
+public:
   // optional uint32 layers = 4;
   bool has_layers() const;
-  private:
+
+private:
   bool _internal_has_layers() const;
-  public:
+
+public:
   void clear_layers();
   uint32_t layers() const;
   void set_layers(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_layers() const;
   void _internal_set_layers(uint32_t value);
-  public:
 
+public:
   // optional uint32 bounding_square = 7;
   bool has_bounding_square() const;
-  private:
+
+private:
   bool _internal_has_bounding_square() const;
-  public:
+
+public:
   void clear_bounding_square();
   uint32_t bounding_square() const;
   void set_bounding_square(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_bounding_square() const;
   void _internal_set_bounding_square(uint32_t value);
-  public:
 
+public:
   // optional bool is_opaque = 8;
   bool has_is_opaque() const;
-  private:
+
+private:
   bool _internal_has_is_opaque() const;
-  public:
+
+public:
   void clear_is_opaque();
   bool is_opaque() const;
   void set_is_opaque(bool value);
-  private:
+
+private:
   bool _internal_is_opaque() const;
   void _internal_set_is_opaque(bool value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.SpriteInfo)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > sprite_id_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Box > bounding_box_per_direction_;
-    ::Canary::protobuf::appearances::SpriteAnimation* animation_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> sprite_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::Box>
+        bounding_box_per_direction_;
+    ::Canary::protobuf::appearances::SpriteAnimation *animation_;
     uint32_t pattern_width_;
     uint32_t pattern_height_;
     uint32_t pattern_depth_;
@@ -1683,34 +2004,38 @@ class SpriteInfo final :
     uint32_t bounding_square_;
     bool is_opaque_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class FrameGroup final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.FrameGroup) */ {
- public:
+class FrameGroup final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.FrameGroup)
+                                                                  */
+{
+public:
   inline FrameGroup() : FrameGroup(nullptr) {}
   ~FrameGroup() override;
-  explicit PROTOBUF_CONSTEXPR FrameGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      FrameGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FrameGroup(const FrameGroup& from);
-  FrameGroup(FrameGroup&& from) noexcept
-    : FrameGroup() {
+  FrameGroup(const FrameGroup &from);
+  FrameGroup(FrameGroup &&from) noexcept : FrameGroup() {
     *this = ::std::move(from);
   }
 
-  inline FrameGroup& operator=(const FrameGroup& from) {
+  inline FrameGroup &operator=(const FrameGroup &from) {
     CopyFrom(from);
     return *this;
   }
-  inline FrameGroup& operator=(FrameGroup&& from) noexcept {
-    if (this == &from) return *this;
+  inline FrameGroup &operator=(FrameGroup &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -1719,95 +2044,102 @@ class FrameGroup final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const FrameGroup& default_instance() {
+  static const FrameGroup &default_instance() {
     return *internal_default_instance();
   }
-  static inline const FrameGroup* internal_default_instance() {
-    return reinterpret_cast<const FrameGroup*>(
-               &_FrameGroup_default_instance_);
+  static inline const FrameGroup *internal_default_instance() {
+    return reinterpret_cast<const FrameGroup *>(&_FrameGroup_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    6;
+  static constexpr int kIndexInFileMessages = 6;
 
-  friend void swap(FrameGroup& a, FrameGroup& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(FrameGroup* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(FrameGroup &a, FrameGroup &b) { a.Swap(&b); }
+  inline void Swap(FrameGroup *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FrameGroup* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(FrameGroup *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  FrameGroup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  FrameGroup *New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<FrameGroup>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FrameGroup& from);
+  void CopyFrom(const FrameGroup &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FrameGroup& from) {
-    FrameGroup::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+  void MergeFrom(const FrameGroup &from) { FrameGroup::MergeImpl(*this, from); }
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FrameGroup* other);
+  void InternalSwap(FrameGroup *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.FrameGroup";
   }
-  protected:
-  explicit FrameGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit FrameGroup(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                      bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -1822,90 +2154,113 @@ class FrameGroup final :
   };
   // optional .Canary.protobuf.appearances.SpriteInfo sprite_info = 3;
   bool has_sprite_info() const;
-  private:
-  bool _internal_has_sprite_info() const;
-  public:
-  void clear_sprite_info();
-  const ::Canary::protobuf::appearances::SpriteInfo& sprite_info() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::SpriteInfo* release_sprite_info();
-  ::Canary::protobuf::appearances::SpriteInfo* mutable_sprite_info();
-  void set_allocated_sprite_info(::Canary::protobuf::appearances::SpriteInfo* sprite_info);
-  private:
-  const ::Canary::protobuf::appearances::SpriteInfo& _internal_sprite_info() const;
-  ::Canary::protobuf::appearances::SpriteInfo* _internal_mutable_sprite_info();
-  public:
-  void unsafe_arena_set_allocated_sprite_info(
-      ::Canary::protobuf::appearances::SpriteInfo* sprite_info);
-  ::Canary::protobuf::appearances::SpriteInfo* unsafe_arena_release_sprite_info();
 
-  // optional .Canary.protobuf.appearances.FIXED_FRAME_GROUP fixed_frame_group = 1;
+private:
+  bool _internal_has_sprite_info() const;
+
+public:
+  void clear_sprite_info();
+  const ::Canary::protobuf::appearances::SpriteInfo &sprite_info() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::SpriteInfo *
+  release_sprite_info();
+  ::Canary::protobuf::appearances::SpriteInfo *mutable_sprite_info();
+  void set_allocated_sprite_info(
+      ::Canary::protobuf::appearances::SpriteInfo *sprite_info);
+
+private:
+  const ::Canary::protobuf::appearances::SpriteInfo &
+  _internal_sprite_info() const;
+  ::Canary::protobuf::appearances::SpriteInfo *_internal_mutable_sprite_info();
+
+public:
+  void unsafe_arena_set_allocated_sprite_info(
+      ::Canary::protobuf::appearances::SpriteInfo *sprite_info);
+  ::Canary::protobuf::appearances::SpriteInfo *
+  unsafe_arena_release_sprite_info();
+
+  // optional .Canary.protobuf.appearances.FIXED_FRAME_GROUP fixed_frame_group =
+  // 1;
   bool has_fixed_frame_group() const;
-  private:
+
+private:
   bool _internal_has_fixed_frame_group() const;
-  public:
+
+public:
   void clear_fixed_frame_group();
   ::Canary::protobuf::appearances::FIXED_FRAME_GROUP fixed_frame_group() const;
-  void set_fixed_frame_group(::Canary::protobuf::appearances::FIXED_FRAME_GROUP value);
-  private:
-  ::Canary::protobuf::appearances::FIXED_FRAME_GROUP _internal_fixed_frame_group() const;
-  void _internal_set_fixed_frame_group(::Canary::protobuf::appearances::FIXED_FRAME_GROUP value);
-  public:
+  void set_fixed_frame_group(
+      ::Canary::protobuf::appearances::FIXED_FRAME_GROUP value);
 
+private:
+  ::Canary::protobuf::appearances::FIXED_FRAME_GROUP
+  _internal_fixed_frame_group() const;
+  void _internal_set_fixed_frame_group(
+      ::Canary::protobuf::appearances::FIXED_FRAME_GROUP value);
+
+public:
   // optional uint32 id = 2;
   bool has_id() const;
-  private:
+
+private:
   bool _internal_has_id() const;
-  public:
+
+public:
   void clear_id();
   uint32_t id() const;
   void set_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_id() const;
   void _internal_set_id(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.FrameGroup)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::Canary::protobuf::appearances::SpriteInfo* sprite_info_;
+    ::Canary::protobuf::appearances::SpriteInfo *sprite_info_;
     int fixed_frame_group_;
     uint32_t id_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Appearance final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearance) */ {
- public:
+class Appearance final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.Appearance)
+                                                                  */
+{
+public:
   inline Appearance() : Appearance(nullptr) {}
   ~Appearance() override;
-  explicit PROTOBUF_CONSTEXPR Appearance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      Appearance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Appearance(const Appearance& from);
-  Appearance(Appearance&& from) noexcept
-    : Appearance() {
+  Appearance(const Appearance &from);
+  Appearance(Appearance &&from) noexcept : Appearance() {
     *this = ::std::move(from);
   }
 
-  inline Appearance& operator=(const Appearance& from) {
+  inline Appearance &operator=(const Appearance &from) {
     CopyFrom(from);
     return *this;
   }
-  inline Appearance& operator=(Appearance&& from) noexcept {
-    if (this == &from) return *this;
+  inline Appearance &operator=(Appearance &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -1914,95 +2269,102 @@ class Appearance final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Appearance& default_instance() {
+  static const Appearance &default_instance() {
     return *internal_default_instance();
   }
-  static inline const Appearance* internal_default_instance() {
-    return reinterpret_cast<const Appearance*>(
-               &_Appearance_default_instance_);
+  static inline const Appearance *internal_default_instance() {
+    return reinterpret_cast<const Appearance *>(&_Appearance_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    7;
+  static constexpr int kIndexInFileMessages = 7;
 
-  friend void swap(Appearance& a, Appearance& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Appearance* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(Appearance &a, Appearance &b) { a.Swap(&b); }
+  inline void Swap(Appearance *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Appearance* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(Appearance *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  Appearance* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  Appearance *New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<Appearance>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Appearance& from);
+  void CopyFrom(const Appearance &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Appearance& from) {
-    Appearance::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+  void MergeFrom(const Appearance &from) { Appearance::MergeImpl(*this, from); }
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Appearance* other);
+  void InternalSwap(Appearance *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.Appearance";
   }
-  protected:
-  explicit Appearance(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit Appearance(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                      bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -2019,133 +2381,167 @@ class Appearance final :
   };
   // repeated .Canary.protobuf.appearances.FrameGroup frame_group = 2;
   int frame_group_size() const;
-  private:
+
+private:
   int _internal_frame_group_size() const;
-  public:
+
+public:
   void clear_frame_group();
-  ::Canary::protobuf::appearances::FrameGroup* mutable_frame_group(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::FrameGroup >*
-      mutable_frame_group();
-  private:
-  const ::Canary::protobuf::appearances::FrameGroup& _internal_frame_group(int index) const;
-  ::Canary::protobuf::appearances::FrameGroup* _internal_add_frame_group();
-  public:
-  const ::Canary::protobuf::appearances::FrameGroup& frame_group(int index) const;
-  ::Canary::protobuf::appearances::FrameGroup* add_frame_group();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::FrameGroup >&
-      frame_group() const;
+  ::Canary::protobuf::appearances::FrameGroup *mutable_frame_group(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::FrameGroup> *
+  mutable_frame_group();
+
+private:
+  const ::Canary::protobuf::appearances::FrameGroup &
+  _internal_frame_group(int index) const;
+  ::Canary::protobuf::appearances::FrameGroup *_internal_add_frame_group();
+
+public:
+  const ::Canary::protobuf::appearances::FrameGroup &
+  frame_group(int index) const;
+  ::Canary::protobuf::appearances::FrameGroup *add_frame_group();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::FrameGroup> &
+  frame_group() const;
 
   // optional bytes name = 4;
   bool has_name() const;
-  private:
-  bool _internal_has_name() const;
-  public:
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
 
+private:
+  bool _internal_has_name() const;
+
+public:
+  void clear_name();
+  const std::string &name() const;
+  template <typename ArgT0 = const std::string &, typename... ArgT>
+  void set_name(ArgT0 &&arg0, ArgT... args);
+  std::string *mutable_name();
+  PROTOBUF_NODISCARD std::string *release_name();
+  void set_allocated_name(std::string *name);
+
+private:
+  const std::string &_internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void
+  _internal_set_name(const std::string &value);
+  std::string *_internal_mutable_name();
+
+public:
   // optional bytes description = 5;
   bool has_description() const;
-  private:
-  bool _internal_has_description() const;
-  public:
-  void clear_description();
-  const std::string& description() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_description(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_description();
-  PROTOBUF_NODISCARD std::string* release_description();
-  void set_allocated_description(std::string* description);
-  private:
-  const std::string& _internal_description() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_description(const std::string& value);
-  std::string* _internal_mutable_description();
-  public:
 
+private:
+  bool _internal_has_description() const;
+
+public:
+  void clear_description();
+  const std::string &description() const;
+  template <typename ArgT0 = const std::string &, typename... ArgT>
+  void set_description(ArgT0 &&arg0, ArgT... args);
+  std::string *mutable_description();
+  PROTOBUF_NODISCARD std::string *release_description();
+  void set_allocated_description(std::string *description);
+
+private:
+  const std::string &_internal_description() const;
+  inline PROTOBUF_ALWAYS_INLINE void
+  _internal_set_description(const std::string &value);
+  std::string *_internal_mutable_description();
+
+public:
   // optional .Canary.protobuf.appearances.AppearanceFlags flags = 3;
   bool has_flags() const;
-  private:
+
+private:
   bool _internal_has_flags() const;
-  public:
+
+public:
   void clear_flags();
-  const ::Canary::protobuf::appearances::AppearanceFlags& flags() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlags* release_flags();
-  ::Canary::protobuf::appearances::AppearanceFlags* mutable_flags();
-  void set_allocated_flags(::Canary::protobuf::appearances::AppearanceFlags* flags);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlags& _internal_flags() const;
-  ::Canary::protobuf::appearances::AppearanceFlags* _internal_mutable_flags();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlags &flags() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlags *
+  release_flags();
+  ::Canary::protobuf::appearances::AppearanceFlags *mutable_flags();
+  void
+  set_allocated_flags(::Canary::protobuf::appearances::AppearanceFlags *flags);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlags &
+  _internal_flags() const;
+  ::Canary::protobuf::appearances::AppearanceFlags *_internal_mutable_flags();
+
+public:
   void unsafe_arena_set_allocated_flags(
-      ::Canary::protobuf::appearances::AppearanceFlags* flags);
-  ::Canary::protobuf::appearances::AppearanceFlags* unsafe_arena_release_flags();
+      ::Canary::protobuf::appearances::AppearanceFlags *flags);
+  ::Canary::protobuf::appearances::AppearanceFlags *
+  unsafe_arena_release_flags();
 
   // optional uint32 id = 1;
   bool has_id() const;
-  private:
+
+private:
   bool _internal_has_id() const;
-  public:
+
+public:
   void clear_id();
   uint32_t id() const;
   void set_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_id() const;
   void _internal_set_id(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.Appearance)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::FrameGroup > frame_group_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::FrameGroup>
+        frame_group_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
-    ::Canary::protobuf::appearances::AppearanceFlags* flags_;
+    ::Canary::protobuf::appearances::AppearanceFlags *flags_;
     uint32_t id_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlags final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlags) */ {
- public:
+class AppearanceFlags final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlags)
+                                                                       */
+{
+public:
   inline AppearanceFlags() : AppearanceFlags(nullptr) {}
   ~AppearanceFlags() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlags(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      AppearanceFlags(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlags(const AppearanceFlags& from);
-  AppearanceFlags(AppearanceFlags&& from) noexcept
-    : AppearanceFlags() {
+  AppearanceFlags(const AppearanceFlags &from);
+  AppearanceFlags(AppearanceFlags &&from) noexcept : AppearanceFlags() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlags& operator=(const AppearanceFlags& from) {
+  inline AppearanceFlags &operator=(const AppearanceFlags &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlags& operator=(AppearanceFlags&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlags &operator=(AppearanceFlags &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -2154,95 +2550,106 @@ class AppearanceFlags final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlags& default_instance() {
+  static const AppearanceFlags &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlags* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlags*>(
-               &_AppearanceFlags_default_instance_);
+  static inline const AppearanceFlags *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlags *>(
+        &_AppearanceFlags_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    8;
+  static constexpr int kIndexInFileMessages = 8;
 
-  friend void swap(AppearanceFlags& a, AppearanceFlags& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AppearanceFlags* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(AppearanceFlags &a, AppearanceFlags &b) { a.Swap(&b); }
+  inline void Swap(AppearanceFlags *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlags* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlags *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlags* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlags *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlags>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlags& from);
+  void CopyFrom(const AppearanceFlags &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlags& from) {
+  void MergeFrom(const AppearanceFlags &from) {
     AppearanceFlags::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlags* other);
+  void InternalSwap(AppearanceFlags *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlags";
   }
-  protected:
-  explicit AppearanceFlags(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlags(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                           bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -2302,734 +2709,1006 @@ class AppearanceFlags final :
   };
   // repeated .Canary.protobuf.appearances.AppearanceFlagNPC npcsaledata = 40;
   int npcsaledata_size() const;
-  private:
+
+private:
   int _internal_npcsaledata_size() const;
-  public:
+
+public:
   void clear_npcsaledata();
-  ::Canary::protobuf::appearances::AppearanceFlagNPC* mutable_npcsaledata(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::AppearanceFlagNPC >*
-      mutable_npcsaledata();
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagNPC& _internal_npcsaledata(int index) const;
-  ::Canary::protobuf::appearances::AppearanceFlagNPC* _internal_add_npcsaledata();
-  public:
-  const ::Canary::protobuf::appearances::AppearanceFlagNPC& npcsaledata(int index) const;
-  ::Canary::protobuf::appearances::AppearanceFlagNPC* add_npcsaledata();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::AppearanceFlagNPC >&
-      npcsaledata() const;
+  ::Canary::protobuf::appearances::AppearanceFlagNPC *
+  mutable_npcsaledata(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::AppearanceFlagNPC> *
+  mutable_npcsaledata();
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagNPC &
+  _internal_npcsaledata(int index) const;
+  ::Canary::protobuf::appearances::AppearanceFlagNPC *
+  _internal_add_npcsaledata();
+
+public:
+  const ::Canary::protobuf::appearances::AppearanceFlagNPC &
+  npcsaledata(int index) const;
+  ::Canary::protobuf::appearances::AppearanceFlagNPC *add_npcsaledata();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+      ::Canary::protobuf::appearances::AppearanceFlagNPC> &
+  npcsaledata() const;
 
   // optional .Canary.protobuf.appearances.AppearanceFlagBank bank = 1;
   bool has_bank() const;
-  private:
+
+private:
   bool _internal_has_bank() const;
-  public:
+
+public:
   void clear_bank();
-  const ::Canary::protobuf::appearances::AppearanceFlagBank& bank() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagBank* release_bank();
-  ::Canary::protobuf::appearances::AppearanceFlagBank* mutable_bank();
-  void set_allocated_bank(::Canary::protobuf::appearances::AppearanceFlagBank* bank);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagBank& _internal_bank() const;
-  ::Canary::protobuf::appearances::AppearanceFlagBank* _internal_mutable_bank();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagBank &bank() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagBank *
+  release_bank();
+  ::Canary::protobuf::appearances::AppearanceFlagBank *mutable_bank();
+  void
+  set_allocated_bank(::Canary::protobuf::appearances::AppearanceFlagBank *bank);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagBank &
+  _internal_bank() const;
+  ::Canary::protobuf::appearances::AppearanceFlagBank *_internal_mutable_bank();
+
+public:
   void unsafe_arena_set_allocated_bank(
-      ::Canary::protobuf::appearances::AppearanceFlagBank* bank);
-  ::Canary::protobuf::appearances::AppearanceFlagBank* unsafe_arena_release_bank();
+      ::Canary::protobuf::appearances::AppearanceFlagBank *bank);
+  ::Canary::protobuf::appearances::AppearanceFlagBank *
+  unsafe_arena_release_bank();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagWrite write = 10;
   bool has_write() const;
-  private:
-  bool _internal_has_write() const;
-  public:
-  void clear_write();
-  const ::Canary::protobuf::appearances::AppearanceFlagWrite& write() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagWrite* release_write();
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* mutable_write();
-  void set_allocated_write(::Canary::protobuf::appearances::AppearanceFlagWrite* write);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagWrite& _internal_write() const;
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* _internal_mutable_write();
-  public:
-  void unsafe_arena_set_allocated_write(
-      ::Canary::protobuf::appearances::AppearanceFlagWrite* write);
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* unsafe_arena_release_write();
 
-  // optional .Canary.protobuf.appearances.AppearanceFlagWriteOnce write_once = 11;
+private:
+  bool _internal_has_write() const;
+
+public:
+  void clear_write();
+  const ::Canary::protobuf::appearances::AppearanceFlagWrite &write() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagWrite *
+  release_write();
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *mutable_write();
+  void set_allocated_write(
+      ::Canary::protobuf::appearances::AppearanceFlagWrite *write);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagWrite &
+  _internal_write() const;
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *
+  _internal_mutable_write();
+
+public:
+  void unsafe_arena_set_allocated_write(
+      ::Canary::protobuf::appearances::AppearanceFlagWrite *write);
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *
+  unsafe_arena_release_write();
+
+  // optional .Canary.protobuf.appearances.AppearanceFlagWriteOnce write_once =
+  // 11;
   bool has_write_once() const;
-  private:
+
+private:
   bool _internal_has_write_once() const;
-  public:
+
+public:
   void clear_write_once();
-  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce& write_once() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* release_write_once();
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* mutable_write_once();
-  void set_allocated_write_once(::Canary::protobuf::appearances::AppearanceFlagWriteOnce* write_once);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce& _internal_write_once() const;
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* _internal_mutable_write_once();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce &
+  write_once() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+  release_write_once();
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+  mutable_write_once();
+  void set_allocated_write_once(
+      ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *write_once);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce &
+  _internal_write_once() const;
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+  _internal_mutable_write_once();
+
+public:
   void unsafe_arena_set_allocated_write_once(
-      ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* write_once);
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* unsafe_arena_release_write_once();
+      ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *write_once);
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+  unsafe_arena_release_write_once();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagHook hook = 21;
   bool has_hook() const;
-  private:
+
+private:
   bool _internal_has_hook() const;
-  public:
+
+public:
   void clear_hook();
-  const ::Canary::protobuf::appearances::AppearanceFlagHook& hook() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagHook* release_hook();
-  ::Canary::protobuf::appearances::AppearanceFlagHook* mutable_hook();
-  void set_allocated_hook(::Canary::protobuf::appearances::AppearanceFlagHook* hook);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagHook& _internal_hook() const;
-  ::Canary::protobuf::appearances::AppearanceFlagHook* _internal_mutable_hook();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagHook &hook() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagHook *
+  release_hook();
+  ::Canary::protobuf::appearances::AppearanceFlagHook *mutable_hook();
+  void
+  set_allocated_hook(::Canary::protobuf::appearances::AppearanceFlagHook *hook);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagHook &
+  _internal_hook() const;
+  ::Canary::protobuf::appearances::AppearanceFlagHook *_internal_mutable_hook();
+
+public:
   void unsafe_arena_set_allocated_hook(
-      ::Canary::protobuf::appearances::AppearanceFlagHook* hook);
-  ::Canary::protobuf::appearances::AppearanceFlagHook* unsafe_arena_release_hook();
+      ::Canary::protobuf::appearances::AppearanceFlagHook *hook);
+  ::Canary::protobuf::appearances::AppearanceFlagHook *
+  unsafe_arena_release_hook();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagLight light = 23;
   bool has_light() const;
-  private:
+
+private:
   bool _internal_has_light() const;
-  public:
+
+public:
   void clear_light();
-  const ::Canary::protobuf::appearances::AppearanceFlagLight& light() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagLight* release_light();
-  ::Canary::protobuf::appearances::AppearanceFlagLight* mutable_light();
-  void set_allocated_light(::Canary::protobuf::appearances::AppearanceFlagLight* light);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagLight& _internal_light() const;
-  ::Canary::protobuf::appearances::AppearanceFlagLight* _internal_mutable_light();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagLight &light() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagLight *
+  release_light();
+  ::Canary::protobuf::appearances::AppearanceFlagLight *mutable_light();
+  void set_allocated_light(
+      ::Canary::protobuf::appearances::AppearanceFlagLight *light);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagLight &
+  _internal_light() const;
+  ::Canary::protobuf::appearances::AppearanceFlagLight *
+  _internal_mutable_light();
+
+public:
   void unsafe_arena_set_allocated_light(
-      ::Canary::protobuf::appearances::AppearanceFlagLight* light);
-  ::Canary::protobuf::appearances::AppearanceFlagLight* unsafe_arena_release_light();
+      ::Canary::protobuf::appearances::AppearanceFlagLight *light);
+  ::Canary::protobuf::appearances::AppearanceFlagLight *
+  unsafe_arena_release_light();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagShift shift = 26;
   bool has_shift() const;
-  private:
+
+private:
   bool _internal_has_shift() const;
-  public:
+
+public:
   void clear_shift();
-  const ::Canary::protobuf::appearances::AppearanceFlagShift& shift() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagShift* release_shift();
-  ::Canary::protobuf::appearances::AppearanceFlagShift* mutable_shift();
-  void set_allocated_shift(::Canary::protobuf::appearances::AppearanceFlagShift* shift);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagShift& _internal_shift() const;
-  ::Canary::protobuf::appearances::AppearanceFlagShift* _internal_mutable_shift();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagShift &shift() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagShift *
+  release_shift();
+  ::Canary::protobuf::appearances::AppearanceFlagShift *mutable_shift();
+  void set_allocated_shift(
+      ::Canary::protobuf::appearances::AppearanceFlagShift *shift);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagShift &
+  _internal_shift() const;
+  ::Canary::protobuf::appearances::AppearanceFlagShift *
+  _internal_mutable_shift();
+
+public:
   void unsafe_arena_set_allocated_shift(
-      ::Canary::protobuf::appearances::AppearanceFlagShift* shift);
-  ::Canary::protobuf::appearances::AppearanceFlagShift* unsafe_arena_release_shift();
+      ::Canary::protobuf::appearances::AppearanceFlagShift *shift);
+  ::Canary::protobuf::appearances::AppearanceFlagShift *
+  unsafe_arena_release_shift();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagHeight height = 27;
   bool has_height() const;
-  private:
+
+private:
   bool _internal_has_height() const;
-  public:
+
+public:
   void clear_height();
-  const ::Canary::protobuf::appearances::AppearanceFlagHeight& height() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagHeight* release_height();
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* mutable_height();
-  void set_allocated_height(::Canary::protobuf::appearances::AppearanceFlagHeight* height);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagHeight& _internal_height() const;
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* _internal_mutable_height();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagHeight &height() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagHeight *
+  release_height();
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *mutable_height();
+  void set_allocated_height(
+      ::Canary::protobuf::appearances::AppearanceFlagHeight *height);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagHeight &
+  _internal_height() const;
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *
+  _internal_mutable_height();
+
+public:
   void unsafe_arena_set_allocated_height(
-      ::Canary::protobuf::appearances::AppearanceFlagHeight* height);
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* unsafe_arena_release_height();
+      ::Canary::protobuf::appearances::AppearanceFlagHeight *height);
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *
+  unsafe_arena_release_height();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagAutomap automap = 30;
   bool has_automap() const;
-  private:
+
+private:
   bool _internal_has_automap() const;
-  public:
+
+public:
   void clear_automap();
-  const ::Canary::protobuf::appearances::AppearanceFlagAutomap& automap() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagAutomap* release_automap();
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* mutable_automap();
-  void set_allocated_automap(::Canary::protobuf::appearances::AppearanceFlagAutomap* automap);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagAutomap& _internal_automap() const;
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* _internal_mutable_automap();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagAutomap &automap() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+  release_automap();
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *mutable_automap();
+  void set_allocated_automap(
+      ::Canary::protobuf::appearances::AppearanceFlagAutomap *automap);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagAutomap &
+  _internal_automap() const;
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+  _internal_mutable_automap();
+
+public:
   void unsafe_arena_set_allocated_automap(
-      ::Canary::protobuf::appearances::AppearanceFlagAutomap* automap);
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* unsafe_arena_release_automap();
+      ::Canary::protobuf::appearances::AppearanceFlagAutomap *automap);
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+  unsafe_arena_release_automap();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagLenshelp lenshelp = 31;
   bool has_lenshelp() const;
-  private:
+
+private:
   bool _internal_has_lenshelp() const;
-  public:
+
+public:
   void clear_lenshelp();
-  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp& lenshelp() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagLenshelp* release_lenshelp();
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* mutable_lenshelp();
-  void set_allocated_lenshelp(::Canary::protobuf::appearances::AppearanceFlagLenshelp* lenshelp);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp& _internal_lenshelp() const;
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* _internal_mutable_lenshelp();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp &
+  lenshelp() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+  release_lenshelp();
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *mutable_lenshelp();
+  void set_allocated_lenshelp(
+      ::Canary::protobuf::appearances::AppearanceFlagLenshelp *lenshelp);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp &
+  _internal_lenshelp() const;
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+  _internal_mutable_lenshelp();
+
+public:
   void unsafe_arena_set_allocated_lenshelp(
-      ::Canary::protobuf::appearances::AppearanceFlagLenshelp* lenshelp);
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* unsafe_arena_release_lenshelp();
+      ::Canary::protobuf::appearances::AppearanceFlagLenshelp *lenshelp);
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+  unsafe_arena_release_lenshelp();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagClothes clothes = 34;
   bool has_clothes() const;
-  private:
-  bool _internal_has_clothes() const;
-  public:
-  void clear_clothes();
-  const ::Canary::protobuf::appearances::AppearanceFlagClothes& clothes() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagClothes* release_clothes();
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* mutable_clothes();
-  void set_allocated_clothes(::Canary::protobuf::appearances::AppearanceFlagClothes* clothes);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagClothes& _internal_clothes() const;
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* _internal_mutable_clothes();
-  public:
-  void unsafe_arena_set_allocated_clothes(
-      ::Canary::protobuf::appearances::AppearanceFlagClothes* clothes);
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* unsafe_arena_release_clothes();
 
-  // optional .Canary.protobuf.appearances.AppearanceFlagDefaultAction default_action = 35;
+private:
+  bool _internal_has_clothes() const;
+
+public:
+  void clear_clothes();
+  const ::Canary::protobuf::appearances::AppearanceFlagClothes &clothes() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagClothes *
+  release_clothes();
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *mutable_clothes();
+  void set_allocated_clothes(
+      ::Canary::protobuf::appearances::AppearanceFlagClothes *clothes);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagClothes &
+  _internal_clothes() const;
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *
+  _internal_mutable_clothes();
+
+public:
+  void unsafe_arena_set_allocated_clothes(
+      ::Canary::protobuf::appearances::AppearanceFlagClothes *clothes);
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *
+  unsafe_arena_release_clothes();
+
+  // optional .Canary.protobuf.appearances.AppearanceFlagDefaultAction
+  // default_action = 35;
   bool has_default_action() const;
-  private:
+
+private:
   bool _internal_has_default_action() const;
-  public:
+
+public:
   void clear_default_action();
-  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction& default_action() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* release_default_action();
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* mutable_default_action();
-  void set_allocated_default_action(::Canary::protobuf::appearances::AppearanceFlagDefaultAction* default_action);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction& _internal_default_action() const;
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* _internal_mutable_default_action();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction &
+  default_action() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::
+      AppearanceFlagDefaultAction *
+      release_default_action();
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+  mutable_default_action();
+  void set_allocated_default_action(
+      ::Canary::protobuf::appearances::AppearanceFlagDefaultAction
+          *default_action);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction &
+  _internal_default_action() const;
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+  _internal_mutable_default_action();
+
+public:
   void unsafe_arena_set_allocated_default_action(
-      ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* default_action);
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* unsafe_arena_release_default_action();
+      ::Canary::protobuf::appearances::AppearanceFlagDefaultAction
+          *default_action);
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+  unsafe_arena_release_default_action();
 
   // optional .Canary.protobuf.appearances.AppearanceFlagMarket market = 36;
   bool has_market() const;
-  private:
+
+private:
   bool _internal_has_market() const;
-  public:
+
+public:
   void clear_market();
-  const ::Canary::protobuf::appearances::AppearanceFlagMarket& market() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagMarket* release_market();
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* mutable_market();
-  void set_allocated_market(::Canary::protobuf::appearances::AppearanceFlagMarket* market);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagMarket& _internal_market() const;
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* _internal_mutable_market();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagMarket &market() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagMarket *
+  release_market();
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *mutable_market();
+  void set_allocated_market(
+      ::Canary::protobuf::appearances::AppearanceFlagMarket *market);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagMarket &
+  _internal_market() const;
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *
+  _internal_mutable_market();
+
+public:
   void unsafe_arena_set_allocated_market(
-      ::Canary::protobuf::appearances::AppearanceFlagMarket* market);
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* unsafe_arena_release_market();
+      ::Canary::protobuf::appearances::AppearanceFlagMarket *market);
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *
+  unsafe_arena_release_market();
 
-  // optional .Canary.protobuf.appearances.AppearanceFlagChangedToExpire changedtoexpire = 41;
+  // optional .Canary.protobuf.appearances.AppearanceFlagChangedToExpire
+  // changedtoexpire = 41;
   bool has_changedtoexpire() const;
-  private:
+
+private:
   bool _internal_has_changedtoexpire() const;
-  public:
+
+public:
   void clear_changedtoexpire();
-  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire& changedtoexpire() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* release_changedtoexpire();
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* mutable_changedtoexpire();
-  void set_allocated_changedtoexpire(::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* changedtoexpire);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire& _internal_changedtoexpire() const;
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* _internal_mutable_changedtoexpire();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire &
+  changedtoexpire() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::
+      AppearanceFlagChangedToExpire *
+      release_changedtoexpire();
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+  mutable_changedtoexpire();
+  void set_allocated_changedtoexpire(
+      ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire
+          *changedtoexpire);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire &
+  _internal_changedtoexpire() const;
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+  _internal_mutable_changedtoexpire();
+
+public:
   void unsafe_arena_set_allocated_changedtoexpire(
-      ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* changedtoexpire);
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* unsafe_arena_release_changedtoexpire();
+      ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire
+          *changedtoexpire);
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+  unsafe_arena_release_changedtoexpire();
 
-  // optional .Canary.protobuf.appearances.AppearanceFlagCyclopedia cyclopediaitem = 44;
+  // optional .Canary.protobuf.appearances.AppearanceFlagCyclopedia
+  // cyclopediaitem = 44;
   bool has_cyclopediaitem() const;
-  private:
-  bool _internal_has_cyclopediaitem() const;
-  public:
-  void clear_cyclopediaitem();
-  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia& cyclopediaitem() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* release_cyclopediaitem();
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* mutable_cyclopediaitem();
-  void set_allocated_cyclopediaitem(::Canary::protobuf::appearances::AppearanceFlagCyclopedia* cyclopediaitem);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia& _internal_cyclopediaitem() const;
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* _internal_mutable_cyclopediaitem();
-  public:
-  void unsafe_arena_set_allocated_cyclopediaitem(
-      ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* cyclopediaitem);
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* unsafe_arena_release_cyclopediaitem();
 
-  // optional .Canary.protobuf.appearances.AppearanceFlagUpgradeClassification upgradeclassification = 48;
+private:
+  bool _internal_has_cyclopediaitem() const;
+
+public:
+  void clear_cyclopediaitem();
+  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia &
+  cyclopediaitem() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+  release_cyclopediaitem();
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+  mutable_cyclopediaitem();
+  void set_allocated_cyclopediaitem(
+      ::Canary::protobuf::appearances::AppearanceFlagCyclopedia
+          *cyclopediaitem);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia &
+  _internal_cyclopediaitem() const;
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+  _internal_mutable_cyclopediaitem();
+
+public:
+  void unsafe_arena_set_allocated_cyclopediaitem(
+      ::Canary::protobuf::appearances::AppearanceFlagCyclopedia
+          *cyclopediaitem);
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+  unsafe_arena_release_cyclopediaitem();
+
+  // optional .Canary.protobuf.appearances.AppearanceFlagUpgradeClassification
+  // upgradeclassification = 48;
   bool has_upgradeclassification() const;
-  private:
+
+private:
   bool _internal_has_upgradeclassification() const;
-  public:
+
+public:
   void clear_upgradeclassification();
-  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification& upgradeclassification() const;
-  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* release_upgradeclassification();
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* mutable_upgradeclassification();
-  void set_allocated_upgradeclassification(::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* upgradeclassification);
-  private:
-  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification& _internal_upgradeclassification() const;
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* _internal_mutable_upgradeclassification();
-  public:
+  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification &
+  upgradeclassification() const;
+  PROTOBUF_NODISCARD ::Canary::protobuf::appearances::
+      AppearanceFlagUpgradeClassification *
+      release_upgradeclassification();
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+  mutable_upgradeclassification();
+  void set_allocated_upgradeclassification(
+      ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+          *upgradeclassification);
+
+private:
+  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification &
+  _internal_upgradeclassification() const;
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+  _internal_mutable_upgradeclassification();
+
+public:
   void unsafe_arena_set_allocated_upgradeclassification(
-      ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* upgradeclassification);
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* unsafe_arena_release_upgradeclassification();
+      ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+          *upgradeclassification);
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+  unsafe_arena_release_upgradeclassification();
 
   // optional bool clip = 2;
   bool has_clip() const;
-  private:
+
+private:
   bool _internal_has_clip() const;
-  public:
+
+public:
   void clear_clip();
   bool clip() const;
   void set_clip(bool value);
-  private:
+
+private:
   bool _internal_clip() const;
   void _internal_set_clip(bool value);
-  public:
 
+public:
   // optional bool bottom = 3;
   bool has_bottom() const;
-  private:
+
+private:
   bool _internal_has_bottom() const;
-  public:
+
+public:
   void clear_bottom();
   bool bottom() const;
   void set_bottom(bool value);
-  private:
+
+private:
   bool _internal_bottom() const;
   void _internal_set_bottom(bool value);
-  public:
 
+public:
   // optional bool top = 4;
   bool has_top() const;
-  private:
+
+private:
   bool _internal_has_top() const;
-  public:
+
+public:
   void clear_top();
   bool top() const;
   void set_top(bool value);
-  private:
+
+private:
   bool _internal_top() const;
   void _internal_set_top(bool value);
-  public:
 
+public:
   // optional bool container = 5;
   bool has_container() const;
-  private:
+
+private:
   bool _internal_has_container() const;
-  public:
+
+public:
   void clear_container();
   bool container() const;
   void set_container(bool value);
-  private:
+
+private:
   bool _internal_container() const;
   void _internal_set_container(bool value);
-  public:
 
+public:
   // optional bool cumulative = 6;
   bool has_cumulative() const;
-  private:
+
+private:
   bool _internal_has_cumulative() const;
-  public:
+
+public:
   void clear_cumulative();
   bool cumulative() const;
   void set_cumulative(bool value);
-  private:
+
+private:
   bool _internal_cumulative() const;
   void _internal_set_cumulative(bool value);
-  public:
 
+public:
   // optional bool usable = 7;
   bool has_usable() const;
-  private:
+
+private:
   bool _internal_has_usable() const;
-  public:
+
+public:
   void clear_usable();
   bool usable() const;
   void set_usable(bool value);
-  private:
+
+private:
   bool _internal_usable() const;
   void _internal_set_usable(bool value);
-  public:
 
+public:
   // optional bool forceuse = 8;
   bool has_forceuse() const;
-  private:
+
+private:
   bool _internal_has_forceuse() const;
-  public:
+
+public:
   void clear_forceuse();
   bool forceuse() const;
   void set_forceuse(bool value);
-  private:
+
+private:
   bool _internal_forceuse() const;
   void _internal_set_forceuse(bool value);
-  public:
 
+public:
   // optional bool multiuse = 9;
   bool has_multiuse() const;
-  private:
+
+private:
   bool _internal_has_multiuse() const;
-  public:
+
+public:
   void clear_multiuse();
   bool multiuse() const;
   void set_multiuse(bool value);
-  private:
+
+private:
   bool _internal_multiuse() const;
   void _internal_set_multiuse(bool value);
-  public:
 
+public:
   // optional bool liquidpool = 12;
   bool has_liquidpool() const;
-  private:
+
+private:
   bool _internal_has_liquidpool() const;
-  public:
+
+public:
   void clear_liquidpool();
   bool liquidpool() const;
   void set_liquidpool(bool value);
-  private:
+
+private:
   bool _internal_liquidpool() const;
   void _internal_set_liquidpool(bool value);
-  public:
 
+public:
   // optional bool unpass = 13;
   bool has_unpass() const;
-  private:
+
+private:
   bool _internal_has_unpass() const;
-  public:
+
+public:
   void clear_unpass();
   bool unpass() const;
   void set_unpass(bool value);
-  private:
+
+private:
   bool _internal_unpass() const;
   void _internal_set_unpass(bool value);
-  public:
 
+public:
   // optional bool unmove = 14;
   bool has_unmove() const;
-  private:
+
+private:
   bool _internal_has_unmove() const;
-  public:
+
+public:
   void clear_unmove();
   bool unmove() const;
   void set_unmove(bool value);
-  private:
+
+private:
   bool _internal_unmove() const;
   void _internal_set_unmove(bool value);
-  public:
 
+public:
   // optional bool unsight = 15;
   bool has_unsight() const;
-  private:
+
+private:
   bool _internal_has_unsight() const;
-  public:
+
+public:
   void clear_unsight();
   bool unsight() const;
   void set_unsight(bool value);
-  private:
+
+private:
   bool _internal_unsight() const;
   void _internal_set_unsight(bool value);
-  public:
 
+public:
   // optional bool avoid = 16;
   bool has_avoid() const;
-  private:
+
+private:
   bool _internal_has_avoid() const;
-  public:
+
+public:
   void clear_avoid();
   bool avoid() const;
   void set_avoid(bool value);
-  private:
+
+private:
   bool _internal_avoid() const;
   void _internal_set_avoid(bool value);
-  public:
 
+public:
   // optional bool no_movement_animation = 17;
   bool has_no_movement_animation() const;
-  private:
+
+private:
   bool _internal_has_no_movement_animation() const;
-  public:
+
+public:
   void clear_no_movement_animation();
   bool no_movement_animation() const;
   void set_no_movement_animation(bool value);
-  private:
+
+private:
   bool _internal_no_movement_animation() const;
   void _internal_set_no_movement_animation(bool value);
-  public:
 
+public:
   // optional bool take = 18;
   bool has_take() const;
-  private:
+
+private:
   bool _internal_has_take() const;
-  public:
+
+public:
   void clear_take();
   bool take() const;
   void set_take(bool value);
-  private:
+
+private:
   bool _internal_take() const;
   void _internal_set_take(bool value);
-  public:
 
+public:
   // optional bool liquidcontainer = 19;
   bool has_liquidcontainer() const;
-  private:
+
+private:
   bool _internal_has_liquidcontainer() const;
-  public:
+
+public:
   void clear_liquidcontainer();
   bool liquidcontainer() const;
   void set_liquidcontainer(bool value);
-  private:
+
+private:
   bool _internal_liquidcontainer() const;
   void _internal_set_liquidcontainer(bool value);
-  public:
 
+public:
   // optional bool hang = 20;
   bool has_hang() const;
-  private:
+
+private:
   bool _internal_has_hang() const;
-  public:
+
+public:
   void clear_hang();
   bool hang() const;
   void set_hang(bool value);
-  private:
+
+private:
   bool _internal_hang() const;
   void _internal_set_hang(bool value);
-  public:
 
+public:
   // optional bool rotate = 22;
   bool has_rotate() const;
-  private:
+
+private:
   bool _internal_has_rotate() const;
-  public:
+
+public:
   void clear_rotate();
   bool rotate() const;
   void set_rotate(bool value);
-  private:
+
+private:
   bool _internal_rotate() const;
   void _internal_set_rotate(bool value);
-  public:
 
+public:
   // optional bool dont_hide = 24;
   bool has_dont_hide() const;
-  private:
+
+private:
   bool _internal_has_dont_hide() const;
-  public:
+
+public:
   void clear_dont_hide();
   bool dont_hide() const;
   void set_dont_hide(bool value);
-  private:
+
+private:
   bool _internal_dont_hide() const;
   void _internal_set_dont_hide(bool value);
-  public:
 
+public:
   // optional bool translucent = 25;
   bool has_translucent() const;
-  private:
+
+private:
   bool _internal_has_translucent() const;
-  public:
+
+public:
   void clear_translucent();
   bool translucent() const;
   void set_translucent(bool value);
-  private:
+
+private:
   bool _internal_translucent() const;
   void _internal_set_translucent(bool value);
-  public:
 
+public:
   // optional bool lying_object = 28;
   bool has_lying_object() const;
-  private:
+
+private:
   bool _internal_has_lying_object() const;
-  public:
+
+public:
   void clear_lying_object();
   bool lying_object() const;
   void set_lying_object(bool value);
-  private:
+
+private:
   bool _internal_lying_object() const;
   void _internal_set_lying_object(bool value);
-  public:
 
+public:
   // optional bool animate_always = 29;
   bool has_animate_always() const;
-  private:
+
+private:
   bool _internal_has_animate_always() const;
-  public:
+
+public:
   void clear_animate_always();
   bool animate_always() const;
   void set_animate_always(bool value);
-  private:
+
+private:
   bool _internal_animate_always() const;
   void _internal_set_animate_always(bool value);
-  public:
 
+public:
   // optional bool fullbank = 32;
   bool has_fullbank() const;
-  private:
+
+private:
   bool _internal_has_fullbank() const;
-  public:
+
+public:
   void clear_fullbank();
   bool fullbank() const;
   void set_fullbank(bool value);
-  private:
+
+private:
   bool _internal_fullbank() const;
   void _internal_set_fullbank(bool value);
-  public:
 
+public:
   // optional bool ignore_look = 33;
   bool has_ignore_look() const;
-  private:
+
+private:
   bool _internal_has_ignore_look() const;
-  public:
+
+public:
   void clear_ignore_look();
   bool ignore_look() const;
   void set_ignore_look(bool value);
-  private:
+
+private:
   bool _internal_ignore_look() const;
   void _internal_set_ignore_look(bool value);
-  public:
 
+public:
   // optional bool wrap = 37;
   bool has_wrap() const;
-  private:
+
+private:
   bool _internal_has_wrap() const;
-  public:
+
+public:
   void clear_wrap();
   bool wrap() const;
   void set_wrap(bool value);
-  private:
+
+private:
   bool _internal_wrap() const;
   void _internal_set_wrap(bool value);
-  public:
 
+public:
   // optional bool unwrap = 38;
   bool has_unwrap() const;
-  private:
+
+private:
   bool _internal_has_unwrap() const;
-  public:
+
+public:
   void clear_unwrap();
   bool unwrap() const;
   void set_unwrap(bool value);
-  private:
+
+private:
   bool _internal_unwrap() const;
   void _internal_set_unwrap(bool value);
-  public:
 
+public:
   // optional bool topeffect = 39;
   bool has_topeffect() const;
-  private:
+
+private:
   bool _internal_has_topeffect() const;
-  public:
+
+public:
   void clear_topeffect();
   bool topeffect() const;
   void set_topeffect(bool value);
-  private:
+
+private:
   bool _internal_topeffect() const;
   void _internal_set_topeffect(bool value);
-  public:
 
+public:
   // optional bool corpse = 42;
   bool has_corpse() const;
-  private:
+
+private:
   bool _internal_has_corpse() const;
-  public:
+
+public:
   void clear_corpse();
   bool corpse() const;
   void set_corpse(bool value);
-  private:
+
+private:
   bool _internal_corpse() const;
   void _internal_set_corpse(bool value);
-  public:
 
+public:
   // optional bool player_corpse = 43;
   bool has_player_corpse() const;
-  private:
+
+private:
   bool _internal_has_player_corpse() const;
-  public:
+
+public:
   void clear_player_corpse();
   bool player_corpse() const;
   void set_player_corpse(bool value);
-  private:
+
+private:
   bool _internal_player_corpse() const;
   void _internal_set_player_corpse(bool value);
-  public:
 
+public:
   // optional bool ammo = 45;
   bool has_ammo() const;
-  private:
+
+private:
   bool _internal_has_ammo() const;
-  public:
+
+public:
   void clear_ammo();
   bool ammo() const;
   void set_ammo(bool value);
-  private:
+
+private:
   bool _internal_ammo() const;
   void _internal_set_ammo(bool value);
-  public:
 
+public:
   // optional bool show_off_socket = 46;
   bool has_show_off_socket() const;
-  private:
+
+private:
   bool _internal_has_show_off_socket() const;
-  public:
+
+public:
   void clear_show_off_socket();
   bool show_off_socket() const;
   void set_show_off_socket(bool value);
-  private:
+
+private:
   bool _internal_show_off_socket() const;
   void _internal_set_show_off_socket(bool value);
-  public:
 
+public:
   // optional bool reportable = 47;
   bool has_reportable() const;
-  private:
+
+private:
   bool _internal_has_reportable() const;
-  public:
+
+public:
   void clear_reportable();
   bool reportable() const;
   void set_reportable(bool value);
-  private:
+
+private:
   bool _internal_reportable() const;
   void _internal_set_reportable(bool value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlags)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::AppearanceFlagNPC > npcsaledata_;
-    ::Canary::protobuf::appearances::AppearanceFlagBank* bank_;
-    ::Canary::protobuf::appearances::AppearanceFlagWrite* write_;
-    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* write_once_;
-    ::Canary::protobuf::appearances::AppearanceFlagHook* hook_;
-    ::Canary::protobuf::appearances::AppearanceFlagLight* light_;
-    ::Canary::protobuf::appearances::AppearanceFlagShift* shift_;
-    ::Canary::protobuf::appearances::AppearanceFlagHeight* height_;
-    ::Canary::protobuf::appearances::AppearanceFlagAutomap* automap_;
-    ::Canary::protobuf::appearances::AppearanceFlagLenshelp* lenshelp_;
-    ::Canary::protobuf::appearances::AppearanceFlagClothes* clothes_;
-    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* default_action_;
-    ::Canary::protobuf::appearances::AppearanceFlagMarket* market_;
-    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* changedtoexpire_;
-    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* cyclopediaitem_;
-    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* upgradeclassification_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+        ::Canary::protobuf::appearances::AppearanceFlagNPC>
+        npcsaledata_;
+    ::Canary::protobuf::appearances::AppearanceFlagBank *bank_;
+    ::Canary::protobuf::appearances::AppearanceFlagWrite *write_;
+    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *write_once_;
+    ::Canary::protobuf::appearances::AppearanceFlagHook *hook_;
+    ::Canary::protobuf::appearances::AppearanceFlagLight *light_;
+    ::Canary::protobuf::appearances::AppearanceFlagShift *shift_;
+    ::Canary::protobuf::appearances::AppearanceFlagHeight *height_;
+    ::Canary::protobuf::appearances::AppearanceFlagAutomap *automap_;
+    ::Canary::protobuf::appearances::AppearanceFlagLenshelp *lenshelp_;
+    ::Canary::protobuf::appearances::AppearanceFlagClothes *clothes_;
+    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction
+        *default_action_;
+    ::Canary::protobuf::appearances::AppearanceFlagMarket *market_;
+    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire
+        *changedtoexpire_;
+    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *cyclopediaitem_;
+    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+        *upgradeclassification_;
     bool clip_;
     bool bottom_;
     bool top_;
@@ -3063,34 +3742,45 @@ class AppearanceFlags final :
     bool show_off_socket_;
     bool reportable_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagUpgradeClassification final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification) */ {
- public:
-  inline AppearanceFlagUpgradeClassification() : AppearanceFlagUpgradeClassification(nullptr) {}
+class AppearanceFlagUpgradeClassification final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification)
+                                               */
+{
+public:
+  inline AppearanceFlagUpgradeClassification()
+      : AppearanceFlagUpgradeClassification(nullptr) {}
   ~AppearanceFlagUpgradeClassification() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagUpgradeClassification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagUpgradeClassification(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagUpgradeClassification(const AppearanceFlagUpgradeClassification& from);
-  AppearanceFlagUpgradeClassification(AppearanceFlagUpgradeClassification&& from) noexcept
-    : AppearanceFlagUpgradeClassification() {
+  AppearanceFlagUpgradeClassification(
+      const AppearanceFlagUpgradeClassification &from);
+  AppearanceFlagUpgradeClassification(
+      AppearanceFlagUpgradeClassification &&from) noexcept
+      : AppearanceFlagUpgradeClassification() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagUpgradeClassification& operator=(const AppearanceFlagUpgradeClassification& from) {
+  inline AppearanceFlagUpgradeClassification &
+  operator=(const AppearanceFlagUpgradeClassification &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagUpgradeClassification& operator=(AppearanceFlagUpgradeClassification&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagUpgradeClassification &
+  operator=(AppearanceFlagUpgradeClassification &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3099,95 +3789,110 @@ class AppearanceFlagUpgradeClassification final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagUpgradeClassification& default_instance() {
+  static const AppearanceFlagUpgradeClassification &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagUpgradeClassification* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagUpgradeClassification*>(
-               &_AppearanceFlagUpgradeClassification_default_instance_);
+  static inline const AppearanceFlagUpgradeClassification *
+  internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagUpgradeClassification *>(
+        &_AppearanceFlagUpgradeClassification_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    9;
+  static constexpr int kIndexInFileMessages = 9;
 
-  friend void swap(AppearanceFlagUpgradeClassification& a, AppearanceFlagUpgradeClassification& b) {
+  friend void swap(AppearanceFlagUpgradeClassification &a,
+                   AppearanceFlagUpgradeClassification &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagUpgradeClassification* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagUpgradeClassification *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagUpgradeClassification* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagUpgradeClassification *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagUpgradeClassification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagUpgradeClassification *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagUpgradeClassification>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagUpgradeClassification& from);
+  void CopyFrom(const AppearanceFlagUpgradeClassification &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagUpgradeClassification& from) {
+  void MergeFrom(const AppearanceFlagUpgradeClassification &from) {
     AppearanceFlagUpgradeClassification::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagUpgradeClassification* other);
+  void InternalSwap(AppearanceFlagUpgradeClassification *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagUpgradeClassification";
   }
-  protected:
-  explicit AppearanceFlagUpgradeClassification(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagUpgradeClassification(
+      ::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -3200,22 +3905,26 @@ class AppearanceFlagUpgradeClassification final :
   };
   // optional uint32 upgrade_classification = 1;
   bool has_upgrade_classification() const;
-  private:
+
+private:
   bool _internal_has_upgrade_classification() const;
-  public:
+
+public:
   void clear_upgrade_classification();
   uint32_t upgrade_classification() const;
   void set_upgrade_classification(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_upgrade_classification() const;
   void _internal_set_upgrade_classification(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -3223,34 +3932,39 @@ class AppearanceFlagUpgradeClassification final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t upgrade_classification_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagBank final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagBank) */ {
- public:
+class AppearanceFlagBank final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagBank)
+                                                                          */
+{
+public:
   inline AppearanceFlagBank() : AppearanceFlagBank(nullptr) {}
   ~AppearanceFlagBank() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagBank(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagBank(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagBank(const AppearanceFlagBank& from);
-  AppearanceFlagBank(AppearanceFlagBank&& from) noexcept
-    : AppearanceFlagBank() {
+  AppearanceFlagBank(const AppearanceFlagBank &from);
+  AppearanceFlagBank(AppearanceFlagBank &&from) noexcept
+      : AppearanceFlagBank() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagBank& operator=(const AppearanceFlagBank& from) {
+  inline AppearanceFlagBank &operator=(const AppearanceFlagBank &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagBank& operator=(AppearanceFlagBank&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagBank &operator=(AppearanceFlagBank &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3259,95 +3973,106 @@ class AppearanceFlagBank final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagBank& default_instance() {
+  static const AppearanceFlagBank &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagBank* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagBank*>(
-               &_AppearanceFlagBank_default_instance_);
+  static inline const AppearanceFlagBank *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagBank *>(
+        &_AppearanceFlagBank_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    10;
+  static constexpr int kIndexInFileMessages = 10;
 
-  friend void swap(AppearanceFlagBank& a, AppearanceFlagBank& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AppearanceFlagBank* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(AppearanceFlagBank &a, AppearanceFlagBank &b) { a.Swap(&b); }
+  inline void Swap(AppearanceFlagBank *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagBank* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagBank *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagBank* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagBank *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagBank>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagBank& from);
+  void CopyFrom(const AppearanceFlagBank &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagBank& from) {
+  void MergeFrom(const AppearanceFlagBank &from) {
     AppearanceFlagBank::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagBank* other);
+  void InternalSwap(AppearanceFlagBank *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagBank";
   }
-  protected:
-  explicit AppearanceFlagBank(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagBank(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                              bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -3360,22 +4085,26 @@ class AppearanceFlagBank final :
   };
   // optional uint32 waypoints = 1;
   bool has_waypoints() const;
-  private:
+
+private:
   bool _internal_has_waypoints() const;
-  public:
+
+public:
   void clear_waypoints();
   uint32_t waypoints() const;
   void set_waypoints(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_waypoints() const;
   void _internal_set_waypoints(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagBank)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -3383,34 +4112,39 @@ class AppearanceFlagBank final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t waypoints_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagWrite final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWrite) */ {
- public:
+class AppearanceFlagWrite final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWrite)
+                                                                           */
+{
+public:
   inline AppearanceFlagWrite() : AppearanceFlagWrite(nullptr) {}
   ~AppearanceFlagWrite() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagWrite(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagWrite(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagWrite(const AppearanceFlagWrite& from);
-  AppearanceFlagWrite(AppearanceFlagWrite&& from) noexcept
-    : AppearanceFlagWrite() {
+  AppearanceFlagWrite(const AppearanceFlagWrite &from);
+  AppearanceFlagWrite(AppearanceFlagWrite &&from) noexcept
+      : AppearanceFlagWrite() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagWrite& operator=(const AppearanceFlagWrite& from) {
+  inline AppearanceFlagWrite &operator=(const AppearanceFlagWrite &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagWrite& operator=(AppearanceFlagWrite&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagWrite &operator=(AppearanceFlagWrite &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3419,95 +4153,108 @@ class AppearanceFlagWrite final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagWrite& default_instance() {
+  static const AppearanceFlagWrite &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagWrite* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagWrite*>(
-               &_AppearanceFlagWrite_default_instance_);
+  static inline const AppearanceFlagWrite *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagWrite *>(
+        &_AppearanceFlagWrite_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    11;
+  static constexpr int kIndexInFileMessages = 11;
 
-  friend void swap(AppearanceFlagWrite& a, AppearanceFlagWrite& b) {
+  friend void swap(AppearanceFlagWrite &a, AppearanceFlagWrite &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagWrite* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagWrite *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagWrite* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagWrite *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagWrite* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagWrite *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagWrite>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagWrite& from);
+  void CopyFrom(const AppearanceFlagWrite &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagWrite& from) {
+  void MergeFrom(const AppearanceFlagWrite &from) {
     AppearanceFlagWrite::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagWrite* other);
+  void InternalSwap(AppearanceFlagWrite *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagWrite";
   }
-  protected:
-  explicit AppearanceFlagWrite(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagWrite(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                               bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -3520,22 +4267,26 @@ class AppearanceFlagWrite final :
   };
   // optional uint32 max_text_length = 1;
   bool has_max_text_length() const;
-  private:
+
+private:
   bool _internal_has_max_text_length() const;
-  public:
+
+public:
   void clear_max_text_length();
   uint32_t max_text_length() const;
   void set_max_text_length(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_max_text_length() const;
   void _internal_set_max_text_length(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagWrite)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -3543,34 +4294,42 @@ class AppearanceFlagWrite final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t max_text_length_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagWriteOnce final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWriteOnce) */ {
- public:
+class AppearanceFlagWriteOnce final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagWriteOnce)
+                                               */
+{
+public:
   inline AppearanceFlagWriteOnce() : AppearanceFlagWriteOnce(nullptr) {}
   ~AppearanceFlagWriteOnce() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagWriteOnce(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagWriteOnce(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagWriteOnce(const AppearanceFlagWriteOnce& from);
-  AppearanceFlagWriteOnce(AppearanceFlagWriteOnce&& from) noexcept
-    : AppearanceFlagWriteOnce() {
+  AppearanceFlagWriteOnce(const AppearanceFlagWriteOnce &from);
+  AppearanceFlagWriteOnce(AppearanceFlagWriteOnce &&from) noexcept
+      : AppearanceFlagWriteOnce() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagWriteOnce& operator=(const AppearanceFlagWriteOnce& from) {
+  inline AppearanceFlagWriteOnce &
+  operator=(const AppearanceFlagWriteOnce &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagWriteOnce& operator=(AppearanceFlagWriteOnce&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagWriteOnce &
+  operator=(AppearanceFlagWriteOnce &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3579,95 +4338,108 @@ class AppearanceFlagWriteOnce final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagWriteOnce& default_instance() {
+  static const AppearanceFlagWriteOnce &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagWriteOnce* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagWriteOnce*>(
-               &_AppearanceFlagWriteOnce_default_instance_);
+  static inline const AppearanceFlagWriteOnce *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagWriteOnce *>(
+        &_AppearanceFlagWriteOnce_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    12;
+  static constexpr int kIndexInFileMessages = 12;
 
-  friend void swap(AppearanceFlagWriteOnce& a, AppearanceFlagWriteOnce& b) {
+  friend void swap(AppearanceFlagWriteOnce &a, AppearanceFlagWriteOnce &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagWriteOnce* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagWriteOnce *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagWriteOnce* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagWriteOnce *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagWriteOnce* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagWriteOnce *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagWriteOnce>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagWriteOnce& from);
+  void CopyFrom(const AppearanceFlagWriteOnce &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagWriteOnce& from) {
+  void MergeFrom(const AppearanceFlagWriteOnce &from) {
     AppearanceFlagWriteOnce::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagWriteOnce* other);
+  void InternalSwap(AppearanceFlagWriteOnce *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagWriteOnce";
   }
-  protected:
-  explicit AppearanceFlagWriteOnce(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagWriteOnce(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                   bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -3680,22 +4452,26 @@ class AppearanceFlagWriteOnce final :
   };
   // optional uint32 max_text_length_once = 1;
   bool has_max_text_length_once() const;
-  private:
+
+private:
   bool _internal_has_max_text_length_once() const;
-  public:
+
+public:
   void clear_max_text_length_once();
   uint32_t max_text_length_once() const;
   void set_max_text_length_once(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_max_text_length_once() const;
   void _internal_set_max_text_length_once(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagWriteOnce)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -3703,34 +4479,39 @@ class AppearanceFlagWriteOnce final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t max_text_length_once_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagLight final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLight) */ {
- public:
+class AppearanceFlagLight final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLight)
+                                                                           */
+{
+public:
   inline AppearanceFlagLight() : AppearanceFlagLight(nullptr) {}
   ~AppearanceFlagLight() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagLight(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagLight(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagLight(const AppearanceFlagLight& from);
-  AppearanceFlagLight(AppearanceFlagLight&& from) noexcept
-    : AppearanceFlagLight() {
+  AppearanceFlagLight(const AppearanceFlagLight &from);
+  AppearanceFlagLight(AppearanceFlagLight &&from) noexcept
+      : AppearanceFlagLight() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagLight& operator=(const AppearanceFlagLight& from) {
+  inline AppearanceFlagLight &operator=(const AppearanceFlagLight &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagLight& operator=(AppearanceFlagLight&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagLight &operator=(AppearanceFlagLight &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3739,95 +4520,108 @@ class AppearanceFlagLight final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagLight& default_instance() {
+  static const AppearanceFlagLight &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagLight* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagLight*>(
-               &_AppearanceFlagLight_default_instance_);
+  static inline const AppearanceFlagLight *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagLight *>(
+        &_AppearanceFlagLight_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    13;
+  static constexpr int kIndexInFileMessages = 13;
 
-  friend void swap(AppearanceFlagLight& a, AppearanceFlagLight& b) {
+  friend void swap(AppearanceFlagLight &a, AppearanceFlagLight &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagLight* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagLight *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagLight* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagLight *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagLight* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagLight *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagLight>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagLight& from);
+  void CopyFrom(const AppearanceFlagLight &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagLight& from) {
+  void MergeFrom(const AppearanceFlagLight &from) {
     AppearanceFlagLight::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagLight* other);
+  void InternalSwap(AppearanceFlagLight *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagLight";
   }
-  protected:
-  explicit AppearanceFlagLight(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagLight(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                               bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -3841,35 +4635,42 @@ class AppearanceFlagLight final :
   };
   // optional uint32 brightness = 1;
   bool has_brightness() const;
-  private:
+
+private:
   bool _internal_has_brightness() const;
-  public:
+
+public:
   void clear_brightness();
   uint32_t brightness() const;
   void set_brightness(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_brightness() const;
   void _internal_set_brightness(uint32_t value);
-  public:
 
+public:
   // optional uint32 color = 2;
   bool has_color() const;
-  private:
+
+private:
   bool _internal_has_color() const;
-  public:
+
+public:
   void clear_color();
   uint32_t color() const;
   void set_color(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_color() const;
   void _internal_set_color(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagLight)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -3878,34 +4679,39 @@ class AppearanceFlagLight final :
     uint32_t brightness_;
     uint32_t color_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagHeight final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHeight) */ {
- public:
+class AppearanceFlagHeight final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHeight)
+                                                                            */
+{
+public:
   inline AppearanceFlagHeight() : AppearanceFlagHeight(nullptr) {}
   ~AppearanceFlagHeight() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagHeight(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagHeight(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagHeight(const AppearanceFlagHeight& from);
-  AppearanceFlagHeight(AppearanceFlagHeight&& from) noexcept
-    : AppearanceFlagHeight() {
+  AppearanceFlagHeight(const AppearanceFlagHeight &from);
+  AppearanceFlagHeight(AppearanceFlagHeight &&from) noexcept
+      : AppearanceFlagHeight() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagHeight& operator=(const AppearanceFlagHeight& from) {
+  inline AppearanceFlagHeight &operator=(const AppearanceFlagHeight &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagHeight& operator=(AppearanceFlagHeight&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagHeight &operator=(AppearanceFlagHeight &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -3914,95 +4720,108 @@ class AppearanceFlagHeight final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagHeight& default_instance() {
+  static const AppearanceFlagHeight &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagHeight* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagHeight*>(
-               &_AppearanceFlagHeight_default_instance_);
+  static inline const AppearanceFlagHeight *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagHeight *>(
+        &_AppearanceFlagHeight_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    14;
+  static constexpr int kIndexInFileMessages = 14;
 
-  friend void swap(AppearanceFlagHeight& a, AppearanceFlagHeight& b) {
+  friend void swap(AppearanceFlagHeight &a, AppearanceFlagHeight &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagHeight* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagHeight *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagHeight* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagHeight *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagHeight* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagHeight *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagHeight>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagHeight& from);
+  void CopyFrom(const AppearanceFlagHeight &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagHeight& from) {
+  void MergeFrom(const AppearanceFlagHeight &from) {
     AppearanceFlagHeight::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagHeight* other);
+  void InternalSwap(AppearanceFlagHeight *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagHeight";
   }
-  protected:
-  explicit AppearanceFlagHeight(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagHeight(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4015,22 +4834,26 @@ class AppearanceFlagHeight final :
   };
   // optional uint32 elevation = 1;
   bool has_elevation() const;
-  private:
+
+private:
   bool _internal_has_elevation() const;
-  public:
+
+public:
   void clear_elevation();
   uint32_t elevation() const;
   void set_elevation(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_elevation() const;
   void _internal_set_elevation(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagHeight)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -4038,34 +4861,39 @@ class AppearanceFlagHeight final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t elevation_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagShift final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagShift) */ {
- public:
+class AppearanceFlagShift final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagShift)
+                                                                           */
+{
+public:
   inline AppearanceFlagShift() : AppearanceFlagShift(nullptr) {}
   ~AppearanceFlagShift() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagShift(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagShift(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagShift(const AppearanceFlagShift& from);
-  AppearanceFlagShift(AppearanceFlagShift&& from) noexcept
-    : AppearanceFlagShift() {
+  AppearanceFlagShift(const AppearanceFlagShift &from);
+  AppearanceFlagShift(AppearanceFlagShift &&from) noexcept
+      : AppearanceFlagShift() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagShift& operator=(const AppearanceFlagShift& from) {
+  inline AppearanceFlagShift &operator=(const AppearanceFlagShift &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagShift& operator=(AppearanceFlagShift&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagShift &operator=(AppearanceFlagShift &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -4074,95 +4902,108 @@ class AppearanceFlagShift final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagShift& default_instance() {
+  static const AppearanceFlagShift &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagShift* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagShift*>(
-               &_AppearanceFlagShift_default_instance_);
+  static inline const AppearanceFlagShift *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagShift *>(
+        &_AppearanceFlagShift_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    15;
+  static constexpr int kIndexInFileMessages = 15;
 
-  friend void swap(AppearanceFlagShift& a, AppearanceFlagShift& b) {
+  friend void swap(AppearanceFlagShift &a, AppearanceFlagShift &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagShift* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagShift *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagShift* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagShift *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagShift* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagShift *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagShift>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagShift& from);
+  void CopyFrom(const AppearanceFlagShift &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagShift& from) {
+  void MergeFrom(const AppearanceFlagShift &from) {
     AppearanceFlagShift::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagShift* other);
+  void InternalSwap(AppearanceFlagShift *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagShift";
   }
-  protected:
-  explicit AppearanceFlagShift(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagShift(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                               bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4176,35 +5017,42 @@ class AppearanceFlagShift final :
   };
   // optional uint32 x = 1;
   bool has_x() const;
-  private:
+
+private:
   bool _internal_has_x() const;
-  public:
+
+public:
   void clear_x();
   uint32_t x() const;
   void set_x(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_x() const;
   void _internal_set_x(uint32_t value);
-  public:
 
+public:
   // optional uint32 y = 2;
   bool has_y() const;
-  private:
+
+private:
   bool _internal_has_y() const;
-  public:
+
+public:
   void clear_y();
   uint32_t y() const;
   void set_y(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_y() const;
   void _internal_set_y(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagShift)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -4213,34 +5061,41 @@ class AppearanceFlagShift final :
     uint32_t x_;
     uint32_t y_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagClothes final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagClothes) */ {
- public:
+class AppearanceFlagClothes final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagClothes)
+                                               */
+{
+public:
   inline AppearanceFlagClothes() : AppearanceFlagClothes(nullptr) {}
   ~AppearanceFlagClothes() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagClothes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagClothes(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagClothes(const AppearanceFlagClothes& from);
-  AppearanceFlagClothes(AppearanceFlagClothes&& from) noexcept
-    : AppearanceFlagClothes() {
+  AppearanceFlagClothes(const AppearanceFlagClothes &from);
+  AppearanceFlagClothes(AppearanceFlagClothes &&from) noexcept
+      : AppearanceFlagClothes() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagClothes& operator=(const AppearanceFlagClothes& from) {
+  inline AppearanceFlagClothes &operator=(const AppearanceFlagClothes &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagClothes& operator=(AppearanceFlagClothes&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagClothes &
+  operator=(AppearanceFlagClothes &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -4249,95 +5104,108 @@ class AppearanceFlagClothes final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagClothes& default_instance() {
+  static const AppearanceFlagClothes &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagClothes* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagClothes*>(
-               &_AppearanceFlagClothes_default_instance_);
+  static inline const AppearanceFlagClothes *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagClothes *>(
+        &_AppearanceFlagClothes_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    16;
+  static constexpr int kIndexInFileMessages = 16;
 
-  friend void swap(AppearanceFlagClothes& a, AppearanceFlagClothes& b) {
+  friend void swap(AppearanceFlagClothes &a, AppearanceFlagClothes &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagClothes* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagClothes *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagClothes* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagClothes *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagClothes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagClothes *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagClothes>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagClothes& from);
+  void CopyFrom(const AppearanceFlagClothes &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagClothes& from) {
+  void MergeFrom(const AppearanceFlagClothes &from) {
     AppearanceFlagClothes::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagClothes* other);
+  void InternalSwap(AppearanceFlagClothes *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagClothes";
   }
-  protected:
-  explicit AppearanceFlagClothes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagClothes(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                 bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4350,22 +5218,26 @@ class AppearanceFlagClothes final :
   };
   // optional uint32 slot = 1;
   bool has_slot() const;
-  private:
+
+private:
   bool _internal_has_slot() const;
-  public:
+
+public:
   void clear_slot();
   uint32_t slot() const;
   void set_slot(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_slot() const;
   void _internal_set_slot(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagClothes)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -4373,34 +5245,42 @@ class AppearanceFlagClothes final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t slot_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagDefaultAction final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagDefaultAction) */ {
- public:
+class AppearanceFlagDefaultAction final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagDefaultAction)
+                                               */
+{
+public:
   inline AppearanceFlagDefaultAction() : AppearanceFlagDefaultAction(nullptr) {}
   ~AppearanceFlagDefaultAction() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagDefaultAction(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagDefaultAction(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagDefaultAction(const AppearanceFlagDefaultAction& from);
-  AppearanceFlagDefaultAction(AppearanceFlagDefaultAction&& from) noexcept
-    : AppearanceFlagDefaultAction() {
+  AppearanceFlagDefaultAction(const AppearanceFlagDefaultAction &from);
+  AppearanceFlagDefaultAction(AppearanceFlagDefaultAction &&from) noexcept
+      : AppearanceFlagDefaultAction() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagDefaultAction& operator=(const AppearanceFlagDefaultAction& from) {
+  inline AppearanceFlagDefaultAction &
+  operator=(const AppearanceFlagDefaultAction &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagDefaultAction& operator=(AppearanceFlagDefaultAction&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagDefaultAction &
+  operator=(AppearanceFlagDefaultAction &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -4409,95 +5289,109 @@ class AppearanceFlagDefaultAction final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagDefaultAction& default_instance() {
+  static const AppearanceFlagDefaultAction &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagDefaultAction* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagDefaultAction*>(
-               &_AppearanceFlagDefaultAction_default_instance_);
+  static inline const AppearanceFlagDefaultAction *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagDefaultAction *>(
+        &_AppearanceFlagDefaultAction_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    17;
+  static constexpr int kIndexInFileMessages = 17;
 
-  friend void swap(AppearanceFlagDefaultAction& a, AppearanceFlagDefaultAction& b) {
+  friend void swap(AppearanceFlagDefaultAction &a,
+                   AppearanceFlagDefaultAction &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagDefaultAction* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagDefaultAction *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagDefaultAction* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagDefaultAction *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagDefaultAction* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagDefaultAction *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagDefaultAction>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagDefaultAction& from);
+  void CopyFrom(const AppearanceFlagDefaultAction &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagDefaultAction& from) {
+  void MergeFrom(const AppearanceFlagDefaultAction &from) {
     AppearanceFlagDefaultAction::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagDefaultAction* other);
+  void InternalSwap(AppearanceFlagDefaultAction *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagDefaultAction";
   }
-  protected:
-  explicit AppearanceFlagDefaultAction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagDefaultAction(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                       bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4510,22 +5404,27 @@ class AppearanceFlagDefaultAction final :
   };
   // optional .Canary.protobuf.appearances.PLAYER_ACTION action = 1;
   bool has_action() const;
-  private:
+
+private:
   bool _internal_has_action() const;
-  public:
+
+public:
   void clear_action();
   ::Canary::protobuf::appearances::PLAYER_ACTION action() const;
   void set_action(::Canary::protobuf::appearances::PLAYER_ACTION value);
-  private:
-  ::Canary::protobuf::appearances::PLAYER_ACTION _internal_action() const;
-  void _internal_set_action(::Canary::protobuf::appearances::PLAYER_ACTION value);
-  public:
 
+private:
+  ::Canary::protobuf::appearances::PLAYER_ACTION _internal_action() const;
+  void
+  _internal_set_action(::Canary::protobuf::appearances::PLAYER_ACTION value);
+
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagDefaultAction)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -4533,34 +5432,39 @@ class AppearanceFlagDefaultAction final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int action_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagMarket final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagMarket) */ {
- public:
+class AppearanceFlagMarket final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagMarket)
+                                                                            */
+{
+public:
   inline AppearanceFlagMarket() : AppearanceFlagMarket(nullptr) {}
   ~AppearanceFlagMarket() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagMarket(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagMarket(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagMarket(const AppearanceFlagMarket& from);
-  AppearanceFlagMarket(AppearanceFlagMarket&& from) noexcept
-    : AppearanceFlagMarket() {
+  AppearanceFlagMarket(const AppearanceFlagMarket &from);
+  AppearanceFlagMarket(AppearanceFlagMarket &&from) noexcept
+      : AppearanceFlagMarket() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagMarket& operator=(const AppearanceFlagMarket& from) {
+  inline AppearanceFlagMarket &operator=(const AppearanceFlagMarket &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagMarket& operator=(AppearanceFlagMarket&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagMarket &operator=(AppearanceFlagMarket &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -4569,95 +5473,108 @@ class AppearanceFlagMarket final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagMarket& default_instance() {
+  static const AppearanceFlagMarket &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagMarket* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagMarket*>(
-               &_AppearanceFlagMarket_default_instance_);
+  static inline const AppearanceFlagMarket *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagMarket *>(
+        &_AppearanceFlagMarket_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    18;
+  static constexpr int kIndexInFileMessages = 18;
 
-  friend void swap(AppearanceFlagMarket& a, AppearanceFlagMarket& b) {
+  friend void swap(AppearanceFlagMarket &a, AppearanceFlagMarket &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagMarket* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagMarket *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagMarket* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagMarket *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagMarket* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagMarket *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagMarket>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagMarket& from);
+  void CopyFrom(const AppearanceFlagMarket &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagMarket& from) {
+  void MergeFrom(const AppearanceFlagMarket &from) {
     AppearanceFlagMarket::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagMarket* other);
+  void InternalSwap(AppearanceFlagMarket *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagMarket";
   }
-  protected:
-  explicit AppearanceFlagMarket(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagMarket(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4672,80 +5589,106 @@ class AppearanceFlagMarket final :
     kMinimumLevelFieldNumber = 6,
     kCategoryFieldNumber = 1,
   };
-  // repeated .Canary.protobuf.appearances.PLAYER_PROFESSION restrict_to_profession = 5;
+  // repeated .Canary.protobuf.appearances.PLAYER_PROFESSION
+  // restrict_to_profession = 5;
   int restrict_to_profession_size() const;
-  private:
+
+private:
   int _internal_restrict_to_profession_size() const;
-  public:
+
+public:
   void clear_restrict_to_profession();
-  private:
-  ::Canary::protobuf::appearances::PLAYER_PROFESSION _internal_restrict_to_profession(int index) const;
-  void _internal_add_restrict_to_profession(::Canary::protobuf::appearances::PLAYER_PROFESSION value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_restrict_to_profession();
-  public:
-  ::Canary::protobuf::appearances::PLAYER_PROFESSION restrict_to_profession(int index) const;
-  void set_restrict_to_profession(int index, ::Canary::protobuf::appearances::PLAYER_PROFESSION value);
-  void add_restrict_to_profession(::Canary::protobuf::appearances::PLAYER_PROFESSION value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& restrict_to_profession() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_restrict_to_profession();
+
+private:
+  ::Canary::protobuf::appearances::PLAYER_PROFESSION
+  _internal_restrict_to_profession(int index) const;
+  void _internal_add_restrict_to_profession(
+      ::Canary::protobuf::appearances::PLAYER_PROFESSION value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> *
+  _internal_mutable_restrict_to_profession();
+
+public:
+  ::Canary::protobuf::appearances::PLAYER_PROFESSION
+  restrict_to_profession(int index) const;
+  void set_restrict_to_profession(
+      int index, ::Canary::protobuf::appearances::PLAYER_PROFESSION value);
+  void add_restrict_to_profession(
+      ::Canary::protobuf::appearances::PLAYER_PROFESSION value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> &
+  restrict_to_profession() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> *mutable_restrict_to_profession();
 
   // optional uint32 trade_as_object_id = 2;
   bool has_trade_as_object_id() const;
-  private:
+
+private:
   bool _internal_has_trade_as_object_id() const;
-  public:
+
+public:
   void clear_trade_as_object_id();
   uint32_t trade_as_object_id() const;
   void set_trade_as_object_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_trade_as_object_id() const;
   void _internal_set_trade_as_object_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 show_as_object_id = 3;
   bool has_show_as_object_id() const;
-  private:
+
+private:
   bool _internal_has_show_as_object_id() const;
-  public:
+
+public:
   void clear_show_as_object_id();
   uint32_t show_as_object_id() const;
   void set_show_as_object_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_show_as_object_id() const;
   void _internal_set_show_as_object_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 minimum_level = 6;
   bool has_minimum_level() const;
-  private:
+
+private:
   bool _internal_has_minimum_level() const;
-  public:
+
+public:
   void clear_minimum_level();
   uint32_t minimum_level() const;
   void set_minimum_level(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_minimum_level() const;
   void _internal_set_minimum_level(uint32_t value);
-  public:
 
+public:
   // optional .Canary.protobuf.appearances.ITEM_CATEGORY category = 1;
   bool has_category() const;
-  private:
+
+private:
   bool _internal_has_category() const;
-  public:
+
+public:
   void clear_category();
   ::Canary::protobuf::appearances::ITEM_CATEGORY category() const;
   void set_category(::Canary::protobuf::appearances::ITEM_CATEGORY value);
-  private:
-  ::Canary::protobuf::appearances::ITEM_CATEGORY _internal_category() const;
-  void _internal_set_category(::Canary::protobuf::appearances::ITEM_CATEGORY value);
-  public:
 
+private:
+  ::Canary::protobuf::appearances::ITEM_CATEGORY _internal_category() const;
+  void
+  _internal_set_category(::Canary::protobuf::appearances::ITEM_CATEGORY value);
+
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagMarket)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -4757,34 +5700,38 @@ class AppearanceFlagMarket final :
     uint32_t minimum_level_;
     int category_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagNPC final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagNPC) */ {
- public:
+class AppearanceFlagNPC final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagNPC)
+                                                                         */
+{
+public:
   inline AppearanceFlagNPC() : AppearanceFlagNPC(nullptr) {}
   ~AppearanceFlagNPC() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagNPC(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR
+      AppearanceFlagNPC(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagNPC(const AppearanceFlagNPC& from);
-  AppearanceFlagNPC(AppearanceFlagNPC&& from) noexcept
-    : AppearanceFlagNPC() {
+  AppearanceFlagNPC(const AppearanceFlagNPC &from);
+  AppearanceFlagNPC(AppearanceFlagNPC &&from) noexcept : AppearanceFlagNPC() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagNPC& operator=(const AppearanceFlagNPC& from) {
+  inline AppearanceFlagNPC &operator=(const AppearanceFlagNPC &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagNPC& operator=(AppearanceFlagNPC&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagNPC &operator=(AppearanceFlagNPC &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -4793,95 +5740,106 @@ class AppearanceFlagNPC final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagNPC& default_instance() {
+  static const AppearanceFlagNPC &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagNPC* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagNPC*>(
-               &_AppearanceFlagNPC_default_instance_);
+  static inline const AppearanceFlagNPC *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagNPC *>(
+        &_AppearanceFlagNPC_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    19;
+  static constexpr int kIndexInFileMessages = 19;
 
-  friend void swap(AppearanceFlagNPC& a, AppearanceFlagNPC& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AppearanceFlagNPC* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(AppearanceFlagNPC &a, AppearanceFlagNPC &b) { a.Swap(&b); }
+  inline void Swap(AppearanceFlagNPC *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagNPC* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagNPC *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagNPC* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagNPC *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagNPC>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagNPC& from);
+  void CopyFrom(const AppearanceFlagNPC &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagNPC& from) {
+  void MergeFrom(const AppearanceFlagNPC &from) {
     AppearanceFlagNPC::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagNPC* other);
+  void InternalSwap(AppearanceFlagNPC *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagNPC";
   }
-  protected:
-  explicit AppearanceFlagNPC(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagNPC(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                             bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -4899,102 +5857,125 @@ class AppearanceFlagNPC final :
   };
   // optional bytes name = 1;
   bool has_name() const;
-  private:
-  bool _internal_has_name() const;
-  public:
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
 
+private:
+  bool _internal_has_name() const;
+
+public:
+  void clear_name();
+  const std::string &name() const;
+  template <typename ArgT0 = const std::string &, typename... ArgT>
+  void set_name(ArgT0 &&arg0, ArgT... args);
+  std::string *mutable_name();
+  PROTOBUF_NODISCARD std::string *release_name();
+  void set_allocated_name(std::string *name);
+
+private:
+  const std::string &_internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void
+  _internal_set_name(const std::string &value);
+  std::string *_internal_mutable_name();
+
+public:
   // optional bytes location = 2;
   bool has_location() const;
-  private:
-  bool _internal_has_location() const;
-  public:
-  void clear_location();
-  const std::string& location() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_location(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_location();
-  PROTOBUF_NODISCARD std::string* release_location();
-  void set_allocated_location(std::string* location);
-  private:
-  const std::string& _internal_location() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_location(const std::string& value);
-  std::string* _internal_mutable_location();
-  public:
 
+private:
+  bool _internal_has_location() const;
+
+public:
+  void clear_location();
+  const std::string &location() const;
+  template <typename ArgT0 = const std::string &, typename... ArgT>
+  void set_location(ArgT0 &&arg0, ArgT... args);
+  std::string *mutable_location();
+  PROTOBUF_NODISCARD std::string *release_location();
+  void set_allocated_location(std::string *location);
+
+private:
+  const std::string &_internal_location() const;
+  inline PROTOBUF_ALWAYS_INLINE void
+  _internal_set_location(const std::string &value);
+  std::string *_internal_mutable_location();
+
+public:
   // optional bytes currency_quest_flag_display_name = 6;
   bool has_currency_quest_flag_display_name() const;
-  private:
-  bool _internal_has_currency_quest_flag_display_name() const;
-  public:
-  void clear_currency_quest_flag_display_name();
-  const std::string& currency_quest_flag_display_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_currency_quest_flag_display_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_currency_quest_flag_display_name();
-  PROTOBUF_NODISCARD std::string* release_currency_quest_flag_display_name();
-  void set_allocated_currency_quest_flag_display_name(std::string* currency_quest_flag_display_name);
-  private:
-  const std::string& _internal_currency_quest_flag_display_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_currency_quest_flag_display_name(const std::string& value);
-  std::string* _internal_mutable_currency_quest_flag_display_name();
-  public:
 
+private:
+  bool _internal_has_currency_quest_flag_display_name() const;
+
+public:
+  void clear_currency_quest_flag_display_name();
+  const std::string &currency_quest_flag_display_name() const;
+  template <typename ArgT0 = const std::string &, typename... ArgT>
+  void set_currency_quest_flag_display_name(ArgT0 &&arg0, ArgT... args);
+  std::string *mutable_currency_quest_flag_display_name();
+  PROTOBUF_NODISCARD std::string *release_currency_quest_flag_display_name();
+  void set_allocated_currency_quest_flag_display_name(
+      std::string *currency_quest_flag_display_name);
+
+private:
+  const std::string &_internal_currency_quest_flag_display_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void
+  _internal_set_currency_quest_flag_display_name(const std::string &value);
+  std::string *_internal_mutable_currency_quest_flag_display_name();
+
+public:
   // optional uint32 sale_price = 3;
   bool has_sale_price() const;
-  private:
+
+private:
   bool _internal_has_sale_price() const;
-  public:
+
+public:
   void clear_sale_price();
   uint32_t sale_price() const;
   void set_sale_price(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_sale_price() const;
   void _internal_set_sale_price(uint32_t value);
-  public:
 
+public:
   // optional uint32 buy_price = 4;
   bool has_buy_price() const;
-  private:
+
+private:
   bool _internal_has_buy_price() const;
-  public:
+
+public:
   void clear_buy_price();
   uint32_t buy_price() const;
   void set_buy_price(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_buy_price() const;
   void _internal_set_buy_price(uint32_t value);
-  public:
 
+public:
   // optional uint32 currency_object_type_id = 5;
   bool has_currency_object_type_id() const;
-  private:
+
+private:
   bool _internal_has_currency_object_type_id() const;
-  public:
+
+public:
   void clear_currency_object_type_id();
   uint32_t currency_object_type_id() const;
   void set_currency_object_type_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_currency_object_type_id() const;
   void _internal_set_currency_object_type_id(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagNPC)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5002,39 +5983,47 @@ class AppearanceFlagNPC final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr location_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_quest_flag_display_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr
+        currency_quest_flag_display_name_;
     uint32_t sale_price_;
     uint32_t buy_price_;
     uint32_t currency_object_type_id_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagAutomap final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagAutomap) */ {
- public:
+class AppearanceFlagAutomap final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagAutomap)
+                                               */
+{
+public:
   inline AppearanceFlagAutomap() : AppearanceFlagAutomap(nullptr) {}
   ~AppearanceFlagAutomap() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagAutomap(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagAutomap(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagAutomap(const AppearanceFlagAutomap& from);
-  AppearanceFlagAutomap(AppearanceFlagAutomap&& from) noexcept
-    : AppearanceFlagAutomap() {
+  AppearanceFlagAutomap(const AppearanceFlagAutomap &from);
+  AppearanceFlagAutomap(AppearanceFlagAutomap &&from) noexcept
+      : AppearanceFlagAutomap() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagAutomap& operator=(const AppearanceFlagAutomap& from) {
+  inline AppearanceFlagAutomap &operator=(const AppearanceFlagAutomap &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagAutomap& operator=(AppearanceFlagAutomap&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagAutomap &
+  operator=(AppearanceFlagAutomap &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5043,95 +6032,108 @@ class AppearanceFlagAutomap final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagAutomap& default_instance() {
+  static const AppearanceFlagAutomap &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagAutomap* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagAutomap*>(
-               &_AppearanceFlagAutomap_default_instance_);
+  static inline const AppearanceFlagAutomap *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagAutomap *>(
+        &_AppearanceFlagAutomap_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    20;
+  static constexpr int kIndexInFileMessages = 20;
 
-  friend void swap(AppearanceFlagAutomap& a, AppearanceFlagAutomap& b) {
+  friend void swap(AppearanceFlagAutomap &a, AppearanceFlagAutomap &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagAutomap* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagAutomap *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagAutomap* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagAutomap *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagAutomap* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagAutomap *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagAutomap>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagAutomap& from);
+  void CopyFrom(const AppearanceFlagAutomap &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagAutomap& from) {
+  void MergeFrom(const AppearanceFlagAutomap &from) {
     AppearanceFlagAutomap::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagAutomap* other);
+  void InternalSwap(AppearanceFlagAutomap *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagAutomap";
   }
-  protected:
-  explicit AppearanceFlagAutomap(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagAutomap(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                 bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5144,22 +6146,26 @@ class AppearanceFlagAutomap final :
   };
   // optional uint32 color = 1;
   bool has_color() const;
-  private:
+
+private:
   bool _internal_has_color() const;
-  public:
+
+public:
   void clear_color();
   uint32_t color() const;
   void set_color(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_color() const;
   void _internal_set_color(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagAutomap)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5167,34 +6173,39 @@ class AppearanceFlagAutomap final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t color_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagHook final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHook) */ {
- public:
+class AppearanceFlagHook final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagHook)
+                                                                          */
+{
+public:
   inline AppearanceFlagHook() : AppearanceFlagHook(nullptr) {}
   ~AppearanceFlagHook() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagHook(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagHook(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagHook(const AppearanceFlagHook& from);
-  AppearanceFlagHook(AppearanceFlagHook&& from) noexcept
-    : AppearanceFlagHook() {
+  AppearanceFlagHook(const AppearanceFlagHook &from);
+  AppearanceFlagHook(AppearanceFlagHook &&from) noexcept
+      : AppearanceFlagHook() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagHook& operator=(const AppearanceFlagHook& from) {
+  inline AppearanceFlagHook &operator=(const AppearanceFlagHook &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagHook& operator=(AppearanceFlagHook&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagHook &operator=(AppearanceFlagHook &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5203,95 +6214,106 @@ class AppearanceFlagHook final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagHook& default_instance() {
+  static const AppearanceFlagHook &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagHook* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagHook*>(
-               &_AppearanceFlagHook_default_instance_);
+  static inline const AppearanceFlagHook *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagHook *>(
+        &_AppearanceFlagHook_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    21;
+  static constexpr int kIndexInFileMessages = 21;
 
-  friend void swap(AppearanceFlagHook& a, AppearanceFlagHook& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AppearanceFlagHook* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  friend void swap(AppearanceFlagHook &a, AppearanceFlagHook &b) { a.Swap(&b); }
+  inline void Swap(AppearanceFlagHook *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagHook* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagHook *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagHook* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagHook *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagHook>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagHook& from);
+  void CopyFrom(const AppearanceFlagHook &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagHook& from) {
+  void MergeFrom(const AppearanceFlagHook &from) {
     AppearanceFlagHook::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagHook* other);
+  void InternalSwap(AppearanceFlagHook *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagHook";
   }
-  protected:
-  explicit AppearanceFlagHook(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagHook(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                              bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5304,22 +6326,27 @@ class AppearanceFlagHook final :
   };
   // optional .Canary.protobuf.appearances.HOOK_TYPE direction = 1;
   bool has_direction() const;
-  private:
+
+private:
   bool _internal_has_direction() const;
-  public:
+
+public:
   void clear_direction();
   ::Canary::protobuf::appearances::HOOK_TYPE direction() const;
   void set_direction(::Canary::protobuf::appearances::HOOK_TYPE value);
-  private:
-  ::Canary::protobuf::appearances::HOOK_TYPE _internal_direction() const;
-  void _internal_set_direction(::Canary::protobuf::appearances::HOOK_TYPE value);
-  public:
 
+private:
+  ::Canary::protobuf::appearances::HOOK_TYPE _internal_direction() const;
+  void
+  _internal_set_direction(::Canary::protobuf::appearances::HOOK_TYPE value);
+
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagHook)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5327,34 +6354,41 @@ class AppearanceFlagHook final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int direction_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagLenshelp final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLenshelp) */ {
- public:
+class AppearanceFlagLenshelp final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagLenshelp)
+                                               */
+{
+public:
   inline AppearanceFlagLenshelp() : AppearanceFlagLenshelp(nullptr) {}
   ~AppearanceFlagLenshelp() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagLenshelp(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagLenshelp(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagLenshelp(const AppearanceFlagLenshelp& from);
-  AppearanceFlagLenshelp(AppearanceFlagLenshelp&& from) noexcept
-    : AppearanceFlagLenshelp() {
+  AppearanceFlagLenshelp(const AppearanceFlagLenshelp &from);
+  AppearanceFlagLenshelp(AppearanceFlagLenshelp &&from) noexcept
+      : AppearanceFlagLenshelp() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagLenshelp& operator=(const AppearanceFlagLenshelp& from) {
+  inline AppearanceFlagLenshelp &operator=(const AppearanceFlagLenshelp &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagLenshelp& operator=(AppearanceFlagLenshelp&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagLenshelp &
+  operator=(AppearanceFlagLenshelp &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5363,95 +6397,108 @@ class AppearanceFlagLenshelp final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagLenshelp& default_instance() {
+  static const AppearanceFlagLenshelp &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagLenshelp* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagLenshelp*>(
-               &_AppearanceFlagLenshelp_default_instance_);
+  static inline const AppearanceFlagLenshelp *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagLenshelp *>(
+        &_AppearanceFlagLenshelp_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    22;
+  static constexpr int kIndexInFileMessages = 22;
 
-  friend void swap(AppearanceFlagLenshelp& a, AppearanceFlagLenshelp& b) {
+  friend void swap(AppearanceFlagLenshelp &a, AppearanceFlagLenshelp &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagLenshelp* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagLenshelp *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagLenshelp* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagLenshelp *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagLenshelp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagLenshelp *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagLenshelp>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagLenshelp& from);
+  void CopyFrom(const AppearanceFlagLenshelp &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagLenshelp& from) {
+  void MergeFrom(const AppearanceFlagLenshelp &from) {
     AppearanceFlagLenshelp::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagLenshelp* other);
+  void InternalSwap(AppearanceFlagLenshelp *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagLenshelp";
   }
-  protected:
-  explicit AppearanceFlagLenshelp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagLenshelp(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                  bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5464,22 +6511,26 @@ class AppearanceFlagLenshelp final :
   };
   // optional uint32 id = 1;
   bool has_id() const;
-  private:
+
+private:
   bool _internal_has_id() const;
-  public:
+
+public:
   void clear_id();
   uint32_t id() const;
   void set_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_id() const;
   void _internal_set_id(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagLenshelp)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5487,34 +6538,43 @@ class AppearanceFlagLenshelp final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t id_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagChangedToExpire final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagChangedToExpire) */ {
- public:
-  inline AppearanceFlagChangedToExpire() : AppearanceFlagChangedToExpire(nullptr) {}
+class AppearanceFlagChangedToExpire final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagChangedToExpire)
+                                               */
+{
+public:
+  inline AppearanceFlagChangedToExpire()
+      : AppearanceFlagChangedToExpire(nullptr) {}
   ~AppearanceFlagChangedToExpire() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagChangedToExpire(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagChangedToExpire(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagChangedToExpire(const AppearanceFlagChangedToExpire& from);
-  AppearanceFlagChangedToExpire(AppearanceFlagChangedToExpire&& from) noexcept
-    : AppearanceFlagChangedToExpire() {
+  AppearanceFlagChangedToExpire(const AppearanceFlagChangedToExpire &from);
+  AppearanceFlagChangedToExpire(AppearanceFlagChangedToExpire &&from) noexcept
+      : AppearanceFlagChangedToExpire() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagChangedToExpire& operator=(const AppearanceFlagChangedToExpire& from) {
+  inline AppearanceFlagChangedToExpire &
+  operator=(const AppearanceFlagChangedToExpire &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagChangedToExpire& operator=(AppearanceFlagChangedToExpire&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagChangedToExpire &
+  operator=(AppearanceFlagChangedToExpire &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5523,95 +6583,110 @@ class AppearanceFlagChangedToExpire final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagChangedToExpire& default_instance() {
+  static const AppearanceFlagChangedToExpire &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagChangedToExpire* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagChangedToExpire*>(
-               &_AppearanceFlagChangedToExpire_default_instance_);
+  static inline const AppearanceFlagChangedToExpire *
+  internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagChangedToExpire *>(
+        &_AppearanceFlagChangedToExpire_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    23;
+  static constexpr int kIndexInFileMessages = 23;
 
-  friend void swap(AppearanceFlagChangedToExpire& a, AppearanceFlagChangedToExpire& b) {
+  friend void swap(AppearanceFlagChangedToExpire &a,
+                   AppearanceFlagChangedToExpire &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagChangedToExpire* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagChangedToExpire *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagChangedToExpire* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagChangedToExpire *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagChangedToExpire* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagChangedToExpire *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagChangedToExpire>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagChangedToExpire& from);
+  void CopyFrom(const AppearanceFlagChangedToExpire &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagChangedToExpire& from) {
+  void MergeFrom(const AppearanceFlagChangedToExpire &from) {
     AppearanceFlagChangedToExpire::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagChangedToExpire* other);
+  void InternalSwap(AppearanceFlagChangedToExpire *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagChangedToExpire";
   }
-  protected:
-  explicit AppearanceFlagChangedToExpire(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagChangedToExpire(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                         bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5624,22 +6699,26 @@ class AppearanceFlagChangedToExpire final :
   };
   // optional uint32 former_object_typeid = 1;
   bool has_former_object_typeid() const;
-  private:
+
+private:
   bool _internal_has_former_object_typeid() const;
-  public:
+
+public:
   void clear_former_object_typeid();
   uint32_t former_object_typeid() const;
   void set_former_object_typeid(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_former_object_typeid() const;
   void _internal_set_former_object_typeid(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagChangedToExpire)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5647,34 +6726,42 @@ class AppearanceFlagChangedToExpire final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t former_object_typeid_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class AppearanceFlagCyclopedia final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagCyclopedia) */ {
- public:
+class AppearanceFlagCyclopedia final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.AppearanceFlagCyclopedia)
+                                               */
+{
+public:
   inline AppearanceFlagCyclopedia() : AppearanceFlagCyclopedia(nullptr) {}
   ~AppearanceFlagCyclopedia() override;
-  explicit PROTOBUF_CONSTEXPR AppearanceFlagCyclopedia(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR AppearanceFlagCyclopedia(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  AppearanceFlagCyclopedia(const AppearanceFlagCyclopedia& from);
-  AppearanceFlagCyclopedia(AppearanceFlagCyclopedia&& from) noexcept
-    : AppearanceFlagCyclopedia() {
+  AppearanceFlagCyclopedia(const AppearanceFlagCyclopedia &from);
+  AppearanceFlagCyclopedia(AppearanceFlagCyclopedia &&from) noexcept
+      : AppearanceFlagCyclopedia() {
     *this = ::std::move(from);
   }
 
-  inline AppearanceFlagCyclopedia& operator=(const AppearanceFlagCyclopedia& from) {
+  inline AppearanceFlagCyclopedia &
+  operator=(const AppearanceFlagCyclopedia &from) {
     CopyFrom(from);
     return *this;
   }
-  inline AppearanceFlagCyclopedia& operator=(AppearanceFlagCyclopedia&& from) noexcept {
-    if (this == &from) return *this;
+  inline AppearanceFlagCyclopedia &
+  operator=(AppearanceFlagCyclopedia &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5683,95 +6770,108 @@ class AppearanceFlagCyclopedia final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const AppearanceFlagCyclopedia& default_instance() {
+  static const AppearanceFlagCyclopedia &default_instance() {
     return *internal_default_instance();
   }
-  static inline const AppearanceFlagCyclopedia* internal_default_instance() {
-    return reinterpret_cast<const AppearanceFlagCyclopedia*>(
-               &_AppearanceFlagCyclopedia_default_instance_);
+  static inline const AppearanceFlagCyclopedia *internal_default_instance() {
+    return reinterpret_cast<const AppearanceFlagCyclopedia *>(
+        &_AppearanceFlagCyclopedia_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    24;
+  static constexpr int kIndexInFileMessages = 24;
 
-  friend void swap(AppearanceFlagCyclopedia& a, AppearanceFlagCyclopedia& b) {
+  friend void swap(AppearanceFlagCyclopedia &a, AppearanceFlagCyclopedia &b) {
     a.Swap(&b);
   }
-  inline void Swap(AppearanceFlagCyclopedia* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(AppearanceFlagCyclopedia *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(AppearanceFlagCyclopedia* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(AppearanceFlagCyclopedia *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  AppearanceFlagCyclopedia* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  AppearanceFlagCyclopedia *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<AppearanceFlagCyclopedia>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AppearanceFlagCyclopedia& from);
+  void CopyFrom(const AppearanceFlagCyclopedia &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AppearanceFlagCyclopedia& from) {
+  void MergeFrom(const AppearanceFlagCyclopedia &from) {
     AppearanceFlagCyclopedia::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AppearanceFlagCyclopedia* other);
+  void InternalSwap(AppearanceFlagCyclopedia *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.AppearanceFlagCyclopedia";
   }
-  protected:
-  explicit AppearanceFlagCyclopedia(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit AppearanceFlagCyclopedia(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                    bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5784,22 +6884,26 @@ class AppearanceFlagCyclopedia final :
   };
   // optional uint32 cyclopedia_type = 1;
   bool has_cyclopedia_type() const;
-  private:
+
+private:
   bool _internal_has_cyclopedia_type() const;
-  public:
+
+public:
   void clear_cyclopedia_type();
   uint32_t cyclopedia_type() const;
   void set_cyclopedia_type(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_cyclopedia_type() const;
   void _internal_set_cyclopedia_type(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.AppearanceFlagCyclopedia)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -5807,34 +6911,42 @@ class AppearanceFlagCyclopedia final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t cyclopedia_type_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SpecialMeaningAppearanceIds final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpecialMeaningAppearanceIds) */ {
- public:
+class SpecialMeaningAppearanceIds final
+    : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Canary.protobuf.appearances.SpecialMeaningAppearanceIds)
+                                               */
+{
+public:
   inline SpecialMeaningAppearanceIds() : SpecialMeaningAppearanceIds(nullptr) {}
   ~SpecialMeaningAppearanceIds() override;
-  explicit PROTOBUF_CONSTEXPR SpecialMeaningAppearanceIds(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR SpecialMeaningAppearanceIds(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SpecialMeaningAppearanceIds(const SpecialMeaningAppearanceIds& from);
-  SpecialMeaningAppearanceIds(SpecialMeaningAppearanceIds&& from) noexcept
-    : SpecialMeaningAppearanceIds() {
+  SpecialMeaningAppearanceIds(const SpecialMeaningAppearanceIds &from);
+  SpecialMeaningAppearanceIds(SpecialMeaningAppearanceIds &&from) noexcept
+      : SpecialMeaningAppearanceIds() {
     *this = ::std::move(from);
   }
 
-  inline SpecialMeaningAppearanceIds& operator=(const SpecialMeaningAppearanceIds& from) {
+  inline SpecialMeaningAppearanceIds &
+  operator=(const SpecialMeaningAppearanceIds &from) {
     CopyFrom(from);
     return *this;
   }
-  inline SpecialMeaningAppearanceIds& operator=(SpecialMeaningAppearanceIds&& from) noexcept {
-    if (this == &from) return *this;
+  inline SpecialMeaningAppearanceIds &
+  operator=(SpecialMeaningAppearanceIds &&from) noexcept {
+    if (this == &from)
+      return *this;
     if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
         && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
     ) {
       InternalSwap(&from);
     } else {
@@ -5843,95 +6955,109 @@ class SpecialMeaningAppearanceIds final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &
+  unknown_fields() const {
+    return _internal_metadata_
+        .unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(
+            ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *mutable_unknown_fields() {
+    return _internal_metadata_
+        .mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *descriptor() {
     return GetDescriptor();
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor *GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection *GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SpecialMeaningAppearanceIds& default_instance() {
+  static const SpecialMeaningAppearanceIds &default_instance() {
     return *internal_default_instance();
   }
-  static inline const SpecialMeaningAppearanceIds* internal_default_instance() {
-    return reinterpret_cast<const SpecialMeaningAppearanceIds*>(
-               &_SpecialMeaningAppearanceIds_default_instance_);
+  static inline const SpecialMeaningAppearanceIds *internal_default_instance() {
+    return reinterpret_cast<const SpecialMeaningAppearanceIds *>(
+        &_SpecialMeaningAppearanceIds_default_instance_);
   }
-  static constexpr int kIndexInFileMessages =
-    25;
+  static constexpr int kIndexInFileMessages = 25;
 
-  friend void swap(SpecialMeaningAppearanceIds& a, SpecialMeaningAppearanceIds& b) {
+  friend void swap(SpecialMeaningAppearanceIds &a,
+                   SpecialMeaningAppearanceIds &b) {
     a.Swap(&b);
   }
-  inline void Swap(SpecialMeaningAppearanceIds* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+  inline void Swap(SpecialMeaningAppearanceIds *other) {
+    if (other == this)
+      return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
         GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+#else  // PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SpecialMeaningAppearanceIds* other) {
-    if (other == this) return;
+  void UnsafeArenaSwap(SpecialMeaningAppearanceIds *other) {
+    if (other == this)
+      return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  SpecialMeaningAppearanceIds* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+  SpecialMeaningAppearanceIds *
+  New(::PROTOBUF_NAMESPACE_ID::Arena *arena = nullptr) const final {
     return CreateMaybeMessage<SpecialMeaningAppearanceIds>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SpecialMeaningAppearanceIds& from);
+  void CopyFrom(const SpecialMeaningAppearanceIds &from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SpecialMeaningAppearanceIds& from) {
+  void MergeFrom(const SpecialMeaningAppearanceIds &from) {
     SpecialMeaningAppearanceIds::MergeImpl(*this, from);
   }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
+
+private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message &to_msg,
+                        const ::PROTOBUF_NAMESPACE_ID::Message &from_msg);
+
+public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  const char *
+  _InternalParse(const char *ptr,
+                 ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final;
+  uint8_t *_InternalSerialize(
+      uint8_t *target,
+      ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final;
   int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SpecialMeaningAppearanceIds* other);
+  void InternalSwap(SpecialMeaningAppearanceIds *other);
 
-  private:
+private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
     return "Canary.protobuf.appearances.SpecialMeaningAppearanceIds";
   }
-  protected:
-  explicit SpecialMeaningAppearanceIds(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
 
+protected:
+  explicit SpecialMeaningAppearanceIds(::PROTOBUF_NAMESPACE_ID::Arena *arena,
+                                       bool is_message_owned = false);
+
+public:
   static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *GetClassData() const final;
 
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
@@ -5949,87 +7075,106 @@ class SpecialMeaningAppearanceIds final :
   };
   // optional uint32 gold_coin_id = 1;
   bool has_gold_coin_id() const;
-  private:
+
+private:
   bool _internal_has_gold_coin_id() const;
-  public:
+
+public:
   void clear_gold_coin_id();
   uint32_t gold_coin_id() const;
   void set_gold_coin_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_gold_coin_id() const;
   void _internal_set_gold_coin_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 platinum_coin_id = 2;
   bool has_platinum_coin_id() const;
-  private:
+
+private:
   bool _internal_has_platinum_coin_id() const;
-  public:
+
+public:
   void clear_platinum_coin_id();
   uint32_t platinum_coin_id() const;
   void set_platinum_coin_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_platinum_coin_id() const;
   void _internal_set_platinum_coin_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 crystal_coin_id = 3;
   bool has_crystal_coin_id() const;
-  private:
+
+private:
   bool _internal_has_crystal_coin_id() const;
-  public:
+
+public:
   void clear_crystal_coin_id();
   uint32_t crystal_coin_id() const;
   void set_crystal_coin_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_crystal_coin_id() const;
   void _internal_set_crystal_coin_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 tibia_coin_id = 4;
   bool has_tibia_coin_id() const;
-  private:
+
+private:
   bool _internal_has_tibia_coin_id() const;
-  public:
+
+public:
   void clear_tibia_coin_id();
   uint32_t tibia_coin_id() const;
   void set_tibia_coin_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_tibia_coin_id() const;
   void _internal_set_tibia_coin_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 stamped_letter_id = 5;
   bool has_stamped_letter_id() const;
-  private:
+
+private:
   bool _internal_has_stamped_letter_id() const;
-  public:
+
+public:
   void clear_stamped_letter_id();
   uint32_t stamped_letter_id() const;
   void set_stamped_letter_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_stamped_letter_id() const;
   void _internal_set_stamped_letter_id(uint32_t value);
-  public:
 
+public:
   // optional uint32 supply_stash_id = 6;
   bool has_supply_stash_id() const;
-  private:
+
+private:
   bool _internal_has_supply_stash_id() const;
-  public:
+
+public:
   void clear_supply_stash_id();
   uint32_t supply_stash_id() const;
   void set_supply_stash_id(uint32_t value);
-  private:
+
+private:
   uint32_t _internal_supply_stash_id() const;
   void _internal_set_supply_stash_id(uint32_t value);
-  public:
 
+public:
   // @@protoc_insertion_point(class_scope:Canary.protobuf.appearances.SpecialMeaningAppearanceIds)
- private:
+private:
   class _Internal;
 
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  template <typename T>
+  friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
@@ -6042,18 +7187,19 @@ class SpecialMeaningAppearanceIds final :
     uint32_t stamped_letter_id_;
     uint32_t supply_stash_id_;
   };
-  union { Impl_ _impl_; };
+  union {
+    Impl_ _impl_;
+  };
   friend struct ::TableStruct_appearances_2eproto;
 };
 // ===================================================================
 
-
 // ===================================================================
 
 #ifdef __GNUC__
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
-#endif  // __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#endif // __GNUC__
 // Coordinate
 
 // optional uint32 x = 1;
@@ -6061,16 +7207,12 @@ inline bool Coordinate::_internal_has_x() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool Coordinate::has_x() const {
-  return _internal_has_x();
-}
+inline bool Coordinate::has_x() const { return _internal_has_x(); }
 inline void Coordinate::clear_x() {
   _impl_.x_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t Coordinate::_internal_x() const {
-  return _impl_.x_;
-}
+inline uint32_t Coordinate::_internal_x() const { return _impl_.x_; }
 inline uint32_t Coordinate::x() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Coordinate.x)
   return _internal_x();
@@ -6089,16 +7231,12 @@ inline bool Coordinate::_internal_has_y() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool Coordinate::has_y() const {
-  return _internal_has_y();
-}
+inline bool Coordinate::has_y() const { return _internal_has_y(); }
 inline void Coordinate::clear_y() {
   _impl_.y_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t Coordinate::_internal_y() const {
-  return _impl_.y_;
-}
+inline uint32_t Coordinate::_internal_y() const { return _impl_.y_; }
 inline uint32_t Coordinate::y() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Coordinate.y)
   return _internal_y();
@@ -6117,16 +7255,12 @@ inline bool Coordinate::_internal_has_z() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool Coordinate::has_z() const {
-  return _internal_has_z();
-}
+inline bool Coordinate::has_z() const { return _internal_has_z(); }
 inline void Coordinate::clear_z() {
   _impl_.z_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t Coordinate::_internal_z() const {
-  return _impl_.z_;
-}
+inline uint32_t Coordinate::_internal_z() const { return _impl_.z_; }
 inline uint32_t Coordinate::z() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Coordinate.z)
   return _internal_z();
@@ -6148,37 +7282,39 @@ inline void Coordinate::set_z(uint32_t value) {
 inline int Appearances::_internal_object_size() const {
   return _impl_.object_.size();
 }
-inline int Appearances::object_size() const {
-  return _internal_object_size();
-}
-inline void Appearances::clear_object() {
-  _impl_.object_.Clear();
-}
-inline ::Canary::protobuf::appearances::Appearance* Appearances::mutable_object(int index) {
+inline int Appearances::object_size() const { return _internal_object_size(); }
+inline void Appearances::clear_object() { _impl_.object_.Clear(); }
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::mutable_object(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearances.object)
   return _impl_.object_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> *
 Appearances::mutable_object() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.Appearances.object)
   return &_impl_.object_;
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::_internal_object(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::_internal_object(int index) const {
   return _impl_.object_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::object(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::object(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearances.object)
   return _internal_object(index);
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::_internal_add_object() {
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::_internal_add_object() {
   return _impl_.object_.Add();
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::add_object() {
-  ::Canary::protobuf::appearances::Appearance* _add = _internal_add_object();
+inline ::Canary::protobuf::appearances::Appearance *Appearances::add_object() {
+  ::Canary::protobuf::appearances::Appearance *_add = _internal_add_object();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.Appearances.object)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> &
 Appearances::object() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.Appearances.object)
   return _impl_.object_;
@@ -6188,37 +7324,39 @@ Appearances::object() const {
 inline int Appearances::_internal_outfit_size() const {
   return _impl_.outfit_.size();
 }
-inline int Appearances::outfit_size() const {
-  return _internal_outfit_size();
-}
-inline void Appearances::clear_outfit() {
-  _impl_.outfit_.Clear();
-}
-inline ::Canary::protobuf::appearances::Appearance* Appearances::mutable_outfit(int index) {
+inline int Appearances::outfit_size() const { return _internal_outfit_size(); }
+inline void Appearances::clear_outfit() { _impl_.outfit_.Clear(); }
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::mutable_outfit(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearances.outfit)
   return _impl_.outfit_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> *
 Appearances::mutable_outfit() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.Appearances.outfit)
   return &_impl_.outfit_;
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::_internal_outfit(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::_internal_outfit(int index) const {
   return _impl_.outfit_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::outfit(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::outfit(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearances.outfit)
   return _internal_outfit(index);
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::_internal_add_outfit() {
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::_internal_add_outfit() {
   return _impl_.outfit_.Add();
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::add_outfit() {
-  ::Canary::protobuf::appearances::Appearance* _add = _internal_add_outfit();
+inline ::Canary::protobuf::appearances::Appearance *Appearances::add_outfit() {
+  ::Canary::protobuf::appearances::Appearance *_add = _internal_add_outfit();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.Appearances.outfit)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> &
 Appearances::outfit() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.Appearances.outfit)
   return _impl_.outfit_;
@@ -6228,37 +7366,39 @@ Appearances::outfit() const {
 inline int Appearances::_internal_effect_size() const {
   return _impl_.effect_.size();
 }
-inline int Appearances::effect_size() const {
-  return _internal_effect_size();
-}
-inline void Appearances::clear_effect() {
-  _impl_.effect_.Clear();
-}
-inline ::Canary::protobuf::appearances::Appearance* Appearances::mutable_effect(int index) {
+inline int Appearances::effect_size() const { return _internal_effect_size(); }
+inline void Appearances::clear_effect() { _impl_.effect_.Clear(); }
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::mutable_effect(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearances.effect)
   return _impl_.effect_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> *
 Appearances::mutable_effect() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.Appearances.effect)
   return &_impl_.effect_;
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::_internal_effect(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::_internal_effect(int index) const {
   return _impl_.effect_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::effect(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::effect(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearances.effect)
   return _internal_effect(index);
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::_internal_add_effect() {
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::_internal_add_effect() {
   return _impl_.effect_.Add();
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::add_effect() {
-  ::Canary::protobuf::appearances::Appearance* _add = _internal_add_effect();
+inline ::Canary::protobuf::appearances::Appearance *Appearances::add_effect() {
+  ::Canary::protobuf::appearances::Appearance *_add = _internal_add_effect();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.Appearances.effect)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> &
 Appearances::effect() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.Appearances.effect)
   return _impl_.effect_;
@@ -6271,40 +7411,45 @@ inline int Appearances::_internal_missile_size() const {
 inline int Appearances::missile_size() const {
   return _internal_missile_size();
 }
-inline void Appearances::clear_missile() {
-  _impl_.missile_.Clear();
-}
-inline ::Canary::protobuf::appearances::Appearance* Appearances::mutable_missile(int index) {
+inline void Appearances::clear_missile() { _impl_.missile_.Clear(); }
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::mutable_missile(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearances.missile)
   return _impl_.missile_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> *
 Appearances::mutable_missile() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.Appearances.missile)
   return &_impl_.missile_;
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::_internal_missile(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::_internal_missile(int index) const {
   return _impl_.missile_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::Appearance& Appearances::missile(int index) const {
+inline const ::Canary::protobuf::appearances::Appearance &
+Appearances::missile(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearances.missile)
   return _internal_missile(index);
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::_internal_add_missile() {
+inline ::Canary::protobuf::appearances::Appearance *
+Appearances::_internal_add_missile() {
   return _impl_.missile_.Add();
 }
-inline ::Canary::protobuf::appearances::Appearance* Appearances::add_missile() {
-  ::Canary::protobuf::appearances::Appearance* _add = _internal_add_missile();
+inline ::Canary::protobuf::appearances::Appearance *Appearances::add_missile() {
+  ::Canary::protobuf::appearances::Appearance *_add = _internal_add_missile();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.Appearances.missile)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Appearance >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Appearance> &
 Appearances::missile() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.Appearances.missile)
   return _impl_.missile_;
 }
 
-// optional .Canary.protobuf.appearances.SpecialMeaningAppearanceIds special_meaning_appearance_ids = 5;
+// optional .Canary.protobuf.appearances.SpecialMeaningAppearanceIds
+// special_meaning_appearance_ids = 5;
 inline bool Appearances::_internal_has_special_meaning_appearance_ids() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.special_meaning_appearance_ids_ != nullptr);
@@ -6314,22 +7459,32 @@ inline bool Appearances::has_special_meaning_appearance_ids() const {
   return _internal_has_special_meaning_appearance_ids();
 }
 inline void Appearances::clear_special_meaning_appearance_ids() {
-  if (_impl_.special_meaning_appearance_ids_ != nullptr) _impl_.special_meaning_appearance_ids_->Clear();
+  if (_impl_.special_meaning_appearance_ids_ != nullptr)
+    _impl_.special_meaning_appearance_ids_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds& Appearances::_internal_special_meaning_appearance_ids() const {
-  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* p = _impl_.special_meaning_appearance_ids_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds&>(
-      ::Canary::protobuf::appearances::_SpecialMeaningAppearanceIds_default_instance_);
+inline const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds &
+Appearances::_internal_special_meaning_appearance_ids() const {
+  const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *p =
+      _impl_.special_meaning_appearance_ids_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             SpecialMeaningAppearanceIds &>(
+                            ::Canary::protobuf::appearances::
+                                _SpecialMeaningAppearanceIds_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds& Appearances::special_meaning_appearance_ids() const {
+inline const ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds &
+Appearances::special_meaning_appearance_ids() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearances.special_meaning_appearance_ids)
   return _internal_special_meaning_appearance_ids();
 }
-inline void Appearances::unsafe_arena_set_allocated_special_meaning_appearance_ids(
-    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* special_meaning_appearance_ids) {
+inline void
+Appearances::unsafe_arena_set_allocated_special_meaning_appearance_ids(
+    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds
+        *special_meaning_appearance_ids) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.special_meaning_appearance_ids_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.special_meaning_appearance_ids_);
   }
   _impl_.special_meaning_appearance_ids_ = special_meaning_appearance_ids;
   if (special_meaning_appearance_ids) {
@@ -6339,52 +7494,67 @@ inline void Appearances::unsafe_arena_set_allocated_special_meaning_appearance_i
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.Appearances.special_meaning_appearance_ids)
 }
-inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* Appearances::release_special_meaning_appearance_ids() {
+inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+Appearances::release_special_meaning_appearance_ids() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* temp = _impl_.special_meaning_appearance_ids_;
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *temp =
+      _impl_.special_meaning_appearance_ids_;
   _impl_.special_meaning_appearance_ids_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* Appearances::unsafe_arena_release_special_meaning_appearance_ids() {
+inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+Appearances::unsafe_arena_release_special_meaning_appearance_ids() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.Appearances.special_meaning_appearance_ids)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* temp = _impl_.special_meaning_appearance_ids_;
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *temp =
+      _impl_.special_meaning_appearance_ids_;
   _impl_.special_meaning_appearance_ids_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* Appearances::_internal_mutable_special_meaning_appearance_ids() {
+inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+Appearances::_internal_mutable_special_meaning_appearance_ids() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.special_meaning_appearance_ids_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::SpecialMeaningAppearanceIds>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds>(
+        GetArenaForAllocation());
     _impl_.special_meaning_appearance_ids_ = p;
   }
   return _impl_.special_meaning_appearance_ids_;
 }
-inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* Appearances::mutable_special_meaning_appearance_ids() {
-  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* _msg = _internal_mutable_special_meaning_appearance_ids();
+inline ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *
+Appearances::mutable_special_meaning_appearance_ids() {
+  ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds *_msg =
+      _internal_mutable_special_meaning_appearance_ids();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearances.special_meaning_appearance_ids)
   return _msg;
 }
-inline void Appearances::set_allocated_special_meaning_appearance_ids(::Canary::protobuf::appearances::SpecialMeaningAppearanceIds* special_meaning_appearance_ids) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void Appearances::set_allocated_special_meaning_appearance_ids(
+    ::Canary::protobuf::appearances::SpecialMeaningAppearanceIds
+        *special_meaning_appearance_ids) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.special_meaning_appearance_ids_;
   }
   if (special_meaning_appearance_ids) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(special_meaning_appearance_ids);
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+            special_meaning_appearance_ids);
     if (message_arena != submessage_arena) {
-      special_meaning_appearance_ids = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, special_meaning_appearance_ids, submessage_arena);
+      special_meaning_appearance_ids =
+          ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+              message_arena, special_meaning_appearance_ids, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -6554,19 +7724,24 @@ inline void SpriteAnimation::clear_loop_type() {
   _impl_.loop_type_ = -1;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE SpriteAnimation::_internal_loop_type() const {
-  return static_cast< ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE >(_impl_.loop_type_);
+inline ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE
+SpriteAnimation::_internal_loop_type() const {
+  return static_cast<::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE>(
+      _impl_.loop_type_);
 }
-inline ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE SpriteAnimation::loop_type() const {
+inline ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE
+SpriteAnimation::loop_type() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpriteAnimation.loop_type)
   return _internal_loop_type();
 }
-inline void SpriteAnimation::_internal_set_loop_type(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value) {
+inline void SpriteAnimation::_internal_set_loop_type(
+    ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value) {
   assert(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.loop_type_ = value;
 }
-inline void SpriteAnimation::set_loop_type(::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value) {
+inline void SpriteAnimation::set_loop_type(
+    ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE value) {
   _internal_set_loop_type(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.SpriteAnimation.loop_type)
 }
@@ -6609,31 +7784,39 @@ inline int SpriteAnimation::sprite_phase_size() const {
 inline void SpriteAnimation::clear_sprite_phase() {
   _impl_.sprite_phase_.Clear();
 }
-inline ::Canary::protobuf::appearances::SpritePhase* SpriteAnimation::mutable_sprite_phase(int index) {
+inline ::Canary::protobuf::appearances::SpritePhase *
+SpriteAnimation::mutable_sprite_phase(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.SpriteAnimation.sprite_phase)
   return _impl_.sprite_phase_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::SpritePhase >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::SpritePhase> *
 SpriteAnimation::mutable_sprite_phase() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.SpriteAnimation.sprite_phase)
   return &_impl_.sprite_phase_;
 }
-inline const ::Canary::protobuf::appearances::SpritePhase& SpriteAnimation::_internal_sprite_phase(int index) const {
+inline const ::Canary::protobuf::appearances::SpritePhase &
+SpriteAnimation::_internal_sprite_phase(int index) const {
   return _impl_.sprite_phase_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::SpritePhase& SpriteAnimation::sprite_phase(int index) const {
+inline const ::Canary::protobuf::appearances::SpritePhase &
+SpriteAnimation::sprite_phase(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpriteAnimation.sprite_phase)
   return _internal_sprite_phase(index);
 }
-inline ::Canary::protobuf::appearances::SpritePhase* SpriteAnimation::_internal_add_sprite_phase() {
+inline ::Canary::protobuf::appearances::SpritePhase *
+SpriteAnimation::_internal_add_sprite_phase() {
   return _impl_.sprite_phase_.Add();
 }
-inline ::Canary::protobuf::appearances::SpritePhase* SpriteAnimation::add_sprite_phase() {
-  ::Canary::protobuf::appearances::SpritePhase* _add = _internal_add_sprite_phase();
+inline ::Canary::protobuf::appearances::SpritePhase *
+SpriteAnimation::add_sprite_phase() {
+  ::Canary::protobuf::appearances::SpritePhase *_add =
+      _internal_add_sprite_phase();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.SpriteAnimation.sprite_phase)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::SpritePhase >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::SpritePhase> &
 SpriteAnimation::sprite_phase() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.SpriteAnimation.sprite_phase)
   return _impl_.sprite_phase_;
@@ -6648,16 +7831,12 @@ inline bool Box::_internal_has_x() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool Box::has_x() const {
-  return _internal_has_x();
-}
+inline bool Box::has_x() const { return _internal_has_x(); }
 inline void Box::clear_x() {
   _impl_.x_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t Box::_internal_x() const {
-  return _impl_.x_;
-}
+inline uint32_t Box::_internal_x() const { return _impl_.x_; }
 inline uint32_t Box::x() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Box.x)
   return _internal_x();
@@ -6676,16 +7855,12 @@ inline bool Box::_internal_has_y() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool Box::has_y() const {
-  return _internal_has_y();
-}
+inline bool Box::has_y() const { return _internal_has_y(); }
 inline void Box::clear_y() {
   _impl_.y_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t Box::_internal_y() const {
-  return _impl_.y_;
-}
+inline uint32_t Box::_internal_y() const { return _impl_.y_; }
 inline uint32_t Box::y() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Box.y)
   return _internal_y();
@@ -6704,16 +7879,12 @@ inline bool Box::_internal_has_width() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool Box::has_width() const {
-  return _internal_has_width();
-}
+inline bool Box::has_width() const { return _internal_has_width(); }
 inline void Box::clear_width() {
   _impl_.width_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t Box::_internal_width() const {
-  return _impl_.width_;
-}
+inline uint32_t Box::_internal_width() const { return _impl_.width_; }
 inline uint32_t Box::width() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Box.width)
   return _internal_width();
@@ -6732,16 +7903,12 @@ inline bool Box::_internal_has_height() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool Box::has_height() const {
-  return _internal_has_height();
-}
+inline bool Box::has_height() const { return _internal_has_height(); }
 inline void Box::clear_height() {
   _impl_.height_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t Box::_internal_height() const {
-  return _impl_.height_;
-}
+inline uint32_t Box::_internal_height() const { return _impl_.height_; }
 inline uint32_t Box::height() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Box.height)
   return _internal_height();
@@ -6848,16 +8015,12 @@ inline bool SpriteInfo::_internal_has_layers() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool SpriteInfo::has_layers() const {
-  return _internal_has_layers();
-}
+inline bool SpriteInfo::has_layers() const { return _internal_has_layers(); }
 inline void SpriteInfo::clear_layers() {
   _impl_.layers_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t SpriteInfo::_internal_layers() const {
-  return _impl_.layers_;
-}
+inline uint32_t SpriteInfo::_internal_layers() const { return _impl_.layers_; }
 inline uint32_t SpriteInfo::layers() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpriteInfo.layers)
   return _internal_layers();
@@ -6878,9 +8041,7 @@ inline int SpriteInfo::_internal_sprite_id_size() const {
 inline int SpriteInfo::sprite_id_size() const {
   return _internal_sprite_id_size();
 }
-inline void SpriteInfo::clear_sprite_id() {
-  _impl_.sprite_id_.Clear();
-}
+inline void SpriteInfo::clear_sprite_id() { _impl_.sprite_id_.Clear(); }
 inline uint32_t SpriteInfo::_internal_sprite_id(int index) const {
   return _impl_.sprite_id_.Get(index);
 }
@@ -6899,20 +8060,20 @@ inline void SpriteInfo::add_sprite_id(uint32_t value) {
   _internal_add_sprite_id(value);
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.SpriteInfo.sprite_id)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> &
 SpriteInfo::_internal_sprite_id() const {
   return _impl_.sprite_id_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> &
 SpriteInfo::sprite_id() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.SpriteInfo.sprite_id)
   return _internal_sprite_id();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> *
 SpriteInfo::_internal_mutable_sprite_id() {
   return &_impl_.sprite_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<uint32_t> *
 SpriteInfo::mutable_sprite_id() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.SpriteInfo.sprite_id)
   return _internal_mutable_sprite_id();
@@ -6956,22 +8117,30 @@ inline bool SpriteInfo::has_animation() const {
   return _internal_has_animation();
 }
 inline void SpriteInfo::clear_animation() {
-  if (_impl_.animation_ != nullptr) _impl_.animation_->Clear();
+  if (_impl_.animation_ != nullptr)
+    _impl_.animation_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::Canary::protobuf::appearances::SpriteAnimation& SpriteInfo::_internal_animation() const {
-  const ::Canary::protobuf::appearances::SpriteAnimation* p = _impl_.animation_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::SpriteAnimation&>(
-      ::Canary::protobuf::appearances::_SpriteAnimation_default_instance_);
+inline const ::Canary::protobuf::appearances::SpriteAnimation &
+SpriteInfo::_internal_animation() const {
+  const ::Canary::protobuf::appearances::SpriteAnimation *p = _impl_.animation_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<
+                   const ::Canary::protobuf::appearances::SpriteAnimation &>(
+                   ::Canary::protobuf::appearances::
+                       _SpriteAnimation_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::SpriteAnimation& SpriteInfo::animation() const {
+inline const ::Canary::protobuf::appearances::SpriteAnimation &
+SpriteInfo::animation() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpriteInfo.animation)
   return _internal_animation();
 }
 inline void SpriteInfo::unsafe_arena_set_allocated_animation(
-    ::Canary::protobuf::appearances::SpriteAnimation* animation) {
+    ::Canary::protobuf::appearances::SpriteAnimation *animation) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.animation_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.animation_);
   }
   _impl_.animation_ = animation;
   if (animation) {
@@ -6981,48 +8150,58 @@ inline void SpriteInfo::unsafe_arena_set_allocated_animation(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.SpriteInfo.animation)
 }
-inline ::Canary::protobuf::appearances::SpriteAnimation* SpriteInfo::release_animation() {
+inline ::Canary::protobuf::appearances::SpriteAnimation *
+SpriteInfo::release_animation() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpriteAnimation* temp = _impl_.animation_;
+  ::Canary::protobuf::appearances::SpriteAnimation *temp = _impl_.animation_;
   _impl_.animation_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpriteAnimation* SpriteInfo::unsafe_arena_release_animation() {
+inline ::Canary::protobuf::appearances::SpriteAnimation *
+SpriteInfo::unsafe_arena_release_animation() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.SpriteInfo.animation)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpriteAnimation* temp = _impl_.animation_;
+  ::Canary::protobuf::appearances::SpriteAnimation *temp = _impl_.animation_;
   _impl_.animation_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpriteAnimation* SpriteInfo::_internal_mutable_animation() {
+inline ::Canary::protobuf::appearances::SpriteAnimation *
+SpriteInfo::_internal_mutable_animation() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.animation_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::SpriteAnimation>(GetArenaForAllocation());
+    auto *p =
+        CreateMaybeMessage<::Canary::protobuf::appearances::SpriteAnimation>(
+            GetArenaForAllocation());
     _impl_.animation_ = p;
   }
   return _impl_.animation_;
 }
-inline ::Canary::protobuf::appearances::SpriteAnimation* SpriteInfo::mutable_animation() {
-  ::Canary::protobuf::appearances::SpriteAnimation* _msg = _internal_mutable_animation();
+inline ::Canary::protobuf::appearances::SpriteAnimation *
+SpriteInfo::mutable_animation() {
+  ::Canary::protobuf::appearances::SpriteAnimation *_msg =
+      _internal_mutable_animation();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.SpriteInfo.animation)
   return _msg;
 }
-inline void SpriteInfo::set_allocated_animation(::Canary::protobuf::appearances::SpriteAnimation* animation) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void SpriteInfo::set_allocated_animation(
+    ::Canary::protobuf::appearances::SpriteAnimation *animation) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.animation_;
   }
   if (animation) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(animation);
     if (message_arena != submessage_arena) {
       animation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -7074,31 +8253,39 @@ inline int SpriteInfo::bounding_box_per_direction_size() const {
 inline void SpriteInfo::clear_bounding_box_per_direction() {
   _impl_.bounding_box_per_direction_.Clear();
 }
-inline ::Canary::protobuf::appearances::Box* SpriteInfo::mutable_bounding_box_per_direction(int index) {
+inline ::Canary::protobuf::appearances::Box *
+SpriteInfo::mutable_bounding_box_per_direction(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.SpriteInfo.bounding_box_per_direction)
   return _impl_.bounding_box_per_direction_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Box >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Box> *
 SpriteInfo::mutable_bounding_box_per_direction() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.SpriteInfo.bounding_box_per_direction)
   return &_impl_.bounding_box_per_direction_;
 }
-inline const ::Canary::protobuf::appearances::Box& SpriteInfo::_internal_bounding_box_per_direction(int index) const {
+inline const ::Canary::protobuf::appearances::Box &
+SpriteInfo::_internal_bounding_box_per_direction(int index) const {
   return _impl_.bounding_box_per_direction_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::Box& SpriteInfo::bounding_box_per_direction(int index) const {
+inline const ::Canary::protobuf::appearances::Box &
+SpriteInfo::bounding_box_per_direction(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpriteInfo.bounding_box_per_direction)
   return _internal_bounding_box_per_direction(index);
 }
-inline ::Canary::protobuf::appearances::Box* SpriteInfo::_internal_add_bounding_box_per_direction() {
+inline ::Canary::protobuf::appearances::Box *
+SpriteInfo::_internal_add_bounding_box_per_direction() {
   return _impl_.bounding_box_per_direction_.Add();
 }
-inline ::Canary::protobuf::appearances::Box* SpriteInfo::add_bounding_box_per_direction() {
-  ::Canary::protobuf::appearances::Box* _add = _internal_add_bounding_box_per_direction();
+inline ::Canary::protobuf::appearances::Box *
+SpriteInfo::add_bounding_box_per_direction() {
+  ::Canary::protobuf::appearances::Box *_add =
+      _internal_add_bounding_box_per_direction();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.SpriteInfo.bounding_box_per_direction)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::Box >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::Box> &
 SpriteInfo::bounding_box_per_direction() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.SpriteInfo.bounding_box_per_direction)
   return _impl_.bounding_box_per_direction_;
@@ -7108,7 +8295,8 @@ SpriteInfo::bounding_box_per_direction() const {
 
 // FrameGroup
 
-// optional .Canary.protobuf.appearances.FIXED_FRAME_GROUP fixed_frame_group = 1;
+// optional .Canary.protobuf.appearances.FIXED_FRAME_GROUP fixed_frame_group =
+// 1;
 inline bool FrameGroup::_internal_has_fixed_frame_group() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7120,19 +8308,24 @@ inline void FrameGroup::clear_fixed_frame_group() {
   _impl_.fixed_frame_group_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline ::Canary::protobuf::appearances::FIXED_FRAME_GROUP FrameGroup::_internal_fixed_frame_group() const {
-  return static_cast< ::Canary::protobuf::appearances::FIXED_FRAME_GROUP >(_impl_.fixed_frame_group_);
+inline ::Canary::protobuf::appearances::FIXED_FRAME_GROUP
+FrameGroup::_internal_fixed_frame_group() const {
+  return static_cast<::Canary::protobuf::appearances::FIXED_FRAME_GROUP>(
+      _impl_.fixed_frame_group_);
 }
-inline ::Canary::protobuf::appearances::FIXED_FRAME_GROUP FrameGroup::fixed_frame_group() const {
+inline ::Canary::protobuf::appearances::FIXED_FRAME_GROUP
+FrameGroup::fixed_frame_group() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.FrameGroup.fixed_frame_group)
   return _internal_fixed_frame_group();
 }
-inline void FrameGroup::_internal_set_fixed_frame_group(::Canary::protobuf::appearances::FIXED_FRAME_GROUP value) {
+inline void FrameGroup::_internal_set_fixed_frame_group(
+    ::Canary::protobuf::appearances::FIXED_FRAME_GROUP value) {
   assert(::Canary::protobuf::appearances::FIXED_FRAME_GROUP_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.fixed_frame_group_ = value;
 }
-inline void FrameGroup::set_fixed_frame_group(::Canary::protobuf::appearances::FIXED_FRAME_GROUP value) {
+inline void FrameGroup::set_fixed_frame_group(
+    ::Canary::protobuf::appearances::FIXED_FRAME_GROUP value) {
   _internal_set_fixed_frame_group(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.FrameGroup.fixed_frame_group)
 }
@@ -7142,16 +8335,12 @@ inline bool FrameGroup::_internal_has_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool FrameGroup::has_id() const {
-  return _internal_has_id();
-}
+inline bool FrameGroup::has_id() const { return _internal_has_id(); }
 inline void FrameGroup::clear_id() {
   _impl_.id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t FrameGroup::_internal_id() const {
-  return _impl_.id_;
-}
+inline uint32_t FrameGroup::_internal_id() const { return _impl_.id_; }
 inline uint32_t FrameGroup::id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.FrameGroup.id)
   return _internal_id();
@@ -7175,22 +8364,30 @@ inline bool FrameGroup::has_sprite_info() const {
   return _internal_has_sprite_info();
 }
 inline void FrameGroup::clear_sprite_info() {
-  if (_impl_.sprite_info_ != nullptr) _impl_.sprite_info_->Clear();
+  if (_impl_.sprite_info_ != nullptr)
+    _impl_.sprite_info_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::Canary::protobuf::appearances::SpriteInfo& FrameGroup::_internal_sprite_info() const {
-  const ::Canary::protobuf::appearances::SpriteInfo* p = _impl_.sprite_info_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::SpriteInfo&>(
-      ::Canary::protobuf::appearances::_SpriteInfo_default_instance_);
+inline const ::Canary::protobuf::appearances::SpriteInfo &
+FrameGroup::_internal_sprite_info() const {
+  const ::Canary::protobuf::appearances::SpriteInfo *p = _impl_.sprite_info_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<
+                   const ::Canary::protobuf::appearances::SpriteInfo &>(
+                   ::Canary::protobuf::appearances::
+                       _SpriteInfo_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::SpriteInfo& FrameGroup::sprite_info() const {
+inline const ::Canary::protobuf::appearances::SpriteInfo &
+FrameGroup::sprite_info() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.FrameGroup.sprite_info)
   return _internal_sprite_info();
 }
 inline void FrameGroup::unsafe_arena_set_allocated_sprite_info(
-    ::Canary::protobuf::appearances::SpriteInfo* sprite_info) {
+    ::Canary::protobuf::appearances::SpriteInfo *sprite_info) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sprite_info_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.sprite_info_);
   }
   _impl_.sprite_info_ = sprite_info;
   if (sprite_info) {
@@ -7200,48 +8397,57 @@ inline void FrameGroup::unsafe_arena_set_allocated_sprite_info(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.FrameGroup.sprite_info)
 }
-inline ::Canary::protobuf::appearances::SpriteInfo* FrameGroup::release_sprite_info() {
+inline ::Canary::protobuf::appearances::SpriteInfo *
+FrameGroup::release_sprite_info() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpriteInfo* temp = _impl_.sprite_info_;
+  ::Canary::protobuf::appearances::SpriteInfo *temp = _impl_.sprite_info_;
   _impl_.sprite_info_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpriteInfo* FrameGroup::unsafe_arena_release_sprite_info() {
+inline ::Canary::protobuf::appearances::SpriteInfo *
+FrameGroup::unsafe_arena_release_sprite_info() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.FrameGroup.sprite_info)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::SpriteInfo* temp = _impl_.sprite_info_;
+  ::Canary::protobuf::appearances::SpriteInfo *temp = _impl_.sprite_info_;
   _impl_.sprite_info_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::SpriteInfo* FrameGroup::_internal_mutable_sprite_info() {
+inline ::Canary::protobuf::appearances::SpriteInfo *
+FrameGroup::_internal_mutable_sprite_info() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.sprite_info_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::SpriteInfo>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<::Canary::protobuf::appearances::SpriteInfo>(
+        GetArenaForAllocation());
     _impl_.sprite_info_ = p;
   }
   return _impl_.sprite_info_;
 }
-inline ::Canary::protobuf::appearances::SpriteInfo* FrameGroup::mutable_sprite_info() {
-  ::Canary::protobuf::appearances::SpriteInfo* _msg = _internal_mutable_sprite_info();
+inline ::Canary::protobuf::appearances::SpriteInfo *
+FrameGroup::mutable_sprite_info() {
+  ::Canary::protobuf::appearances::SpriteInfo *_msg =
+      _internal_mutable_sprite_info();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.FrameGroup.sprite_info)
   return _msg;
 }
-inline void FrameGroup::set_allocated_sprite_info(::Canary::protobuf::appearances::SpriteInfo* sprite_info) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void FrameGroup::set_allocated_sprite_info(
+    ::Canary::protobuf::appearances::SpriteInfo *sprite_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.sprite_info_;
   }
   if (sprite_info) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(sprite_info);
     if (message_arena != submessage_arena) {
       sprite_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -7264,16 +8470,12 @@ inline bool Appearance::_internal_has_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool Appearance::has_id() const {
-  return _internal_has_id();
-}
+inline bool Appearance::has_id() const { return _internal_has_id(); }
 inline void Appearance::clear_id() {
   _impl_.id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t Appearance::_internal_id() const {
-  return _impl_.id_;
-}
+inline uint32_t Appearance::_internal_id() const { return _impl_.id_; }
 inline uint32_t Appearance::id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearance.id)
   return _internal_id();
@@ -7294,34 +8496,40 @@ inline int Appearance::_internal_frame_group_size() const {
 inline int Appearance::frame_group_size() const {
   return _internal_frame_group_size();
 }
-inline void Appearance::clear_frame_group() {
-  _impl_.frame_group_.Clear();
-}
-inline ::Canary::protobuf::appearances::FrameGroup* Appearance::mutable_frame_group(int index) {
+inline void Appearance::clear_frame_group() { _impl_.frame_group_.Clear(); }
+inline ::Canary::protobuf::appearances::FrameGroup *
+Appearance::mutable_frame_group(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearance.frame_group)
   return _impl_.frame_group_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::FrameGroup >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::FrameGroup> *
 Appearance::mutable_frame_group() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.Appearance.frame_group)
   return &_impl_.frame_group_;
 }
-inline const ::Canary::protobuf::appearances::FrameGroup& Appearance::_internal_frame_group(int index) const {
+inline const ::Canary::protobuf::appearances::FrameGroup &
+Appearance::_internal_frame_group(int index) const {
   return _impl_.frame_group_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::FrameGroup& Appearance::frame_group(int index) const {
+inline const ::Canary::protobuf::appearances::FrameGroup &
+Appearance::frame_group(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearance.frame_group)
   return _internal_frame_group(index);
 }
-inline ::Canary::protobuf::appearances::FrameGroup* Appearance::_internal_add_frame_group() {
+inline ::Canary::protobuf::appearances::FrameGroup *
+Appearance::_internal_add_frame_group() {
   return _impl_.frame_group_.Add();
 }
-inline ::Canary::protobuf::appearances::FrameGroup* Appearance::add_frame_group() {
-  ::Canary::protobuf::appearances::FrameGroup* _add = _internal_add_frame_group();
+inline ::Canary::protobuf::appearances::FrameGroup *
+Appearance::add_frame_group() {
+  ::Canary::protobuf::appearances::FrameGroup *_add =
+      _internal_add_frame_group();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.Appearance.frame_group)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::FrameGroup >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::FrameGroup> &
 Appearance::frame_group() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.Appearance.frame_group)
   return _impl_.frame_group_;
@@ -7333,26 +8541,32 @@ inline bool Appearance::_internal_has_flags() const {
   PROTOBUF_ASSUME(!value || _impl_.flags_ != nullptr);
   return value;
 }
-inline bool Appearance::has_flags() const {
-  return _internal_has_flags();
-}
+inline bool Appearance::has_flags() const { return _internal_has_flags(); }
 inline void Appearance::clear_flags() {
-  if (_impl_.flags_ != nullptr) _impl_.flags_->Clear();
+  if (_impl_.flags_ != nullptr)
+    _impl_.flags_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlags& Appearance::_internal_flags() const {
-  const ::Canary::protobuf::appearances::AppearanceFlags* p = _impl_.flags_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlags&>(
-      ::Canary::protobuf::appearances::_AppearanceFlags_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlags &
+Appearance::_internal_flags() const {
+  const ::Canary::protobuf::appearances::AppearanceFlags *p = _impl_.flags_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<
+                   const ::Canary::protobuf::appearances::AppearanceFlags &>(
+                   ::Canary::protobuf::appearances::
+                       _AppearanceFlags_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlags& Appearance::flags() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlags &
+Appearance::flags() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearance.flags)
   return _internal_flags();
 }
 inline void Appearance::unsafe_arena_set_allocated_flags(
-    ::Canary::protobuf::appearances::AppearanceFlags* flags) {
+    ::Canary::protobuf::appearances::AppearanceFlags *flags) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.flags_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.flags_);
   }
   _impl_.flags_ = flags;
   if (flags) {
@@ -7362,48 +8576,58 @@ inline void Appearance::unsafe_arena_set_allocated_flags(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.Appearance.flags)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlags* Appearance::release_flags() {
+inline ::Canary::protobuf::appearances::AppearanceFlags *
+Appearance::release_flags() {
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Canary::protobuf::appearances::AppearanceFlags* temp = _impl_.flags_;
+  ::Canary::protobuf::appearances::AppearanceFlags *temp = _impl_.flags_;
   _impl_.flags_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlags* Appearance::unsafe_arena_release_flags() {
+inline ::Canary::protobuf::appearances::AppearanceFlags *
+Appearance::unsafe_arena_release_flags() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.Appearance.flags)
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Canary::protobuf::appearances::AppearanceFlags* temp = _impl_.flags_;
+  ::Canary::protobuf::appearances::AppearanceFlags *temp = _impl_.flags_;
   _impl_.flags_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlags* Appearance::_internal_mutable_flags() {
+inline ::Canary::protobuf::appearances::AppearanceFlags *
+Appearance::_internal_mutable_flags() {
   _impl_._has_bits_[0] |= 0x00000004u;
   if (_impl_.flags_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlags>(GetArenaForAllocation());
+    auto *p =
+        CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlags>(
+            GetArenaForAllocation());
     _impl_.flags_ = p;
   }
   return _impl_.flags_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlags* Appearance::mutable_flags() {
-  ::Canary::protobuf::appearances::AppearanceFlags* _msg = _internal_mutable_flags();
+inline ::Canary::protobuf::appearances::AppearanceFlags *
+Appearance::mutable_flags() {
+  ::Canary::protobuf::appearances::AppearanceFlags *_msg =
+      _internal_mutable_flags();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearance.flags)
   return _msg;
 }
-inline void Appearance::set_allocated_flags(::Canary::protobuf::appearances::AppearanceFlags* flags) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void Appearance::set_allocated_flags(
+    ::Canary::protobuf::appearances::AppearanceFlags *flags) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.flags_;
   }
   if (flags) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(flags);
     if (message_arena != submessage_arena) {
       flags = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -7422,47 +8646,46 @@ inline bool Appearance::_internal_has_name() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool Appearance::has_name() const {
-  return _internal_has_name();
-}
+inline bool Appearance::has_name() const { return _internal_has_name(); }
 inline void Appearance::clear_name() {
   _impl_.name_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& Appearance::name() const {
+inline const std::string &Appearance::name() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearance.name)
   return _internal_name();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Appearance::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline PROTOBUF_ALWAYS_INLINE void Appearance::set_name(ArgT0 &&arg0,
+                                                        ArgT... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.SetBytes(static_cast<ArgT0 &&>(arg0), args...,
+                        GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.Appearance.name)
 }
-inline std::string* Appearance::mutable_name() {
-  std::string* _s = _internal_mutable_name();
+inline std::string *Appearance::mutable_name() {
+  std::string *_s = _internal_mutable_name();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearance.name)
   return _s;
 }
-inline const std::string& Appearance::_internal_name() const {
+inline const std::string &Appearance::_internal_name() const {
   return _impl_.name_.Get();
 }
-inline void Appearance::_internal_set_name(const std::string& value) {
+inline void Appearance::_internal_set_name(const std::string &value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Appearance::_internal_mutable_name() {
+inline std::string *Appearance::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
   return _impl_.name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Appearance::release_name() {
+inline std::string *Appearance::release_name() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.Appearance.name)
   if (!_internal_has_name()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
+  auto *p = _impl_.name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.name_.IsDefault()) {
     _impl_.name_.Set("", GetArenaForAllocation());
@@ -7470,7 +8693,7 @@ inline std::string* Appearance::release_name() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void Appearance::set_allocated_name(std::string* name) {
+inline void Appearance::set_allocated_name(std::string *name) {
   if (name != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -7497,40 +8720,41 @@ inline void Appearance::clear_description() {
   _impl_.description_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const std::string& Appearance::description() const {
+inline const std::string &Appearance::description() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.Appearance.description)
   return _internal_description();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Appearance::set_description(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.description_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline PROTOBUF_ALWAYS_INLINE void Appearance::set_description(ArgT0 &&arg0,
+                                                               ArgT... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.description_.SetBytes(static_cast<ArgT0 &&>(arg0), args...,
+                               GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.Appearance.description)
 }
-inline std::string* Appearance::mutable_description() {
-  std::string* _s = _internal_mutable_description();
+inline std::string *Appearance::mutable_description() {
+  std::string *_s = _internal_mutable_description();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.Appearance.description)
   return _s;
 }
-inline const std::string& Appearance::_internal_description() const {
+inline const std::string &Appearance::_internal_description() const {
   return _impl_.description_.Get();
 }
-inline void Appearance::_internal_set_description(const std::string& value) {
+inline void Appearance::_internal_set_description(const std::string &value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.description_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Appearance::_internal_mutable_description() {
+inline std::string *Appearance::_internal_mutable_description() {
   _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.description_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Appearance::release_description() {
+inline std::string *Appearance::release_description() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.Appearance.description)
   if (!_internal_has_description()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.description_.Release();
+  auto *p = _impl_.description_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.description_.IsDefault()) {
     _impl_.description_.Set("", GetArenaForAllocation());
@@ -7538,7 +8762,7 @@ inline std::string* Appearance::release_description() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void Appearance::set_allocated_description(std::string* description) {
+inline void Appearance::set_allocated_description(std::string *description) {
   if (description != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -7563,26 +8787,32 @@ inline bool AppearanceFlags::_internal_has_bank() const {
   PROTOBUF_ASSUME(!value || _impl_.bank_ != nullptr);
   return value;
 }
-inline bool AppearanceFlags::has_bank() const {
-  return _internal_has_bank();
-}
+inline bool AppearanceFlags::has_bank() const { return _internal_has_bank(); }
 inline void AppearanceFlags::clear_bank() {
-  if (_impl_.bank_ != nullptr) _impl_.bank_->Clear();
+  if (_impl_.bank_ != nullptr)
+    _impl_.bank_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagBank& AppearanceFlags::_internal_bank() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagBank* p = _impl_.bank_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagBank&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagBank_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagBank &
+AppearanceFlags::_internal_bank() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagBank *p = _impl_.bank_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<
+                   const ::Canary::protobuf::appearances::AppearanceFlagBank &>(
+                   ::Canary::protobuf::appearances::
+                       _AppearanceFlagBank_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagBank& AppearanceFlags::bank() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagBank &
+AppearanceFlags::bank() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.bank)
   return _internal_bank();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_bank(
-    ::Canary::protobuf::appearances::AppearanceFlagBank* bank) {
+    ::Canary::protobuf::appearances::AppearanceFlagBank *bank) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.bank_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.bank_);
   }
   _impl_.bank_ = bank;
   if (bank) {
@@ -7592,48 +8822,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_bank(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.bank)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagBank* AppearanceFlags::release_bank() {
+inline ::Canary::protobuf::appearances::AppearanceFlagBank *
+AppearanceFlags::release_bank() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::AppearanceFlagBank* temp = _impl_.bank_;
+  ::Canary::protobuf::appearances::AppearanceFlagBank *temp = _impl_.bank_;
   _impl_.bank_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagBank* AppearanceFlags::unsafe_arena_release_bank() {
+inline ::Canary::protobuf::appearances::AppearanceFlagBank *
+AppearanceFlags::unsafe_arena_release_bank() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.bank)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Canary::protobuf::appearances::AppearanceFlagBank* temp = _impl_.bank_;
+  ::Canary::protobuf::appearances::AppearanceFlagBank *temp = _impl_.bank_;
   _impl_.bank_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagBank* AppearanceFlags::_internal_mutable_bank() {
+inline ::Canary::protobuf::appearances::AppearanceFlagBank *
+AppearanceFlags::_internal_mutable_bank() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.bank_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagBank>(GetArenaForAllocation());
+    auto *p =
+        CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagBank>(
+            GetArenaForAllocation());
     _impl_.bank_ = p;
   }
   return _impl_.bank_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagBank* AppearanceFlags::mutable_bank() {
-  ::Canary::protobuf::appearances::AppearanceFlagBank* _msg = _internal_mutable_bank();
+inline ::Canary::protobuf::appearances::AppearanceFlagBank *
+AppearanceFlags::mutable_bank() {
+  ::Canary::protobuf::appearances::AppearanceFlagBank *_msg =
+      _internal_mutable_bank();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.bank)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_bank(::Canary::protobuf::appearances::AppearanceFlagBank* bank) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_bank(
+    ::Canary::protobuf::appearances::AppearanceFlagBank *bank) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.bank_;
   }
   if (bank) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(bank);
     if (message_arena != submessage_arena) {
       bank = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -7652,16 +8892,12 @@ inline bool AppearanceFlags::_internal_has_clip() const {
   bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_clip() const {
-  return _internal_has_clip();
-}
+inline bool AppearanceFlags::has_clip() const { return _internal_has_clip(); }
 inline void AppearanceFlags::clear_clip() {
   _impl_.clip_ = false;
   _impl_._has_bits_[0] &= ~0x00008000u;
 }
-inline bool AppearanceFlags::_internal_clip() const {
-  return _impl_.clip_;
-}
+inline bool AppearanceFlags::_internal_clip() const { return _impl_.clip_; }
 inline bool AppearanceFlags::clip() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.clip)
   return _internal_clip();
@@ -7687,9 +8923,7 @@ inline void AppearanceFlags::clear_bottom() {
   _impl_.bottom_ = false;
   _impl_._has_bits_[0] &= ~0x00010000u;
 }
-inline bool AppearanceFlags::_internal_bottom() const {
-  return _impl_.bottom_;
-}
+inline bool AppearanceFlags::_internal_bottom() const { return _impl_.bottom_; }
 inline bool AppearanceFlags::bottom() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.bottom)
   return _internal_bottom();
@@ -7708,16 +8942,12 @@ inline bool AppearanceFlags::_internal_has_top() const {
   bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_top() const {
-  return _internal_has_top();
-}
+inline bool AppearanceFlags::has_top() const { return _internal_has_top(); }
 inline void AppearanceFlags::clear_top() {
   _impl_.top_ = false;
   _impl_._has_bits_[0] &= ~0x00020000u;
 }
-inline bool AppearanceFlags::_internal_top() const {
-  return _impl_.top_;
-}
+inline bool AppearanceFlags::_internal_top() const { return _impl_.top_; }
 inline bool AppearanceFlags::top() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.top)
   return _internal_top();
@@ -7799,9 +9029,7 @@ inline void AppearanceFlags::clear_usable() {
   _impl_.usable_ = false;
   _impl_._has_bits_[0] &= ~0x00100000u;
 }
-inline bool AppearanceFlags::_internal_usable() const {
-  return _impl_.usable_;
-}
+inline bool AppearanceFlags::_internal_usable() const { return _impl_.usable_; }
 inline bool AppearanceFlags::usable() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.usable)
   return _internal_usable();
@@ -7877,26 +9105,31 @@ inline bool AppearanceFlags::_internal_has_write() const {
   PROTOBUF_ASSUME(!value || _impl_.write_ != nullptr);
   return value;
 }
-inline bool AppearanceFlags::has_write() const {
-  return _internal_has_write();
-}
+inline bool AppearanceFlags::has_write() const { return _internal_has_write(); }
 inline void AppearanceFlags::clear_write() {
-  if (_impl_.write_ != nullptr) _impl_.write_->Clear();
+  if (_impl_.write_ != nullptr)
+    _impl_.write_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagWrite& AppearanceFlags::_internal_write() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagWrite* p = _impl_.write_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagWrite&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagWrite_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagWrite &
+AppearanceFlags::_internal_write() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagWrite *p = _impl_.write_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagWrite &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagWrite_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagWrite& AppearanceFlags::write() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagWrite &
+AppearanceFlags::write() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.write)
   return _internal_write();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_write(
-    ::Canary::protobuf::appearances::AppearanceFlagWrite* write) {
+    ::Canary::protobuf::appearances::AppearanceFlagWrite *write) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.write_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.write_);
   }
   _impl_.write_ = write;
   if (write) {
@@ -7906,48 +9139,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_write(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.write)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWrite* AppearanceFlags::release_write() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWrite *
+AppearanceFlags::release_write() {
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* temp = _impl_.write_;
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *temp = _impl_.write_;
   _impl_.write_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWrite* AppearanceFlags::unsafe_arena_release_write() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWrite *
+AppearanceFlags::unsafe_arena_release_write() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.write)
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* temp = _impl_.write_;
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *temp = _impl_.write_;
   _impl_.write_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWrite* AppearanceFlags::_internal_mutable_write() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWrite *
+AppearanceFlags::_internal_mutable_write() {
   _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.write_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagWrite>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagWrite>(
+        GetArenaForAllocation());
     _impl_.write_ = p;
   }
   return _impl_.write_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWrite* AppearanceFlags::mutable_write() {
-  ::Canary::protobuf::appearances::AppearanceFlagWrite* _msg = _internal_mutable_write();
+inline ::Canary::protobuf::appearances::AppearanceFlagWrite *
+AppearanceFlags::mutable_write() {
+  ::Canary::protobuf::appearances::AppearanceFlagWrite *_msg =
+      _internal_mutable_write();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.write)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_write(::Canary::protobuf::appearances::AppearanceFlagWrite* write) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_write(
+    ::Canary::protobuf::appearances::AppearanceFlagWrite *write) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.write_;
   }
   if (write) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(write);
     if (message_arena != submessage_arena) {
       write = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -7961,7 +9204,8 @@ inline void AppearanceFlags::set_allocated_write(::Canary::protobuf::appearances
   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlags.write)
 }
 
-// optional .Canary.protobuf.appearances.AppearanceFlagWriteOnce write_once = 11;
+// optional .Canary.protobuf.appearances.AppearanceFlagWriteOnce write_once =
+// 11;
 inline bool AppearanceFlags::_internal_has_write_once() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.write_once_ != nullptr);
@@ -7971,22 +9215,30 @@ inline bool AppearanceFlags::has_write_once() const {
   return _internal_has_write_once();
 }
 inline void AppearanceFlags::clear_write_once() {
-  if (_impl_.write_once_ != nullptr) _impl_.write_once_->Clear();
+  if (_impl_.write_once_ != nullptr)
+    _impl_.write_once_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce& AppearanceFlags::_internal_write_once() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* p = _impl_.write_once_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagWriteOnce_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce &
+AppearanceFlags::_internal_write_once() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *p =
+      _impl_.write_once_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagWriteOnce &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagWriteOnce_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce& AppearanceFlags::write_once() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagWriteOnce &
+AppearanceFlags::write_once() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.write_once)
   return _internal_write_once();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_write_once(
-    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* write_once) {
+    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *write_once) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.write_once_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.write_once_);
   }
   _impl_.write_once_ = write_once;
   if (write_once) {
@@ -7996,48 +9248,60 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_write_once(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.write_once)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* AppearanceFlags::release_write_once() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+AppearanceFlags::release_write_once() {
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* temp = _impl_.write_once_;
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *temp =
+      _impl_.write_once_;
   _impl_.write_once_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* AppearanceFlags::unsafe_arena_release_write_once() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+AppearanceFlags::unsafe_arena_release_write_once() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.write_once)
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* temp = _impl_.write_once_;
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *temp =
+      _impl_.write_once_;
   _impl_.write_once_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* AppearanceFlags::_internal_mutable_write_once() {
+inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+AppearanceFlags::_internal_mutable_write_once() {
   _impl_._has_bits_[0] |= 0x00000004u;
   if (_impl_.write_once_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagWriteOnce>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagWriteOnce>(
+        GetArenaForAllocation());
     _impl_.write_once_ = p;
   }
   return _impl_.write_once_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* AppearanceFlags::mutable_write_once() {
-  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce* _msg = _internal_mutable_write_once();
+inline ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *
+AppearanceFlags::mutable_write_once() {
+  ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *_msg =
+      _internal_mutable_write_once();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.write_once)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_write_once(::Canary::protobuf::appearances::AppearanceFlagWriteOnce* write_once) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_write_once(
+    ::Canary::protobuf::appearances::AppearanceFlagWriteOnce *write_once) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.write_once_;
   }
   if (write_once) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(write_once);
     if (message_arena != submessage_arena) {
       write_once = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8091,9 +9355,7 @@ inline void AppearanceFlags::clear_unpass() {
   _impl_.unpass_ = false;
   _impl_._has_bits_[0] &= ~0x01000000u;
 }
-inline bool AppearanceFlags::_internal_unpass() const {
-  return _impl_.unpass_;
-}
+inline bool AppearanceFlags::_internal_unpass() const { return _impl_.unpass_; }
 inline bool AppearanceFlags::unpass() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.unpass)
   return _internal_unpass();
@@ -8119,9 +9381,7 @@ inline void AppearanceFlags::clear_unmove() {
   _impl_.unmove_ = false;
   _impl_._has_bits_[0] &= ~0x02000000u;
 }
-inline bool AppearanceFlags::_internal_unmove() const {
-  return _impl_.unmove_;
-}
+inline bool AppearanceFlags::_internal_unmove() const { return _impl_.unmove_; }
 inline bool AppearanceFlags::unmove() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.unmove)
   return _internal_unmove();
@@ -8168,16 +9428,12 @@ inline bool AppearanceFlags::_internal_has_avoid() const {
   bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_avoid() const {
-  return _internal_has_avoid();
-}
+inline bool AppearanceFlags::has_avoid() const { return _internal_has_avoid(); }
 inline void AppearanceFlags::clear_avoid() {
   _impl_.avoid_ = false;
   _impl_._has_bits_[0] &= ~0x08000000u;
 }
-inline bool AppearanceFlags::_internal_avoid() const {
-  return _impl_.avoid_;
-}
+inline bool AppearanceFlags::_internal_avoid() const { return _impl_.avoid_; }
 inline bool AppearanceFlags::avoid() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.avoid)
   return _internal_avoid();
@@ -8224,16 +9480,12 @@ inline bool AppearanceFlags::_internal_has_take() const {
   bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_take() const {
-  return _internal_has_take();
-}
+inline bool AppearanceFlags::has_take() const { return _internal_has_take(); }
 inline void AppearanceFlags::clear_take() {
   _impl_.take_ = false;
   _impl_._has_bits_[0] &= ~0x20000000u;
 }
-inline bool AppearanceFlags::_internal_take() const {
-  return _impl_.take_;
-}
+inline bool AppearanceFlags::_internal_take() const { return _impl_.take_; }
 inline bool AppearanceFlags::take() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.take)
   return _internal_take();
@@ -8280,16 +9532,12 @@ inline bool AppearanceFlags::_internal_has_hang() const {
   bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_hang() const {
-  return _internal_has_hang();
-}
+inline bool AppearanceFlags::has_hang() const { return _internal_has_hang(); }
 inline void AppearanceFlags::clear_hang() {
   _impl_.hang_ = false;
   _impl_._has_bits_[0] &= ~0x80000000u;
 }
-inline bool AppearanceFlags::_internal_hang() const {
-  return _impl_.hang_;
-}
+inline bool AppearanceFlags::_internal_hang() const { return _impl_.hang_; }
 inline bool AppearanceFlags::hang() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.hang)
   return _internal_hang();
@@ -8309,26 +9557,32 @@ inline bool AppearanceFlags::_internal_has_hook() const {
   PROTOBUF_ASSUME(!value || _impl_.hook_ != nullptr);
   return value;
 }
-inline bool AppearanceFlags::has_hook() const {
-  return _internal_has_hook();
-}
+inline bool AppearanceFlags::has_hook() const { return _internal_has_hook(); }
 inline void AppearanceFlags::clear_hook() {
-  if (_impl_.hook_ != nullptr) _impl_.hook_->Clear();
+  if (_impl_.hook_ != nullptr)
+    _impl_.hook_->Clear();
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagHook& AppearanceFlags::_internal_hook() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagHook* p = _impl_.hook_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagHook&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagHook_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagHook &
+AppearanceFlags::_internal_hook() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagHook *p = _impl_.hook_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<
+                   const ::Canary::protobuf::appearances::AppearanceFlagHook &>(
+                   ::Canary::protobuf::appearances::
+                       _AppearanceFlagHook_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagHook& AppearanceFlags::hook() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagHook &
+AppearanceFlags::hook() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.hook)
   return _internal_hook();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_hook(
-    ::Canary::protobuf::appearances::AppearanceFlagHook* hook) {
+    ::Canary::protobuf::appearances::AppearanceFlagHook *hook) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.hook_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.hook_);
   }
   _impl_.hook_ = hook;
   if (hook) {
@@ -8338,48 +9592,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_hook(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.hook)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHook* AppearanceFlags::release_hook() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHook *
+AppearanceFlags::release_hook() {
   _impl_._has_bits_[0] &= ~0x00000008u;
-  ::Canary::protobuf::appearances::AppearanceFlagHook* temp = _impl_.hook_;
+  ::Canary::protobuf::appearances::AppearanceFlagHook *temp = _impl_.hook_;
   _impl_.hook_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHook* AppearanceFlags::unsafe_arena_release_hook() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHook *
+AppearanceFlags::unsafe_arena_release_hook() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.hook)
   _impl_._has_bits_[0] &= ~0x00000008u;
-  ::Canary::protobuf::appearances::AppearanceFlagHook* temp = _impl_.hook_;
+  ::Canary::protobuf::appearances::AppearanceFlagHook *temp = _impl_.hook_;
   _impl_.hook_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHook* AppearanceFlags::_internal_mutable_hook() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHook *
+AppearanceFlags::_internal_mutable_hook() {
   _impl_._has_bits_[0] |= 0x00000008u;
   if (_impl_.hook_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHook>(GetArenaForAllocation());
+    auto *p =
+        CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHook>(
+            GetArenaForAllocation());
     _impl_.hook_ = p;
   }
   return _impl_.hook_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHook* AppearanceFlags::mutable_hook() {
-  ::Canary::protobuf::appearances::AppearanceFlagHook* _msg = _internal_mutable_hook();
+inline ::Canary::protobuf::appearances::AppearanceFlagHook *
+AppearanceFlags::mutable_hook() {
+  ::Canary::protobuf::appearances::AppearanceFlagHook *_msg =
+      _internal_mutable_hook();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.hook)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_hook(::Canary::protobuf::appearances::AppearanceFlagHook* hook) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_hook(
+    ::Canary::protobuf::appearances::AppearanceFlagHook *hook) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.hook_;
   }
   if (hook) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(hook);
     if (message_arena != submessage_arena) {
       hook = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8405,9 +9669,7 @@ inline void AppearanceFlags::clear_rotate() {
   _impl_.rotate_ = false;
   _impl_._has_bits_[1] &= ~0x00000001u;
 }
-inline bool AppearanceFlags::_internal_rotate() const {
-  return _impl_.rotate_;
-}
+inline bool AppearanceFlags::_internal_rotate() const { return _impl_.rotate_; }
 inline bool AppearanceFlags::rotate() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.rotate)
   return _internal_rotate();
@@ -8427,26 +9689,31 @@ inline bool AppearanceFlags::_internal_has_light() const {
   PROTOBUF_ASSUME(!value || _impl_.light_ != nullptr);
   return value;
 }
-inline bool AppearanceFlags::has_light() const {
-  return _internal_has_light();
-}
+inline bool AppearanceFlags::has_light() const { return _internal_has_light(); }
 inline void AppearanceFlags::clear_light() {
-  if (_impl_.light_ != nullptr) _impl_.light_->Clear();
+  if (_impl_.light_ != nullptr)
+    _impl_.light_->Clear();
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagLight& AppearanceFlags::_internal_light() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagLight* p = _impl_.light_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagLight&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagLight_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagLight &
+AppearanceFlags::_internal_light() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagLight *p = _impl_.light_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagLight &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagLight_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagLight& AppearanceFlags::light() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagLight &
+AppearanceFlags::light() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.light)
   return _internal_light();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_light(
-    ::Canary::protobuf::appearances::AppearanceFlagLight* light) {
+    ::Canary::protobuf::appearances::AppearanceFlagLight *light) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.light_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.light_);
   }
   _impl_.light_ = light;
   if (light) {
@@ -8456,48 +9723,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_light(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.light)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLight* AppearanceFlags::release_light() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLight *
+AppearanceFlags::release_light() {
   _impl_._has_bits_[0] &= ~0x00000010u;
-  ::Canary::protobuf::appearances::AppearanceFlagLight* temp = _impl_.light_;
+  ::Canary::protobuf::appearances::AppearanceFlagLight *temp = _impl_.light_;
   _impl_.light_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLight* AppearanceFlags::unsafe_arena_release_light() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLight *
+AppearanceFlags::unsafe_arena_release_light() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.light)
   _impl_._has_bits_[0] &= ~0x00000010u;
-  ::Canary::protobuf::appearances::AppearanceFlagLight* temp = _impl_.light_;
+  ::Canary::protobuf::appearances::AppearanceFlagLight *temp = _impl_.light_;
   _impl_.light_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLight* AppearanceFlags::_internal_mutable_light() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLight *
+AppearanceFlags::_internal_mutable_light() {
   _impl_._has_bits_[0] |= 0x00000010u;
   if (_impl_.light_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagLight>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagLight>(
+        GetArenaForAllocation());
     _impl_.light_ = p;
   }
   return _impl_.light_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLight* AppearanceFlags::mutable_light() {
-  ::Canary::protobuf::appearances::AppearanceFlagLight* _msg = _internal_mutable_light();
+inline ::Canary::protobuf::appearances::AppearanceFlagLight *
+AppearanceFlags::mutable_light() {
+  ::Canary::protobuf::appearances::AppearanceFlagLight *_msg =
+      _internal_mutable_light();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.light)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_light(::Canary::protobuf::appearances::AppearanceFlagLight* light) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_light(
+    ::Canary::protobuf::appearances::AppearanceFlagLight *light) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.light_;
   }
   if (light) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(light);
     if (message_arena != submessage_arena) {
       light = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8573,26 +9850,31 @@ inline bool AppearanceFlags::_internal_has_shift() const {
   PROTOBUF_ASSUME(!value || _impl_.shift_ != nullptr);
   return value;
 }
-inline bool AppearanceFlags::has_shift() const {
-  return _internal_has_shift();
-}
+inline bool AppearanceFlags::has_shift() const { return _internal_has_shift(); }
 inline void AppearanceFlags::clear_shift() {
-  if (_impl_.shift_ != nullptr) _impl_.shift_->Clear();
+  if (_impl_.shift_ != nullptr)
+    _impl_.shift_->Clear();
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagShift& AppearanceFlags::_internal_shift() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagShift* p = _impl_.shift_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagShift&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagShift_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagShift &
+AppearanceFlags::_internal_shift() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagShift *p = _impl_.shift_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagShift &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagShift_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagShift& AppearanceFlags::shift() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagShift &
+AppearanceFlags::shift() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.shift)
   return _internal_shift();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_shift(
-    ::Canary::protobuf::appearances::AppearanceFlagShift* shift) {
+    ::Canary::protobuf::appearances::AppearanceFlagShift *shift) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.shift_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.shift_);
   }
   _impl_.shift_ = shift;
   if (shift) {
@@ -8602,48 +9884,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_shift(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.shift)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagShift* AppearanceFlags::release_shift() {
+inline ::Canary::protobuf::appearances::AppearanceFlagShift *
+AppearanceFlags::release_shift() {
   _impl_._has_bits_[0] &= ~0x00000020u;
-  ::Canary::protobuf::appearances::AppearanceFlagShift* temp = _impl_.shift_;
+  ::Canary::protobuf::appearances::AppearanceFlagShift *temp = _impl_.shift_;
   _impl_.shift_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagShift* AppearanceFlags::unsafe_arena_release_shift() {
+inline ::Canary::protobuf::appearances::AppearanceFlagShift *
+AppearanceFlags::unsafe_arena_release_shift() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.shift)
   _impl_._has_bits_[0] &= ~0x00000020u;
-  ::Canary::protobuf::appearances::AppearanceFlagShift* temp = _impl_.shift_;
+  ::Canary::protobuf::appearances::AppearanceFlagShift *temp = _impl_.shift_;
   _impl_.shift_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagShift* AppearanceFlags::_internal_mutable_shift() {
+inline ::Canary::protobuf::appearances::AppearanceFlagShift *
+AppearanceFlags::_internal_mutable_shift() {
   _impl_._has_bits_[0] |= 0x00000020u;
   if (_impl_.shift_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagShift>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagShift>(
+        GetArenaForAllocation());
     _impl_.shift_ = p;
   }
   return _impl_.shift_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagShift* AppearanceFlags::mutable_shift() {
-  ::Canary::protobuf::appearances::AppearanceFlagShift* _msg = _internal_mutable_shift();
+inline ::Canary::protobuf::appearances::AppearanceFlagShift *
+AppearanceFlags::mutable_shift() {
+  ::Canary::protobuf::appearances::AppearanceFlagShift *_msg =
+      _internal_mutable_shift();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.shift)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_shift(::Canary::protobuf::appearances::AppearanceFlagShift* shift) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_shift(
+    ::Canary::protobuf::appearances::AppearanceFlagShift *shift) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.shift_;
   }
   if (shift) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(shift);
     if (message_arena != submessage_arena) {
       shift = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8667,22 +9959,30 @@ inline bool AppearanceFlags::has_height() const {
   return _internal_has_height();
 }
 inline void AppearanceFlags::clear_height() {
-  if (_impl_.height_ != nullptr) _impl_.height_->Clear();
+  if (_impl_.height_ != nullptr)
+    _impl_.height_->Clear();
   _impl_._has_bits_[0] &= ~0x00000040u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagHeight& AppearanceFlags::_internal_height() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagHeight* p = _impl_.height_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagHeight&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagHeight_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagHeight &
+AppearanceFlags::_internal_height() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagHeight *p =
+      _impl_.height_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagHeight &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagHeight_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagHeight& AppearanceFlags::height() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagHeight &
+AppearanceFlags::height() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.height)
   return _internal_height();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_height(
-    ::Canary::protobuf::appearances::AppearanceFlagHeight* height) {
+    ::Canary::protobuf::appearances::AppearanceFlagHeight *height) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.height_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.height_);
   }
   _impl_.height_ = height;
   if (height) {
@@ -8692,48 +9992,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_height(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.height)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHeight* AppearanceFlags::release_height() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHeight *
+AppearanceFlags::release_height() {
   _impl_._has_bits_[0] &= ~0x00000040u;
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* temp = _impl_.height_;
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *temp = _impl_.height_;
   _impl_.height_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHeight* AppearanceFlags::unsafe_arena_release_height() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHeight *
+AppearanceFlags::unsafe_arena_release_height() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.height)
   _impl_._has_bits_[0] &= ~0x00000040u;
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* temp = _impl_.height_;
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *temp = _impl_.height_;
   _impl_.height_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHeight* AppearanceFlags::_internal_mutable_height() {
+inline ::Canary::protobuf::appearances::AppearanceFlagHeight *
+AppearanceFlags::_internal_mutable_height() {
   _impl_._has_bits_[0] |= 0x00000040u;
   if (_impl_.height_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagHeight>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagHeight>(
+        GetArenaForAllocation());
     _impl_.height_ = p;
   }
   return _impl_.height_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagHeight* AppearanceFlags::mutable_height() {
-  ::Canary::protobuf::appearances::AppearanceFlagHeight* _msg = _internal_mutable_height();
+inline ::Canary::protobuf::appearances::AppearanceFlagHeight *
+AppearanceFlags::mutable_height() {
+  ::Canary::protobuf::appearances::AppearanceFlagHeight *_msg =
+      _internal_mutable_height();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.height)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_height(::Canary::protobuf::appearances::AppearanceFlagHeight* height) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_height(
+    ::Canary::protobuf::appearances::AppearanceFlagHeight *height) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.height_;
   }
   if (height) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(height);
     if (message_arena != submessage_arena) {
       height = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8813,22 +10123,30 @@ inline bool AppearanceFlags::has_automap() const {
   return _internal_has_automap();
 }
 inline void AppearanceFlags::clear_automap() {
-  if (_impl_.automap_ != nullptr) _impl_.automap_->Clear();
+  if (_impl_.automap_ != nullptr)
+    _impl_.automap_->Clear();
   _impl_._has_bits_[0] &= ~0x00000080u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagAutomap& AppearanceFlags::_internal_automap() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagAutomap* p = _impl_.automap_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagAutomap&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagAutomap_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagAutomap &
+AppearanceFlags::_internal_automap() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagAutomap *p =
+      _impl_.automap_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagAutomap &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagAutomap_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagAutomap& AppearanceFlags::automap() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagAutomap &
+AppearanceFlags::automap() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.automap)
   return _internal_automap();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_automap(
-    ::Canary::protobuf::appearances::AppearanceFlagAutomap* automap) {
+    ::Canary::protobuf::appearances::AppearanceFlagAutomap *automap) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.automap_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.automap_);
   }
   _impl_.automap_ = automap;
   if (automap) {
@@ -8838,48 +10156,60 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_automap(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.automap)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagAutomap* AppearanceFlags::release_automap() {
+inline ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+AppearanceFlags::release_automap() {
   _impl_._has_bits_[0] &= ~0x00000080u;
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* temp = _impl_.automap_;
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *temp =
+      _impl_.automap_;
   _impl_.automap_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagAutomap* AppearanceFlags::unsafe_arena_release_automap() {
+inline ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+AppearanceFlags::unsafe_arena_release_automap() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.automap)
   _impl_._has_bits_[0] &= ~0x00000080u;
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* temp = _impl_.automap_;
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *temp =
+      _impl_.automap_;
   _impl_.automap_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagAutomap* AppearanceFlags::_internal_mutable_automap() {
+inline ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+AppearanceFlags::_internal_mutable_automap() {
   _impl_._has_bits_[0] |= 0x00000080u;
   if (_impl_.automap_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagAutomap>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagAutomap>(
+        GetArenaForAllocation());
     _impl_.automap_ = p;
   }
   return _impl_.automap_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagAutomap* AppearanceFlags::mutable_automap() {
-  ::Canary::protobuf::appearances::AppearanceFlagAutomap* _msg = _internal_mutable_automap();
+inline ::Canary::protobuf::appearances::AppearanceFlagAutomap *
+AppearanceFlags::mutable_automap() {
+  ::Canary::protobuf::appearances::AppearanceFlagAutomap *_msg =
+      _internal_mutable_automap();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.automap)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_automap(::Canary::protobuf::appearances::AppearanceFlagAutomap* automap) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_automap(
+    ::Canary::protobuf::appearances::AppearanceFlagAutomap *automap) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.automap_;
   }
   if (automap) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(automap);
     if (message_arena != submessage_arena) {
       automap = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -8903,22 +10233,30 @@ inline bool AppearanceFlags::has_lenshelp() const {
   return _internal_has_lenshelp();
 }
 inline void AppearanceFlags::clear_lenshelp() {
-  if (_impl_.lenshelp_ != nullptr) _impl_.lenshelp_->Clear();
+  if (_impl_.lenshelp_ != nullptr)
+    _impl_.lenshelp_->Clear();
   _impl_._has_bits_[0] &= ~0x00000100u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagLenshelp& AppearanceFlags::_internal_lenshelp() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp* p = _impl_.lenshelp_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagLenshelp&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagLenshelp_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagLenshelp &
+AppearanceFlags::_internal_lenshelp() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagLenshelp *p =
+      _impl_.lenshelp_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagLenshelp &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagLenshelp_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagLenshelp& AppearanceFlags::lenshelp() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagLenshelp &
+AppearanceFlags::lenshelp() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.lenshelp)
   return _internal_lenshelp();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_lenshelp(
-    ::Canary::protobuf::appearances::AppearanceFlagLenshelp* lenshelp) {
+    ::Canary::protobuf::appearances::AppearanceFlagLenshelp *lenshelp) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.lenshelp_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.lenshelp_);
   }
   _impl_.lenshelp_ = lenshelp;
   if (lenshelp) {
@@ -8928,48 +10266,60 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_lenshelp(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.lenshelp)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp* AppearanceFlags::release_lenshelp() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+AppearanceFlags::release_lenshelp() {
   _impl_._has_bits_[0] &= ~0x00000100u;
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* temp = _impl_.lenshelp_;
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *temp =
+      _impl_.lenshelp_;
   _impl_.lenshelp_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp* AppearanceFlags::unsafe_arena_release_lenshelp() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+AppearanceFlags::unsafe_arena_release_lenshelp() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.lenshelp)
   _impl_._has_bits_[0] &= ~0x00000100u;
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* temp = _impl_.lenshelp_;
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *temp =
+      _impl_.lenshelp_;
   _impl_.lenshelp_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp* AppearanceFlags::_internal_mutable_lenshelp() {
+inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+AppearanceFlags::_internal_mutable_lenshelp() {
   _impl_._has_bits_[0] |= 0x00000100u;
   if (_impl_.lenshelp_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagLenshelp>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagLenshelp>(
+        GetArenaForAllocation());
     _impl_.lenshelp_ = p;
   }
   return _impl_.lenshelp_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp* AppearanceFlags::mutable_lenshelp() {
-  ::Canary::protobuf::appearances::AppearanceFlagLenshelp* _msg = _internal_mutable_lenshelp();
+inline ::Canary::protobuf::appearances::AppearanceFlagLenshelp *
+AppearanceFlags::mutable_lenshelp() {
+  ::Canary::protobuf::appearances::AppearanceFlagLenshelp *_msg =
+      _internal_mutable_lenshelp();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.lenshelp)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_lenshelp(::Canary::protobuf::appearances::AppearanceFlagLenshelp* lenshelp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_lenshelp(
+    ::Canary::protobuf::appearances::AppearanceFlagLenshelp *lenshelp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.lenshelp_;
   }
   if (lenshelp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(lenshelp);
     if (message_arena != submessage_arena) {
       lenshelp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9049,22 +10399,30 @@ inline bool AppearanceFlags::has_clothes() const {
   return _internal_has_clothes();
 }
 inline void AppearanceFlags::clear_clothes() {
-  if (_impl_.clothes_ != nullptr) _impl_.clothes_->Clear();
+  if (_impl_.clothes_ != nullptr)
+    _impl_.clothes_->Clear();
   _impl_._has_bits_[0] &= ~0x00000200u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagClothes& AppearanceFlags::_internal_clothes() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagClothes* p = _impl_.clothes_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagClothes&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagClothes_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagClothes &
+AppearanceFlags::_internal_clothes() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagClothes *p =
+      _impl_.clothes_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagClothes &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagClothes_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagClothes& AppearanceFlags::clothes() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagClothes &
+AppearanceFlags::clothes() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.clothes)
   return _internal_clothes();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_clothes(
-    ::Canary::protobuf::appearances::AppearanceFlagClothes* clothes) {
+    ::Canary::protobuf::appearances::AppearanceFlagClothes *clothes) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.clothes_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.clothes_);
   }
   _impl_.clothes_ = clothes;
   if (clothes) {
@@ -9074,48 +10432,60 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_clothes(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.clothes)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagClothes* AppearanceFlags::release_clothes() {
+inline ::Canary::protobuf::appearances::AppearanceFlagClothes *
+AppearanceFlags::release_clothes() {
   _impl_._has_bits_[0] &= ~0x00000200u;
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* temp = _impl_.clothes_;
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *temp =
+      _impl_.clothes_;
   _impl_.clothes_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagClothes* AppearanceFlags::unsafe_arena_release_clothes() {
+inline ::Canary::protobuf::appearances::AppearanceFlagClothes *
+AppearanceFlags::unsafe_arena_release_clothes() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.clothes)
   _impl_._has_bits_[0] &= ~0x00000200u;
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* temp = _impl_.clothes_;
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *temp =
+      _impl_.clothes_;
   _impl_.clothes_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagClothes* AppearanceFlags::_internal_mutable_clothes() {
+inline ::Canary::protobuf::appearances::AppearanceFlagClothes *
+AppearanceFlags::_internal_mutable_clothes() {
   _impl_._has_bits_[0] |= 0x00000200u;
   if (_impl_.clothes_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagClothes>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagClothes>(
+        GetArenaForAllocation());
     _impl_.clothes_ = p;
   }
   return _impl_.clothes_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagClothes* AppearanceFlags::mutable_clothes() {
-  ::Canary::protobuf::appearances::AppearanceFlagClothes* _msg = _internal_mutable_clothes();
+inline ::Canary::protobuf::appearances::AppearanceFlagClothes *
+AppearanceFlags::mutable_clothes() {
+  ::Canary::protobuf::appearances::AppearanceFlagClothes *_msg =
+      _internal_mutable_clothes();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.clothes)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_clothes(::Canary::protobuf::appearances::AppearanceFlagClothes* clothes) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_clothes(
+    ::Canary::protobuf::appearances::AppearanceFlagClothes *clothes) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.clothes_;
   }
   if (clothes) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(clothes);
     if (message_arena != submessage_arena) {
       clothes = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9129,7 +10499,8 @@ inline void AppearanceFlags::set_allocated_clothes(::Canary::protobuf::appearanc
   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlags.clothes)
 }
 
-// optional .Canary.protobuf.appearances.AppearanceFlagDefaultAction default_action = 35;
+// optional .Canary.protobuf.appearances.AppearanceFlagDefaultAction
+// default_action = 35;
 inline bool AppearanceFlags::_internal_has_default_action() const {
   bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.default_action_ != nullptr);
@@ -9139,22 +10510,31 @@ inline bool AppearanceFlags::has_default_action() const {
   return _internal_has_default_action();
 }
 inline void AppearanceFlags::clear_default_action() {
-  if (_impl_.default_action_ != nullptr) _impl_.default_action_->Clear();
+  if (_impl_.default_action_ != nullptr)
+    _impl_.default_action_->Clear();
   _impl_._has_bits_[0] &= ~0x00000400u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction& AppearanceFlags::_internal_default_action() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* p = _impl_.default_action_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagDefaultAction_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction &
+AppearanceFlags::_internal_default_action() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *p =
+      _impl_.default_action_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagDefaultAction &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagDefaultAction_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction& AppearanceFlags::default_action() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagDefaultAction &
+AppearanceFlags::default_action() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.default_action)
   return _internal_default_action();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_default_action(
-    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* default_action) {
+    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction
+        *default_action) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.default_action_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.default_action_);
   }
   _impl_.default_action_ = default_action;
   if (default_action) {
@@ -9164,48 +10544,61 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_default_action(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.default_action)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* AppearanceFlags::release_default_action() {
+inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+AppearanceFlags::release_default_action() {
   _impl_._has_bits_[0] &= ~0x00000400u;
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* temp = _impl_.default_action_;
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *temp =
+      _impl_.default_action_;
   _impl_.default_action_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* AppearanceFlags::unsafe_arena_release_default_action() {
+inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+AppearanceFlags::unsafe_arena_release_default_action() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.default_action)
   _impl_._has_bits_[0] &= ~0x00000400u;
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* temp = _impl_.default_action_;
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *temp =
+      _impl_.default_action_;
   _impl_.default_action_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* AppearanceFlags::_internal_mutable_default_action() {
+inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+AppearanceFlags::_internal_mutable_default_action() {
   _impl_._has_bits_[0] |= 0x00000400u;
   if (_impl_.default_action_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagDefaultAction>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagDefaultAction>(
+        GetArenaForAllocation());
     _impl_.default_action_ = p;
   }
   return _impl_.default_action_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* AppearanceFlags::mutable_default_action() {
-  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction* _msg = _internal_mutable_default_action();
+inline ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *
+AppearanceFlags::mutable_default_action() {
+  ::Canary::protobuf::appearances::AppearanceFlagDefaultAction *_msg =
+      _internal_mutable_default_action();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.default_action)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_default_action(::Canary::protobuf::appearances::AppearanceFlagDefaultAction* default_action) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_default_action(
+    ::Canary::protobuf::appearances::AppearanceFlagDefaultAction
+        *default_action) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.default_action_;
   }
   if (default_action) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(default_action);
     if (message_arena != submessage_arena) {
       default_action = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9229,22 +10622,30 @@ inline bool AppearanceFlags::has_market() const {
   return _internal_has_market();
 }
 inline void AppearanceFlags::clear_market() {
-  if (_impl_.market_ != nullptr) _impl_.market_->Clear();
+  if (_impl_.market_ != nullptr)
+    _impl_.market_->Clear();
   _impl_._has_bits_[0] &= ~0x00000800u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagMarket& AppearanceFlags::_internal_market() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagMarket* p = _impl_.market_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagMarket&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagMarket_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagMarket &
+AppearanceFlags::_internal_market() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagMarket *p =
+      _impl_.market_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagMarket &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagMarket_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagMarket& AppearanceFlags::market() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagMarket &
+AppearanceFlags::market() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.market)
   return _internal_market();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_market(
-    ::Canary::protobuf::appearances::AppearanceFlagMarket* market) {
+    ::Canary::protobuf::appearances::AppearanceFlagMarket *market) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.market_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.market_);
   }
   _impl_.market_ = market;
   if (market) {
@@ -9254,48 +10655,58 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_market(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.market)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagMarket* AppearanceFlags::release_market() {
+inline ::Canary::protobuf::appearances::AppearanceFlagMarket *
+AppearanceFlags::release_market() {
   _impl_._has_bits_[0] &= ~0x00000800u;
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* temp = _impl_.market_;
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *temp = _impl_.market_;
   _impl_.market_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagMarket* AppearanceFlags::unsafe_arena_release_market() {
+inline ::Canary::protobuf::appearances::AppearanceFlagMarket *
+AppearanceFlags::unsafe_arena_release_market() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.market)
   _impl_._has_bits_[0] &= ~0x00000800u;
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* temp = _impl_.market_;
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *temp = _impl_.market_;
   _impl_.market_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagMarket* AppearanceFlags::_internal_mutable_market() {
+inline ::Canary::protobuf::appearances::AppearanceFlagMarket *
+AppearanceFlags::_internal_mutable_market() {
   _impl_._has_bits_[0] |= 0x00000800u;
   if (_impl_.market_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagMarket>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagMarket>(
+        GetArenaForAllocation());
     _impl_.market_ = p;
   }
   return _impl_.market_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagMarket* AppearanceFlags::mutable_market() {
-  ::Canary::protobuf::appearances::AppearanceFlagMarket* _msg = _internal_mutable_market();
+inline ::Canary::protobuf::appearances::AppearanceFlagMarket *
+AppearanceFlags::mutable_market() {
+  ::Canary::protobuf::appearances::AppearanceFlagMarket *_msg =
+      _internal_mutable_market();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.market)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_market(::Canary::protobuf::appearances::AppearanceFlagMarket* market) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_market(
+    ::Canary::protobuf::appearances::AppearanceFlagMarket *market) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.market_;
   }
   if (market) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(market);
     if (message_arena != submessage_arena) {
       market = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9314,16 +10725,12 @@ inline bool AppearanceFlags::_internal_has_wrap() const {
   bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_wrap() const {
-  return _internal_has_wrap();
-}
+inline bool AppearanceFlags::has_wrap() const { return _internal_has_wrap(); }
 inline void AppearanceFlags::clear_wrap() {
   _impl_.wrap_ = false;
   _impl_._has_bits_[1] &= ~0x00000080u;
 }
-inline bool AppearanceFlags::_internal_wrap() const {
-  return _impl_.wrap_;
-}
+inline bool AppearanceFlags::_internal_wrap() const { return _impl_.wrap_; }
 inline bool AppearanceFlags::wrap() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.wrap)
   return _internal_wrap();
@@ -9349,9 +10756,7 @@ inline void AppearanceFlags::clear_unwrap() {
   _impl_.unwrap_ = false;
   _impl_._has_bits_[1] &= ~0x00000100u;
 }
-inline bool AppearanceFlags::_internal_unwrap() const {
-  return _impl_.unwrap_;
-}
+inline bool AppearanceFlags::_internal_unwrap() const { return _impl_.unwrap_; }
 inline bool AppearanceFlags::unwrap() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.unwrap)
   return _internal_unwrap();
@@ -9403,37 +10808,46 @@ inline int AppearanceFlags::npcsaledata_size() const {
 inline void AppearanceFlags::clear_npcsaledata() {
   _impl_.npcsaledata_.Clear();
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagNPC* AppearanceFlags::mutable_npcsaledata(int index) {
+inline ::Canary::protobuf::appearances::AppearanceFlagNPC *
+AppearanceFlags::mutable_npcsaledata(int index) {
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.npcsaledata)
   return _impl_.npcsaledata_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::AppearanceFlagNPC >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::AppearanceFlagNPC> *
 AppearanceFlags::mutable_npcsaledata() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.AppearanceFlags.npcsaledata)
   return &_impl_.npcsaledata_;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagNPC& AppearanceFlags::_internal_npcsaledata(int index) const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagNPC &
+AppearanceFlags::_internal_npcsaledata(int index) const {
   return _impl_.npcsaledata_.Get(index);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagNPC& AppearanceFlags::npcsaledata(int index) const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagNPC &
+AppearanceFlags::npcsaledata(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.npcsaledata)
   return _internal_npcsaledata(index);
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagNPC* AppearanceFlags::_internal_add_npcsaledata() {
+inline ::Canary::protobuf::appearances::AppearanceFlagNPC *
+AppearanceFlags::_internal_add_npcsaledata() {
   return _impl_.npcsaledata_.Add();
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagNPC* AppearanceFlags::add_npcsaledata() {
-  ::Canary::protobuf::appearances::AppearanceFlagNPC* _add = _internal_add_npcsaledata();
+inline ::Canary::protobuf::appearances::AppearanceFlagNPC *
+AppearanceFlags::add_npcsaledata() {
+  ::Canary::protobuf::appearances::AppearanceFlagNPC *_add =
+      _internal_add_npcsaledata();
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.AppearanceFlags.npcsaledata)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Canary::protobuf::appearances::AppearanceFlagNPC >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<
+    ::Canary::protobuf::appearances::AppearanceFlagNPC> &
 AppearanceFlags::npcsaledata() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.AppearanceFlags.npcsaledata)
   return _impl_.npcsaledata_;
 }
 
-// optional .Canary.protobuf.appearances.AppearanceFlagChangedToExpire changedtoexpire = 41;
+// optional .Canary.protobuf.appearances.AppearanceFlagChangedToExpire
+// changedtoexpire = 41;
 inline bool AppearanceFlags::_internal_has_changedtoexpire() const {
   bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.changedtoexpire_ != nullptr);
@@ -9443,22 +10857,32 @@ inline bool AppearanceFlags::has_changedtoexpire() const {
   return _internal_has_changedtoexpire();
 }
 inline void AppearanceFlags::clear_changedtoexpire() {
-  if (_impl_.changedtoexpire_ != nullptr) _impl_.changedtoexpire_->Clear();
+  if (_impl_.changedtoexpire_ != nullptr)
+    _impl_.changedtoexpire_->Clear();
   _impl_._has_bits_[0] &= ~0x00001000u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire& AppearanceFlags::_internal_changedtoexpire() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* p = _impl_.changedtoexpire_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagChangedToExpire_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire &
+AppearanceFlags::_internal_changedtoexpire() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *p =
+      _impl_.changedtoexpire_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                    AppearanceFlagChangedToExpire &>(
+                   ::Canary::protobuf::appearances::
+                       _AppearanceFlagChangedToExpire_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire& AppearanceFlags::changedtoexpire() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire &
+AppearanceFlags::changedtoexpire() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.changedtoexpire)
   return _internal_changedtoexpire();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_changedtoexpire(
-    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* changedtoexpire) {
+    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire
+        *changedtoexpire) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.changedtoexpire_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.changedtoexpire_);
   }
   _impl_.changedtoexpire_ = changedtoexpire;
   if (changedtoexpire) {
@@ -9468,48 +10892,61 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_changedtoexpire(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.changedtoexpire)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* AppearanceFlags::release_changedtoexpire() {
+inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+AppearanceFlags::release_changedtoexpire() {
   _impl_._has_bits_[0] &= ~0x00001000u;
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* temp = _impl_.changedtoexpire_;
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *temp =
+      _impl_.changedtoexpire_;
   _impl_.changedtoexpire_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* AppearanceFlags::unsafe_arena_release_changedtoexpire() {
+inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+AppearanceFlags::unsafe_arena_release_changedtoexpire() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.changedtoexpire)
   _impl_._has_bits_[0] &= ~0x00001000u;
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* temp = _impl_.changedtoexpire_;
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *temp =
+      _impl_.changedtoexpire_;
   _impl_.changedtoexpire_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* AppearanceFlags::_internal_mutable_changedtoexpire() {
+inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+AppearanceFlags::_internal_mutable_changedtoexpire() {
   _impl_._has_bits_[0] |= 0x00001000u;
   if (_impl_.changedtoexpire_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagChangedToExpire>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire>(
+        GetArenaForAllocation());
     _impl_.changedtoexpire_ = p;
   }
   return _impl_.changedtoexpire_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* AppearanceFlags::mutable_changedtoexpire() {
-  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* _msg = _internal_mutable_changedtoexpire();
+inline ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *
+AppearanceFlags::mutable_changedtoexpire() {
+  ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire *_msg =
+      _internal_mutable_changedtoexpire();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.changedtoexpire)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_changedtoexpire(::Canary::protobuf::appearances::AppearanceFlagChangedToExpire* changedtoexpire) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_changedtoexpire(
+    ::Canary::protobuf::appearances::AppearanceFlagChangedToExpire
+        *changedtoexpire) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.changedtoexpire_;
   }
   if (changedtoexpire) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(changedtoexpire);
     if (message_arena != submessage_arena) {
       changedtoexpire = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9535,9 +10972,7 @@ inline void AppearanceFlags::clear_corpse() {
   _impl_.corpse_ = false;
   _impl_._has_bits_[1] &= ~0x00000400u;
 }
-inline bool AppearanceFlags::_internal_corpse() const {
-  return _impl_.corpse_;
-}
+inline bool AppearanceFlags::_internal_corpse() const { return _impl_.corpse_; }
 inline bool AppearanceFlags::corpse() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.corpse)
   return _internal_corpse();
@@ -9579,7 +11014,8 @@ inline void AppearanceFlags::set_player_corpse(bool value) {
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlags.player_corpse)
 }
 
-// optional .Canary.protobuf.appearances.AppearanceFlagCyclopedia cyclopediaitem = 44;
+// optional .Canary.protobuf.appearances.AppearanceFlagCyclopedia cyclopediaitem
+// = 44;
 inline bool AppearanceFlags::_internal_has_cyclopediaitem() const {
   bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.cyclopediaitem_ != nullptr);
@@ -9589,22 +11025,30 @@ inline bool AppearanceFlags::has_cyclopediaitem() const {
   return _internal_has_cyclopediaitem();
 }
 inline void AppearanceFlags::clear_cyclopediaitem() {
-  if (_impl_.cyclopediaitem_ != nullptr) _impl_.cyclopediaitem_->Clear();
+  if (_impl_.cyclopediaitem_ != nullptr)
+    _impl_.cyclopediaitem_->Clear();
   _impl_._has_bits_[0] &= ~0x00002000u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia& AppearanceFlags::_internal_cyclopediaitem() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* p = _impl_.cyclopediaitem_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagCyclopedia_default_instance_);
+inline const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia &
+AppearanceFlags::_internal_cyclopediaitem() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *p =
+      _impl_.cyclopediaitem_;
+  return p != nullptr ? *p
+                      : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                             AppearanceFlagCyclopedia &>(
+                            ::Canary::protobuf::appearances::
+                                _AppearanceFlagCyclopedia_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia& AppearanceFlags::cyclopediaitem() const {
+inline const ::Canary::protobuf::appearances::AppearanceFlagCyclopedia &
+AppearanceFlags::cyclopediaitem() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.cyclopediaitem)
   return _internal_cyclopediaitem();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_cyclopediaitem(
-    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* cyclopediaitem) {
+    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *cyclopediaitem) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.cyclopediaitem_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.cyclopediaitem_);
   }
   _impl_.cyclopediaitem_ = cyclopediaitem;
   if (cyclopediaitem) {
@@ -9614,48 +11058,60 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_cyclopediaitem(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.cyclopediaitem)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* AppearanceFlags::release_cyclopediaitem() {
+inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+AppearanceFlags::release_cyclopediaitem() {
   _impl_._has_bits_[0] &= ~0x00002000u;
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* temp = _impl_.cyclopediaitem_;
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *temp =
+      _impl_.cyclopediaitem_;
   _impl_.cyclopediaitem_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* AppearanceFlags::unsafe_arena_release_cyclopediaitem() {
+inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+AppearanceFlags::unsafe_arena_release_cyclopediaitem() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.cyclopediaitem)
   _impl_._has_bits_[0] &= ~0x00002000u;
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* temp = _impl_.cyclopediaitem_;
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *temp =
+      _impl_.cyclopediaitem_;
   _impl_.cyclopediaitem_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* AppearanceFlags::_internal_mutable_cyclopediaitem() {
+inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+AppearanceFlags::_internal_mutable_cyclopediaitem() {
   _impl_._has_bits_[0] |= 0x00002000u;
   if (_impl_.cyclopediaitem_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagCyclopedia>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagCyclopedia>(
+        GetArenaForAllocation());
     _impl_.cyclopediaitem_ = p;
   }
   return _impl_.cyclopediaitem_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* AppearanceFlags::mutable_cyclopediaitem() {
-  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia* _msg = _internal_mutable_cyclopediaitem();
+inline ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *
+AppearanceFlags::mutable_cyclopediaitem() {
+  ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *_msg =
+      _internal_mutable_cyclopediaitem();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.cyclopediaitem)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_cyclopediaitem(::Canary::protobuf::appearances::AppearanceFlagCyclopedia* cyclopediaitem) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_cyclopediaitem(
+    ::Canary::protobuf::appearances::AppearanceFlagCyclopedia *cyclopediaitem) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.cyclopediaitem_;
   }
   if (cyclopediaitem) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(cyclopediaitem);
     if (message_arena != submessage_arena) {
       cyclopediaitem = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
@@ -9674,16 +11130,12 @@ inline bool AppearanceFlags::_internal_has_ammo() const {
   bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
-inline bool AppearanceFlags::has_ammo() const {
-  return _internal_has_ammo();
-}
+inline bool AppearanceFlags::has_ammo() const { return _internal_has_ammo(); }
 inline void AppearanceFlags::clear_ammo() {
   _impl_.ammo_ = false;
   _impl_._has_bits_[1] &= ~0x00001000u;
 }
-inline bool AppearanceFlags::_internal_ammo() const {
-  return _impl_.ammo_;
-}
+inline bool AppearanceFlags::_internal_ammo() const { return _impl_.ammo_; }
 inline bool AppearanceFlags::ammo() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.ammo)
   return _internal_ammo();
@@ -9753,7 +11205,8 @@ inline void AppearanceFlags::set_reportable(bool value) {
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlags.reportable)
 }
 
-// optional .Canary.protobuf.appearances.AppearanceFlagUpgradeClassification upgradeclassification = 48;
+// optional .Canary.protobuf.appearances.AppearanceFlagUpgradeClassification
+// upgradeclassification = 48;
 inline bool AppearanceFlags::_internal_has_upgradeclassification() const {
   bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.upgradeclassification_ != nullptr);
@@ -9763,22 +11216,34 @@ inline bool AppearanceFlags::has_upgradeclassification() const {
   return _internal_has_upgradeclassification();
 }
 inline void AppearanceFlags::clear_upgradeclassification() {
-  if (_impl_.upgradeclassification_ != nullptr) _impl_.upgradeclassification_->Clear();
+  if (_impl_.upgradeclassification_ != nullptr)
+    _impl_.upgradeclassification_->Clear();
   _impl_._has_bits_[0] &= ~0x00004000u;
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification& AppearanceFlags::_internal_upgradeclassification() const {
-  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* p = _impl_.upgradeclassification_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification&>(
-      ::Canary::protobuf::appearances::_AppearanceFlagUpgradeClassification_default_instance_);
+inline const ::Canary::protobuf::appearances::
+    AppearanceFlagUpgradeClassification &
+    AppearanceFlags::_internal_upgradeclassification() const {
+  const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+      *p = _impl_.upgradeclassification_;
+  return p != nullptr
+             ? *p
+             : reinterpret_cast<const ::Canary::protobuf::appearances::
+                                    AppearanceFlagUpgradeClassification &>(
+                   ::Canary::protobuf::appearances::
+                       _AppearanceFlagUpgradeClassification_default_instance_);
 }
-inline const ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification& AppearanceFlags::upgradeclassification() const {
+inline const ::Canary::protobuf::appearances::
+    AppearanceFlagUpgradeClassification &
+    AppearanceFlags::upgradeclassification() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlags.upgradeclassification)
   return _internal_upgradeclassification();
 }
 inline void AppearanceFlags::unsafe_arena_set_allocated_upgradeclassification(
-    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* upgradeclassification) {
+    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+        *upgradeclassification) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.upgradeclassification_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(
+        _impl_.upgradeclassification_);
   }
   _impl_.upgradeclassification_ = upgradeclassification;
   if (upgradeclassification) {
@@ -9788,52 +11253,67 @@ inline void AppearanceFlags::unsafe_arena_set_allocated_upgradeclassification(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Canary.protobuf.appearances.AppearanceFlags.upgradeclassification)
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* AppearanceFlags::release_upgradeclassification() {
+inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+AppearanceFlags::release_upgradeclassification() {
   _impl_._has_bits_[0] &= ~0x00004000u;
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* temp = _impl_.upgradeclassification_;
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *temp =
+      _impl_.upgradeclassification_;
   _impl_.upgradeclassification_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  auto *old = reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite *>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
+  if (GetArenaForAllocation() == nullptr) {
+    delete old;
+  }
 #else  // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArenaForAllocation() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+#endif // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* AppearanceFlags::unsafe_arena_release_upgradeclassification() {
+inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+AppearanceFlags::unsafe_arena_release_upgradeclassification() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlags.upgradeclassification)
   _impl_._has_bits_[0] &= ~0x00004000u;
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* temp = _impl_.upgradeclassification_;
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *temp =
+      _impl_.upgradeclassification_;
   _impl_.upgradeclassification_ = nullptr;
   return temp;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* AppearanceFlags::_internal_mutable_upgradeclassification() {
+inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+AppearanceFlags::_internal_mutable_upgradeclassification() {
   _impl_._has_bits_[0] |= 0x00004000u;
   if (_impl_.upgradeclassification_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification>(GetArenaForAllocation());
+    auto *p = CreateMaybeMessage<
+        ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification>(
+        GetArenaForAllocation());
     _impl_.upgradeclassification_ = p;
   }
   return _impl_.upgradeclassification_;
 }
-inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* AppearanceFlags::mutable_upgradeclassification() {
-  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* _msg = _internal_mutable_upgradeclassification();
+inline ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *
+AppearanceFlags::mutable_upgradeclassification() {
+  ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification *_msg =
+      _internal_mutable_upgradeclassification();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlags.upgradeclassification)
   return _msg;
 }
-inline void AppearanceFlags::set_allocated_upgradeclassification(::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification* upgradeclassification) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+inline void AppearanceFlags::set_allocated_upgradeclassification(
+    ::Canary::protobuf::appearances::AppearanceFlagUpgradeClassification
+        *upgradeclassification) {
+  ::PROTOBUF_NAMESPACE_ID::Arena *message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.upgradeclassification_;
   }
   if (upgradeclassification) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(upgradeclassification);
+    ::PROTOBUF_NAMESPACE_ID::Arena *submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+            upgradeclassification);
     if (message_arena != submessage_arena) {
-      upgradeclassification = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, upgradeclassification, submessage_arena);
+      upgradeclassification =
+          ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+              message_arena, upgradeclassification, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00004000u;
   } else {
@@ -9848,29 +11328,38 @@ inline void AppearanceFlags::set_allocated_upgradeclassification(::Canary::proto
 // AppearanceFlagUpgradeClassification
 
 // optional uint32 upgrade_classification = 1;
-inline bool AppearanceFlagUpgradeClassification::_internal_has_upgrade_classification() const {
+inline bool
+AppearanceFlagUpgradeClassification::_internal_has_upgrade_classification()
+    const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool AppearanceFlagUpgradeClassification::has_upgrade_classification() const {
+inline bool
+AppearanceFlagUpgradeClassification::has_upgrade_classification() const {
   return _internal_has_upgrade_classification();
 }
-inline void AppearanceFlagUpgradeClassification::clear_upgrade_classification() {
+inline void
+AppearanceFlagUpgradeClassification::clear_upgrade_classification() {
   _impl_.upgrade_classification_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t AppearanceFlagUpgradeClassification::_internal_upgrade_classification() const {
+inline uint32_t
+AppearanceFlagUpgradeClassification::_internal_upgrade_classification() const {
   return _impl_.upgrade_classification_;
 }
-inline uint32_t AppearanceFlagUpgradeClassification::upgrade_classification() const {
+inline uint32_t
+AppearanceFlagUpgradeClassification::upgrade_classification() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification.upgrade_classification)
   return _internal_upgrade_classification();
 }
-inline void AppearanceFlagUpgradeClassification::_internal_set_upgrade_classification(uint32_t value) {
+inline void
+AppearanceFlagUpgradeClassification::_internal_set_upgrade_classification(
+    uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.upgrade_classification_ = value;
 }
-inline void AppearanceFlagUpgradeClassification::set_upgrade_classification(uint32_t value) {
+inline void AppearanceFlagUpgradeClassification::set_upgrade_classification(
+    uint32_t value) {
   _internal_set_upgrade_classification(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagUpgradeClassification.upgrade_classification)
 }
@@ -9944,7 +11433,8 @@ inline void AppearanceFlagWrite::set_max_text_length(uint32_t value) {
 // AppearanceFlagWriteOnce
 
 // optional uint32 max_text_length_once = 1;
-inline bool AppearanceFlagWriteOnce::_internal_has_max_text_length_once() const {
+inline bool
+AppearanceFlagWriteOnce::_internal_has_max_text_length_once() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
@@ -9955,14 +11445,16 @@ inline void AppearanceFlagWriteOnce::clear_max_text_length_once() {
   _impl_.max_text_length_once_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t AppearanceFlagWriteOnce::_internal_max_text_length_once() const {
+inline uint32_t
+AppearanceFlagWriteOnce::_internal_max_text_length_once() const {
   return _impl_.max_text_length_once_;
 }
 inline uint32_t AppearanceFlagWriteOnce::max_text_length_once() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagWriteOnce.max_text_length_once)
   return _internal_max_text_length_once();
 }
-inline void AppearanceFlagWriteOnce::_internal_set_max_text_length_once(uint32_t value) {
+inline void
+AppearanceFlagWriteOnce::_internal_set_max_text_length_once(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.max_text_length_once_ = value;
 }
@@ -10072,16 +11564,12 @@ inline bool AppearanceFlagShift::_internal_has_x() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool AppearanceFlagShift::has_x() const {
-  return _internal_has_x();
-}
+inline bool AppearanceFlagShift::has_x() const { return _internal_has_x(); }
 inline void AppearanceFlagShift::clear_x() {
   _impl_.x_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t AppearanceFlagShift::_internal_x() const {
-  return _impl_.x_;
-}
+inline uint32_t AppearanceFlagShift::_internal_x() const { return _impl_.x_; }
 inline uint32_t AppearanceFlagShift::x() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagShift.x)
   return _internal_x();
@@ -10100,16 +11588,12 @@ inline bool AppearanceFlagShift::_internal_has_y() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool AppearanceFlagShift::has_y() const {
-  return _internal_has_y();
-}
+inline bool AppearanceFlagShift::has_y() const { return _internal_has_y(); }
 inline void AppearanceFlagShift::clear_y() {
   _impl_.y_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t AppearanceFlagShift::_internal_y() const {
-  return _impl_.y_;
-}
+inline uint32_t AppearanceFlagShift::_internal_y() const { return _impl_.y_; }
 inline uint32_t AppearanceFlagShift::y() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagShift.y)
   return _internal_y();
@@ -10171,19 +11655,24 @@ inline void AppearanceFlagDefaultAction::clear_action() {
   _impl_.action_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::Canary::protobuf::appearances::PLAYER_ACTION AppearanceFlagDefaultAction::_internal_action() const {
-  return static_cast< ::Canary::protobuf::appearances::PLAYER_ACTION >(_impl_.action_);
+inline ::Canary::protobuf::appearances::PLAYER_ACTION
+AppearanceFlagDefaultAction::_internal_action() const {
+  return static_cast<::Canary::protobuf::appearances::PLAYER_ACTION>(
+      _impl_.action_);
 }
-inline ::Canary::protobuf::appearances::PLAYER_ACTION AppearanceFlagDefaultAction::action() const {
+inline ::Canary::protobuf::appearances::PLAYER_ACTION
+AppearanceFlagDefaultAction::action() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagDefaultAction.action)
   return _internal_action();
 }
-inline void AppearanceFlagDefaultAction::_internal_set_action(::Canary::protobuf::appearances::PLAYER_ACTION value) {
+inline void AppearanceFlagDefaultAction::_internal_set_action(
+    ::Canary::protobuf::appearances::PLAYER_ACTION value) {
   assert(::Canary::protobuf::appearances::PLAYER_ACTION_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.action_ = value;
 }
-inline void AppearanceFlagDefaultAction::set_action(::Canary::protobuf::appearances::PLAYER_ACTION value) {
+inline void AppearanceFlagDefaultAction::set_action(
+    ::Canary::protobuf::appearances::PLAYER_ACTION value) {
   _internal_set_action(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagDefaultAction.action)
 }
@@ -10204,19 +11693,24 @@ inline void AppearanceFlagMarket::clear_category() {
   _impl_.category_ = 1;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline ::Canary::protobuf::appearances::ITEM_CATEGORY AppearanceFlagMarket::_internal_category() const {
-  return static_cast< ::Canary::protobuf::appearances::ITEM_CATEGORY >(_impl_.category_);
+inline ::Canary::protobuf::appearances::ITEM_CATEGORY
+AppearanceFlagMarket::_internal_category() const {
+  return static_cast<::Canary::protobuf::appearances::ITEM_CATEGORY>(
+      _impl_.category_);
 }
-inline ::Canary::protobuf::appearances::ITEM_CATEGORY AppearanceFlagMarket::category() const {
+inline ::Canary::protobuf::appearances::ITEM_CATEGORY
+AppearanceFlagMarket::category() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagMarket.category)
   return _internal_category();
 }
-inline void AppearanceFlagMarket::_internal_set_category(::Canary::protobuf::appearances::ITEM_CATEGORY value) {
+inline void AppearanceFlagMarket::_internal_set_category(
+    ::Canary::protobuf::appearances::ITEM_CATEGORY value) {
   assert(::Canary::protobuf::appearances::ITEM_CATEGORY_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.category_ = value;
 }
-inline void AppearanceFlagMarket::set_category(::Canary::protobuf::appearances::ITEM_CATEGORY value) {
+inline void AppearanceFlagMarket::set_category(
+    ::Canary::protobuf::appearances::ITEM_CATEGORY value) {
   _internal_set_category(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagMarket.category)
 }
@@ -10240,7 +11734,8 @@ inline uint32_t AppearanceFlagMarket::trade_as_object_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagMarket.trade_as_object_id)
   return _internal_trade_as_object_id();
 }
-inline void AppearanceFlagMarket::_internal_set_trade_as_object_id(uint32_t value) {
+inline void
+AppearanceFlagMarket::_internal_set_trade_as_object_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.trade_as_object_id_ = value;
 }
@@ -10268,7 +11763,8 @@ inline uint32_t AppearanceFlagMarket::show_as_object_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagMarket.show_as_object_id)
   return _internal_show_as_object_id();
 }
-inline void AppearanceFlagMarket::_internal_set_show_as_object_id(uint32_t value) {
+inline void
+AppearanceFlagMarket::_internal_set_show_as_object_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.show_as_object_id_ = value;
 }
@@ -10277,7 +11773,8 @@ inline void AppearanceFlagMarket::set_show_as_object_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagMarket.show_as_object_id)
 }
 
-// repeated .Canary.protobuf.appearances.PLAYER_PROFESSION restrict_to_profession = 5;
+// repeated .Canary.protobuf.appearances.PLAYER_PROFESSION
+// restrict_to_profession = 5;
 inline int AppearanceFlagMarket::_internal_restrict_to_profession_size() const {
   return _impl_.restrict_to_profession_.size();
 }
@@ -10287,36 +11784,42 @@ inline int AppearanceFlagMarket::restrict_to_profession_size() const {
 inline void AppearanceFlagMarket::clear_restrict_to_profession() {
   _impl_.restrict_to_profession_.Clear();
 }
-inline ::Canary::protobuf::appearances::PLAYER_PROFESSION AppearanceFlagMarket::_internal_restrict_to_profession(int index) const {
-  return static_cast< ::Canary::protobuf::appearances::PLAYER_PROFESSION >(_impl_.restrict_to_profession_.Get(index));
+inline ::Canary::protobuf::appearances::PLAYER_PROFESSION
+AppearanceFlagMarket::_internal_restrict_to_profession(int index) const {
+  return static_cast<::Canary::protobuf::appearances::PLAYER_PROFESSION>(
+      _impl_.restrict_to_profession_.Get(index));
 }
-inline ::Canary::protobuf::appearances::PLAYER_PROFESSION AppearanceFlagMarket::restrict_to_profession(int index) const {
+inline ::Canary::protobuf::appearances::PLAYER_PROFESSION
+AppearanceFlagMarket::restrict_to_profession(int index) const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagMarket.restrict_to_profession)
   return _internal_restrict_to_profession(index);
 }
-inline void AppearanceFlagMarket::set_restrict_to_profession(int index, ::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
+inline void AppearanceFlagMarket::set_restrict_to_profession(
+    int index, ::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
   assert(::Canary::protobuf::appearances::PLAYER_PROFESSION_IsValid(value));
   _impl_.restrict_to_profession_.Set(index, value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagMarket.restrict_to_profession)
 }
-inline void AppearanceFlagMarket::_internal_add_restrict_to_profession(::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
+inline void AppearanceFlagMarket::_internal_add_restrict_to_profession(
+    ::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
   assert(::Canary::protobuf::appearances::PLAYER_PROFESSION_IsValid(value));
   _impl_.restrict_to_profession_.Add(value);
 }
-inline void AppearanceFlagMarket::add_restrict_to_profession(::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
+inline void AppearanceFlagMarket::add_restrict_to_profession(
+    ::Canary::protobuf::appearances::PLAYER_PROFESSION value) {
   _internal_add_restrict_to_profession(value);
   // @@protoc_insertion_point(field_add:Canary.protobuf.appearances.AppearanceFlagMarket.restrict_to_profession)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> &
 AppearanceFlagMarket::restrict_to_profession() const {
   // @@protoc_insertion_point(field_list:Canary.protobuf.appearances.AppearanceFlagMarket.restrict_to_profession)
   return _impl_.restrict_to_profession_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> *
 AppearanceFlagMarket::_internal_mutable_restrict_to_profession() {
   return &_impl_.restrict_to_profession_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> *
 AppearanceFlagMarket::mutable_restrict_to_profession() {
   // @@protoc_insertion_point(field_mutable_list:Canary.protobuf.appearances.AppearanceFlagMarket.restrict_to_profession)
   return _internal_mutable_restrict_to_profession();
@@ -10359,47 +11862,46 @@ inline bool AppearanceFlagNPC::_internal_has_name() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool AppearanceFlagNPC::has_name() const {
-  return _internal_has_name();
-}
+inline bool AppearanceFlagNPC::has_name() const { return _internal_has_name(); }
 inline void AppearanceFlagNPC::clear_name() {
   _impl_.name_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& AppearanceFlagNPC::name() const {
+inline const std::string &AppearanceFlagNPC::name() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagNPC.name)
   return _internal_name();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void AppearanceFlagNPC::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline PROTOBUF_ALWAYS_INLINE void AppearanceFlagNPC::set_name(ArgT0 &&arg0,
+                                                               ArgT... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.SetBytes(static_cast<ArgT0 &&>(arg0), args...,
+                        GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagNPC.name)
 }
-inline std::string* AppearanceFlagNPC::mutable_name() {
-  std::string* _s = _internal_mutable_name();
+inline std::string *AppearanceFlagNPC::mutable_name() {
+  std::string *_s = _internal_mutable_name();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlagNPC.name)
   return _s;
 }
-inline const std::string& AppearanceFlagNPC::_internal_name() const {
+inline const std::string &AppearanceFlagNPC::_internal_name() const {
   return _impl_.name_.Get();
 }
-inline void AppearanceFlagNPC::_internal_set_name(const std::string& value) {
+inline void AppearanceFlagNPC::_internal_set_name(const std::string &value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::_internal_mutable_name() {
+inline std::string *AppearanceFlagNPC::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
   return _impl_.name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::release_name() {
+inline std::string *AppearanceFlagNPC::release_name() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlagNPC.name)
   if (!_internal_has_name()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
+  auto *p = _impl_.name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.name_.IsDefault()) {
     _impl_.name_.Set("", GetArenaForAllocation());
@@ -10407,7 +11909,7 @@ inline std::string* AppearanceFlagNPC::release_name() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void AppearanceFlagNPC::set_allocated_name(std::string* name) {
+inline void AppearanceFlagNPC::set_allocated_name(std::string *name) {
   if (name != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -10434,40 +11936,42 @@ inline void AppearanceFlagNPC::clear_location() {
   _impl_.location_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const std::string& AppearanceFlagNPC::location() const {
+inline const std::string &AppearanceFlagNPC::location() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagNPC.location)
   return _internal_location();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void AppearanceFlagNPC::set_location(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.location_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline PROTOBUF_ALWAYS_INLINE void
+AppearanceFlagNPC::set_location(ArgT0 &&arg0, ArgT... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.location_.SetBytes(static_cast<ArgT0 &&>(arg0), args...,
+                            GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagNPC.location)
 }
-inline std::string* AppearanceFlagNPC::mutable_location() {
-  std::string* _s = _internal_mutable_location();
+inline std::string *AppearanceFlagNPC::mutable_location() {
+  std::string *_s = _internal_mutable_location();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlagNPC.location)
   return _s;
 }
-inline const std::string& AppearanceFlagNPC::_internal_location() const {
+inline const std::string &AppearanceFlagNPC::_internal_location() const {
   return _impl_.location_.Get();
 }
-inline void AppearanceFlagNPC::_internal_set_location(const std::string& value) {
+inline void
+AppearanceFlagNPC::_internal_set_location(const std::string &value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.location_.Set(value, GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::_internal_mutable_location() {
+inline std::string *AppearanceFlagNPC::_internal_mutable_location() {
   _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.location_.Mutable(GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::release_location() {
+inline std::string *AppearanceFlagNPC::release_location() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlagNPC.location)
   if (!_internal_has_location()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.location_.Release();
+  auto *p = _impl_.location_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.location_.IsDefault()) {
     _impl_.location_.Set("", GetArenaForAllocation());
@@ -10475,7 +11979,7 @@ inline std::string* AppearanceFlagNPC::release_location() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void AppearanceFlagNPC::set_allocated_location(std::string* location) {
+inline void AppearanceFlagNPC::set_allocated_location(std::string *location) {
   if (location != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -10565,7 +12069,8 @@ inline uint32_t AppearanceFlagNPC::currency_object_type_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagNPC.currency_object_type_id)
   return _internal_currency_object_type_id();
 }
-inline void AppearanceFlagNPC::_internal_set_currency_object_type_id(uint32_t value) {
+inline void
+AppearanceFlagNPC::_internal_set_currency_object_type_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.currency_object_type_id_ = value;
 }
@@ -10575,7 +12080,8 @@ inline void AppearanceFlagNPC::set_currency_object_type_id(uint32_t value) {
 }
 
 // optional bytes currency_quest_flag_display_name = 6;
-inline bool AppearanceFlagNPC::_internal_has_currency_quest_flag_display_name() const {
+inline bool
+AppearanceFlagNPC::_internal_has_currency_quest_flag_display_name() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
@@ -10586,40 +12092,49 @@ inline void AppearanceFlagNPC::clear_currency_quest_flag_display_name() {
   _impl_.currency_quest_flag_display_name_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline const std::string& AppearanceFlagNPC::currency_quest_flag_display_name() const {
+inline const std::string &
+AppearanceFlagNPC::currency_quest_flag_display_name() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
   return _internal_currency_quest_flag_display_name();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void AppearanceFlagNPC::set_currency_quest_flag_display_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.currency_quest_flag_display_name_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline PROTOBUF_ALWAYS_INLINE void
+AppearanceFlagNPC::set_currency_quest_flag_display_name(ArgT0 &&arg0,
+                                                        ArgT... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.currency_quest_flag_display_name_.SetBytes(
+      static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
 }
-inline std::string* AppearanceFlagNPC::mutable_currency_quest_flag_display_name() {
-  std::string* _s = _internal_mutable_currency_quest_flag_display_name();
+inline std::string *
+AppearanceFlagNPC::mutable_currency_quest_flag_display_name() {
+  std::string *_s = _internal_mutable_currency_quest_flag_display_name();
   // @@protoc_insertion_point(field_mutable:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
   return _s;
 }
-inline const std::string& AppearanceFlagNPC::_internal_currency_quest_flag_display_name() const {
+inline const std::string &
+AppearanceFlagNPC::_internal_currency_quest_flag_display_name() const {
   return _impl_.currency_quest_flag_display_name_.Get();
 }
-inline void AppearanceFlagNPC::_internal_set_currency_quest_flag_display_name(const std::string& value) {
+inline void AppearanceFlagNPC::_internal_set_currency_quest_flag_display_name(
+    const std::string &value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.currency_quest_flag_display_name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::_internal_mutable_currency_quest_flag_display_name() {
+inline std::string *
+AppearanceFlagNPC::_internal_mutable_currency_quest_flag_display_name() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.currency_quest_flag_display_name_.Mutable(GetArenaForAllocation());
+  return _impl_.currency_quest_flag_display_name_.Mutable(
+      GetArenaForAllocation());
 }
-inline std::string* AppearanceFlagNPC::release_currency_quest_flag_display_name() {
+inline std::string *
+AppearanceFlagNPC::release_currency_quest_flag_display_name() {
   // @@protoc_insertion_point(field_release:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
   if (!_internal_has_currency_quest_flag_display_name()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.currency_quest_flag_display_name_.Release();
+  auto *p = _impl_.currency_quest_flag_display_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.currency_quest_flag_display_name_.IsDefault()) {
     _impl_.currency_quest_flag_display_name_.Set("", GetArenaForAllocation());
@@ -10627,13 +12142,15 @@ inline std::string* AppearanceFlagNPC::release_currency_quest_flag_display_name(
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void AppearanceFlagNPC::set_allocated_currency_quest_flag_display_name(std::string* currency_quest_flag_display_name) {
+inline void AppearanceFlagNPC::set_allocated_currency_quest_flag_display_name(
+    std::string *currency_quest_flag_display_name) {
   if (currency_quest_flag_display_name != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.currency_quest_flag_display_name_.SetAllocated(currency_quest_flag_display_name, GetArenaForAllocation());
+  _impl_.currency_quest_flag_display_name_.SetAllocated(
+      currency_quest_flag_display_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.currency_quest_flag_display_name_.IsDefault()) {
     _impl_.currency_quest_flag_display_name_.Set("", GetArenaForAllocation());
@@ -10690,19 +12207,24 @@ inline void AppearanceFlagHook::clear_direction() {
   _impl_.direction_ = 1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::Canary::protobuf::appearances::HOOK_TYPE AppearanceFlagHook::_internal_direction() const {
-  return static_cast< ::Canary::protobuf::appearances::HOOK_TYPE >(_impl_.direction_);
+inline ::Canary::protobuf::appearances::HOOK_TYPE
+AppearanceFlagHook::_internal_direction() const {
+  return static_cast<::Canary::protobuf::appearances::HOOK_TYPE>(
+      _impl_.direction_);
 }
-inline ::Canary::protobuf::appearances::HOOK_TYPE AppearanceFlagHook::direction() const {
+inline ::Canary::protobuf::appearances::HOOK_TYPE
+AppearanceFlagHook::direction() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagHook.direction)
   return _internal_direction();
 }
-inline void AppearanceFlagHook::_internal_set_direction(::Canary::protobuf::appearances::HOOK_TYPE value) {
+inline void AppearanceFlagHook::_internal_set_direction(
+    ::Canary::protobuf::appearances::HOOK_TYPE value) {
   assert(::Canary::protobuf::appearances::HOOK_TYPE_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.direction_ = value;
 }
-inline void AppearanceFlagHook::set_direction(::Canary::protobuf::appearances::HOOK_TYPE value) {
+inline void AppearanceFlagHook::set_direction(
+    ::Canary::protobuf::appearances::HOOK_TYPE value) {
   _internal_set_direction(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagHook.direction)
 }
@@ -10744,7 +12266,8 @@ inline void AppearanceFlagLenshelp::set_id(uint32_t value) {
 // AppearanceFlagChangedToExpire
 
 // optional uint32 former_object_typeid = 1;
-inline bool AppearanceFlagChangedToExpire::_internal_has_former_object_typeid() const {
+inline bool
+AppearanceFlagChangedToExpire::_internal_has_former_object_typeid() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
@@ -10755,18 +12278,21 @@ inline void AppearanceFlagChangedToExpire::clear_former_object_typeid() {
   _impl_.former_object_typeid_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t AppearanceFlagChangedToExpire::_internal_former_object_typeid() const {
+inline uint32_t
+AppearanceFlagChangedToExpire::_internal_former_object_typeid() const {
   return _impl_.former_object_typeid_;
 }
 inline uint32_t AppearanceFlagChangedToExpire::former_object_typeid() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagChangedToExpire.former_object_typeid)
   return _internal_former_object_typeid();
 }
-inline void AppearanceFlagChangedToExpire::_internal_set_former_object_typeid(uint32_t value) {
+inline void AppearanceFlagChangedToExpire::_internal_set_former_object_typeid(
+    uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.former_object_typeid_ = value;
 }
-inline void AppearanceFlagChangedToExpire::set_former_object_typeid(uint32_t value) {
+inline void
+AppearanceFlagChangedToExpire::set_former_object_typeid(uint32_t value) {
   _internal_set_former_object_typeid(value);
   // @@protoc_insertion_point(field_set:Canary.protobuf.appearances.AppearanceFlagChangedToExpire.former_object_typeid)
 }
@@ -10794,7 +12320,8 @@ inline uint32_t AppearanceFlagCyclopedia::cyclopedia_type() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.AppearanceFlagCyclopedia.cyclopedia_type)
   return _internal_cyclopedia_type();
 }
-inline void AppearanceFlagCyclopedia::_internal_set_cyclopedia_type(uint32_t value) {
+inline void
+AppearanceFlagCyclopedia::_internal_set_cyclopedia_type(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.cyclopedia_type_ = value;
 }
@@ -10826,7 +12353,8 @@ inline uint32_t SpecialMeaningAppearanceIds::gold_coin_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.gold_coin_id)
   return _internal_gold_coin_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_gold_coin_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_gold_coin_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.gold_coin_id_ = value;
 }
@@ -10836,7 +12364,8 @@ inline void SpecialMeaningAppearanceIds::set_gold_coin_id(uint32_t value) {
 }
 
 // optional uint32 platinum_coin_id = 2;
-inline bool SpecialMeaningAppearanceIds::_internal_has_platinum_coin_id() const {
+inline bool
+SpecialMeaningAppearanceIds::_internal_has_platinum_coin_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
@@ -10847,14 +12376,16 @@ inline void SpecialMeaningAppearanceIds::clear_platinum_coin_id() {
   _impl_.platinum_coin_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t SpecialMeaningAppearanceIds::_internal_platinum_coin_id() const {
+inline uint32_t
+SpecialMeaningAppearanceIds::_internal_platinum_coin_id() const {
   return _impl_.platinum_coin_id_;
 }
 inline uint32_t SpecialMeaningAppearanceIds::platinum_coin_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.platinum_coin_id)
   return _internal_platinum_coin_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_platinum_coin_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_platinum_coin_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.platinum_coin_id_ = value;
 }
@@ -10882,7 +12413,8 @@ inline uint32_t SpecialMeaningAppearanceIds::crystal_coin_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.crystal_coin_id)
   return _internal_crystal_coin_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_crystal_coin_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_crystal_coin_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.crystal_coin_id_ = value;
 }
@@ -10910,7 +12442,8 @@ inline uint32_t SpecialMeaningAppearanceIds::tibia_coin_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.tibia_coin_id)
   return _internal_tibia_coin_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_tibia_coin_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_tibia_coin_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.tibia_coin_id_ = value;
 }
@@ -10920,7 +12453,8 @@ inline void SpecialMeaningAppearanceIds::set_tibia_coin_id(uint32_t value) {
 }
 
 // optional uint32 stamped_letter_id = 5;
-inline bool SpecialMeaningAppearanceIds::_internal_has_stamped_letter_id() const {
+inline bool
+SpecialMeaningAppearanceIds::_internal_has_stamped_letter_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
@@ -10931,14 +12465,16 @@ inline void SpecialMeaningAppearanceIds::clear_stamped_letter_id() {
   _impl_.stamped_letter_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t SpecialMeaningAppearanceIds::_internal_stamped_letter_id() const {
+inline uint32_t
+SpecialMeaningAppearanceIds::_internal_stamped_letter_id() const {
   return _impl_.stamped_letter_id_;
 }
 inline uint32_t SpecialMeaningAppearanceIds::stamped_letter_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.stamped_letter_id)
   return _internal_stamped_letter_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_stamped_letter_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_stamped_letter_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.stamped_letter_id_ = value;
 }
@@ -10966,7 +12502,8 @@ inline uint32_t SpecialMeaningAppearanceIds::supply_stash_id() const {
   // @@protoc_insertion_point(field_get:Canary.protobuf.appearances.SpecialMeaningAppearanceIds.supply_stash_id)
   return _internal_supply_stash_id();
 }
-inline void SpecialMeaningAppearanceIds::_internal_set_supply_stash_id(uint32_t value) {
+inline void
+SpecialMeaningAppearanceIds::_internal_set_supply_stash_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.supply_stash_id_ = value;
 }
@@ -10976,8 +12513,8 @@ inline void SpecialMeaningAppearanceIds::set_supply_stash_id(uint32_t value) {
 }
 
 #ifdef __GNUC__
-  #pragma GCC diagnostic pop
-#endif  // __GNUC__
+#pragma GCC diagnostic pop
+#endif // __GNUC__
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -11027,44 +12564,61 @@ inline void SpecialMeaningAppearanceIds::set_supply_stash_id(uint32_t value) {
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace appearances
-}  // namespace protobuf
-}  // namespace Canary
+} // namespace appearances
+} // namespace protobuf
+} // namespace Canary
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::PLAYER_ACTION> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::PLAYER_ACTION>() {
+struct is_proto_enum<::Canary::protobuf::appearances::PLAYER_ACTION>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::PLAYER_ACTION>() {
   return ::Canary::protobuf::appearances::PLAYER_ACTION_descriptor();
 }
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::ITEM_CATEGORY> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::ITEM_CATEGORY>() {
+struct is_proto_enum<::Canary::protobuf::appearances::ITEM_CATEGORY>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::ITEM_CATEGORY>() {
   return ::Canary::protobuf::appearances::ITEM_CATEGORY_descriptor();
 }
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::PLAYER_PROFESSION> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::PLAYER_PROFESSION>() {
+struct is_proto_enum<::Canary::protobuf::appearances::PLAYER_PROFESSION>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::PLAYER_PROFESSION>() {
   return ::Canary::protobuf::appearances::PLAYER_PROFESSION_descriptor();
 }
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE>() {
+struct is_proto_enum<::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE>() {
   return ::Canary::protobuf::appearances::ANIMATION_LOOP_TYPE_descriptor();
 }
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::HOOK_TYPE> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::HOOK_TYPE>() {
+struct is_proto_enum<::Canary::protobuf::appearances::HOOK_TYPE>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::HOOK_TYPE>() {
   return ::Canary::protobuf::appearances::HOOK_TYPE_descriptor();
 }
-template <> struct is_proto_enum< ::Canary::protobuf::appearances::FIXED_FRAME_GROUP> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Canary::protobuf::appearances::FIXED_FRAME_GROUP>() {
+struct is_proto_enum<::Canary::protobuf::appearances::FIXED_FRAME_GROUP>
+    : ::std::true_type {};
+template <>
+inline const EnumDescriptor *
+GetEnumDescriptor<::Canary::protobuf::appearances::FIXED_FRAME_GROUP>() {
   return ::Canary::protobuf::appearances::FIXED_FRAME_GROUP_descriptor();
 }
 
@@ -11073,4 +12627,4 @@ PROTOBUF_NAMESPACE_CLOSE
 // @@protoc_insertion_point(global_scope)
 
 #include <google/protobuf/port_undef.inc>
-#endif  // GOOGLE_PROTOBUF_INCLUDED_GOOGLE_PROTOBUF_INCLUDED_appearances_2eproto
+#endif // GOOGLE_PROTOBUF_INCLUDED_GOOGLE_PROTOBUF_INCLUDED_appearances_2eproto

@@ -10,31 +10,31 @@
 TEST_CASE("Default Constructor", "[UnitTest]") {
   account::Account normal;
 
-	SECTION("Default ID") {
+  SECTION("Default ID") {
     uint32_t id;
     normal.GetID(&id);
     CHECK(id == 0);
   }
 
-	SECTION("@DefaultEmail") {
+  SECTION("@DefaultEmail") {
     std::string email;
     normal.GetEmail(&email);
     CHECK(email.empty() == true);
   }
 
-	SECTION("Default Password") {
+  SECTION("Default Password") {
     std::string password;
     normal.GetPassword(&password);
     CHECK(password.empty() == true);
   }
 
-	SECTION("Default Premium Remaining Days") {
+  SECTION("Default Premium Remaining Days") {
     uint32_t days;
     normal.GetPremiumRemaningDays(&days);
     CHECK(days == 0);
   }
 
-	SECTION("Default Premium Remaining Days") {
+  SECTION("Default Premium Remaining Days") {
     time_t time;
     normal.GetPremiumLastDay(&time);
     CHECK(time == 0);
@@ -49,14 +49,14 @@ TEST_CASE("Constructor ID", "[UnitTest]") {
 }
 
 TEST_CASE("Constructor Email", "[UnitTest]") {
-	account::Account with_email("@test");
+  account::Account with_email("@test");
   std::string email;
   with_email.GetEmail(&email);
   CHECK(email == "@test");
 }
 
 TEST_CASE("Set Database Interface", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   Database new_database;
   result = account.SetDatabaseInterface(&new_database);
@@ -64,14 +64,14 @@ TEST_CASE("Set Database Interface", "[UnitTest]") {
 }
 
 TEST_CASE("Set Database Interface to Nullptr Must Fail", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetDatabaseInterface(nullptr);
   CHECK(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Set Database Task Interface", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   DatabaseTasks new_database_tasks;
   result = account.SetDatabaseTasksInterface(&new_database_tasks);
@@ -79,14 +79,14 @@ TEST_CASE("Set Database Task Interface", "[UnitTest]") {
 }
 
 TEST_CASE("Set Database Task Interface to Nullptr Must Fail", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetDatabaseTasksInterface(nullptr);
   CHECK(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Get Coins Account Not Initialized", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   uint32_t coins;
   result = account.GetCoins(&coins);
@@ -94,7 +94,7 @@ TEST_CASE("Get Coins Account Not Initialized", "[UnitTest]") {
 }
 
 TEST_CASE("Get ID", "[UnitTest]") {
-	account::Account account(15);
+  account::Account account(15);
   error_t result;
   uint32_t new_id;
   result = account.GetID(&new_id);
@@ -103,14 +103,14 @@ TEST_CASE("Get ID", "[UnitTest]") {
 }
 
 TEST_CASE("Get ID - Nullptr", "[UnitTest]") {
-	account::Account account(15);
+  account::Account account(15);
   error_t result;
   result = account.GetID(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Set/Get Email", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetEmail("@RickMaru");
   REQUIRE(result == account::ERROR_NO);
@@ -122,7 +122,7 @@ TEST_CASE("Set/Get Email", "[UnitTest]") {
 }
 
 TEST_CASE("Set Email - Empty", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   std::string new_email;
   result = account.SetEmail(new_email);
@@ -130,14 +130,14 @@ TEST_CASE("Set Email - Empty", "[UnitTest]") {
 }
 
 TEST_CASE("Get Email - Nullptr", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.GetEmail(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Set/Get Password", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetPassword("password123");
   REQUIRE(result == account::ERROR_NO);
@@ -149,7 +149,7 @@ TEST_CASE("Set/Get Password", "[UnitTest]") {
 }
 
 TEST_CASE("Set Password - Empty", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   std::string new_password;
   result = account.SetPassword(new_password);
@@ -157,16 +157,15 @@ TEST_CASE("Set Password - Empty", "[UnitTest]") {
 }
 
 TEST_CASE("Get Password - Nullptr", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   std::string new_password;
   result = account.GetPassword(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
-
 TEST_CASE("Set/Get Premium Days Remaining", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetPremiumRemaningDays(20);
   REQUIRE(result == account::ERROR_NO);
@@ -178,14 +177,14 @@ TEST_CASE("Set/Get Premium Days Remaining", "[UnitTest]") {
 }
 
 TEST_CASE("Get Premium Days Remaining - Nullptr", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.GetPremiumRemaningDays(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Set/Get Premium Last Day", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   time_t last_day = time(nullptr);
   result = account.SetPremiumLastDay(last_day);
@@ -198,22 +197,21 @@ TEST_CASE("Set/Get Premium Last Day", "[UnitTest]") {
 }
 
 TEST_CASE("Set Premium Last Day - Zero", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetPremiumLastDay(-1);
   REQUIRE(result == account::ERROR_INVALID_LAST_DAY);
 }
 
 TEST_CASE("Get Premium Last Day - Nullptr", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.GetPremiumLastDay(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
-
 TEST_CASE("Set/Get Account Type", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetAccountType(account::ACCOUNT_TYPE_NORMAL);
   REQUIRE(result == account::ERROR_NO);
@@ -225,29 +223,28 @@ TEST_CASE("Set/Get Account Type", "[UnitTest]") {
 }
 
 TEST_CASE("Set Account Type - Undefine", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.SetAccountType(static_cast<account::AccountType>(20));
   REQUIRE(result == account::ERROR_INVALID_ACC_TYPE);
 }
 
 TEST_CASE("Get Account Type - Nullptr", "[UnitTest]") {
-	account::Account account;
+  account::Account account;
   error_t result;
   result = account.GetAccountType(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
 TEST_CASE("Get Account Players - Nullptr", "[UnitTest]") {
-	account::Account account(1);
+  account::Account account(1);
   error_t result;
   result = account.GetAccountPlayers(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
-
 TEST_CASE("Get Coins", "[UnitTest]") {
-	account::Account account(1);
+  account::Account account(1);
   error_t result;
   uint32_t coins;
   result = account.GetCoins(&coins);
@@ -255,14 +252,14 @@ TEST_CASE("Get Coins", "[UnitTest]") {
 }
 
 TEST_CASE("Add Zero Coins", "[UnitTest]") {
-	account::Account account(1);
+  account::Account account(1);
   error_t result;
   result = account.AddCoins(0);
   REQUIRE(result == account::ERROR_NO);
 }
 
 TEST_CASE("Remove Zero Coins", "[UnitTest]") {
-	account::Account account(1);
+  account::Account account(1);
   error_t result;
   result = account.RemoveCoins(0);
   REQUIRE(result == account::ERROR_NO);
@@ -272,18 +269,14 @@ TEST_CASE("Remove Zero Coins", "[UnitTest]") {
  ******************************************************************************/
 
 TEST_CASE("Get Account Players", "[UnitTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -296,18 +289,14 @@ TEST_CASE("Get Account Players", "[UnitTest]") {
 }
 
 TEST_CASE("Remove Coins From Account With Zero Coins", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -338,18 +327,14 @@ TEST_CASE("Remove Coins From Account With Zero Coins", "[IntegrationTest]") {
 }
 
 TEST_CASE("Add Maximum Number Of Coins", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -386,18 +371,14 @@ TEST_CASE("Add Maximum Number Of Coins", "[IntegrationTest]") {
 }
 
 TEST_CASE("Add Maximum Number Of Coins Plus One", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -432,18 +413,14 @@ TEST_CASE("Add Maximum Number Of Coins Plus One", "[IntegrationTest]") {
 }
 
 TEST_CASE("Add/Remove Coins Operation", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB Tasks connection failes");
   }
@@ -481,18 +458,14 @@ TEST_CASE("Add/Remove Coins Operation", "[IntegrationTest]") {
 }
 
 TEST_CASE("Load Account Using ID From Constructor", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB Tasks connection failes");
   }
@@ -533,18 +506,14 @@ TEST_CASE("Load Account Using ID From Constructor", "[IntegrationTest]") {
 }
 
 TEST_CASE("Load Account Using Email From Constructor", "[IntegrationTest]") {
-	account::Account account("@GOD");
+  account::Account account("@GOD");
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -585,18 +554,14 @@ TEST_CASE("Load Account Using Email From Constructor", "[IntegrationTest]") {
 }
 
 TEST_CASE("Load Account Using ID", "[IntegrationTest]") {
-	account::Account account;
+  account::Account account;
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -637,18 +602,14 @@ TEST_CASE("Load Account Using ID", "[IntegrationTest]") {
 }
 
 TEST_CASE("Load Account Using Email", "[IntegrationTest]") {
-	account::Account account;
+  account::Account account;
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -689,19 +650,15 @@ TEST_CASE("Load Account Using Email", "[IntegrationTest]") {
 }
 
 TEST_CASE("Save Account", "[IntegrationTest]") {
-	account::Account account_orig(1);
-	account::Account account(1);
+  account::Account account_orig(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }
@@ -743,7 +700,6 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(account_type == account::ACCOUNT_TYPE_GOD);
 
-
   // Change Account
   std::string new_email("@NewEmail");
   result = account.SetEmail(new_email);
@@ -765,16 +721,15 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   result = account.SetAccountType(new_account_type);
   CHECK(result == account::ERROR_NO);
 
-
-  //Save Account
+  // Save Account
   result = account.SaveAccountDB();
   REQUIRE(result == account::ERROR_NO);
 
-  //Load Changed Account
+  // Load Changed Account
   account::Account changed_account;
   result = changed_account.LoadAccountDB(1);
 
-  //Check Changed Account
+  // Check Changed Account
   result = changed_account.GetID(&id);
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
@@ -799,24 +754,20 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(account_type == new_account_type);
 
-  //Restore Account Values
+  // Restore Account Values
   result = account_orig.SaveAccountDB();
   REQUIRE(result == account::ERROR_NO);
 }
 
 TEST_CASE("Register Coin Transaction", "[IntegrationTest]") {
-	account::Account account(1);
+  account::Account account(1);
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
   std::string db_database("otserver");
-  if (!Database::getInstance().connect(
-          db_ip.c_str(),
-          db_user.c_str(),
-          db_password.c_str(),
-          db_database.c_str(),
-          0,
-          NULL)) {
+  if (!Database::getInstance().connect(db_ip.c_str(), db_user.c_str(),
+                                       db_password.c_str(), db_database.c_str(),
+                                       0, NULL)) {
     std::cout << "Failed to connect to database.";
     FAIL("DB connection failes");
   }

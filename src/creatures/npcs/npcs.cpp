@@ -20,114 +20,109 @@
 #include "otpch.h"
 
 #include "creatures/combat/combat.h"
+#include "creatures/combat/spells.h"
 #include "creatures/creature.h"
-#include "declarations.hpp"
-#include "game/game.h"
 #include "creatures/npcs/npc.h"
 #include "creatures/npcs/npcs.h"
-#include "creatures/combat/spells.h"
+#include "declarations.hpp"
+#include "game/game.h"
 #include "items/weapons/weapons.h"
 
 #include "utils/pugicast.h"
 
+bool NpcType::canSpawn(const Position &pos) {
+  bool canSpawn = true;
+  bool isDay = g_game().gameIsDay();
 
-bool NpcType::canSpawn(const Position& pos)
-{
-	bool canSpawn = true;
-	bool isDay = g_game().gameIsDay();
+  if ((isDay && info.respawnType.period == RESPAWNPERIOD_NIGHT) ||
+      (!isDay && info.respawnType.period == RESPAWNPERIOD_DAY)) {
+    // It will ignore day and night if underground
+    canSpawn = (pos.z > 7 && info.respawnType.underground);
+  }
 
-	if ((isDay && info.respawnType.period == RESPAWNPERIOD_NIGHT) ||
-		(!isDay && info.respawnType.period == RESPAWNPERIOD_DAY)) {
-		// It will ignore day and night if underground
-		canSpawn = (pos.z > 7 && info.respawnType.underground);
-	}
-
-	return canSpawn;
+  return canSpawn;
 }
 
-bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
-{
-	int32_t id = scriptInterface->getEvent();
-	if (id == -1) {
-		SPDLOG_WARN("[NpcType::loadCallback] - Event not found");
-		return false;
-	}
+bool NpcType::loadCallback(LuaScriptInterface *scriptInterface) {
+  int32_t id = scriptInterface->getEvent();
+  if (id == -1) {
+    SPDLOG_WARN("[NpcType::loadCallback] - Event not found");
+    return false;
+  }
 
-	info.scriptInterface = scriptInterface;
-	switch (info.eventType) {
-		case NPCS_EVENT_THINK:
-			info.thinkEvent = id;
-			break;
-		case NPCS_EVENT_APPEAR:
-			info.creatureAppearEvent = id;
-			break;
-		case NPCS_EVENT_DISAPPEAR:
-			info.creatureDisappearEvent = id;
-			break;
-		case NPCS_EVENT_MOVE:
-			info.creatureMoveEvent = id;
-			break;
-		case NPCS_EVENT_SAY:
-			info.creatureSayEvent = id;
-			break;
-		case NPCS_EVENT_PLAYER_BUY:
-			info.playerBuyEvent = id;
-			break;
-		case NPCS_EVENT_PLAYER_SELL:
-			info.playerSellEvent = id;
-			break;
-		case NPCS_EVENT_PLAYER_CHECK_ITEM:
-			info.playerLookEvent = id;
-			break;
-		case NPCS_EVENT_PLAYER_CLOSE_CHANNEL:
-			info.playerCloseChannel = id;
-			break;
-		default:
-			break;
-	}
+  info.scriptInterface = scriptInterface;
+  switch (info.eventType) {
+  case NPCS_EVENT_THINK:
+    info.thinkEvent = id;
+    break;
+  case NPCS_EVENT_APPEAR:
+    info.creatureAppearEvent = id;
+    break;
+  case NPCS_EVENT_DISAPPEAR:
+    info.creatureDisappearEvent = id;
+    break;
+  case NPCS_EVENT_MOVE:
+    info.creatureMoveEvent = id;
+    break;
+  case NPCS_EVENT_SAY:
+    info.creatureSayEvent = id;
+    break;
+  case NPCS_EVENT_PLAYER_BUY:
+    info.playerBuyEvent = id;
+    break;
+  case NPCS_EVENT_PLAYER_SELL:
+    info.playerSellEvent = id;
+    break;
+  case NPCS_EVENT_PLAYER_CHECK_ITEM:
+    info.playerLookEvent = id;
+    break;
+  case NPCS_EVENT_PLAYER_CLOSE_CHANNEL:
+    info.playerCloseChannel = id;
+    break;
+  default:
+    break;
+  }
 
-	return true;
+  return true;
 }
 
-void NpcType::loadShop(NpcType* npcType, ShopBlock shopBlock)
-{
-	ItemType & iType = Item::items.getItemType(shopBlock.itemId);
+void NpcType::loadShop(NpcType *npcType, ShopBlock shopBlock) {
+  ItemType &iType = Item::items.getItemType(shopBlock.itemId);
 
-	// Registering item prices globaly.
-	if (shopBlock.itemSellPrice > iType.sellPrice) {
-		iType.sellPrice = shopBlock.itemSellPrice;
-	}
-	if (shopBlock.itemBuyPrice > iType.buyPrice) {
-		iType.buyPrice = shopBlock.itemBuyPrice;
-	}
-	
-	if (shopBlock.childShop.empty()) {
-		bool isContainer = iType.isContainer();
-		if (isContainer) {
-			for (ShopBlock child : shopBlock.childShop) {
-				shopBlock.childShop.push_back(child);
-			}
-		}
-		npcType->info.shopItemVector.push_back(shopBlock);
-	} else {
-		npcType->info.shopItemVector.push_back(shopBlock);
-	}
+  // Registering item prices globaly.
+  if (shopBlock.itemSellPrice > iType.sellPrice) {
+    iType.sellPrice = shopBlock.itemSellPrice;
+  }
+  if (shopBlock.itemBuyPrice > iType.buyPrice) {
+    iType.buyPrice = shopBlock.itemBuyPrice;
+  }
+
+  if (shopBlock.childShop.empty()) {
+    bool isContainer = iType.isContainer();
+    if (isContainer) {
+      for (ShopBlock child : shopBlock.childShop) {
+        shopBlock.childShop.push_back(child);
+      }
+    }
+    npcType->info.shopItemVector.push_back(shopBlock);
+  } else {
+    npcType->info.shopItemVector.push_back(shopBlock);
+  }
 }
 
-NpcType* Npcs::getNpcType(const std::string& name, bool create /* = false*/)
-{
-	std::string key = asLowerCaseString(name);
-	auto it = npcs.find(key);
+NpcType *Npcs::getNpcType(const std::string &name, bool create /* = false*/) {
+  std::string key = asLowerCaseString(name);
+  auto it = npcs.find(key);
 
-	if (it != npcs.end()) {
-		return it->second;
-	}
+  if (it != npcs.end()) {
+    return it->second;
+  }
 
-	if (!create) {
-		return nullptr;
-	}
+  if (!create) {
+    return nullptr;
+  }
 
-	npcs[key] = new NpcType(name);
+  npcs[key] = new NpcType(name);
 
-	return npcs[key];
+  return npcs[key];
 }
