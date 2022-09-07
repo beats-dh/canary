@@ -25,26 +25,26 @@
 
 class Scripts {
 public:
-  Scripts();
-  ~Scripts();
+	Scripts();
+	~Scripts();
 
-  // non-copyable
-  Scripts(const Scripts &) = delete;
-  Scripts &operator=(const Scripts &) = delete;
+	// non-copyable
+	Scripts(const Scripts&) = delete;
+	Scripts& operator=(const Scripts&) = delete;
 
-  static Scripts &getInstance() {
-    // Guaranteed to be destroyed
-    static Scripts instance;
-    // Instantiated on first use
-    return instance;
-  }
+	static Scripts& getInstance() {
+		// Guaranteed to be destroyed
+		static Scripts instance;
+		// Instantiated on first use
+		return instance;
+	}
 
-  bool loadEventSchedulerScripts(const std::string &fileName);
-  bool loadScripts(std::string folderName, bool isLib, bool reload);
-  LuaScriptInterface &getScriptInterface() { return scriptInterface; }
+	bool loadEventSchedulerScripts(const std::string& fileName);
+	bool loadScripts(std::string folderName, bool isLib, bool reload);
+	LuaScriptInterface& getScriptInterface() { return scriptInterface; }
 
 private:
-  LuaScriptInterface scriptInterface;
+	LuaScriptInterface scriptInterface;
 };
 
 constexpr auto g_scripts = &Scripts::getInstance;
