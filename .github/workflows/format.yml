@@ -14,8 +14,8 @@ jobs:
       with:
         source: '.'
         exclude: './lib'
-        extensions: 'h,cpp,c'
-        clangFormatVersion: 14
+        extensions: 'hpp,h,cpp,c'
+        clangFormatVersion: 10
         inplace: True
     - uses: EndBug/add-and-commit@v4
       with:
