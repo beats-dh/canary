@@ -384,7 +384,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId) {
 				auto ret = privateChannels.emplace(std::make_pair(
 					i, PrivateChatChannel(i, player.getName() + "'s Channel")));
 				if (ret.second) { // second is a bool that indicates that a new channel
-								  // has been placed in the map
+					// has been placed in the map
 					auto& newChannel = (*ret.first).second;
 					newChannel.setOwner(player.getGUID());
 					return &newChannel;

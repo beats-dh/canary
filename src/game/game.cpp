@@ -2683,7 +2683,7 @@ ObjectCategory_t Game::getObjectCategory(const Item* item) {
 				break;
 		}
 	} else if (it.slotPosition != SLOTP_HAND) { // if it's a weapon/shield should
-												// have been parsed earlier
+		// have been parsed earlier
 		if ((it.slotPosition & SLOTP_HEAD) != 0) {
 			category = OBJECTCATEGORY_HELMETS;
 		} else if ((it.slotPosition & SLOTP_NECKLACE) != 0) {
@@ -8372,8 +8372,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 
 			uint32_t freeSlots = inbox->capacity() - inbox->size();
 			uint32_t requiredSlots = (tmp->type == ITEM || tmp->type == WRAP_ITEM) ? tmp->count
-				: (tmp->count % 100)											   ? (uint32_t)(tmp->count / 100) + 1
-																				   : (uint32_t)tmp->count / 100;
+																				   : (tmp->count % 100) ? (uint32_t)(tmp->count / 100) + 1
+																										: (uint32_t)tmp->count / 100;
 			uint32_t capNeeded = (tmp->type == WRAP_ITEM)
 				? 0
 				: Item::items[tmp->productId].weight * tmp->count;
@@ -8480,7 +8480,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 			}
 		} else if (offer->type == NAMECHANGE) {
 			if (productType == SIMPLE) { // client didn't sent the new name yet,
-										 // request additionalInfo
+				// request additionalInfo
 				player->sendStoreRequestAdditionalInfo(offer->id, ADDITIONALINFO);
 				return;
 			} else {
@@ -8581,7 +8581,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 				if (opositeSexOutfit) {
 					player->addOutfit(opositeSexOutfit->lookType,
 						0); // since addons could have different recipes, we
-							// can't add automatically
+						// can't add automatically
 				}
 			}
 

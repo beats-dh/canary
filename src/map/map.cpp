@@ -612,11 +612,11 @@ bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const {
 	Position destination(fromPos.z > toPos.z ? fromPos : toPos);
 
 	const int8_t mx = start.x < destination.x ? 1
-		: start.x == destination.x			  ? 0
-											  : -1;
+											  : start.x == destination.x ? 0
+																		 : -1;
 	const int8_t my = start.y < destination.y ? 1
-		: start.y == destination.y			  ? 0
-											  : -1;
+											  : start.y == destination.y ? 0
+																		 : -1;
 
 	int32_t A = Position::getOffsetY(destination, start);
 	int32_t B = Position::getOffsetX(start, destination);

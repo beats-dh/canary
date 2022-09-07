@@ -1375,7 +1375,7 @@ bool Monster::getDistanceStep(const Position& targetPos,
 		return false; // let the A* calculate it
 	} else if (!flee && distance == targetDistance) {
 		return true; // we don't really care here, since it's what we wanted to
-					 // reach (a dancestep will take of dancing in that position)
+			// reach (a dancestep will take of dancing in that position)
 	}
 
 	int_fast32_t offsetx = Position::getOffsetX(creaturePos, targetPos);
@@ -1395,7 +1395,7 @@ bool Monster::getDistanceStep(const Position& targetPos,
 		return getRandomStep(
 			creaturePos,
 			moveDirection); // player is "on" the monster so let's get some random
-							// step and rest will be taken care later.
+			// step and rest will be taken care later.
 	}
 
 	if (dx == dy) {

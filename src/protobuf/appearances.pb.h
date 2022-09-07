@@ -7228,8 +7228,8 @@ namespace protobuf {
 #ifdef __GNUC__
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
-#endif // __GNUC__
-		// Coordinate
+#endif // __GNUC__ \
+	// Coordinate
 
 		// optional uint32 x = 1;
 		inline bool Coordinate::_internal_has_x() const {
@@ -8714,8 +8714,8 @@ namespace protobuf {
 			if (_impl_.name_.IsDefault()) {
 				_impl_.name_.Set("", GetArenaForAllocation());
 			}
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-			// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.name)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING \
+	// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.name)
 		}
 
 		// optional bytes description = 5;
@@ -8783,8 +8783,8 @@ namespace protobuf {
 			if (_impl_.description_.IsDefault()) {
 				_impl_.description_.Set("", GetArenaForAllocation());
 			}
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-			// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.description)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING \
+	// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.description)
 		}
 
 		// -------------------------------------------------------------------
@@ -11864,8 +11864,8 @@ namespace protobuf {
 			if (_impl_.name_.IsDefault()) {
 				_impl_.name_.Set("", GetArenaForAllocation());
 			}
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-			// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.name)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING \
+	// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.name)
 		}
 
 		// optional bytes location = 2;
@@ -11934,8 +11934,8 @@ namespace protobuf {
 			if (_impl_.location_.IsDefault()) {
 				_impl_.location_.Set("", GetArenaForAllocation());
 			}
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-			// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.location)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING \
+	// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.location)
 		}
 
 		// optional uint32 sale_price = 3;
@@ -12099,8 +12099,8 @@ namespace protobuf {
 			if (_impl_.currency_quest_flag_display_name_.IsDefault()) {
 				_impl_.currency_quest_flag_display_name_.Set("", GetArenaForAllocation());
 			}
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-			// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING \
+	// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
 		}
 
 		// -------------------------------------------------------------------
@@ -12458,8 +12458,8 @@ namespace protobuf {
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
-#endif // __GNUC__
-		// -------------------------------------------------------------------
+#endif // __GNUC__ \
+	// -------------------------------------------------------------------
 
 		// -------------------------------------------------------------------
 

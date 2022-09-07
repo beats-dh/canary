@@ -1883,7 +1883,7 @@ void ProtocolGame::parseRuleViolationReport(NetworkMessage& msg) {
 	} else if (reportType == REPORT_TYPE_STATEMENT) {
 		translation = msg.getString();
 		msg.get<uint32_t>(); // statement id, used to get whatever player have said,
-							 // we don't log that.
+			// we don't log that.
 	}
 
 	addGameTask(&Game::playerReportRuleViolationReport, player->getID(),
@@ -3539,7 +3539,7 @@ void ProtocolGame::sendBasicData() {
 	}
 	msg.addByte(
 		player->getVocation()->getMagicShield()); // bool - determine whether
-												  // magic shield is active or not
+		// magic shield is active or not
 	writeToOutputBuffer(msg);
 }
 
@@ -3567,7 +3567,7 @@ void ProtocolGame::sendBlessStatus() {
 
 	bool glow = g_configManager().getBoolean(INVENTORY_GLOW) || player->getLevel() < g_configManager().getNumber(ADVENTURERSBLESSING_LEVEL);
 	msg.add<uint16_t>(glow ? 1 : 0); // Show up the glowing effect in items if
-									 // have all blesses or adventurer's blessing
+		// have all blesses or adventurer's blessing
 	msg.addByte((blessCount >= 7)
 			? 3
 			: ((blessCount >= 5)
@@ -5859,7 +5859,7 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category) {
 			}
 		} else if (offer->type == PROMOTION) {
 			if (player->isPromoted() || !player->isPremium()) { // TODO: add support to multiple promotion
-																// levels
+				// levels
 				disabled = 1;
 				disabledReason << "You can't get this promotion";
 			}
@@ -6081,7 +6081,7 @@ void ProtocolGame::sendStoreTrasactionHistory(HistoryStoreOfferList& list,
 		msg.add<uint32_t>(offer.time);
 		msg.addByte(offer.mode);
 		msg.add<uint32_t>(offer.amount); // FIXME: investigate why it doesn't send
-										 // the price properly
+			// the price properly
 		msg.addByte(0x00); // 0 = transferable tibia coin, 1 = normal tibia coin
 		msg.addString(offer.description);
 	}

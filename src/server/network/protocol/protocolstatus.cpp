@@ -58,7 +58,7 @@ void ProtocolStatus::onRecvFirstMessage(NetworkMessage& msg) {
 		// Another ServerInfo protocol
 		case 0x01: {
 			uint16_t requestedInfo = msg.get<uint16_t>(); // only a Byte is necessary, though we could add
-														  // new info here
+				// new info here
 			std::string characterName;
 			if (requestedInfo & REQUEST_PLAYER_STATUS_INFO) {
 				characterName = msg.getString();

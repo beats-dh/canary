@@ -103,7 +103,7 @@ const Outfit* Outfits::getOpositeSexOutfitByLookType(PlayerSex_t sex,
 			if (outfits[searchSex].size() > i) {
 				return &outfits[searchSex].at(i);
 			} else { // looktype found but the oposite sex array doesn't have this
-					 // index.
+				// index.
 				return nullptr;
 			}
 		}

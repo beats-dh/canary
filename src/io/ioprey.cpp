@@ -613,7 +613,7 @@ void IOPrey::InitializeTaskHuntOptions() {
 	uint8_t killStage = 25; // Kill stage is the multiplier for kills and rewards on task hunting.
 
 	uint8_t limitOfStars = 5; // This is hardcoded on client but i'm saving it in
-							  // case that they change it in the future.
+		// case that they change it in the future.
 	uint16_t kills = killStage;
 	NetworkMessage msg;
 	for (uint8_t difficulty = PreyTaskDifficult_First;

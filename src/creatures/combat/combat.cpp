@@ -1081,7 +1081,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage,
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
 	int16_t elementAttack = 0; // To calculate elemental damage after executing
-							   // spell script and get real damage.
+		// spell script and get real damage.
 	int32_t attackValue = 7; // default start attack value
 	int parameters = 1;
 	bool shouldCalculateSecondaryDamage = false;

@@ -566,7 +566,7 @@ int GlobalFunctions::luaAddEvent(lua_State* L) {
 
 	int parameters = lua_gettop(globalState);
 	if (!isFunction(globalState, -parameters)) { // -parameters means the first
-												 // parameter from left to right
+		// parameter from left to right
 		reportErrorFunc("callback parameter should be a function.");
 		pushBoolean(L, false);
 		return 1;
