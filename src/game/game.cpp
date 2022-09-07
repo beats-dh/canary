@@ -8581,7 +8581,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId,
 				if (opositeSexOutfit) {
 					player->addOutfit(opositeSexOutfit->lookType,
 						0); // since addons could have different recipes, we
-						// can't add automatically
+					// can't add automatically
 				}
 			}
 

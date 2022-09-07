@@ -1395,7 +1395,7 @@ bool Monster::getDistanceStep(const Position& targetPos,
 		return getRandomStep(
 			creaturePos,
 			moveDirection); // player is "on" the monster so let's get some random
-			// step and rest will be taken care later.
+		// step and rest will be taken care later.
 	}
 
 	if (dx == dy) {

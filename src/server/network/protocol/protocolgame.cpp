@@ -3539,7 +3539,7 @@ void ProtocolGame::sendBasicData() {
 	}
 	msg.addByte(
 		player->getVocation()->getMagicShield()); // bool - determine whether
-		// magic shield is active or not
+	// magic shield is active or not
 	writeToOutputBuffer(msg);
 }
 
