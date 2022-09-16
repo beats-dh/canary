@@ -1182,8 +1182,41 @@ void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
 			return;
 		}
 
-		playerMoveItem(player, fromPos, itemId, fromStackPos, toPos, count, thing->getItem(), toCylinder);
+		auto item = thing->getItem();
+		playerMoveItem(player, fromPos, itemId, fromStackPos, toPos, count, item, toCylinder);
+
+		if (isSavePlayerExausted()) {
+			return;
+		}
+
+		Tile* tile = map.getTile(toPos);
+		Container* container = item->getContainer();
+		auto itemCount = item->getItemCount();
+
+		uint64_t savingTime = OTSYS_TIME();
+		if (tile && (fromPos.y == 0x40) || tile && (fromPos.y <= CONST_SLOT_LAST)) {
+			if (container) {
+				auto checkBp = container->getItems(true).size();
+				if (checkBp <= 65535) {
+					IOLoginData::savePlayer(player);
+					updatePlayerSaveExausted();
+					SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
+				}
+			} else if (itemCount <= 1000) {
+				IOLoginData::savePlayer(player);
+				updatePlayerSaveExausted();
+				SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
+			}
+		}
 	}
+}
+
+bool Game::isSavePlayerExausted(uint32_t exhaustionSaveTime /*= 500*/) const {
+	return (OTSYS_TIME() - lastPlayerInteractionSave < exhaustionSaveTime);
+}
+
+void Game::updatePlayerSaveExausted() {
+	lastPlayerInteractionSave = OTSYS_TIME();
 }
 
 void Game::playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, const Position& movingCreatureOrigPos, const Position& toPos)
@@ -4171,6 +4204,19 @@ void Game::playerAcceptTrade(uint32_t playerId)
 
 					tradeItem1->onTradeEvent(ON_TRADE_TRANSFER, tradePartner);
 					tradeItem2->onTradeEvent(ON_TRADE_TRANSFER, player);
+
+					uint64_t savingTimeTrade = OTSYS_TIME();
+					std::ostringstream ssTradePartner;
+					ssTradePartner << "The trade with " << player->getName() << " was successful!";
+					tradePartner->sendTextMessage(MESSAGE_TRANSACTION, ssTradePartner.str());
+					IOLoginData::savePlayer(tradePartner);
+
+					std::ostringstream ssPlayer;
+					ssPlayer << "The trade with " << tradePartner->getName() << " was successful!";
+					player->sendTextMessage(MESSAGE_TRANSACTION, ssPlayer.str());
+					IOLoginData::savePlayer(player);
+
+					SPDLOG_INFO("{}: (Saved trade in {}ms, {}ms,)", player->getName(), tradePartner->getName(), OTSYS_TIME() - savingTimeTrade);
 
 					isSuccess = true;
 				}

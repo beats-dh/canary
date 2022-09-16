@@ -578,6 +578,10 @@ class Game
 			mapLuaItemsStored[position] = itemId;
 		}
 
+		bool isSavePlayerExausted(uint32_t exhaustionSaveTime = 650) const;
+		void updatePlayerSaveExausted();
+		int64_t lastPlayerInteractionSave = 0;
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
