@@ -1275,6 +1275,63 @@ bool IOLoginData::savePlayer(Player* player)
   return transaction.commit();
 }
 
+bool IOLoginData::savePlayerItems(Player* player) {
+
+  Database& db = Database::getInstance();
+
+  std::ostringstream query;
+
+  //serialize conditions
+  PropWriteStream propWriteStream;
+  for (Condition* condition : player->conditions) {
+    if (condition->isPersistent()) {
+      condition->serialize(propWriteStream);
+      propWriteStream.write<uint8_t>(CONDITIONATTR_END);
+    }
+  }
+
+  DBTransaction transaction_saveItems;
+  if (!transaction_saveItems.begin()) {
+    return false;
+  }
+  
+  query.str(std::string());
+  
+  //item saving
+  query << "DELETE FROM `player_items` WHERE `player_id` = " << player->getGUID();
+  if (!db.executeQuery(query.str())) {
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Error delete query 'player_items' from player: {}", player->getName());
+    return false;
+  }
+
+  if (!db.executeQuery(query.str())) {
+    return false;
+  }
+
+  DBInsert itemsQuery("INSERT INTO `player_items` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
+
+  ItemBlockList itemList;
+  for (int32_t slotId = CONST_SLOT_FIRST; slotId <= CONST_SLOT_LAST; ++slotId) {
+    Item* item = player->inventory[slotId];
+    if (item) {
+      itemList.emplace_back(slotId, item);
+    }
+  }
+
+  if (!saveItems(player, itemList, itemsQuery, propWriteStream)) {
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save items from player: {}", player->getName());
+    return false;
+  }
+
+  if (!itemsQuery.execute()) {
+    return false;
+  }
+
+  //End the transaction
+  return transaction_saveItems.commit();
+
+}
+
 std::string IOLoginData::getNameByGuid(uint32_t guid)
 {
   std::ostringstream query;

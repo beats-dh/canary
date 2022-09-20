@@ -1193,17 +1193,18 @@ void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
 		Container* container = item->getContainer();
 		auto itemCount = item->getItemCount();
 
-		uint64_t savingTime = OTSYS_TIME();
+
 		if (tile && (fromPos.y == 0x40) || tile && (fromPos.y <= CONST_SLOT_LAST)) {
+			uint64_t savingTime = OTSYS_TIME();
 			if (container) {
 				auto checkBp = container->getItems(true).size();
 				if (checkBp <= 65535) {
-					IOLoginData::savePlayer(player);
+					IOLoginData::savePlayerItems(player);
 					updatePlayerSaveExausted();
 					SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
 				}
 			} else if (itemCount <= 1000) {
-				IOLoginData::savePlayer(player);
+				IOLoginData::savePlayerItems(player);
 				updatePlayerSaveExausted();
 				SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
 			}
@@ -1211,7 +1212,7 @@ void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
 	}
 }
 
-bool Game::isSavePlayerExausted(uint32_t exhaustionSaveTime /*= 500*/) const {
+bool Game::isSavePlayerExausted(uint32_t exhaustionSaveTime /*= 650*/) const {
 	return (OTSYS_TIME() - lastPlayerInteractionSave < exhaustionSaveTime);
 }
 
