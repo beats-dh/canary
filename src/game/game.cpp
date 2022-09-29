@@ -1198,15 +1198,17 @@ void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
 			uint64_t savingTime = OTSYS_TIME();
 			if (container) {
 				auto checkBp = container->getItems(true).size();
-				if (checkBp <= 65535) {
-					IOLoginData::savePlayerItems(player);
+				for (uint32_t beats = 0; beats < 1001; beats++) {
+					IOLoginData::savePlayer(player);
 					updatePlayerSaveExausted();
 					SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
 				}
 			} else if (itemCount <= 1000) {
-				IOLoginData::savePlayerItems(player);
-				updatePlayerSaveExausted();
-				SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
+				for (uint32_t beats1 = 0; beats1 < 1001; beats1++) {
+					IOLoginData::savePlayerItems(player);
+					updatePlayerSaveExausted();
+					SPDLOG_INFO("{}: (Saved in {}ms)", player->getName(), OTSYS_TIME() - savingTime);
+				}
 			}
 		}
 	}
@@ -2722,7 +2724,7 @@ ObjectCategory_t Game::getObjectCategory(const Item* item)
 	return category;
 }
 
-uint64_t Game::getItemMarketPrice(std::map<uint16_t, uint32_t> const &itemMap, bool buyPrice) const
+uint64_t Game::getItemMarketPrice(phmap::flat_hash_map<uint16_t, uint32_t> const &itemMap, bool buyPrice) const
 {
 	uint64_t total = 0;
 	for (const auto& it : itemMap) {
@@ -8679,7 +8681,7 @@ void Game::updatePlayerSaleItems(uint32_t playerId)
 		return;
 	}
 
-	std::map<uint32_t, uint32_t> tempInventoryMap;
+	phmap::flat_hash_map<uint32_t, uint32_t> tempInventoryMap;
 	player->getAllItemTypeCountAndSubtype(tempInventoryMap);
 
 	player->sendSaleItemList(tempInventoryMap);

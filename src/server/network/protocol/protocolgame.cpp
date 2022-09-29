@@ -3975,7 +3975,7 @@ void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendSaleItemList(const std::vector<ShopBlock> &shopVector, const std::map<uint32_t, uint32_t> &inventoryMap)
+void ProtocolGame::sendSaleItemList(const std::vector<ShopBlock> &shopVector, const phmap::flat_hash_map<uint32_t, uint32_t> &inventoryMap)
 {
 	//Since we already have full inventory map we shouldn't call getMoney here - it is simply wasting cpu power
 	uint64_t playerMoney = 0;
@@ -5454,7 +5454,7 @@ void ProtocolGame::sendAddCreature(const Creature *creature, const Position &pos
 	//player light level
 	sendCreatureLight(creature);
 
-	const std::forward_list<VIPEntry> &vipEntries = IOLoginData::getVIPEntries(player->getAccount());
+	const std::vector<VIPEntry> &vipEntries = IOLoginData::getVIPEntries(player->getAccount());
 
 	if (player->isAccessPlayer())
 	{
@@ -5625,7 +5625,7 @@ void ProtocolGame::sendInventoryItem(Slots_t slot, const Item *item)
 
 void ProtocolGame::sendInventoryIds()
 {
-	std::map<uint16_t, uint16_t> items = player->getInventoryItemsId();
+	phmap::flat_hash_map<uint16_t, uint16_t> items = player->getInventoryItemsId();
 
 	NetworkMessage msg;
 	msg.addByte(0xF5);
@@ -7176,7 +7176,7 @@ void ProtocolGame::sendItemsPrice()
 	msg.add<uint16_t>(g_game().getItemsPriceCount());
 	if (g_game().getItemsPriceCount() > 0)
 	{
-		std::map<uint16_t, uint32_t> items = g_game().getItemsPrice();
+		phmap::flat_hash_map<uint16_t, uint32_t> items = g_game().getItemsPrice();
 		for (const auto &it : items)
 		{
 			msg.add<uint16_t>(it.first);

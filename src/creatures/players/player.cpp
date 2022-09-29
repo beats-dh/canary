@@ -1681,7 +1681,7 @@ bool Player::openShopWindow(Npc* npc)
 	setShopOwner(npc);
 	npc->addShopPlayer(this);
 
-	std::map<uint32_t, uint32_t> tempInventoryMap;
+	phmap::flat_hash_map<uint32_t, uint32_t> tempInventoryMap;
 	getAllItemTypeCountAndSubtype(tempInventoryMap);
 
 	sendShop(npc);
@@ -3716,9 +3716,9 @@ std::map<uint32_t, uint32_t>& Player::getAllItemTypeCount(std::map<uint32_t, uin
 	return countMap;
 }
 
-std::map<uint16_t, uint16_t> Player::getInventoryItemsId() const
+phmap::flat_hash_map<uint16_t, uint16_t> Player::getInventoryItemsId() const
 {
-	std::map<uint16_t, uint16_t> itemMap;
+	phmap::flat_hash_map<uint16_t, uint16_t> itemMap;
 	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
 		Item* item = inventory[i];
 		if (!item) {
@@ -3751,7 +3751,7 @@ std::map<uint16_t, uint16_t> Player::getInventoryItemsId() const
 	return itemMap;
 }
 
-void Player::getAllItemTypeCountAndSubtype(std::map<uint32_t, uint32_t>& countMap) const
+void Player::getAllItemTypeCountAndSubtype(phmap::flat_hash_map<uint32_t, uint32_t>& countMap) const
 {
   for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
     Item* item = inventory[i];
@@ -5621,7 +5621,7 @@ uint64_t Player::getItemCustomPrice(uint16_t itemId, bool buyPrice/* = false*/) 
 		return static_cast<uint64_t>(it->second);
 	}
 
-	std::map<uint16_t, uint32_t> itemMap {{itemId, 1}};
+	phmap::flat_hash_map<uint16_t, uint32_t> itemMap {{itemId, 1}};
 	return g_game().getItemMarketPrice(itemMap, buyPrice);
 }
 

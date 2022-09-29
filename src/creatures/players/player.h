@@ -1278,7 +1278,7 @@ class Player final : public Creature, public Cylinder
 				client->sendShop(npc);
 			}
 		}
-		void sendSaleItemList(const std::map<uint32_t, uint32_t>& inventoryMap) const {
+		void sendSaleItemList(const phmap::flat_hash_map<uint32_t, uint32_t>& inventoryMap) const {
 			if (client && shopOwner) {
 				client->sendSaleItemList(shopOwner->getShopItemVector(), inventoryMap);
 			}
@@ -1634,7 +1634,7 @@ class Player final : public Creature, public Cylinder
 			lastWalking = OTSYS_TIME() + value;
 		}
 
-		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
+		const phmap::flat_hash_map<uint8_t, OpenContainer>& getOpenContainers() const {
 			return openContainers;
 		}
 
@@ -2146,8 +2146,8 @@ class Player final : public Creature, public Cylinder
 		void stashContainer(StashContainerList itemDict);
 		std::map<uint32_t, uint32_t>& getAllItemTypeCount(std::map<uint32_t,
                                       uint32_t>& countMap) const override;
-		std::map<uint16_t, uint16_t> getInventoryItemsId() const;
-		void getAllItemTypeCountAndSubtype(std::map<uint32_t, uint32_t>& countMap) const;
+		phmap::flat_hash_map<uint16_t, uint16_t> getInventoryItemsId() const;
+		void getAllItemTypeCountAndSubtype(phmap::flat_hash_map<uint32_t, uint32_t>& countMap) const;
 		Thing* getThing(size_t index) const override;
 
 		void internalAddThing(Thing* thing) override;
@@ -2157,12 +2157,12 @@ class Player final : public Creature, public Cylinder
 
 		phmap::flat_hash_set<uint32_t> VIPList;
 
-		std::map<uint8_t, OpenContainer> openContainers;
-		std::map<uint32_t, DepotLocker*> depotLockerMap;
-		std::map<uint32_t, DepotChest*> depotChests;
+		phmap::flat_hash_map<uint8_t, OpenContainer> openContainers;
+		phmap::flat_hash_map<uint32_t, DepotLocker*> depotLockerMap;
+		phmap::flat_hash_map<uint32_t, DepotChest*> depotChests;
 		std::map<uint8_t, int64_t> moduleDelayMap;
-		std::map<uint32_t, int32_t> storageMap;
-		std::map<uint16_t, uint64_t> itemPriceMap;
+		phmap::flat_hash_map<uint32_t, int32_t> storageMap;
+		phmap::flat_hash_map<uint16_t, uint64_t> itemPriceMap;
 
 		std::map<uint8_t, uint16_t> maxValuePerSkill = {
 			{SKILL_LIFE_LEECH_CHANCE, 100},
@@ -2172,7 +2172,7 @@ class Player final : public Creature, public Cylinder
 
 		std::map<uint32_t, Reward*> rewardMap;
 
-		std::map<ObjectCategory_t, Container*> quickLootContainers;
+		phmap::flat_hash_map<ObjectCategory_t, Container*> quickLootContainers;
 		std::vector<uint16_t> quickLootListItemIds;
 
 		std::vector<OutfitEntry> outfits;

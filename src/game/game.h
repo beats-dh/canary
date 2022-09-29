@@ -238,7 +238,7 @@ class Game
 
 		ObjectCategory_t getObjectCategory(const Item* item);
 
-		uint64_t getItemMarketPrice(std::map<uint16_t, uint32_t>  const &itemMap, bool buyPrice) const;
+		uint64_t getItemMarketPrice(phmap::flat_hash_map<uint16_t, uint32_t>  const &itemMap, bool buyPrice) const;
 
 		void loadPlayersRecord();
 		void checkPlayersRecord();
@@ -470,9 +470,9 @@ class Game
 
 		void sendOfflineTrainingDialog(Player* player);
 
-		const std::map<uint16_t, uint32_t>& getItemsPrice() const { return itemsPriceMap; }
+		const phmap::flat_hash_map<uint16_t, uint32_t>& getItemsPrice() const { return itemsPriceMap; }
 		const phmap::flat_hash_map<uint32_t, Player*>& getPlayers() const { return players; }
-		const std::map<uint32_t, Npc*>& getNpcs() const { return npcs; }
+		const phmap::flat_hash_map<uint32_t, Npc*>& getNpcs() const { return npcs; }
 
 		const std::vector<ItemClassification*>& getItemsClassifications() const { return itemsClassifications; }
 
@@ -620,8 +620,8 @@ class Game
 
 		WildcardTreeNode wildcardTree { false };
 
-		std::map<uint32_t, Npc*> npcs;
-		std::map<uint32_t, Monster*> monsters;
+		phmap::flat_hash_map<uint32_t, Npc*> npcs;
+		phmap::flat_hash_map<uint32_t, Monster*> monsters;
 
 		std::map<uint32_t, TeamFinder*> teamFinderMap; // [leaderGUID] = TeamFinder*
 
@@ -662,7 +662,7 @@ class Game
 		std::string motdHash;
 		uint32_t motdNum = 0;
 
-		std::map<uint16_t, uint32_t> itemsPriceMap;
+		phmap::flat_hash_map<uint16_t, uint32_t> itemsPriceMap;
 		uint16_t itemsSaleCount;
 
 		std::vector<ItemClassification*> itemsClassifications;
