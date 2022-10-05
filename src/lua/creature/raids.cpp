@@ -32,7 +32,7 @@ bool Raids::loadFromXml() {
 	}
 
 	pugi::xml_document doc;
-	auto folder = g_configManager().getString(DATA_DIRECTORY) + "/raids/raids.xml";
+	auto folder = g_configManager.getString(DATA_DIRECTORY) + "/raids/raids.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {
 		printXMLError(__FUNCTION__, folder, result);
@@ -86,7 +86,7 @@ bool Raids::loadFromXml() {
 		}
 
 		Raid* newRaid = new Raid(name, interval, margin, repeat);
-		if (newRaid->loadFromXml(g_configManager().getString(DATA_DIRECTORY) + "/raids/" + file)) {
+		if (newRaid->loadFromXml(g_configManager.getString(DATA_DIRECTORY) + "/raids/" + file)) {
 			raidList.push_back(newRaid);
 		} else {
 			SPDLOG_ERROR("{} - Failed to load raid: {}", __FUNCTION__, name);
@@ -107,7 +107,7 @@ bool Raids::startup() {
 
 	setLastRaidEnd(OTSYS_TIME());
 
-	checkRaidsEvent = g_scheduler().addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind(&Raids::checkRaids, this)));
+	checkRaidsEvent = g_scheduler().addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind_front(&Raids::checkRaids, this)));
 
 	started = true;
 	return started;
@@ -133,7 +133,7 @@ void Raids::checkRaids() {
 		}
 	}
 
-	checkRaidsEvent = g_scheduler().addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind(&Raids::checkRaids, this)));
+	checkRaidsEvent = g_scheduler().addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind_front(&Raids::checkRaids, this)));
 }
 
 void Raids::clear() {
@@ -210,7 +210,7 @@ bool Raid::loadFromXml(const std::string& filename) {
 	}
 
 	//sort by delay time
-	std::sort(raidEvents.begin(), raidEvents.end(), [](const RaidEvent* lhs, const RaidEvent* rhs) {
+	std::ranges::sort(raidEvents, [](const RaidEvent* lhs, const RaidEvent* rhs) {
 		return lhs->getDelay() < rhs->getDelay();
 	});
 
@@ -222,7 +222,7 @@ void Raid::startRaid() {
 	RaidEvent* raidEvent = getNextRaidEvent();
 	if (raidEvent) {
 		state = RAIDSTATE_EXECUTING;
-		nextEventEvent = g_scheduler().addEvent(createSchedulerTask(raidEvent->getDelay(), std::bind(&Raid::executeRaidEvent, this, raidEvent)));
+		nextEventEvent = g_scheduler().addEvent(createSchedulerTask(raidEvent->getDelay(), std::bind_front(&Raid::executeRaidEvent, this, raidEvent)));
 	}
 }
 
@@ -233,7 +233,7 @@ void Raid::executeRaidEvent(RaidEvent* raidEvent) {
 
 		if (newRaidEvent) {
 			uint32_t ticks = static_cast<uint32_t>(std::max<int32_t>(RAID_MINTICKS, newRaidEvent->getDelay() - raidEvent->getDelay()));
-			nextEventEvent = g_scheduler().addEvent(createSchedulerTask(ticks, std::bind(&Raid::executeRaidEvent, this, newRaidEvent)));
+			nextEventEvent = g_scheduler().addEvent(createSchedulerTask(ticks, std::bind_front(&Raid::executeRaidEvent, this, newRaidEvent)));
 		} else {
 			resetRaid();
 		}
@@ -320,7 +320,7 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode) {
 }
 
 bool AnnounceEvent::executeEvent() {
-	std::string url = g_configManager().getString(DISCORD_WEBHOOK_URL);
+	std::string url = g_configManager.getString(DISCORD_WEBHOOK_URL);
 	g_game().broadcastMessage(message, messageType);
 	webhook_send_message("Incoming raid!", message, WEBHOOK_COLOR_RAID, url);
 	return true;
@@ -561,7 +561,7 @@ bool ScriptEvent::configureRaidEvent(const pugi::xml_node& eventNode) {
 
 	std::string scriptName = std::string(scriptAttribute.as_string());
 
-	if (!loadScript(g_configManager().getString(DATA_DIRECTORY) + "/raids/scripts/" + scriptName)) {
+	if (!loadScript(g_configManager.getString(DATA_DIRECTORY) + "/raids/scripts/" + scriptName)) {
 		SPDLOG_ERROR("{} - "
                     "Can not load raid script: {}", __FUNCTION__, scriptName);
 		return false;

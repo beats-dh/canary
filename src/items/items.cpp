@@ -169,7 +169,7 @@ void Items::loadFromProtobuf()
 bool Items::loadFromXml()
 {
 	pugi::xml_document doc;
-	auto folder = g_configManager().getString(CORE_DIRECTORY) + "/items/items.xml";
+	auto folder = g_configManager.getString(CORE_DIRECTORY) + "/items/items.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {
 		printXMLError(__FUNCTION__, folder, result);
@@ -231,7 +231,7 @@ void Items::buildInventoryList()
 		}
 	}
 	inventory.shrink_to_fit();
-	std::sort(inventory.begin(), inventory.end());
+	std::ranges::sort(inventory);
 }
 
 void Items::parseItemNode(const pugi::xml_node & itemNode, uint16_t id) {
@@ -254,7 +254,7 @@ void Items::parseItemNode(const pugi::xml_node & itemNode, uint16_t id) {
 	if (std::string xmlName = itemNode.attribute("name").as_string();
 			!xmlName.empty() && itemType.name != xmlName) {
 		if (!itemType.name.empty()) {
-			if (auto it = std::find_if(nameToItems.begin(), nameToItems.end(), [id](const auto nameMapIt) {
+			if (auto it = std::ranges::find_if(nameToItems, [id](const auto nameMapIt) {
 					return nameMapIt.second == id;
 				}); it != nameToItems.end()) {
 				nameToItems.erase(it);

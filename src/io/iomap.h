@@ -58,7 +58,7 @@ class IOMap
 			if (map->monsterfile.empty()) {
 				// OTBM file doesn't tell us about the monsterfile,
 				// Lets guess it is mapname-monster.xml.
-				map->monsterfile = g_configManager().getString(MAP_NAME);
+				map->monsterfile = g_configManager.getString(MAP_NAME);
 				map->monsterfile += "-monster.xml";
 			}
 
@@ -74,7 +74,7 @@ class IOMap
 			if (map->npcfile.empty()) {
 				// OTBM file doesn't tell us about the npcfile,
 				// Lets guess it is mapname-npc.xml.
-				map->npcfile = g_configManager().getString(MAP_NAME);
+				map->npcfile = g_configManager.getString(MAP_NAME);
 				map->npcfile += "-npc.xml";
 			}
 
@@ -90,7 +90,7 @@ class IOMap
 			if (map->housefile.empty()) {
 				// OTBM file doesn't tell us about the housefile,
 				// Lets guess it is mapname-house.xml.
-				map->housefile = g_configManager().getString(MAP_NAME);
+				map->housefile = g_configManager.getString(MAP_NAME);
 				map->housefile += "-house.xml";
 			}
 
@@ -106,7 +106,7 @@ class IOMap
 			if (map->monsterfile.empty()) {
 				// OTBM file doesn't tell us about the monsterfile,
 				// Lets guess it is mapname-monster.xml.
-				map->monsterfile = g_configManager().getString(MAP_CUSTOM_NAME);
+				map->monsterfile = g_configManager.getString(MAP_CUSTOM_NAME);
 				map->monsterfile += "-monster.xml";
 			}
 
@@ -122,7 +122,7 @@ class IOMap
 			if (map->npcfile.empty()) {
 				// OTBM file doesn't tell us about the npcfile,
 				// Lets guess it is mapname-npc.xml.
-				map->npcfile = g_configManager().getString(MAP_CUSTOM_NAME);
+				map->npcfile = g_configManager.getString(MAP_CUSTOM_NAME);
 				map->npcfile += "-npc.xml";
 			}
 
@@ -138,7 +138,7 @@ class IOMap
 			if (map->housefile.empty()) {
 				// OTBM file doesn't tell us about the housefile,
 				// Lets guess it is mapname-house.xml.
-				map->housefile = g_configManager().getString(MAP_CUSTOM_NAME);
+				map->housefile = g_configManager.getString(MAP_CUSTOM_NAME);
 				map->housefile += "-house.xml";
 			}
 

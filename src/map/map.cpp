@@ -42,13 +42,15 @@ bool Map::loadMap(const std::string& identifier,
 			SPDLOG_WARN("Map download URL in config.lua is empty, download disabled");
 		}
 
+		curl_global_init(CURL_GLOBAL_DEFAULT);
+
 		if (CURL *curl = curl_easy_init(); curl && !mapDownloadUrl.empty()) {
-			SPDLOG_INFO("Downloading " + g_configManager().getString(MAP_NAME) + ".otbm to world folder");
+			SPDLOG_INFO("Downloading " + g_configManager.getString(MAP_NAME) + ".otbm to world folder");
 			FILE *otbm = fopen(identifier.c_str(), "wb");
 			curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
 			curl_easy_setopt(curl, CURLOPT_URL, mapDownloadUrl.c_str());
-			curl_easy_setopt(curl, CURLOPT_WRITEDATA, otbm);
 			curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+			curl_easy_setopt(curl, CURLOPT_WRITEDATA, otbm);
 			curl_easy_perform(curl);
 			curl_easy_cleanup(curl);
 			fclose(otbm);
@@ -82,7 +84,7 @@ bool Map::loadMap(const std::string& identifier,
 		 * If map custom is enabled, then it is load in loadMapCustom function
 		 * NOTE: This will ensure that the information is not duplicated
 		*/
-		if (!g_configManager().getBoolean(TOGGLE_MAP_CUSTOM)) {
+		if (!g_configManager.getBoolean(TOGGLE_MAP_CUSTOM)) {
 			IOMapSerialize::loadHouseInfo();
 			IOMapSerialize::loadHouseItems(this);
 		}
@@ -95,7 +97,7 @@ bool Map::loadMap(const std::string& identifier,
 	}
 
 	// Files need to be cleaned up if custom map is enabled to open, or will try to load main map files
-	if (g_configManager().getBoolean(TOGGLE_MAP_CUSTOM)) {
+	if (g_configManager.getBoolean(TOGGLE_MAP_CUSTOM)) {
 		this->monsterfile.clear();
 		this->housefile.clear();
 		this->npcfile.clear();
@@ -266,10 +268,10 @@ bool Map::placeCreature(const Position& centerPos, Creature* creature, bool exte
 		std::vector<std::pair<int32_t, int32_t>>& relList = (extendedPos ? extendedRelList : normalRelList);
 
 		if (extendedPos) {
-			std::shuffle(relList.begin(), relList.begin() + 4, getRandomGenerator());
-			std::shuffle(relList.begin() + 4, relList.end(), getRandomGenerator());
+			std::ranges::shuffle(relList.begin(), relList.begin() + 4, getRandomGenerator());
+			std::ranges::shuffle(relList.begin() + 4, relList.end(), getRandomGenerator());
 		} else {
-			std::shuffle(relList.begin(), relList.end(), getRandomGenerator());
+			std::ranges::shuffle(relList, getRandomGenerator());
 		}
 
 		for (const auto& it : relList) {
@@ -1211,13 +1213,13 @@ void QTreeLeafNode::addCreature(Creature* c)
 
 void QTreeLeafNode::removeCreature(Creature* c)
 {
-	auto iter = std::find(creature_list.begin(), creature_list.end(), c);
+	auto iter = std::ranges::find(creature_list, c);
 	assert(iter != creature_list.end());
 	*iter = creature_list.back();
 	creature_list.pop_back();
 
 	if (c->getPlayer()) {
-		iter = std::find(player_list.begin(), player_list.end(), c);
+		iter = std::ranges::find(player_list, c);
 		assert(iter != player_list.end());
 		*iter = player_list.back();
 		player_list.pop_back();

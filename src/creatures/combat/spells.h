@@ -34,13 +34,6 @@ class Spells final : public BaseEvents
 		Spells(const Spells&) = delete;
 		Spells& operator=(const Spells&) = delete;
 
-		static Spells& getInstance() {
-			// Guaranteed to be destroyed
-			static Spells instance;
-			// Instantiated on first use
-			return instance;
-		}
-
 		Spell* getSpellByName(const std::string& name);
 		RuneSpell* getRuneSpell(uint32_t id);
 		RuneSpell* getRuneSpellByName(const std::string& name);
@@ -52,10 +45,10 @@ class Spells final : public BaseEvents
 
 		TalkActionResult_t playerSaySpell(Player* player, std::string& words);
 
-		static Position getCasterPosition(Creature* creature, Direction dir);
+		static Position getCasterPosition(const Creature* creature, Direction dir);
 		std::string getScriptBaseName() const override;
 
-		std::list<uint16_t> getSpellsByVocation(uint16_t vocationId);
+		std::list<uint16_t> getSpellsByVocation(uint16_t vocationId) const;
 
 		const std::map<std::string, InstantSpell>& getInstantSpells() const {
 			return instants;
@@ -87,7 +80,7 @@ class Spells final : public BaseEvents
 		LuaScriptInterface scriptInterface { "Spell Interface" };
 };
 
-constexpr auto g_spells = &Spells::getInstance;
+inline Spells g_spells;
 
 using RuneSpellFunction = std::function<bool(const RuneSpell* spell, Player* player, const Position& posTo)>;
 
@@ -145,7 +138,7 @@ class Spell : public BaseSpell
 		const std::string& getName() const {
 			return name;
 		}
-		void setName(std::string n) {
+		void setName(std::string const & n) {
 			name = n;
 		}
 		uint8_t getId() const {
@@ -210,13 +203,13 @@ class Spell : public BaseSpell
 			vocSpellMap[n] = b;
 		}
 
-		SpellGroup_t getGroup() {
+		const SpellGroup_t getGroup() {
 			return group;
 		}
 		void setGroup(SpellGroup_t g) {
 			group = g;
 		}
-		SpellGroup_t getSecondaryGroup() {
+		const SpellGroup_t getSecondaryGroup() {
 			return secondaryGroup;
 		}
 		void setSecondaryGroup(SpellGroup_t g) {
@@ -309,8 +302,10 @@ class Spell : public BaseSpell
 	protected:
 		void applyCooldownConditions(Player* player) const;
 		bool playerSpellCheck(Player* player) const;
-		bool playerInstantSpellCheck(Player* player, const Position& toPos);
-		bool playerRuneSpellCheck(Player* player, const Position& toPos);
+		bool playerInstantSpellCheck(Player* player, const Position& toPos) const;
+		bool playerRuneSpellCheck(Player* player, const Position& toPos) const;
+
+	private:
 
 		VocSpellMap vocSpellMap;
 
@@ -331,8 +326,6 @@ class Spell : public BaseSpell
 		bool allowOnSelf = true;
 		bool pzLocked = false;
 
-	private:
-
 		uint32_t mana = 0;
 		uint32_t manaPercent = 0;
 		uint32_t soul = 0;
@@ -345,9 +338,10 @@ class Spell : public BaseSpell
 		bool enabled = true;
 		bool premium = false;
 
-
-	private:
 		std::string name;
+
+		friend class InstantSpell;
+		friend class RuneSpell;
 };
 
 class InstantSpell final : public TalkAction, public Spell
@@ -357,7 +351,7 @@ class InstantSpell final : public TalkAction, public Spell
 
 		bool configureEvent(const pugi::xml_node& node) override;
 
-		virtual bool playerCastInstant(Player* player, std::string& param);
+		bool playerCastInstant(Player* player, std::string& param);
 
 		bool castSpell(Creature* creature) override;
 		bool castSpell(Creature* creature, Creature* target) override;

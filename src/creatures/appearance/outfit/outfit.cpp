@@ -17,7 +17,7 @@
 bool Outfits::loadFromXml()
 {
 	pugi::xml_document doc;
-	auto folder = g_configManager().getString(CORE_DIRECTORY) + "/XML/outfits.xml";
+	auto folder = g_configManager.getString(CORE_DIRECTORY) + "/XML/outfits.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {
 		printXMLError(__FUNCTION__, folder, result);
@@ -48,7 +48,7 @@ bool Outfits::loadFromXml()
 		}
 
 		if (uint16_t lookType = pugi::cast<uint16_t>(lookTypeAttribute.value());
-				g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && lookType != 0
+				g_configManager.getBoolean(WARN_UNSAFE_SCRIPTS) && lookType != 0
 				&& !g_game().isLookTypeRegistered(lookType)
 			)
 		{

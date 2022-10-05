@@ -681,7 +681,7 @@ struct MarketOffer {
 
 struct MarketOfferEx {
 	MarketOfferEx() = default;
-	MarketOfferEx(MarketOfferEx&& other) :
+	MarketOfferEx(MarketOfferEx&& other) noexcept: 
         id(other.id),
         playerId(other.playerId),
         timestamp(other.timestamp),

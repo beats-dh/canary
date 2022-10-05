@@ -20,7 +20,7 @@ bool BaseEvents::loadFromXml() {
 	}
 
 	std::string scriptsName = getScriptBaseName();
-	std::string basePath = g_configManager().getString(CORE_DIRECTORY) + "/" + scriptsName + "/";
+	std::string basePath = g_configManager.getString(CORE_DIRECTORY) + "/" + scriptsName + "/";
 	if (getScriptInterface().loadFile(basePath + "lib/" +
                                       scriptsName + ".lua") == -1) {
 		SPDLOG_WARN(__FUNCTION__,

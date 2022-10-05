@@ -13,7 +13,7 @@
 #include "declarations.hpp"
 
 struct Outfit {
-	Outfit(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initFrom) :
+	Outfit(const std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, const std::string initFrom) :
 		name(initName), lookType(initLookType), premium(initPremium), unlocked(initUnlocked), from(initFrom) {}
 
 	std::string name;
@@ -35,16 +35,16 @@ struct ProtocolOutfit {
 class Outfits
 {
 	public:
-		static Outfits& getInstance() {
-			static Outfits instance;
-			return instance;
-		}
+		Outfits() = default;
 
-		const Outfit* getOpositeSexOutfitByLookType(PlayerSex_t sex, uint16_t lookType);
+		// Singleton - ensures we don't accidentally copy it
+		Outfits(Outfits const&) = delete;
+		void operator=(Outfits const&) = delete;
 
 		bool loadFromXml();
 
 		const Outfit* getOutfitByLookType(PlayerSex_t sex, uint16_t lookType) const;
+		const Outfit* getOpositeSexOutfitByLookType(PlayerSex_t sex, uint16_t lookType);
 		const std::vector<Outfit>& getOutfits(PlayerSex_t sex) const {
 			return outfits[sex];
 		}
@@ -52,5 +52,7 @@ class Outfits
 	private:
 		std::vector<Outfit> outfits[PLAYERSEX_LAST + 1];
 };
+
+inline Outfits g_outfits;
 
 #endif  // SRC_CREATURES_APPEARANCE_OUTFIT_OUTFIT_H_

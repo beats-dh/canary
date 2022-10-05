@@ -30,7 +30,7 @@ struct spellBlock_t {
 	~spellBlock_t();
 	spellBlock_t(const spellBlock_t& other) = delete;
 	spellBlock_t& operator=(const spellBlock_t& other) = delete;
-	spellBlock_t(spellBlock_t&& other) :
+	spellBlock_t(spellBlock_t&& other) noexcept :
 		spell(other.spell),
 		chance(other.chance),
 		speed(other.speed),

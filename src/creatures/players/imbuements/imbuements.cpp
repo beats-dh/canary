@@ -28,7 +28,7 @@ Imbuement* Imbuements::getImbuement(uint16_t id)
 
 bool Imbuements::loadFromXml(bool /* reloading */) {
 	pugi::xml_document doc;
-	auto folder = g_configManager().getString(CORE_DIRECTORY) + "/XML/imbuements.xml";
+	auto folder = g_configManager.getString(CORE_DIRECTORY) + "/XML/imbuements.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {
 		printXMLError(__FUNCTION__, folder, result);
@@ -158,7 +158,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						count = pugi::cast<uint16_t>(childNode.attribute("count").value());
 					}
 
-					auto it2 = std::find_if(imbuement.items.begin(), imbuement.items.end(), [sourceId](const std::pair<uint16_t, uint16_t>& source) -> bool {
+					auto it2 = std::ranges::find_if(imbuement.items, [sourceId](const std::pair<uint16_t, uint16_t>& source) -> bool {
 						return source.first == sourceId;
 					});
 
@@ -326,20 +326,20 @@ bool Imbuements::reload() {
 
 BaseImbuement* Imbuements::getBaseByID(uint16_t id)
 {
-	auto baseImbuements = std::find_if(basesImbuement.begin(), basesImbuement.end(), [id](const BaseImbuement& groupImbuement) {
+	auto baseImbuements = std::ranges::find_if(basesImbuement, [id](const BaseImbuement& groupImbuement) {
 				return groupImbuement.id == id;
 			});
 
-	return baseImbuements != basesImbuement.end() ? &*baseImbuements : nullptr;
+	return baseImbuements != basesImbuement.end() ? std::to_address(baseImbuements) : nullptr;
 }
 
 CategoryImbuement* Imbuements::getCategoryByID(uint16_t id)
 {
-	auto categoryImbuements = std::find_if(categoriesImbuement.begin(), categoriesImbuement.end(), [id](const CategoryImbuement& categoryImbuement) {
+	auto categoryImbuements = std::ranges::find_if(categoriesImbuement, [id](const CategoryImbuement& categoryImbuement) {
 				return categoryImbuement.id == id;
 			});
 
-	return categoryImbuements != categoriesImbuement.end() ? &*categoryImbuements : nullptr;
+	return categoryImbuements != categoriesImbuement.end() ? std::to_address(categoryImbuements) : nullptr;
 }
 
 std::vector<Imbuement*> Imbuements::getImbuements(const Player* player, Item* item)
@@ -355,7 +355,7 @@ std::vector<Imbuement*> Imbuements::getImbuements(const Player* player, Item* it
 
 		// Parse the storages for each imbuement in imbuements.xml and config.lua (enable/disable storage)
 		int32_t storageValue;
-		if (g_configManager().getBoolean(TOGGLE_IMBUEMENT_SHRINE_STORAGE)
+		if (g_configManager.getBoolean(TOGGLE_IMBUEMENT_SHRINE_STORAGE)
 		&& imbuement->getStorage() != 0
 		&& !player->getStorageValue(imbuement->getStorage(), storageValue)
 		&& imbuement->getBaseID() >= 1 && imbuement->getBaseID() <= 3) {

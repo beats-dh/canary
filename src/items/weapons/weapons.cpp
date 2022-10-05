@@ -178,7 +178,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 		premium = attr.as_bool();
 	}
 
-	if ((attr = node.attribute("breakchance")) && g_configManager().getBoolean(REMOVE_WEAPON_CHARGES)) {
+	if ((attr = node.attribute("breakchance")) && g_configManager.getBoolean(REMOVE_WEAPON_CHARGES)) {
 		breakChance = std::min<uint8_t>(100, pugi::cast<uint16_t>(attr.value()));
 	}
 
@@ -473,14 +473,14 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 
 	switch (action) {
 		case WEAPONACTION_REMOVECOUNT:
-			if(g_configManager().getBoolean(REMOVE_WEAPON_AMMO)) {
+			if(g_configManager.getBoolean(REMOVE_WEAPON_AMMO)) {
 				Weapon::decrementItemCount(item);
 				player->updateSupplyTracker(item);
 			}
 			break;
 
 		case WEAPONACTION_REMOVECHARGE: {
-			if (uint16_t charges = item->getCharges() != 0 && g_configManager().getBoolean(REMOVE_WEAPON_CHARGES)) {
+			if (uint16_t charges = item->getCharges() != 0 && g_configManager.getBoolean(REMOVE_WEAPON_CHARGES)) {
 				g_game().transformItem(item, item->getID(), charges - 1);
 			}
 			break;
@@ -823,7 +823,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 				{-1,  0}, {0,  0}, {1,  0},
 				{-1,  1}, {0,  1}, {1,  1}
 			};
-			std::shuffle(destList.begin(), destList.end(), getRandomGenerator());
+			std::ranges::shuffle(destList, getRandomGenerator());
 
 			Position destPos = target->getPosition();
 

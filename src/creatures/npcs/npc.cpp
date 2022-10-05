@@ -38,7 +38,7 @@ Npc::Npc(NpcType* npcType) :
 {
 	defaultOutfit = npcType->info.outfit;
 	currentOutfit = npcType->info.outfit;
-	float multiplier = g_configManager().getFloat(RATE_NPC_HEALTH);
+	float multiplier = g_configManager.getFloat(RATE_NPC_HEALTH);
 	health = npcType->info.health*multiplier;
 	healthMax = npcType->info.healthMax*multiplier;
 	baseSpeed = npcType->info.baseSpeed;
@@ -58,7 +58,7 @@ Npc::~Npc() {
 
 bool Npc::load(bool loadLibs/* = true*/, bool loadNpcs/* = true*/) const {
 	if (loadLibs) {
-		auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+		auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 		return g_luaEnvironment.loadFile(coreFolder + "/npclib/load.lua") == 0;
 	}
 	if (loadNpcs) {

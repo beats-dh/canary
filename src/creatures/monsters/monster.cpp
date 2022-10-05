@@ -37,7 +37,7 @@ Monster::Monster(MonsterType* mType) :
 	defaultOutfit = mType->info.outfit;
 	currentOutfit = mType->info.outfit;
 	skull = mType->info.skull;
-	float multiplier = g_configManager().getFloat(RATE_MONSTER_HEALTH);
+	float multiplier = g_configManager.getFloat(RATE_MONSTER_HEALTH);
 	health = mType->info.health*multiplier;
 	healthMax = mType->info.healthMax*multiplier;
 	baseSpeed = mType->getBaseSpeed();
@@ -335,7 +335,7 @@ void Monster::removeFriend(Creature* creature)
 void Monster::addTarget(Creature* creature, bool pushFront/* = false*/)
 {
 	assert(creature != this);
-	if (std::find(targetList.begin(), targetList.end(), creature) == targetList.end()) {
+	if (std::ranges::find(targetList, creature) == targetList.end()) {
 		creature->incrementReferenceCounter();
 		if (pushFront) {
 			targetList.push_front(creature);
@@ -353,14 +353,14 @@ void Monster::removeTarget(Creature* creature)
 		return;
 	}
 
-	auto it = std::find(targetList.begin(), targetList.end(), creature);
+	auto it = std::ranges::find(targetList, creature);
 	if (it != targetList.end()) {
-		creature->decrementReferenceCounter();
-		targetList.erase(it);
-
 		if (!master && getFaction() != FACTION_DEFAULT && creature->getPlayer()) {
 			totalPlayersOnScreen--;
 		}
+
+		creature->decrementReferenceCounter();
+		targetList.erase(it);
 	}
 }
 
@@ -651,7 +651,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 void Monster::onFollowCreatureComplete(const Creature* creature)
 {
 	if (creature) {
-		auto it = std::find(targetList.begin(), targetList.end(), creature);
+		auto it = std::ranges::find(targetList, creature);
 		if (it != targetList.end()) {
 			Creature* target = (*it);
 			targetList.erase(it);
@@ -715,7 +715,7 @@ bool Monster::selectTarget(Creature* creature)
 		return false;
 	}
 
-	auto it = std::find(targetList.begin(), targetList.end(), creature);
+	auto it = std::ranges::find(targetList, creature);
 	if (it == targetList.end()) {
 		//Target not found in our target list.
 		return false;
@@ -723,7 +723,7 @@ bool Monster::selectTarget(Creature* creature)
 
 	if (isHostile() || isSummon()) {
 		if (setAttackedCreature(creature)) {
-			g_dispatcher().addTask(createTask(std::bind(&Game::checkCreatureAttack, &g_game(), getID())));
+			g_dispatcher().addTask(createTask(std::bind_front(&Game::checkCreatureAttack, &g_game(), getID())));
 		}
 	}
 	return setFollowCreature(creature);
@@ -905,10 +905,10 @@ void Monster::doAttacking(uint32_t interval)
 				}
 
 				float multiplier;
-				if (maxCombatValue > 0) { // Defense
-					multiplier = g_configManager().getFloat(RATE_MONSTER_DEFENSE);
-				} else { // Attack
-					multiplier = g_configManager().getFloat(RATE_MONSTER_ATTACK);
+				if (maxCombatValue > 0) { //defense
+					multiplier = g_configManager.getFloat(RATE_MONSTER_DEFENSE);
+				} else { //attack
+					multiplier = g_configManager.getFloat(RATE_MONSTER_ATTACK);
 				}
 
 				minCombatValue = spellBlock.minCombatValue * multiplier;
@@ -1145,7 +1145,7 @@ bool Monster::pushItem(Item* item)
 		{-1,  1}, {0,  1}, {1,  1}
 	};
 
-	std::shuffle(relList.begin(), relList.end(), getRandomGenerator());
+	std::ranges::shuffle(relList, getRandomGenerator());
 
 	for (const auto& it : relList) {
 		Position tryPos(centerPos.x + it.first, centerPos.y + it.second, centerPos.z);
@@ -1192,7 +1192,7 @@ bool Monster::pushCreature(Creature* creature)
 		DIRECTION_WEST, DIRECTION_EAST,
 			DIRECTION_SOUTH
 	};
-	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+	std::ranges::shuffle(dirList, getRandomGenerator());
 
 	for (Direction dir : dirList) {
 		const Position& tryPos = Spells::getCasterPosition(creature, dir);
@@ -1293,7 +1293,7 @@ bool Monster::getRandomStep(const Position& creaturePos, Direction& moveDirectio
 		DIRECTION_WEST, DIRECTION_EAST,
 			DIRECTION_SOUTH
 	};
-	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+	std::ranges::shuffle(dirList, getRandomGenerator());
 
 	for (Direction dir : dirList) {
 		if (canWalkTo(creaturePos, dir)) {
@@ -1388,7 +1388,7 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& moveDirection
 	}
 
 	if (!dirList.empty()) {
-		std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+		std::ranges::shuffle(dirList, getRandomGenerator());
 		moveDirection = dirList[uniform_random(0, dirList.size() - 1)];
 		return true;
 	}
@@ -1973,10 +1973,10 @@ bool Monster::getCombatValues(int32_t& min, int32_t& max)
 	}
 
 	float multiplier;
-	if (maxCombatValue > 0) { // Defense
-		multiplier = g_configManager().getFloat(RATE_MONSTER_DEFENSE);
-	} else { // Attack
-		multiplier = g_configManager().getFloat(RATE_MONSTER_ATTACK);
+	if (maxCombatValue > 0) { //defense
+		multiplier = g_configManager.getFloat(RATE_MONSTER_DEFENSE);
+	} else { //attack
+		multiplier = g_configManager.getFloat(RATE_MONSTER_ATTACK);
 	}
 
 	min = minCombatValue * multiplier;
@@ -2050,8 +2050,8 @@ void Monster::dropLoot(Container* corpse, Creature*)
 			// Condition
 			classification == ForgeClassifications_t::FORGE_FIENDISH_MONSTER)
 		{
-			auto minSlivers = g_configManager().getNumber(FORGE_MIN_SLIVERS);
-			auto maxSlivers = g_configManager().getNumber(FORGE_MAX_SLIVERS);
+			auto minSlivers = g_configManager.getNumber(FORGE_MIN_SLIVERS);
+			auto maxSlivers = g_configManager.getNumber(FORGE_MAX_SLIVERS);
 
 			auto sliverCount = static_cast<uint16_t>(uniform_random(minSlivers, maxSlivers));
 
@@ -2201,7 +2201,7 @@ void Monster::clearFiendishStatus()
 	forgeStack = 0;
 	monsterForgeClassification = ForgeClassifications_t::FORGE_NORMAL_MONSTER;
 
-	float multiplier = g_configManager().getFloat(RATE_MONSTER_HEALTH);
+	float multiplier = g_configManager.getFloat(RATE_MONSTER_HEALTH);
 	health = mType->info.health * static_cast<int32_t>(multiplier);
 	healthMax = mType->info.healthMax * static_cast<int32_t>(multiplier);
 

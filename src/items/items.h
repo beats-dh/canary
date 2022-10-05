@@ -51,7 +51,7 @@ struct Abilities {
 		}
 
 		uint32_t getHealthGain() const {
-			return healthGain * g_configManager().getFloat(RATE_HEALTH_REGEN);
+			return healthGain * g_configManager.getFloat(RATE_HEALTH_REGEN);
 		}
 
 		void setHealthTicks(uint32_t value) {
@@ -59,7 +59,7 @@ struct Abilities {
 		}
 
 		uint32_t getHealthTicks() const {
-			return healthTicks / g_configManager().getFloat(RATE_HEALTH_REGEN_SPEED);
+			return healthTicks / g_configManager.getFloat(RATE_HEALTH_REGEN_SPEED);
 		}
 
 		void setManaGain(uint32_t value) {
@@ -67,7 +67,7 @@ struct Abilities {
 		}
 
 		uint32_t getManaGain() const {
-			return manaGain * g_configManager().getFloat(RATE_MANA_REGEN);
+			return manaGain * g_configManager.getFloat(RATE_MANA_REGEN);
 		}
 
 		void setManaTicks(uint32_t value) {
@@ -75,7 +75,7 @@ struct Abilities {
 		}
 
 		uint32_t getManaTicks() const {
-			return manaTicks / g_configManager().getFloat(RATE_MANA_REGEN_SPEED);
+			return manaTicks / g_configManager.getFloat(RATE_MANA_REGEN_SPEED);
 		}
 
 	private:

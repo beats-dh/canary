@@ -216,7 +216,7 @@ uint32_t Protocol::getIP() const
 void Protocol::enableCompression()
 {
 	if (!compreesionEnabled) {
-		int32_t compressionLevel = g_configManager().getNumber(COMPRESSION_LEVEL);
+		int32_t compressionLevel = g_configManager.getNumber(COMPRESSION_LEVEL);
 		if (compressionLevel != 0) {
 			defStream.reset(new z_stream);
 			defStream->zalloc = Z_NULL;

@@ -280,7 +280,7 @@ class Player final : public Creature, public Cylinder
 
 		void addBestiaryTrackerList(MonsterType* mtype) {
 			if (client) {
-				auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
+				auto it = std::ranges::find(BestiaryTracker, mtype);
 				if (it == BestiaryTracker.end()) {
 					BestiaryTracker.push_front(mtype);
 				} else {
@@ -1675,8 +1675,7 @@ class Player final : public Creature, public Cylinder
 				return false;
 			}
 
-			auto it = std::find(quickLootListItemIds.begin(),
-                                quickLootListItemIds.end(), item->getID());
+			auto it = std::ranges::find(quickLootListItemIds, item->getID());
 			return it != quickLootListItemIds.end();
 		}
 
@@ -1863,20 +1862,20 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void sendPreyTimeLeft(const PreySlot* slot) const {
-			if (g_configManager().getBoolean(PREY_ENABLED) && client) {
+			if (g_configManager.getBoolean(PREY_ENABLED) && client) {
 				client->sendPreyTimeLeft(slot);
 			}
 		}
 
 		void reloadPreySlot(PreySlot_t slotid) {
-			if (g_configManager().getBoolean(PREY_ENABLED) && client) {
+			if (g_configManager.getBoolean(PREY_ENABLED) && client) {
 				client->sendPreyData(getPreySlotById(slotid));
 				client->sendResourcesBalance(getMoney(), getBankBalance(), getPreyCards(), getTaskHuntingPoints());
 			}
 		}
 
 		PreySlot* getPreySlotById(PreySlot_t slotid) {
-			if (auto it = std::find_if(preys.begin(), preys.end(), [slotid](const PreySlot* preyIt) {
+			if (auto it = std::ranges::find_if(preys, [slotid](const PreySlot* preyIt) {
 					return preyIt->id == slotid;
 				}); it != preys.end()) {
 				return *it;
@@ -1918,7 +1917,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		uint32_t getPreyRerollPrice() const {
-			return getLevel() * g_configManager().getNumber(PREY_REROLL_PRICE_LEVEL);
+			return getLevel() * g_configManager.getNumber(PREY_REROLL_PRICE_LEVEL);
 		}
 
 		std::vector<uint16_t> getPreyBlackList() const {
@@ -1938,11 +1937,11 @@ class Player final : public Creature, public Cylinder
 		}
 
 		PreySlot* getPreyWithMonster(uint16_t raceId) const {
-			if (!g_configManager().getBoolean(PREY_ENABLED)) {
+			if (!g_configManager.getBoolean(PREY_ENABLED)) {
 				return nullptr;
 			}
 
-			if (auto it = std::find_if(preys.begin(), preys.end(), [raceId](const PreySlot* it) {
+			if (auto it = std::ranges::find_if(preys, [raceId](const PreySlot* it) {
 					return it->selectedRaceId == raceId;
 				}); it != preys.end()) {
 				return *it;
@@ -1965,14 +1964,14 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void reloadTaskSlot(PreySlot_t slotid) {
-			if (g_configManager().getBoolean(TASK_HUNTING_ENABLED) && client) {
+			if (g_configManager.getBoolean(TASK_HUNTING_ENABLED) && client) {
 				client->sendTaskHuntingData(getTaskHuntingSlotById(slotid));
 				client->sendResourcesBalance(getMoney(), getBankBalance(), getPreyCards(), getTaskHuntingPoints());
 			}
 		}
 
 		TaskHuntingSlot* getTaskHuntingSlotById(PreySlot_t slotid) {
-			if (auto it = std::find_if(taskHunting.begin(), taskHunting.end(), [slotid](const TaskHuntingSlot* itTask) {
+			if (auto it = std::ranges::find_if(taskHunting, [slotid](const TaskHuntingSlot* itTask) {
 					return itTask->id == slotid;
 				}); it != taskHunting.end()) {
 				return *it;
@@ -1984,12 +1983,12 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> getTaskHuntingBlackList() const {
 			std::vector<uint16_t> rt;
 
-			std::for_each(taskHunting.begin(), taskHunting.end(), [&rt](const TaskHuntingSlot* slot)
+			std::ranges::for_each(taskHunting, [&rt](const TaskHuntingSlot* slot)
 			{
 				if (slot->isOccupied()) {
 					rt.push_back(slot->selectedRaceId);
 				} else {
-					std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&rt](uint16_t raceId)
+					std::ranges::for_each(slot->raceIdList, [&rt](uint16_t raceId)
 					{
 						rt.push_back(raceId);
 					});
@@ -2034,15 +2033,15 @@ class Player final : public Creature, public Cylinder
 		}
 
 		uint32_t getTaskHuntingRerollPrice() const {
-			return getLevel() * g_configManager().getNumber(TASK_HUNTING_REROLL_PRICE_LEVEL);
+			return getLevel() * g_configManager.getNumber(TASK_HUNTING_REROLL_PRICE_LEVEL);
 		}
 
 		TaskHuntingSlot* getTaskHuntingWithCreature(uint16_t raceId) const {
-			if (!g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
+			if (!g_configManager.getBoolean(TASK_HUNTING_ENABLED)) {
 				return nullptr;
 			}
 
-			if (auto it = std::find_if(taskHunting.begin(), taskHunting.end(), [raceId](const TaskHuntingSlot* itTask) {
+			if (auto it = std::ranges::find_if(taskHunting, [raceId](const TaskHuntingSlot* itTask) {
 					return itTask->selectedRaceId == raceId;
 				}); it != taskHunting.end()) {
 				return *it;
@@ -2258,7 +2257,7 @@ class Player final : public Creature, public Cylinder
 		std::map<uint8_t, uint16_t> maxValuePerSkill = {
 			{SKILL_LIFE_LEECH_CHANCE, 100},
 			{SKILL_MANA_LEECH_CHANCE, 100},
-			{SKILL_CRITICAL_HIT_CHANCE, g_configManager().getNumber(CRITICALCHANCE)}
+			{SKILL_CRITICAL_HIT_CHANCE, g_configManager.getNumber(CRITICALCHANCE)}
 		};
 
 		std::map<uint32_t, Reward*> rewardMap;

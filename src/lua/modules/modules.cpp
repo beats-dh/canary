@@ -44,24 +44,24 @@ Event_ptr Modules::getEvent(const std::string& nodeName) {
 }
 
 bool Modules::registerEvent(Event_ptr event, const pugi::xml_node&) {
-	Module_ptr module {static_cast<Module*>(event.release())};
-	if (module->getEventType() == MODULE_TYPE_NONE) {
+	Module_ptr precept {static_cast<Module*>(event.release())};
+	if (precept->getEventType() == MODULE_TYPE_NONE) {
 		SPDLOG_ERROR("Trying to register event without type!");
 		return false;
 	}
 
-	Module* oldModule = getEventByRecvbyte(module->getRecvbyte(), false);
+	Module* oldModule = getEventByRecvbyte(precept->getRecvbyte(), false);
 	if (oldModule) {
-		if (!oldModule->isLoaded() && oldModule->getEventType() == module->getEventType()) {
-			oldModule->copyEvent(module.get());
+		if (!oldModule->isLoaded() && oldModule->getEventType() == precept->getEventType()) {
+			oldModule->copyEvent(precept.get());
 		}
 		return false;
 	} else {
-		auto it = recvbyteList.find(module->getRecvbyte());
+		auto it = recvbyteList.find(precept->getRecvbyte());
 		if (it != recvbyteList.end()) {
-			it->second = *module;
+			it->second = *precept;
 		} else {
-			recvbyteList.emplace(module->getRecvbyte(), std::move(*module));
+			recvbyteList.emplace(precept->getRecvbyte(), std::move(*precept));
 		}
 		return true;
 	}
@@ -84,10 +84,10 @@ void Modules::executeOnRecvbyte(uint32_t playerId, NetworkMessage& msg, uint8_t 
 	}
 
 	for (auto& it : recvbyteList) {
-		Module module = it.second;
-		if (module.getEventType() == MODULE_TYPE_RECVBYTE && module.getRecvbyte() == byte && player->canRunModule(module.getRecvbyte())) {
-			player->setModuleDelay(module.getRecvbyte(), module.getDelay());
-			module.executeOnRecvbyte(player, msg);
+		Module precept = it.second;
+		if (precept.getEventType() == MODULE_TYPE_RECVBYTE && precept.getRecvbyte() == byte && player->canRunModule(precept.getRecvbyte())) {
+			player->setModuleDelay(precept.getRecvbyte(), precept.getDelay());
+			precept.executeOnRecvbyte(player, msg);
 			return;
 		}
 	}
@@ -139,11 +139,11 @@ std::string Module::getScriptEventName() const {
 	}
 }
 
-void Module::copyEvent(Module* module) {
-	scriptId = module->scriptId;
-	scriptInterface = module->scriptInterface;
-	scripted = module->scripted;
-	loaded = module->loaded;
+void Module::copyEvent(Module* precept) {
+	scriptId = precept->scriptId;
+	scriptInterface = precept->scriptInterface;
+	scripted = precept->scripted;
+	loaded = precept->loaded;
 }
 
 void Module::clearEvent() {

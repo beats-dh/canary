@@ -40,7 +40,7 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 	Game::updatePremium(account);
 
 	auto output = OutputMessagePool::getOutputMessage();
-	const std::string& motd = g_configManager().getString(MOTD);
+	const std::string& motd = g_configManager.getString(MOTD);
 	if (!motd.empty()) {
 		// Add MOTD
 		output->addByte(0x14);
@@ -62,10 +62,10 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 	output->addByte(1);  // number of worlds
 
 	output->addByte(0);  // world id
-	output->addString(g_configManager().getString(SERVER_NAME));
-	output->addString(g_configManager().getString(IP));
+	output->addString(g_configManager.getString(SERVER_NAME));
+	output->addString(g_configManager.getString(IP));
 
-	output->add<uint16_t>(g_configManager().getShortNumber(GAME_PORT));
+	output->add<uint16_t>(g_configManager.getShortNumber(GAME_PORT));
 
 	output->addByte(0);
 
@@ -79,7 +79,7 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 
 	// Add premium days
 	output->addByte(0);
-	if (g_configManager().getBoolean(FREE_PREMIUM)) {
+	if (g_configManager.getBoolean(FREE_PREMIUM)) {
 		output->addByte(1);
 		output->add<uint32_t>(0);
 	} else {
@@ -165,5 +165,5 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	auto thisPtr = std::static_pointer_cast<ProtocolLogin>(shared_from_this());
-	g_dispatcher().addTask(createTask(std::bind(&ProtocolLogin::getCharacterList, thisPtr, email, password, version)));
+	g_dispatcher().addTask(createTask(std::bind_front(&ProtocolLogin::getCharacterList, thisPtr, email, password, version)));
 }

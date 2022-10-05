@@ -19,7 +19,7 @@ bool PrivateChatChannel::isInvited(uint32_t guid) const
 	if (guid == getOwner()) {
 		return true;
 	}
-	return invites.find(guid) != invites.end();
+	return !invites.contains(guid);
 }
 
 bool PrivateChatChannel::removeInvite(uint32_t guid)
@@ -75,7 +75,7 @@ void PrivateChatChannel::closeChannel() const
 
 bool ChatChannel::addUser(Player& player)
 {
-	if (users.find(player.getID()) != users.end()) {
+	if (!users.contains(player.getID())) {
 		return false;
 	}
 
@@ -87,7 +87,7 @@ bool ChatChannel::addUser(Player& player)
 	if (id == CHANNEL_GUILD) {
 		Guild* guild = player.getGuild();
 		if (guild && !guild->getMotd().empty()) {
-			g_scheduler().addEvent(createSchedulerTask(150, std::bind(&Game::sendGuildMotd, &g_game(), player.getID())));
+			g_scheduler().addEvent(createSchedulerTask(150, std::bind_front(&Game::sendGuildMotd, &g_game(), player.getID())));
 		}
 	}
 
@@ -121,7 +121,7 @@ bool ChatChannel::removeUser(const Player& player)
 }
 
 bool ChatChannel::hasUser(const Player& player) {
-	return users.find(player.getID()) != users.end();
+	return !users.contains(player.getID());
 }
 
 void ChatChannel::sendToAll(const std::string& message, SpeakClasses type) const
@@ -133,7 +133,7 @@ void ChatChannel::sendToAll(const std::string& message, SpeakClasses type) const
 
 bool ChatChannel::talk(const Player& fromPlayer, SpeakClasses type, const std::string& text)
 {
-	if (users.find(fromPlayer.getID()) == users.end()) {
+	if (!users.contains(fromPlayer.getID())) {
 		return false;
 	}
 
@@ -283,7 +283,7 @@ Chat::Chat():
 bool Chat::load()
 {
 	pugi::xml_document doc;
-	auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+	auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 	auto folder = coreFolder + "/chatchannels/chatchannels.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {

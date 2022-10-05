@@ -27,7 +27,7 @@ int SpellFunctions::luaSpellCreate(lua_State* L) {
 
 	if (isNumber(L, 2)) {
 		int32_t id = getNumber<int32_t>(L, 2);
-		RuneSpell* rune = g_spells().getRuneSpell(id);
+		RuneSpell* rune = g_spells.getRuneSpell(id);
 
 		if (rune) {
 			pushUserdata<Spell>(L, rune);
@@ -38,19 +38,19 @@ int SpellFunctions::luaSpellCreate(lua_State* L) {
 		spellType = static_cast<SpellType_t>(id);
 	} else if (isString(L, 2)) {
 		std::string arg = getString(L, 2);
-		InstantSpell* instant = g_spells().getInstantSpellByName(arg);
+		InstantSpell* instant = g_spells.getInstantSpellByName(arg);
 		if (instant) {
 			pushUserdata<Spell>(L, instant);
 			setMetatable(L, -1, "Spell");
 			return 1;
 		}
-		instant = g_spells().getInstantSpell(arg);
+		instant = g_spells.getInstantSpell(arg);
 		if (instant) {
 			pushUserdata<Spell>(L, instant);
 			setMetatable(L, -1, "Spell");
 			return 1;
 		}
-		RuneSpell* rune = g_spells().getRuneSpellByName(arg);
+		RuneSpell* rune = g_spells.getRuneSpellByName(arg);
 		if (rune) {
 			pushUserdata<Spell>(L, rune);
 			setMetatable(L, -1, "Spell");
@@ -128,7 +128,7 @@ int SpellFunctions::luaSpellRegister(lua_State* L) {
 			pushBoolean(L, false);
 			return 1;
 		}
-		pushBoolean(L, g_spells().registerInstantLuaEvent(instant));
+		pushBoolean(L, g_spells.registerInstantLuaEvent(instant));
 	} else if (spell->spellType == SPELL_RUNE) {
 		RuneSpell* rune = dynamic_cast<RuneSpell*>(getUserdata<Spell>(L, 1));
 		if (rune->getMagicLevel() != 0 || rune->getLevel() != 0) {
@@ -146,7 +146,7 @@ int SpellFunctions::luaSpellRegister(lua_State* L) {
 			pushBoolean(L, false);
 			return 1;
 		}
-		pushBoolean(L, g_spells().registerRuneLuaEvent(rune));
+		pushBoolean(L, g_spells.registerRuneLuaEvent(rune));
 	}
 	return 1;
 }

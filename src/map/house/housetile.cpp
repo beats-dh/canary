@@ -129,7 +129,7 @@ ReturnValue HouseTile::queryRemove(const Thing& thing, uint32_t count, uint32_t 
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	if (actor && g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+	if (actor && g_configManager.getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
 		Player* actorPlayer = actor->getPlayer();
 		if (!house->isInvited(actorPlayer)) {
 			return RETURNVALUE_PLAYERISNOTINVITED;

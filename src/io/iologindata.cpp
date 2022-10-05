@@ -70,7 +70,7 @@ void IOLoginData::setAccountType(uint32_t accountId, account::AccountType accoun
 
 void IOLoginData::updateOnlineStatus(uint32_t guid, bool login)
 {
-  if (g_configManager().getBoolean(ALLOW_CLONES)) {
+  if (g_configManager.getBoolean(ALLOW_CLONES)) {
     return;
   }
 
@@ -89,7 +89,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
 
   std::ostringstream query;
   query << "SELECT `id`, `account_id`, `group_id`, `deletion`, (SELECT `type` FROM `accounts` WHERE `accounts`.`id` = `account_id`) AS `account_type`";
-  if (!g_configManager().getBoolean(FREE_PREMIUM)) {
+  if (!g_configManager.getBoolean(FREE_PREMIUM)) {
     query << ", (SELECT `premdays` FROM `accounts` WHERE `accounts`.`id` = `account_id`) AS `premium_days`";
   }
   query << " FROM `players` WHERE `name` = " << db.escapeString(name);
@@ -112,7 +112,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
   player->setGroup(group);
   player->accountNumber = result->getNumber<uint32_t>("account_id");
   player->accountType = static_cast<account::AccountType>(result->getNumber<uint16_t>("account_type"));
-  if (!g_configManager().getBoolean(FREE_PREMIUM)) {
+  if (!g_configManager.getBoolean(FREE_PREMIUM)) {
     player->premiumDays = result->getNumber<uint16_t>("premium_days");
   } else {
     player->premiumDays = std::numeric_limits<uint16_t>::max();
@@ -154,7 +154,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   acc.GetID(&(player->accountNumber));
   acc.GetAccountType(&(player->accountType));
 
-  if (g_configManager().getBoolean(FREE_PREMIUM)) {
+  if (g_configManager.getBoolean(FREE_PREMIUM)) {
     player->premiumDays = std::numeric_limits<uint16_t>::max();
   } else {
     acc.GetPremiumRemaningDays(&(player->premiumDays));
@@ -238,7 +238,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->healthMax = result->getNumber<int32_t>("healthmax");
 
   player->defaultOutfit.lookType = result->getNumber<uint16_t>("looktype");
-	if (g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookType)) {
+	if (g_configManager.getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookType)) {
 		SPDLOG_WARN("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookType);
 		return false;
 	}
@@ -252,7 +252,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->defaultOutfit.lookMountLegs = result->getNumber<uint16_t>("lookmountlegs");
   player->defaultOutfit.lookMountFeet = result->getNumber<uint16_t>("lookmountfeet");
   player->defaultOutfit.lookFamiliarsType = result->getNumber<uint16_t>("lookfamiliarstype");
-	if (g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookFamiliarsType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookFamiliarsType)) {
+	if (g_configManager.getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookFamiliarsType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookFamiliarsType)) {
 		SPDLOG_WARN("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookFamiliarsType);
 		return false;
 	}
@@ -442,7 +442,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   if ((result = db.storeQuery(query.str()))) {
     do {
       time_t killTime = result->getNumber<time_t>("time");
-      if ((time(nullptr) - killTime) <= g_configManager().getNumber(FRAG_TIME)) {
+      if ((time(nullptr) - killTime) <= g_configManager.getNumber(FRAG_TIME)) {
         player->unjustifiedKills.emplace_back(result->getNumber<uint32_t>("target"), killTime, result->getNumber<bool>("unavenged"));
       }
     } while (result->next());
@@ -646,7 +646,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   }
 
   // Load prey class
-  if (g_configManager().getBoolean(PREY_ENABLED)) {
+  if (g_configManager.getBoolean(PREY_ENABLED)) {
     query.str(std::string());
     query << "SELECT * FROM `player_prey` WHERE `player_id` = " << player->getGUID();
     if (result = db.storeQuery(query.str())) {
@@ -688,7 +688,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   IOLoginDataLoad::loadPlayerForgeHistory(player, result);
 
   // Load task hunting class
-  if (g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
+  if (g_configManager.getBoolean(TASK_HUNTING_ENABLED)) {
     query.str(std::string());
     query << "SELECT * FROM `player_taskhunt` WHERE `player_id` = " << player->getGUID();
     if (result = db.storeQuery(query.str())) {
@@ -1180,7 +1180,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   // Save prey class
-  if (g_configManager().getBoolean(PREY_ENABLED)) {
+  if (g_configManager.getBoolean(PREY_ENABLED)) {
     query.str(std::string());
     query << "DELETE FROM `player_prey` WHERE `player_id` = " << player->getGUID();
     if (!db.executeQuery(query.str())) {
@@ -1204,7 +1204,7 @@ bool IOLoginData::savePlayer(Player* player)
           query << slot->freeRerollTimeStamp << ", ";
 
         PropWriteStream propPreyStream;
-        std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&propPreyStream](uint16_t raceId)
+        std::ranges::for_each(slot->raceIdList, [&propPreyStream](uint16_t raceId)
         {
             propPreyStream.write<uint16_t>(raceId);
         });
@@ -1222,7 +1222,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   // Save task hunting class
-  if (g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
+  if (g_configManager.getBoolean(TASK_HUNTING_ENABLED)) {
     query.str(std::string());
     query << "DELETE FROM `player_taskhunt` WHERE `player_id` = " << player->getGUID();
     if (!db.executeQuery(query.str())) {
@@ -1245,7 +1245,7 @@ bool IOLoginData::savePlayer(Player* player)
           query << slot->freeRerollTimeStamp << ", ";
 
         PropWriteStream propTaskHuntingStream;
-        std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&propTaskHuntingStream](uint16_t raceId)
+        std::ranges::for_each(slot->raceIdList, [&propTaskHuntingStream](uint16_t raceId)
         {
             propTaskHuntingStream.write<uint16_t>(raceId);
         });

@@ -21,7 +21,7 @@ Events::Events() :
 
 bool Events::loadFromXml() {
 	pugi::xml_document doc;
-	auto folder = g_configManager().getString(CORE_DIRECTORY) + "/events/events.xml";
+	auto folder = g_configManager.getString(CORE_DIRECTORY) + "/events/events.xml";
 	pugi::xml_parse_result result = doc.load_file(folder.c_str());
 	if (!result) {
 		printXMLError(__FUNCTION__, folder, result);
@@ -40,7 +40,7 @@ bool Events::loadFromXml() {
 		auto res = classes.insert(className);
 		if (res.second) {
 			const std::string& lowercase = asLowerCaseString(className);
-			auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+			auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 			if (scriptInterface.loadFile(coreFolder + "/events/scripts/" + lowercase + ".lua") != 0) {
 				SPDLOG_WARN("{} - Can not load script: {}.lua", __FUNCTION__, lowercase);
 				SPDLOG_WARN(scriptInterface.getLastLuaError());

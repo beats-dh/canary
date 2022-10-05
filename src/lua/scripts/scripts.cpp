@@ -30,7 +30,7 @@ void Scripts::clear() const {
 	g_creatureEvents().clear();
 	g_talkActions().clear();
 	g_globalEvents().clear();
-	g_spells().clear();
+	g_spells.clear();
 	g_moveEvents().clear();
 	g_weapons().clear();
 }
@@ -38,7 +38,7 @@ void Scripts::clear() const {
 bool Scripts::loadEventSchedulerScripts(const std::string& fileName) {
 	namespace fs = std::filesystem;
 
-	auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+	auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 	const auto dir = fs::current_path() / coreFolder / "events" / "scripts" / "scheduler";
 	if(!fs::exists(dir) || !fs::is_directory(dir)) {
 		SPDLOG_WARN("{} - Can not load folder 'scheduler' on {}/events/scripts'", __FUNCTION__, coreFolder);
@@ -64,7 +64,7 @@ bool Scripts::loadEventSchedulerScripts(const std::string& fileName) {
 bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload) {
 	namespace fs = std::filesystem;
 
-	auto datapackFolder = g_configManager().getString(DATA_DIRECTORY);
+	auto datapackFolder = g_configManager.getString(DATA_DIRECTORY);
 	const auto dir = fs::current_path() / datapackFolder / folderName;
 	if(!fs::exists(dir) || !fs::is_directory(dir)) {
 		SPDLOG_ERROR("Can not load folder {}", folderName);
@@ -82,7 +82,7 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload) {
 		if(fs::is_regular_file(*it) && it->path().extension() == ".lua") {
 			size_t found = it->path().filename().string().find(disable);
 			if (found != std::string::npos) {
-				if (g_configManager().getBoolean(SCRIPTS_CONSOLE_LOGS)) {
+				if (g_configManager.getBoolean(SCRIPTS_CONSOLE_LOGS)) {
 					SPDLOG_INFO("{} [disabled]", it->path().filename().string());
 				}
 				continue;
@@ -97,7 +97,7 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload) {
 		if (!isLib) {
 			if (redir.empty() || redir != it->parent_path().string()) {
 				auto p = it->relative_path();
-				if (g_configManager().getBoolean(SCRIPTS_CONSOLE_LOGS)) {
+				if (g_configManager.getBoolean(SCRIPTS_CONSOLE_LOGS)) {
 					SPDLOG_INFO("[{}]", p.parent_path().filename().string());
 				}
 				redir = it->parent_path().string();
@@ -110,7 +110,7 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload) {
 			continue;
 		}
 
-		if (g_configManager().getBoolean(SCRIPTS_CONSOLE_LOGS)) {
+		if (g_configManager.getBoolean(SCRIPTS_CONSOLE_LOGS)) {
 			if (!reload) {
 				SPDLOG_INFO("{} [loaded]", it->filename().string());
 			} else {

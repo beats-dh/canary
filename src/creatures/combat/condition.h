@@ -78,7 +78,7 @@ class ConditionGeneric : public Condition
 {
 	public:
 		ConditionGeneric(ConditionId_t initId, ConditionType_t initType, int32_t initTicks, bool initBuff = false, uint32_t initSubId = 0):
-			Condition(initId, initType, initTicks, initBuff, initSubId) {}
+		Condition(initId, initType, initTicks, initBuff, initSubId) {}
 
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
@@ -125,12 +125,12 @@ class ConditionAttributes final : public ConditionGeneric
 
 		bool disableDefense = false;
 
-		void updatePercentStats(Player* player);
-		void updateStats(Player* player);
-		void updatePercentSkills(Player* player);
-		void updateSkills(Player* player);
+		void updatePercentStats(const Player* player);
+		void updateStats(Player* player) const;
+		void updatePercentSkills(const Player* player);
+		void updateSkills(Player* player) const;
     	void updatePercentBuffs(Creature* creature);
-    	void updateBuffs(Creature* creature);
+    	void updateBuffs(Creature* creature) const;
 };
 
 class ConditionRegeneration final : public ConditionGeneric
@@ -280,7 +280,7 @@ class ConditionDamage final : public Condition
 		std::list<IntervalInfo> damageList;
 
 		bool getNextDamage(int32_t& damage);
-		bool doDamage(Creature* creature, int32_t healthChange);
+		bool doDamage(Creature* creature, int32_t healthChange) const;
 
 		bool updateCondition(const Condition* addCondition) override;
 };

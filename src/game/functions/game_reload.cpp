@@ -74,7 +74,7 @@ bool GameReload::reloadChat() const
 
 bool GameReload::reloadConfig() const
 {
-	return g_configManager().reload();
+	return g_configManager.reload();
 }
 
 bool GameReload::reloadEvents() const
@@ -84,7 +84,7 @@ bool GameReload::reloadEvents() const
 
 bool GameReload::reloadCore() const
 {
-	if (auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+	if (auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 		g_luaEnvironment.loadFile(coreFolder + "/core.lua") == 0)
 	{
 		// Reload scripts lib
@@ -163,7 +163,7 @@ bool GameReload::reloadScripts() const
 
 bool GameReload::reloadTalkaction() const
 {
-	if (auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+	if (auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 		g_luaEnvironment.loadFile(coreFolder + "/scripts/talkactions.lua") == 0)
 	{
 		return true;

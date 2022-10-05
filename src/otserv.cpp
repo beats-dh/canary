@@ -96,11 +96,11 @@ void modulesLoadHelper(bool loaded, std::string moduleName) {
 }
 
 void loadModules() {
-	modulesLoadHelper(g_configManager().load(), g_configManager().getConfigFileLua());
+	modulesLoadHelper(g_configManager.load(), g_configManager.getConfigFileLua());
 
 	// If "USE_ANY_DATAPACK_FOLDER" is set to true then you can choose any datapack folder for your server
-	auto useAnyDatapack = g_configManager().getBoolean(USE_ANY_DATAPACK_FOLDER);
-	auto datapackName = g_configManager().getString(DATA_DIRECTORY);
+	auto useAnyDatapack = g_configManager.getBoolean(USE_ANY_DATAPACK_FOLDER);
+	auto datapackName = g_configManager.getString(DATA_DIRECTORY);
 	if (!useAnyDatapack && (datapackName != "data-canary" && datapackName != "data-otservbr-global" || datapackName != "data-otservbr-global" && datapackName != "data-canary")) {
 		SPDLOG_ERROR("The datapack folder name '{}' is wrong, please select valid datapack name 'data-canary' or 'data-otservbr-global", datapackName);
 		SPDLOG_ERROR("Or enable in config.lua to use any datapack folder", datapackName);
@@ -136,26 +136,26 @@ void loadModules() {
 	SPDLOG_INFO("Running database manager...");
 	if (!DatabaseManager::isDatabaseSetup()) {
 		SPDLOG_ERROR("The database you have specified in {} is empty, "
-			"please import the schema.sql to your database.", g_configManager().getConfigFileLua());
+			"please import the schema.sql to your database.", g_configManager.getConfigFileLua());
 		startupErrorMessage();
 	}
 
 	g_databaseTasks().start();
 	DatabaseManager::updateDatabase();
 
-	if (g_configManager().getBoolean(OPTIMIZE_DATABASE)
+	if (g_configManager.getBoolean(OPTIMIZE_DATABASE)
 			&& !DatabaseManager::optimizeTables()) {
 		SPDLOG_INFO("No tables were optimized");
 	}
 
 	// Core start
-	auto coreFolder = g_configManager().getString(CORE_DIRECTORY);
+	auto coreFolder = g_configManager.getString(CORE_DIRECTORY);
 	modulesLoadHelper((g_game().loadAppearanceProtobuf(coreFolder + "/items/appearances.dat") == ERROR_NONE),
 		"appearances.dat");
 	modulesLoadHelper(Item::items.loadFromXml(),
 		"items.xml");
 
-	auto datapackFolder = g_configManager().getString(DATA_DIRECTORY);
+	auto datapackFolder = g_configManager.getString(DATA_DIRECTORY);
 	SPDLOG_INFO("Loading core scripts on folder: {}/", coreFolder);
 	modulesLoadHelper((g_luaEnvironment.loadFile(coreFolder + "/core.lua") == 0),
 		"core.lua");
@@ -165,7 +165,7 @@ void loadModules() {
 		"XML/vocations.xml");
 	modulesLoadHelper(g_eventsScheduler().loadScheduleEventFromXml(),
 		"XML/events.xml");
-	modulesLoadHelper(Outfits::getInstance().loadFromXml(),
+	modulesLoadHelper(g_outfits.loadFromXml(),
 		"XML/outfits.xml");
 	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
 		"XML/familiars.xml");
@@ -214,13 +214,13 @@ int main(int argc, char* argv[]) {
 	g_dispatcher().start();
 	g_scheduler().start();
 
-	g_dispatcher().addTask(createTask(std::bind(mainLoader, argc, argv,
+	g_dispatcher().addTask(createTask(std::bind_front(mainLoader, argc, argv,
 												&serviceManager)));
 
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
-		SPDLOG_INFO("{} {}", g_configManager().getString(SERVER_NAME),
+		SPDLOG_INFO("{} {}", g_configManager.getString(SERVER_NAME),
                     "server online!");
 		serviceManager.run();
 	} else {
@@ -292,13 +292,13 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		c_test.close();
 	}
 
-	g_configManager().setConfigFileLua(configName);
+	g_configManager.setConfigFileLua(configName);
 
 	// Init and load modules
 	loadModules();
 
 #ifdef _WIN32
-	const std::string& defaultPriority = g_configManager().getString(DEFAULT_PRIORITY);
+	const std::string& defaultPriority = g_configManager.getString(DEFAULT_PRIORITY);
 	if (strcasecmp(defaultPriority.c_str(), "high") == 0) {
 		SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
 	} else if (strcasecmp(defaultPriority.c_str(), "above-normal") == 0) {
@@ -306,7 +306,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 #endif
 
-	std::string worldType = asLowerCaseString(g_configManager().getString(WORLD_TYPE));
+	std::string worldType = asLowerCaseString(g_configManager.getString(WORLD_TYPE));
 	if (worldType == "pvp") {
 		g_game().setWorldType(WORLD_TYPE_PVP);
 	} else if (worldType == "no-pvp") {
@@ -315,22 +315,22 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		g_game().setWorldType(WORLD_TYPE_PVP_ENFORCED);
 	} else {
 		SPDLOG_ERROR("Unknown world type: {}, valid world types are: pvp, no-pvp "
-			"and pvp-enforced", g_configManager().getString(WORLD_TYPE));
+			"and pvp-enforced", g_configManager.getString(WORLD_TYPE));
 		startupErrorMessage();
 	}
 
 	SPDLOG_INFO("World type set as {}", asUpperCaseString(worldType));
 
 	SPDLOG_INFO("Loading map...");
-	if (!g_game().loadMainMap(g_configManager().getString(MAP_NAME))) {
+	if (!g_game().loadMainMap(g_configManager.getString(MAP_NAME))) {
 		SPDLOG_ERROR("Failed to load map");
 		startupErrorMessage();
 	}
 
 	// If "mapCustomEnabled" is true on config.lua, then load the custom map
-	if (g_configManager().getBoolean(TOGGLE_MAP_CUSTOM)) {
+	if (g_configManager.getBoolean(TOGGLE_MAP_CUSTOM)) {
 		SPDLOG_INFO("Loading custom map...");
-		if (!g_game().loadCustomMap(g_configManager().getString(MAP_CUSTOM_NAME))) {
+		if (!g_game().loadCustomMap(g_configManager.getString(MAP_CUSTOM_NAME))) {
 			SPDLOG_ERROR("Failed to load custom map");
 			startupErrorMessage();
 		}
@@ -340,13 +340,13 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	g_game().setGameState(GAME_STATE_INIT);
 
 	// Game client protocols
-	services->add<ProtocolGame>(static_cast<uint16_t>(g_configManager().getNumber(GAME_PORT)));
-	services->add<ProtocolLogin>(static_cast<uint16_t>(g_configManager().getNumber(LOGIN_PORT)));
+	services->add<ProtocolGame>(static_cast<uint16_t>(g_configManager.getNumber(GAME_PORT)));
+	services->add<ProtocolLogin>(static_cast<uint16_t>(g_configManager.getNumber(LOGIN_PORT)));
 	// OT protocols
-	services->add<ProtocolStatus>(static_cast<uint16_t>(g_configManager().getNumber(STATUS_PORT)));
+	services->add<ProtocolStatus>(static_cast<uint16_t>(g_configManager.getNumber(STATUS_PORT)));
 
 	RentPeriod_t rentPeriod;
-	std::string strRentPeriod = asLowerCaseString(g_configManager().getString(HOUSE_RENT_PERIOD));
+	std::string strRentPeriod = asLowerCaseString(g_configManager.getString(HOUSE_RENT_PERIOD));
 
 	if (strRentPeriod == "yearly") {
 		rentPeriod = RENTPERIOD_YEARLY;
@@ -380,7 +380,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	webhook_init();
 
-	std::string url = g_configManager().getString(DISCORD_WEBHOOK_URL);
+	std::string url = g_configManager.getString(DISCORD_WEBHOOK_URL);
 	webhook_send_message("Server is now online", "Server has successfully started.", WEBHOOK_COLOR_ONLINE, url);
 
 	g_loaderSignal.notify_all();

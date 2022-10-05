@@ -90,7 +90,7 @@ bool SpawnsMonster::loadFromXML(const std::string& filemonstername)
 					boostedrate = 2;
 				}
 
-				uint32_t interval = pugi::cast<uint32_t>(childMonsterNode.attribute("spawntime").value()) * 1000 * 100 / std::max((uint32_t)1, (g_configManager().getNumber(RATE_SPAWN) * boostedrate * eventschedule));
+				uint32_t interval = pugi::cast<uint32_t>(childMonsterNode.attribute("spawntime").value()) * 1000 * 100 / std::max((uint32_t)1, (g_configManager.getNumber(RATE_SPAWN) * boostedrate * eventschedule));
 				if (interval >= MONSTER_MINSPAWN_INTERVAL && interval <= MONSTER_MAXSPAWN_INTERVAL) {
 					spawnMonster.addMonster(nameAttribute.as_string(), pos, dir, static_cast<uint32_t>(interval));
 				} else {
@@ -144,7 +144,7 @@ bool SpawnsMonster::isInZone(const Position& centerPos, int32_t radius, const Po
 void SpawnMonster::startSpawnMonsterCheck()
 {
 	if (checkSpawnMonsterEvent == 0) {
-		checkSpawnMonsterEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnMonster::checkSpawnMonster, this)));
+		checkSpawnMonsterEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind_front(&SpawnMonster::checkSpawnMonster, this)));
 	}
 }
 
@@ -219,7 +219,7 @@ void SpawnMonster::checkSpawnMonster()
 
 	for (auto& it : spawnMonsterMap) {
 		uint32_t spawnMonsterId = it.first;
-		if (spawnedMonsterMap.find(spawnMonsterId) != spawnedMonsterMap.end()) {
+		if (spawnedMonsterMap.contains(spawnMonsterId)) {
 			continue;
 		}
 
@@ -241,14 +241,14 @@ void SpawnMonster::checkSpawnMonster()
 				scheduleSpawn(spawnMonsterId, sb, 3 * NONBLOCKABLE_SPAWN_MONSTER_INTERVAL);
 			}
 
-			if (++spawnMonsterCount >= static_cast<uint32_t>(g_configManager().getNumber(RATE_SPAWN))) {
+			if (++spawnMonsterCount >= static_cast<uint32_t>(g_configManager.getNumber(RATE_SPAWN))) {
 				break;
 			}
 		}
 	}
 
 	if (spawnedMonsterMap.size() < spawnMonsterMap.size()) {
-		checkSpawnMonsterEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnMonster::checkSpawnMonster, this)));
+		checkSpawnMonsterEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind_front(&SpawnMonster::checkSpawnMonster, this)));
 	}
 }
 
@@ -258,7 +258,7 @@ void SpawnMonster::scheduleSpawn(uint32_t spawnMonsterId, spawnBlock_t& sb, uint
 		spawnMonster(spawnMonsterId, sb.monsterType, sb.pos, sb.direction);
 	} else {
 		g_game().addMagicEffect(sb.pos, CONST_ME_TELEPORT);
-		g_scheduler().addEvent(createSchedulerTask(1400, std::bind(&SpawnMonster::scheduleSpawn, this, spawnMonsterId, sb, interval - NONBLOCKABLE_SPAWN_MONSTER_INTERVAL)));
+		g_scheduler().addEvent(createSchedulerTask(1400, std::bind_front(&SpawnMonster::scheduleSpawn, this, spawnMonsterId, sb, interval - NONBLOCKABLE_SPAWN_MONSTER_INTERVAL)));
 	}
 }
 

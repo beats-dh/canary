@@ -180,21 +180,21 @@ void ConfigFunctions::init(lua_State* L) {
 }
 
 int ConfigFunctions::luaConfigManagerGetString(lua_State* L) {
-	pushString(L, g_configManager().getString(getNumber<stringConfig_t>(L, -1)));
+	pushString(L, g_configManager.getString(getNumber<stringConfig_t>(L, -1)));
 	return 1;
 }
 
 int ConfigFunctions::luaConfigManagerGetNumber(lua_State* L) {
-	lua_pushnumber(L, g_configManager().getNumber(getNumber<integerConfig_t>(L, -1)));
+	lua_pushnumber(L, g_configManager.getNumber(getNumber<integerConfig_t>(L, -1)));
 	return 1;
 }
 
 int ConfigFunctions::luaConfigManagerGetBoolean(lua_State* L) {
-	pushBoolean(L, g_configManager().getBoolean(getNumber<booleanConfig_t>(L, -1)));
+	pushBoolean(L, g_configManager.getBoolean(getNumber<booleanConfig_t>(L, -1)));
 	return 1;
 }
 
 int ConfigFunctions::luaConfigManagerGetFloat(lua_State* L) {
-	lua_pushnumber(L, g_configManager().getFloat(getNumber<floatingConfig_t>(L, -1)));
+	lua_pushnumber(L, g_configManager.getFloat(getNumber<floatingConfig_t>(L, -1)));
 	return 1;
 }

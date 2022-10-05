@@ -17,7 +17,7 @@
 
 uint8_t IOMarket::getTierFromDatabaseTable(const std::string &string) {
 	auto tier = static_cast<uint8_t>(std::atoi(string.c_str()));
-	if (tier > g_configManager().getNumber(FORGE_MAX_ITEM_TIER)) {
+	if (tier > g_configManager.getNumber(FORGE_MAX_ITEM_TIER)) {
 		SPDLOG_ERROR("{} - Failed to get number value {} for tier table result", __FUNCTION__, tier);
 		return 0;
 	}
@@ -37,7 +37,7 @@ MarketOfferList IOMarket::getActiveOffers(MarketAction_t action, uint16_t itemId
 		return offerList;
 	}
 
-	const int32_t marketOfferDuration = g_configManager().getNumber(MARKET_OFFER_DURATION);
+	const int32_t marketOfferDuration = g_configManager.getNumber(MARKET_OFFER_DURATION);
 
 	do {
 		MarketOffer offer;
@@ -60,7 +60,7 @@ MarketOfferList IOMarket::getOwnOffers(MarketAction_t action, uint32_t playerId)
 {
 	MarketOfferList offerList;
 
-	const int32_t marketOfferDuration = g_configManager().getNumber(MARKET_OFFER_DURATION);
+	const int32_t marketOfferDuration = g_configManager.getNumber(MARKET_OFFER_DURATION);
 
 	std::ostringstream query;
 	query << "SELECT `id`, `amount`, `price`, `created`, `itemtype`, `tier` FROM `market_offers` WHERE `player_id` = " << playerId << " AND `sale` = " << action;
@@ -202,13 +202,13 @@ void IOMarket::processExpiredOffers(DBResult_ptr result, bool)
 
 void IOMarket::checkExpiredOffers()
 {
-	const time_t lastExpireDate = getTimeNow() - g_configManager().getNumber(MARKET_OFFER_DURATION);
+	const time_t lastExpireDate = getTimeNow() - g_configManager.getNumber(MARKET_OFFER_DURATION);
 
 	std::ostringstream query;
 	query << "SELECT `id`, `amount`, `price`, `itemtype`, `player_id`, `sale`, `tier` FROM `market_offers` WHERE `created` <= " << lastExpireDate;
 	g_databaseTasks().addTask(query.str(), IOMarket::processExpiredOffers, true);
 
-	int32_t checkExpiredMarketOffersEachMinutes = g_configManager().getNumber(CHECK_EXPIRED_MARKET_OFFERS_EACH_MINUTES);
+	int32_t checkExpiredMarketOffersEachMinutes = g_configManager.getNumber(CHECK_EXPIRED_MARKET_OFFERS_EACH_MINUTES);
 	if (checkExpiredMarketOffersEachMinutes <= 0) {
 		return;
 	}
@@ -232,7 +232,7 @@ MarketOfferEx IOMarket::getOfferByCounter(uint32_t timestamp, uint16_t counter)
 {
 	MarketOfferEx offer;
 
-	const int32_t created = timestamp - g_configManager().getNumber(MARKET_OFFER_DURATION);
+	const int32_t created = timestamp - g_configManager.getNumber(MARKET_OFFER_DURATION);
 
 	std::ostringstream query;
 	query << "SELECT `id`, `sale`, `itemtype`, `amount`, `created`, `price`, `player_id`, `anonymous`, `tier`, (SELECT `name` FROM `players` WHERE `id` = `player_id`) AS `player_name` FROM `market_offers` WHERE `created` = " << created << " AND (`id` & 65535) = " << counter << " LIMIT 1";

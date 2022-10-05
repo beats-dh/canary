@@ -92,13 +92,13 @@ ProtocolGame::ProtocolGame(Connection_ptr initConnection) : Protocol(initConnect
 template <typename Callable, typename... Args>
 void ProtocolGame::addGameTask(Callable function, Args &&... args)
 {
-	g_dispatcher().addTask(createTask(std::bind(function, &g_game(), std::forward<Args>(args)...)));
+	g_dispatcher().addTask(createTask(std::bind_front(function, &g_game(), std::forward<Args>(args)...)));
 }
 
 template <typename Callable, typename... Args>
 void ProtocolGame::addGameTaskTimed(uint32_t delay, Callable function, Args &&... args)
 {
-	g_dispatcher().addTask(createTask(delay, std::bind(function, &g_game(), std::forward<Args>(args)...)));
+	g_dispatcher().addTask(createTask(delay, std::bind_front(function, &g_game(), std::forward<Args>(args)...)));
 }
 
 void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count, uint8_t tier)
@@ -272,7 +272,7 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 {
 	//dispatcher thread
 	Player *foundPlayer = g_game().getPlayerByName(name);
-	if (!foundPlayer || g_configManager().getBoolean(ALLOW_CLONES))
+	if (!foundPlayer || g_configManager.getBoolean(ALLOW_CLONES))
 	{
 		player = new Player(getThis());
 		player->setName(name);
@@ -304,13 +304,13 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 			return;
 		}
 
-		if (g_configManager().getBoolean(ONLY_PREMIUM_ACCOUNT) && !player->isPremium() && (player->getGroup()->id < account::GROUP_TYPE_GAMEMASTER || player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER))
+		if (g_configManager.getBoolean(ONLY_PREMIUM_ACCOUNT) && !player->isPremium() && (player->getGroup()->id < account::GROUP_TYPE_GAMEMASTER || player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER))
 		{
 			disconnectClient("Your premium time for this account is out.\n\nTo play please buy additional premium time from our website");
 			return;
 		}
 
-		if (g_configManager().getBoolean(ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER && g_game().getPlayerByAccount(player->getAccount()))
+		if (g_configManager.getBoolean(ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER && g_game().getPlayerByAccount(player->getAccount()))
 		{
 			disconnectClient("You may only login with one character\nof your account at the same time.");
 			return;
@@ -388,7 +388,7 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 	}
 	else
 	{
-		if (eventConnect != 0 || !g_configManager().getBoolean(REPLACE_KICK_ON_LOGIN))
+		if (eventConnect != 0 || !g_configManager.getBoolean(REPLACE_KICK_ON_LOGIN))
 		{
 			//Already trying to connect
 			disconnectClient("You are already logged in.");
@@ -400,7 +400,7 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 			foundPlayer->disconnect();
 			foundPlayer->isConnecting = true;
 
-			eventConnect = g_scheduler().addEvent(createSchedulerTask(1000, std::bind(&ProtocolGame::connect, getThis(), foundPlayer->getID(), operatingSystem)));
+			eventConnect = g_scheduler().addEvent(createSchedulerTask(1000, std::bind_front(&ProtocolGame::connect, getThis(), foundPlayer->getID(), operatingSystem)));
 		}
 		else
 		{
@@ -590,7 +590,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		return;
 	}
 
-	g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::login, getThis(), characterName, accountId, operatingSystem)));
+	g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::login, getThis(), characterName, accountId, operatingSystem)));
 }
 
 void ProtocolGame::onConnect()
@@ -653,23 +653,23 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 	}
 
 	if (player->isDead() || player->getHealth() <= 0) {
-		g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::parsePacketDead, getThis(), recvbyte)));
+		g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::parsePacketDead, getThis(), recvbyte)));
 		return;
 	}
 
 	// Modules system
 	if (player && recvbyte != 0xD3) {
-		g_dispatcher().addTask(createTask(std::bind(&Modules::executeOnRecvbyte, &g_modules(), player->getID(), msg, recvbyte)));
+		g_dispatcher().addTask(createTask(std::bind_front(&Modules::executeOnRecvbyte, &g_modules(), player->getID(), msg, recvbyte)));
 	}
 
-	g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::parsePacketFromDispatcher, getThis(), msg, recvbyte)));
+	g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::parsePacketFromDispatcher, getThis(), msg, recvbyte)));
 }
 
 void ProtocolGame::parsePacketDead(uint8_t recvbyte)
 {
 	if (recvbyte == 0x14) {
 		disconnect();
-		g_dispatcher().addTask(createTask(std::bind(&IOLoginData::updateOnlineStatus, player->getGUID(), false)));
+		g_dispatcher().addTask(createTask(std::bind_front(&IOLoginData::updateOnlineStatus, player->getGUID(), false)));
 		return;
 	}
 
@@ -678,7 +678,7 @@ void ProtocolGame::parsePacketDead(uint8_t recvbyte)
 			return;
 		}
 
-		g_scheduler().addEvent(createSchedulerTask(100, std::bind(&ProtocolGame::sendPing, getThis())));
+		g_scheduler().addEvent(createSchedulerTask(100, std::bind_front(&ProtocolGame::sendPing, getThis())));
 
 		if (!player->spawn()) {
 			disconnect();
@@ -686,14 +686,14 @@ void ProtocolGame::parsePacketDead(uint8_t recvbyte)
 			return;
 		}
 
-		g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::sendAddCreature, getThis(), player, player->getPosition(), 0, false)));
-		g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::addBless, getThis())));
+		g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::sendAddCreature, getThis(), player, player->getPosition(), 0, false)));
+		g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::addBless, getThis())));
 		return;
 	}
 
 	if (recvbyte == 0x1D) {
 		// keep the connection alive
-		g_scheduler().addEvent(createSchedulerTask(100, std::bind(&ProtocolGame::sendPingBack, getThis())));
+		g_scheduler().addEvent(createSchedulerTask(100, std::bind_front(&ProtocolGame::sendPingBack, getThis())));
 		return;
 	}
 }
@@ -704,7 +704,7 @@ void ProtocolGame::addBless()
 	std::ostringstream lostBlesses;
 	(bless.length() == 0) ? lostBlesses << "You lost all your blessings." : lostBlesses <<  "You are still blessed with " << bless;
 	player->sendTextMessage(MESSAGE_EVENT_ADVANCE, lostBlesses.str());
-	if (player->getLevel() < g_configManager().getNumber(ADVENTURERSBLESSING_LEVEL)) {
+	if (player->getLevel() < g_configManager.getNumber(ADVENTURERSBLESSING_LEVEL)) {
 		for (uint8_t i = 2; i <= 6; i++) {
 			if (!player->hasBlessing(i)) {
 				player->addBlessing(i, 1);
@@ -725,7 +725,7 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyt
 	}
 
 	switch (recvbyte) {
-		case 0x14: g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::logout, getThis(), true, false))); break;
+		case 0x14: g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::logout, getThis(), true, false))); break;
 		case 0x1D: addGameTask(&Game::playerReceivePingBack, player->getID()); break;
 		case 0x1E: addGameTask(&Game::playerReceivePing, player->getID()); break;
 		case 0x2a: addBestiaryTrackerList(msg); break;
@@ -810,8 +810,8 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyt
 		case 0xCC: parseSeekInContainer(msg); break;
 		case 0xCD: parseInspectionObject(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
-		//g_dispatcher().addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
-		case 0xD3: g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, getThis(), msg))); break;
+		//g_dispatcher().addTask(createTask(std::bind_front(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
+		case 0xD3: g_dispatcher().addTask(createTask(std::bind_front(&ProtocolGame::parseSetOutfit, getThis(), msg))); break;
 		case 0xD4: parseToggleMount(msg); break;
 		case 0xD5: parseApplyImbuement(msg); break;
 		case 0xD6: parseClearImbuement(msg); break;
@@ -1679,7 +1679,7 @@ void ProtocolGame::parseTaskHuntingAction(NetworkMessage &msg)
 	bool upgrade = msg.getByte() != 0;
 	uint16_t raceId = msg.get<uint16_t>();
 
-	if (!g_configManager().getBoolean(TASK_HUNTING_ENABLED)) {
+	if (!g_configManager.getBoolean(TASK_HUNTING_ENABLED)) {
 		return;
 	}
 
@@ -1701,8 +1701,8 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter> &charact
 	msg.addByte(0x00); // No data available
 
 	msg.addByte(1); // Worlds
-	msg.addString(g_configManager().getString(SERVER_NAME)); // First World
-	msg.addString(g_configManager().getString(SERVER_NAME)); // Selected World
+	msg.addString(g_configManager.getString(SERVER_NAME)); // First World
+	msg.addString(g_configManager.getString(SERVER_NAME)); // Selected World
 
 	msg.addByte(0); // Game World Category: 0xFF(-1) - Selected World
 	msg.addByte(0); // BattlEye World Type
@@ -1767,7 +1767,7 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter> &charact
 		msg.addString(character.name); // Character Name
 		msg.addString(""); // Probably Character Title(not visible in window)
 		msg.addByte(character.vocation); // Vocation Id
-		msg.addString(g_configManager().getString(SERVER_NAME)); // World
+		msg.addString(g_configManager.getString(SERVER_NAME)); // World
 		msg.add<uint16_t>(character.level); // Level
 		msg.addByte((player->getGUID() == character.id)); // Player Indicator Boolean
 		msg.add<uint64_t>(character.points); // Points
@@ -2598,7 +2598,7 @@ void ProtocolGame::parsePreyAction(NetworkMessage &msg)
 		raceId = msg.get<uint16_t>();
 	}
 
-	if (!g_configManager().getBoolean(PREY_ENABLED)) {
+	if (!g_configManager.getBoolean(PREY_ENABLED)) {
 		return;
 	}
 
@@ -3327,7 +3327,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts()
 	auto startOutfits = msg.getBufferPosition();
 	msg.skipBytes(2);
 
-	const auto &outfits = Outfits::getInstance().getOutfits(player->getSex());
+	const auto &outfits = g_outfits.getOutfits(player->getSex());
 	for (const Outfit &outfit : outfits)
 	{
 		uint8_t addons;
@@ -3483,7 +3483,7 @@ void ProtocolGame::sendCyclopediaCharacterInspection()
 	msg.addString(player->getVocation()->getVocName());
 	msg.addString("Outfit");
 
-	const Outfit *outfit = Outfits::getInstance().getOutfitByLookType(
+	const Outfit *outfit = g_outfits.getOutfitByLookType(
                            player->getSex(),
                            player->getDefaultOutfit().lookType);
 	if (outfit)
@@ -3573,7 +3573,7 @@ void ProtocolGame::sendBasicData()
 		msg.addByte(1); // has reached Main (allow player to open Prey window)
 	}
 
-	std::list<uint16_t> spellsList = g_spells().getSpellsByVocation(player->getVocationId());
+	std::list<uint16_t> spellsList = g_spells.getSpellsByVocation(player->getVocationId());
 	msg.add<uint16_t>(spellsList.size());
 	for (uint16_t sid : spellsList)
 	{
@@ -3607,7 +3607,7 @@ void ProtocolGame::sendBlessStatus()
 
 	msg.addByte(0x9C);
 
-	bool glow = g_configManager().getBoolean(INVENTORY_GLOW) || player->getLevel() < g_configManager().getNumber(ADVENTURERSBLESSING_LEVEL);
+	bool glow = g_configManager.getBoolean(INVENTORY_GLOW) || player->getLevel() < g_configManager.getNumber(ADVENTURERSBLESSING_LEVEL);
 	msg.add<uint16_t>(glow ? 1 : 0); //Show up the glowing effect in items if have all blesses or adventurer's blessing
 	msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
 	// msg.add<uint16_t>(0);
@@ -3617,7 +3617,7 @@ void ProtocolGame::sendBlessStatus()
 
 void ProtocolGame::sendPremiumTrigger()
 {
-	if (!g_configManager().getBoolean(FREE_PREMIUM))
+	if (!g_configManager.getBoolean(FREE_PREMIUM))
 	{
 		NetworkMessage msg;
 		msg.addByte(0x9E);
@@ -4105,7 +4105,7 @@ void ProtocolGame::updateCoinBalance()
 	}
 
 	g_dispatcher().addTask(
-		createTask(std::bind([](uint32_t playerId) {
+		createTask(std::bind_front([](uint32_t playerId) {
 			Player* threadPlayer = g_game().getPlayerByID(playerId);
 			if (threadPlayer) {
 				account::Account account;
@@ -4333,27 +4333,27 @@ void ProtocolGame::sendForgingData()
 	// Forge Config Bytes
 
 	// (conversion) (left column top) Cost to make 1 bottom item - 20
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_COST_ONE_SLIVER)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_COST_ONE_SLIVER)));
 	// (conversion) (left column bottom) How many items to make - 3
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_SLIVER_AMOUNT)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_SLIVER_AMOUNT)));
 	// (conversion) (middle column top) Cost to make 1 - 50
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_CORE_COST)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_CORE_COST)));
 	// (conversion) (right column top) Current stored dust limit minus this number = cost to increase stored dust limit - 75
 	msg.addByte(75);
 	// (conversion) (right column bottom) Starting stored dust limit
 	msg.addByte(static_cast<uint8_t>(player->getForgeDustLevel()));
 	// (conversion) (right column bottom) Max stored dust limit - 225
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_MAX_DUST)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_MAX_DUST)));
 	// (fusion) Dust cost - 100
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_FUSION_DUST_COST)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_FUSION_DUST_COST)));
 	// (transfer) Dust cost - 100
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_TRANSFER_DUST_COST)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_TRANSFER_DUST_COST)));
 	// (fusion) Base success rate - 50
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_BASE_SUCCESS_RATE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_BASE_SUCCESS_RATE)));
 	// (fusion) Bonus success rate - 15
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_BONUS_SUCCESS_RATE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_BONUS_SUCCESS_RATE)));
 	// (fusion) Tier loss chance after reduction - 50
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(FORGE_TIER_LOSS_REDUCTION)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(FORGE_TIER_LOSS_REDUCTION)));
 
 	// Update player resources
 	parseSendResourceBalance();
@@ -4377,7 +4377,7 @@ void ProtocolGame::sendOpenForge() {
 
 		auto itemClassification = item->getClassification();
 		auto itemTier = item->getTier();
-		auto maxConfigTier = g_configManager().getNumber(FORGE_MAX_ITEM_TIER);
+		auto maxConfigTier = g_configManager.getNumber(FORGE_MAX_ITEM_TIER);
 		auto maxTier = (itemClassification == 4 ? maxConfigTier : itemClassification);
 		// Save fusion items on map
 		if (itemClassification != 0 && itemTier < maxTier) {
@@ -5606,8 +5606,8 @@ void ProtocolGame::sendAddCreature(const Creature *creature, const Position &pos
 	msg.addByte(0x00); // can change pvp framing option
 	msg.addByte(0x00); // expert mode button enabled
 
-	msg.addString(g_configManager().getString(STORE_IMAGES_URL));
-	msg.add<uint16_t>(static_cast<uint16_t>(g_configManager().getNumber(STORE_COIN_PACKET)));
+	msg.addString(g_configManager.getString(STORE_IMAGES_URL));
+	msg.add<uint16_t>(static_cast<uint16_t>(g_configManager.getNumber(STORE_COIN_PACKET)));
 
 	msg.addByte(shouldAddExivaRestrictions ? 0x01 : 0x00); // exiva button enabled
 	msg.addByte(0x00); // Tournament button
@@ -5986,7 +5986,7 @@ void ProtocolGame::sendOutfitWindow()
 		++outfitSize;
 	}
 
-	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
+	const auto& outfits = g_outfits.getOutfits(player->getSex());
 
 	for (const Outfit& outfit : outfits) {
 		uint8_t addons;
@@ -6092,11 +6092,11 @@ void ProtocolGame::sendPodiumWindow(const Item* podium, const Position& position
 	msg.add<uint16_t>(0);
 
 	auto startOutfits = msg.getBufferPosition();
-	uint16_t limitOutfits = std::numeric_limits<uint16_t>::max();
+	constexpr uint16_t limitOutfits = std::numeric_limits<uint16_t>::max();
 	uint16_t outfitSize = 0;
 	msg.skipBytes(2);
 
-	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
+	const auto& outfits = g_outfits.getOutfits(player->getSex());
 	for (const Outfit& outfit : outfits) {
 		uint8_t addons;
 		if (!player->getOutfitAddons(outfit, addons)) {
@@ -6254,7 +6254,7 @@ void ProtocolGame::sendPreyData(const PreySlot* slot)
 		}
 	} else if (slot->state == PreyDataState_Selection) {
 		msg.addByte(static_cast<uint8_t>(slot->raceIdList.size()));
-		std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&msg](uint16_t raceId)
+		std::ranges::for_each(slot->raceIdList, [&msg](uint16_t raceId)
 		{
 			if (const MonsterType* mtype = g_monsters().getMonsterTypeByRaceId(raceId)) {
 				msg.addString(mtype->name);
@@ -6279,7 +6279,7 @@ void ProtocolGame::sendPreyData(const PreySlot* slot)
 		msg.add<uint16_t>(slot->bonusPercentage);
 		msg.addByte(slot->bonusRarity);
 		msg.addByte(static_cast<uint8_t>(slot->raceIdList.size()));
-		std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&msg](uint16_t raceId)
+		std::ranges::for_each(slot->raceIdList, [&msg](uint16_t raceId)
 		{
 			if (const MonsterType* mtype = g_monsters().getMonsterTypeByRaceId(raceId)) {
 				msg.addString(mtype->name);
@@ -6302,7 +6302,7 @@ void ProtocolGame::sendPreyData(const PreySlot* slot)
 	} else if (slot->state == PreyDataState_ListSelection) {
 		const std::map<uint16_t, std::string> bestiaryList = g_game().getBestiaryList();
 		msg.add<uint16_t>(static_cast<uint16_t>(bestiaryList.size()));
-		std::for_each(bestiaryList.begin(), bestiaryList.end(), [&msg](auto& mType)
+		std::ranges::for_each(bestiaryList, [&msg](auto& mType)
 		{
 			msg.add<uint16_t>(mType.first);
 		});
@@ -6328,12 +6328,12 @@ void ProtocolGame::sendPreyPrices()
 	msg.addByte(0xE9);
 
 	msg.add<uint32_t>(player->getPreyRerollPrice());
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(PREY_BONUS_REROLL_PRICE)));
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(PREY_SELECTION_LIST_PRICE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(PREY_BONUS_REROLL_PRICE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(PREY_SELECTION_LIST_PRICE)));
 	msg.add<uint32_t>(player->getTaskHuntingRerollPrice());
 	msg.add<uint32_t>(player->getTaskHuntingRerollPrice());
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(TASK_HUNTING_SELECTION_LIST_PRICE)));
-	msg.addByte(static_cast<uint8_t>(g_configManager().getNumber(TASK_HUNTING_BONUS_REROLL_PRICE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(TASK_HUNTING_SELECTION_LIST_PRICE)));
+	msg.addByte(static_cast<uint8_t>(g_configManager.getNumber(TASK_HUNTING_BONUS_REROLL_PRICE)));
 
 	writeToOutputBuffer(msg);
 }
@@ -6937,7 +6937,7 @@ void ProtocolGame::sendTaskHuntingData(const TaskHuntingSlot* slot)
 	} else if (slot->state == PreyTaskDataState_Selection) {
 		const Player* user = player;
 		msg.add<uint16_t>(static_cast<uint16_t>(slot->raceIdList.size()));
-		std::for_each(slot->raceIdList.begin(), slot->raceIdList.end(), [&msg, user](uint16_t raceid)
+		std::ranges::for_each(slot->raceIdList, [&msg, user](uint16_t raceid)
 		{
 			msg.add<uint16_t>(raceid);
 			msg.addByte(user->isCreatureUnlockedOnTaskHunting(g_monsters().getMonsterTypeByRaceId(raceid)) ? 0x01 : 0x00);
@@ -6946,7 +6946,7 @@ void ProtocolGame::sendTaskHuntingData(const TaskHuntingSlot* slot)
 		const Player* user = player;
 		const std::map<uint16_t, std::string> bestiaryList = g_game().getBestiaryList();
 		msg.add<uint16_t>(static_cast<uint16_t>(bestiaryList.size()));
-		std::for_each(bestiaryList.begin(), bestiaryList.end(), [&msg, user](auto& mType)
+		std::ranges::for_each(bestiaryList, [&msg, user](auto& mType)
 		{
 			msg.add<uint16_t>(mType.first);
 			msg.addByte(user->isCreatureUnlockedOnTaskHunting(g_monsters().getMonsterType(mType.second)) ? 0x01 : 0x00);
@@ -7178,7 +7178,7 @@ void ProtocolGame::reloadCreature(const Creature *creature)
 
 	NetworkMessage msg;
 
-	phmap::flat_hash_set<uint32_t>::iterator it = std::find(knownCreatureSet.begin(), knownCreatureSet.end(), creature->getID());
+	phmap::flat_hash_set<uint32_t>::iterator it = std::ranges::find(knownCreatureSet, creature->getID());
 	if (it != knownCreatureSet.end())
 	{
 		msg.addByte(0x6B);
@@ -7204,7 +7204,7 @@ void ProtocolGame::sendOpenStash()
 		msg.add<uint16_t>(item.first);
 		msg.add<uint32_t>(item.second);
 	}
-	msg.add<uint16_t>(static_cast<uint16_t>(g_configManager().getNumber(STASH_ITEMS) - getStashSize(list)));
+	msg.add<uint16_t>(static_cast<uint16_t>(g_configManager.getNumber(STASH_ITEMS) - getStashSize(list)));
 	writeToOutputBuffer(msg);
 }
 

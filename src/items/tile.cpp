@@ -386,7 +386,7 @@ void Tile::onAddTileItem(Item* item)
 		spectator->onAddTileItem(this, cylinderMapPos);
 	}
 
-  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || g_configManager().getBoolean(CLEAN_PROTECTION_ZONES))
+  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || g_configManager.getBoolean(CLEAN_PROTECTION_ZONES))
 																							&& item->isCleanable()) {
 		if (!dynamic_cast<HouseTile*>(this)) {
 			g_game().addTileToClean(this);
@@ -459,7 +459,7 @@ void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vecto
 		spectator->onRemoveTileItem(this, cylinderMapPos, iType, item);
 	}
 
-  if (!hasFlag(TILESTATE_PROTECTIONZONE) || g_configManager().getBoolean(CLEAN_PROTECTION_ZONES)) {
+  if (!hasFlag(TILESTATE_PROTECTIONZONE) || g_configManager.getBoolean(CLEAN_PROTECTION_ZONES)) {
 		auto items = getItemList();
 		if (!items || items->empty()) {
 			g_game().removeTileToClean(this);
@@ -1064,7 +1064,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 	if (creature) {
 		CreatureVector* creatures = getCreatures();
 		if (creatures) {
-			auto it = std::find(creatures->begin(), creatures->end(), thing);
+			auto it = std::ranges::find(creatures->begin(), creatures->end(), thing);
 			if (it != creatures->end()) {
 				g_game().map.clearSpectatorCache();
 				creatures->erase(it);
@@ -1099,7 +1099,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 	}
 
 	if (item->isAlwaysOnTop()) {
-		auto it = std::find(items->getBeginTopItem(), items->getEndTopItem(), item);
+		auto it = std::ranges::find(items->getBeginTopItem(), items->getEndTopItem(), item);
 		if (it == items->getEndTopItem()) {
 			return;
 		}
@@ -1118,7 +1118,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 		items->erase(it);
 		onRemoveTileItem(spectators, oldStackPosVector, item);
 	} else {
-		auto it = std::find(items->getBeginDownItem(), items->getEndDownItem(), item);
+		auto it = std::ranges::find(items->getBeginDownItem(), items->getEndDownItem(), item);
 		if (it == items->getEndDownItem()) {
 			return;
 		}

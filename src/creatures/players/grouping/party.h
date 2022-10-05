@@ -97,7 +97,7 @@ class Party
 
 		PartyAnalyzer* getPlayerPartyAnalyzerStruct(uint32_t playerId) const
 		{
-			if (auto it = std::find_if(membersData.begin(), membersData.end(), [playerId](const PartyAnalyzer* preyIt) {
+			if (auto it = std::ranges::find_if(membersData, [playerId](const PartyAnalyzer* preyIt) {
 					return preyIt->id == playerId;
 				}); it != membersData.end()) {
 				return *it;

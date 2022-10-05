@@ -151,7 +151,7 @@ bool BedItem::sleep(Player* player)
 	g_game().addMagicEffect(player->getPosition(), CONST_ME_SLEEP);
 
 	// logout player after he sees himself walk onto the bed and it change id
-	g_scheduler().addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&ProtocolGame::logout, player->client, false, false)));
+	g_scheduler().addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind_front(&ProtocolGame::logout, player->client, false, false)));
 
 	// change self and partner's appearance
 	updateAppearance(player);
@@ -221,8 +221,8 @@ void BedItem::regeneratePlayer(Player* player) const
 			regen = sleptTime / 30;
 		}
 
-		player->changeHealth(regen * g_configManager().getFloat(RATE_HEALTH_REGEN), false);
-		player->changeMana(regen * g_configManager().getFloat(RATE_MANA_REGEN));
+		player->changeHealth(regen * g_configManager.getFloat(RATE_HEALTH_REGEN), false);
+		player->changeMana(regen * g_configManager.getFloat(RATE_MANA_REGEN));
 	}
 
 	const int32_t soulRegen = sleptTime / (60 * 15); // RATE_SOUL_REGEN_SPEED?

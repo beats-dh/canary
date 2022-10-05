@@ -157,7 +157,7 @@ class Game
 			itemsClassifications.push_back(itemsClassification);
 		}
 		ItemClassification* getItemsClassification(uint8_t id, bool create) {
-			auto it = std::find_if(itemsClassifications.begin(), itemsClassifications.end(), [id](ItemClassification* it) {
+			auto it = std::ranges::find_if(itemsClassifications, [id](ItemClassification* it) {
 				return it->id == id;
 				});
 
@@ -560,15 +560,15 @@ class Game
 
 		FILELOADER_ERRORS loadAppearanceProtobuf(const std::string& file);
 		bool isMagicEffectRegistered(uint8_t type) const {
-			return std::find(registeredMagicEffects.begin(), registeredMagicEffects.end(), type) != registeredMagicEffects.end();
+			return std::ranges::find(registeredMagicEffects, type) != registeredMagicEffects.end();
 		}
 
 		bool isDistanceEffectRegistered(uint8_t type) const {
-			return std::find(registeredDistanceEffects.begin(), registeredDistanceEffects.end(), type) != registeredDistanceEffects.end();
+			return std::ranges::find(registeredDistanceEffects, type) != registeredDistanceEffects.end();
 		}
 
 		bool isLookTypeRegistered(uint16_t type) const {
-			return std::find(registeredLookTypes.begin(), registeredLookTypes.end(), type) != registeredLookTypes.end();
+			return std::ranges::find(registeredLookTypes, type) != registeredLookTypes.end();
 		}
 
 		void setCreateLuaItems(Position position, uint16_t itemId) {

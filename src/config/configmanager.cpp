@@ -41,7 +41,7 @@ int32_t getGlobalNumber(lua_State* L, const char* identifier, const int32_t defa
 		return defaultValue;
 	}
 
-	int32_t val = lua_tonumber(L, -1);
+	int32_t val = static_cast<int32_t>(lua_tonumber(L, -1));
 	lua_pop(L, 1);
 	return val;
 }
@@ -72,7 +72,7 @@ float getGlobalFloat(lua_State* L, const char* identifier, const float defaultVa
 		return defaultValue;
 	}
 
-	float val = lua_tonumber(L, -1);
+	float val = static_cast<float>(lua_tonumber(L, -1));
 	lua_pop(L, 1);
 	return val;
 }
@@ -83,7 +83,7 @@ bool ConfigManager::load()
 {
 	lua_State* L = luaL_newstate();
 	if (!L) {
-		throw std::runtime_error("Failed to allocate memory");
+		throw std::invalid_argument("Failed to allocate memory");
 	}
 
 	luaL_openlibs(L);
@@ -315,7 +315,7 @@ bool ConfigManager::reload()
 	return result;
 }
 
-static std::string dummyStr;
+const static std::string dummyStr;
 
 const std::string& ConfigManager::getString(stringConfig_t what) const
 {
@@ -341,7 +341,7 @@ int16_t ConfigManager::getShortNumber(integerConfig_t what) const
 		SPDLOG_WARN("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
-	return integer[what];
+	return static_cast<int16_t>(integer[what]);
 }
 
 bool ConfigManager::getBoolean(booleanConfig_t what) const

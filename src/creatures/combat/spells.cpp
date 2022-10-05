@@ -141,9 +141,9 @@ bool Spells::hasInstantSpell(const std::string& word) const
 
 bool Spells::registerEvent(Event_ptr event, const pugi::xml_node&)
 {
-	InstantSpell* instant = dynamic_cast<InstantSpell*>(event.get());
+	auto instant = dynamic_cast<InstantSpell*>(event.get());
 	if (instant) {
-		auto result = instants.emplace(instant->getWords(), std::move(*instant));
+		auto result = instants.try_emplace(instant->getWords(), std::move(*instant));
 		if (!result.second) {
 			SPDLOG_WARN("[Spells::registerEvent] - "
                         "Duplicate registered instant spell with words: {}",
@@ -152,9 +152,9 @@ bool Spells::registerEvent(Event_ptr event, const pugi::xml_node&)
 		return result.second;
 	}
 
-	RuneSpell* rune = dynamic_cast<RuneSpell*>(event.get());
+	auto rune = dynamic_cast<RuneSpell*>(event.get());
 	if (rune) {
-		auto result = runes.emplace(rune->getRuneItemId(), std::move(*rune));
+		auto result = runes.try_emplace(rune->getRuneItemId(), std::move(*rune));
 		if (!result.second) {
 			SPDLOG_WARN("[Spells::registerEvent] - "
                         "Duplicate registered rune with id: {}",
@@ -196,7 +196,7 @@ bool Spells::registerRuneLuaEvent(RuneSpell* event)
 	RuneSpell_ptr rune { event };
 	if (rune) {
 		uint16_t id = rune->getRuneItemId();
-		auto result = runes.emplace(rune->getRuneItemId(), std::move(*rune));
+		auto result = runes.try_emplace(rune->getRuneItemId(), std::move(*rune));
 		if (!result.second) {
 			SPDLOG_WARN("[Spells::registerRuneLuaEvent] - "
                         "Duplicate registered rune with id: {}", id);
@@ -207,20 +207,20 @@ bool Spells::registerRuneLuaEvent(RuneSpell* event)
 	return false;
 }
 
-std::list<uint16_t> Spells::getSpellsByVocation(uint16_t vocationId)
+std::list<uint16_t> Spells::getSpellsByVocation(uint16_t vocationId) const
 {
 	std::list<uint16_t> spellsList;
 	VocSpellMap vocSpells;
 	std::map<uint16_t, bool>::const_iterator vocSpellsIt;
 
-	for (const auto& it : instants) {
-		vocSpells = it.second.getVocMap();
+	for (const auto& [key, value] : instants) {
+		vocSpells = value.getVocMap();
 		vocSpellsIt = vocSpells.find(vocationId);
 
 		if (vocSpellsIt != vocSpells.end()
 				&& vocSpellsIt->second)
 		{
-			spellsList.push_back(it.second.getId());
+			spellsList.push_back(value.getId());
 		}
 	}
 
@@ -238,11 +238,11 @@ Spell* Spells::getSpellByName(const std::string& name)
 
 RuneSpell* Spells::getRuneSpell(uint32_t id)
 {
-	auto it = runes.find(id);
+	auto it = runes.find(static_cast<unsigned short>(id));
 	if (it == runes.end()) {
-		for (auto& rune : runes) {
-			if (rune.second.getId() == id) {
-				return &rune.second;
+		for (auto& [key, value] : runes) {
+			if (value.getId() == id) {
+				return &value;
 			}
 		}
 		return nullptr;
@@ -252,9 +252,9 @@ RuneSpell* Spells::getRuneSpell(uint32_t id)
 
 RuneSpell* Spells::getRuneSpellByName(const std::string& name)
 {
-	for (auto& it : runes) {
-		if (strcasecmp(it.second.getName().c_str(), name.c_str()) == 0) {
-			return &it.second;
+	for (auto& [key, value] : runes) {
+		if (strcasecmp(value.getName().c_str(), name.c_str()) == 0) {
+			return &value;
 		}
 	}
 	return nullptr;
@@ -264,12 +264,12 @@ InstantSpell* Spells::getInstantSpell(const std::string& words)
 {
 	InstantSpell* result = nullptr;
 
-	for (auto& it : instants) {
-		const std::string& instantSpellWords = it.second.getWords();
+	for (auto& [key, value] : instants) {
+		const std::string& instantSpellWords = value.getWords();
 		size_t spellLen = instantSpellWords.length();
 		if (strncasecmp(instantSpellWords.c_str(), words.c_str(), spellLen) == 0) {
 			if (!result || spellLen > result->getWords().length()) {
-				result = &it.second;
+				result = &value;
 				if (words.length() == spellLen) {
 					break;
 				}
@@ -297,9 +297,9 @@ InstantSpell* Spells::getInstantSpell(const std::string& words)
 
 InstantSpell* Spells::getInstantSpellById(uint32_t spellId)
 {
-	for (auto& it : instants) {
-		if (it.second.getId() == spellId) {
-			return &it.second;
+	for (auto& [key, value] : instants) {
+		if (value.getId() == spellId) {
+			return &value;
 		}
 	}
 	return nullptr;
@@ -307,21 +307,21 @@ InstantSpell* Spells::getInstantSpellById(uint32_t spellId)
 
 InstantSpell* Spells::getInstantSpellByName(const std::string& name)
 {
-	for (auto& it : instants) {
-		if (strcasecmp(it.second.getName().c_str(), name.c_str()) == 0) {
-			return &it.second;
+	for (auto& [key, value] : instants) {
+		if (strcasecmp(value.getName().c_str(), name.c_str()) == 0) {
+			return &value;
 		}
 	}
 	return nullptr;
 }
 
-Position Spells::getCasterPosition(Creature* creature, Direction dir)
+Position Spells::getCasterPosition(const Creature* creature, Direction dir)
 {
 	return getNextPosition(dir, creature->getPosition());
 }
 
 CombatSpell::CombatSpell(Combat* initCombat, bool initNeedTarget, bool initNeedDirection) :
-	Event(&g_spells().getScriptInterface()),
+	Event(&g_spells.getScriptInterface()),
 	combat(initCombat),
 	needDirection(initNeedDirection),
 	needTarget(initNeedTarget)
@@ -711,7 +711,7 @@ bool Spell::playerSpellCheck(Player* player) const
 	return true;
 }
 
-bool Spell::playerInstantSpellCheck(Player* player, const Position& toPos)
+bool Spell::playerInstantSpellCheck(Player* player, const Position& toPos) const
 {
 	if (toPos.x == 0xFFFF) {
 		return true;
@@ -756,7 +756,7 @@ bool Spell::playerInstantSpellCheck(Player* player, const Position& toPos)
 	return true;
 }
 
-bool Spell::playerRuneSpellCheck(Player* player, const Position& toPos)
+bool Spell::playerRuneSpellCheck(Player* player, const Position& toPos) const
 {
 	if (!playerSpellCheck(player)) {
 		return false;
@@ -798,11 +798,7 @@ bool Spell::playerRuneSpellCheck(Player* player, const Position& toPos)
 	}
 
 	const Creature* topVisibleCreature = tile->getBottomVisibleCreature(player);
-	if (blockingCreature && topVisibleCreature) {
-		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
-		g_game().addMagicEffect(player->getPosition(), CONST_ME_POFF);
-		return false;
-	} else if (blockingSolid && tile->hasFlag(TILESTATE_BLOCKSOLID)) {
+	if (blockingCreature && topVisibleCreature || blockingSolid && tile->hasFlag(TILESTATE_BLOCKSOLID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 		g_game().addMagicEffect(player->getPosition(), CONST_ME_POFF);
 		return false;
@@ -828,17 +824,17 @@ bool Spell::playerRuneSpellCheck(Player* player, const Position& toPos)
 void Spell::applyCooldownConditions(Player* player) const
 {
 	if (cooldown > 0) {
-		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLCOOLDOWN, cooldown / g_configManager().getFloat(RATE_SPELL_COOLDOWN), 0, false, spellId);
+		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLCOOLDOWN, cooldown / g_configManager.getFloat(RATE_SPELL_COOLDOWN), 0, false, spellId);
 		player->addCondition(condition);
 	}
 
 	if (groupCooldown > 0) {
-		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLGROUPCOOLDOWN, groupCooldown / g_configManager().getFloat(RATE_SPELL_COOLDOWN), 0, false, group);
+		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLGROUPCOOLDOWN, groupCooldown / g_configManager.getFloat(RATE_SPELL_COOLDOWN), 0, false, group);
 		player->addCondition(condition);
 	}
 
 	if (secondaryGroupCooldown > 0) {
-		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLGROUPCOOLDOWN, secondaryGroupCooldown / g_configManager().getFloat(RATE_SPELL_COOLDOWN), 0, false, secondaryGroup);
+		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_SPELLGROUPCOOLDOWN, secondaryGroupCooldown / g_configManager.getFloat(RATE_SPELL_COOLDOWN), 0, false, secondaryGroup);
 		player->addCondition(condition);
 	}
 }
@@ -940,7 +936,7 @@ bool InstantSpell::playerCastInstant(Player* player, std::string& param)
 		var.type = VARIANT_NUMBER;
 		var.number = player->getID();
 	} else if (needTarget || casterTargetOrDirection) {
-		Creature* target = nullptr;
+		const Creature* target = nullptr;
 		bool useDirection = false;
 
 		if (hasParam) {
@@ -1065,7 +1061,7 @@ bool InstantSpell::castSpell(Creature* creature)
 	LuaVariant var;
 
 	if (casterTargetOrDirection) {
-		Creature* target = creature->getAttackedCreature();
+		const Creature* target = creature->getAttackedCreature();
 		if (target && target->getHealth() > 0) {
 			if (!canThrowSpell(creature, target)) {
 				return false;
@@ -1248,7 +1244,7 @@ bool RuneSpell::executeUse(Player* player, Item* item, const Position&, Thing* t
 	}
 
 	postCastSpell(player);
-	if (hasCharges && item && g_configManager().getBoolean(REMOVE_RUNE_CHARGES)) {
+	if (hasCharges && item && g_configManager.getBoolean(REMOVE_RUNE_CHARGES)) {
 		int32_t newCount = std::max<int32_t>(0, item->getItemCount() - 1);
 		g_game().transformItem(item, item->getID(), newCount);
 		player->updateSupplyTracker(item);

@@ -81,8 +81,8 @@ static std::string get_payload(std::string title, std::string message, int color
 
 	std::stringstream footer_text;
 	footer_text
-			<< g_configManager().getString(IP) << ":"
-			<< g_configManager().getNumber(GAME_PORT) << " | "
+			<< g_configManager.getString(IP) << ":"
+			<< g_configManager.getNumber(GAME_PORT) << " | "
 			<< time_buf << " UTC";
 
 	Json::Value footer(Json::objectValue);
@@ -113,13 +113,17 @@ static std::string get_payload(std::string title, std::string message, int color
 }
 
 static int webhook_send_message_(const char *url, const char *payload, std::string *response_body) {
-	CURL *curl = curl_easy_init();
+	CURL *curl;
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+	curl = curl_easy_init();
+
 	if (!curl) {
 		SPDLOG_ERROR("Failed to send webhook message; curl_easy_init failed");
 		return -1;
 	}
 
 	curl_easy_setopt(curl, CURLOPT_URL, url);
+	curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
 	curl_easy_setopt(curl, CURLOPT_POST, 1L);
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, reinterpret_cast<void *>(&response_body));

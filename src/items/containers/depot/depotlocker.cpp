@@ -46,7 +46,7 @@ void DepotLocker::postRemoveNotification(Thing* thing, const Cylinder* newParent
 
 void DepotLocker::removeInbox(Inbox* inbox)
 {
-	auto cit = std::find(itemlist.begin(), itemlist.end(), inbox);
+	auto cit = std::ranges::find(itemlist, inbox);
 	if (cit == itemlist.end()) {
 		return;
 	}

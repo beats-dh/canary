@@ -254,7 +254,7 @@ void trim_left(std::string& source, char t)
 
 void toLowerCaseString(std::string& source)
 {
-	std::transform(source.begin(), source.end(), source.begin(), tolower);
+	std::ranges::transform(source, source.begin(), tolower);
 }
 
 std::string asLowerCaseString(std::string source)
@@ -265,7 +265,7 @@ std::string asLowerCaseString(std::string source)
 
 std::string asUpperCaseString(std::string source)
 {
-	std::transform(source.begin(), source.end(), source.begin(), toupper);
+	std::ranges::transform(source, source.begin(), toupper);
 	return source;
 }
 
@@ -789,7 +789,7 @@ std::string getCombatName(CombatType_t combatType)
 
 CombatType_t getCombatType(const std::string& combatname)
 {
-	auto it = std::find_if(combatTypeNames.begin(), combatTypeNames.end(), [combatname](std::pair<CombatType_t, std::string> const& pair) {
+	auto it = std::ranges::find_if(combatTypeNames, [combatname](std::pair<CombatType_t, std::string> const& pair) {
 		return pair.second == combatname;
 	});
 
@@ -1410,7 +1410,7 @@ NameEval_t validateName(const std::string &name)
 	for(std::string str : toks) {
 		if(str.length()<2)
 			return INVALID_TOKEN_LENGTH;
-		else if(std::find(prohibitedWords.begin(), prohibitedWords.end(),str) != prohibitedWords.end()) { //searching for prohibited words
+		else if(std::ranges::find(prohibitedWords, str) != prohibitedWords.end()) { //searching for prohibited words
 			return INVALID_FORBIDDEN;
 		}
 	}

@@ -5866,8 +5866,7 @@ namespace Catch {
             else {
                 SectionNode& parentNode = *m_sectionStack.back();
                 auto it =
-                    std::find_if(   parentNode.childSections.begin(),
-                                    parentNode.childSections.end(),
+                    std::ranges::find_if(   parentNode.childSections,
                                     BySectionInfo( sectionInfo ) );
                 if( it == parentNode.childSections.end() ) {
                     node = std::make_shared<SectionNode>( incompleteStats );
@@ -14239,7 +14238,7 @@ namespace TestCaseTracking {
     }
 
     ITrackerPtr TrackerBase::findChild( NameAndLocation const& nameAndLocation ) {
-        auto it = std::find_if( m_children.begin(), m_children.end(),
+        auto it = std::ranges::find_if( m_children,
             [&nameAndLocation]( ITrackerPtr const& tracker ){
                 return
                     tracker->nameAndLocation().location == nameAndLocation.location &&
@@ -14337,7 +14336,7 @@ namespace TestCaseTracking {
         bool complete = true;
 
         if ((m_filters.empty() || m_filters[0] == "")
-            || std::find(m_filters.begin(), m_filters.end(), m_trimmed_name) != m_filters.end()) {
+            || std::ranges::find(m_filters, m_trimmed_name) != m_filters.end()) {
             complete = TrackerBase::isComplete();
         }
         return complete;
@@ -14455,8 +14454,7 @@ namespace Catch {
     {}
 
     bool TestSpec::TagPattern::matches( TestCaseInfo const& testCase ) const {
-        return std::find(begin(testCase.lcaseTags),
-                         end(testCase.lcaseTags),
+        return std::ranges::find(testCase.lcaseTags,
                          m_tag) != end(testCase.lcaseTags);
     }
 
@@ -16594,8 +16592,7 @@ namespace Catch {
         }
 
         std::string fileNameTag(const std::vector<std::string> &tags) {
-            auto it = std::find_if(begin(tags),
-                                   end(tags),
+            auto it = std::ranges::find_if((tags),
                                    [] (std::string const& tag) {return tag.front() == '#'; });
             if (it != tags.end())
                 return it->substr(1);
