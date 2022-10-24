@@ -1,5 +1,5 @@
 ---
-name: Automated Version Bum
+name: Automated Version Bump
 description: Automated version bump for npm packages.
 runs:
   using: node16
