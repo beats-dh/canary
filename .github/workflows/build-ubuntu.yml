@@ -9,7 +9,6 @@ on:
       - main
 
 env:
-  VCOKG_ROOT:
   CMAKE_BUILD_PARALLEL_LEVEL: 2
   MAKEFLAGS: '-j 2'
 
@@ -35,13 +34,17 @@ jobs:
 
       - name: Install Linux Dependencies
         run: >
-          sudo apt-get update && sudo apt-get install ccache linux-headers-$(uname -r)
+          sudo apt-get update && sudo upgrade && sudo apt-get install ccache
 
       - name: Switch to gcc-11
         run: |
           sudo apt install gcc-11 g++-11
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100 --slave /usr/bin/g++ g++ /usr/bin/g++-11 --slave /usr/bin/gcov gcov /usr/bin/gcov-11
           sudo update-alternatives --set gcc /usr/bin/gcc-11
+          
+      - name: Linux headers
+        run: |
+          sudo apt install linux-headers-$(uname -r)
 
       - name: CCache
         uses: hendrikmuhs/ccache-action@main
