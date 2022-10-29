@@ -1,15 +1,21 @@
----
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Automatic approve on dependabot PR
     conditions:
-      - "#approved-reviews-by>=0"
-      - base=dev
-      - label=pronto-pra-merge
+      - author~=^dependabot(|-preview)\[bot\]$
+    actions:
+      review:
+        type: APPROVE
+  - name: Automatic merge on dependabot PR after success CI
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - '#commits-behind=0' # Only merge up to date pull requests
     actions:
       merge:
-        method: squash
-   - name: delete head branch after merge
+  - name: Thank contributor
     conditions:
       - squash
+      - -author~=^dependabot(|-preview)\[bot\]$
     actions:
-      delete_head_branch:
+      comment:
+        message: "Thank you @{{author}} for your contribution!"
+        
