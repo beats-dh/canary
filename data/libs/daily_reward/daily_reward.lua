@@ -7,7 +7,7 @@ DAILY_REWARD_SOUL_REGENERATION = 7
 DAILY_REWARD_FIRST = 2
 DAILY_REWARD_LAST = 7
 
--- Global tables
+
 DailyRewardBonus = {
 	Stamina = {},
 	Soul = {}
