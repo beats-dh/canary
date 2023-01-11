@@ -60,7 +60,6 @@ bool IOMapSerialize::saveHouseItems()
 
 	//Start the transaction
 	DBTransaction transaction1;
-	
 	if (!transaction1.start()) {
 		return false;
 	}
@@ -96,10 +95,8 @@ bool IOMapSerialize::saveHouseItems()
 		return false;
 	}
 
-	//End the transaction
-	bool success = transaction1.commit();
 	SPDLOG_INFO("Saved house items in {} seconds", (OTSYS_TIME() - start) / (1000.));
-	return success;
+	return true;
 }
 
 bool IOMapSerialize::loadContainer(PropStream& propStream, Container* container)
@@ -357,5 +354,5 @@ bool IOMapSerialize::saveHouseInfo()
 		return false;
 	}
 
-	return transaction2.commit();
+	return true;
 }
