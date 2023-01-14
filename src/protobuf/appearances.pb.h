@@ -6917,7 +6917,7 @@ namespace Canary {
 	#pragma GCC diagnostic push
 	#pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif // __GNUC__
-			// Coordinate
+	   // Coordinate
 
 			// optional uint32 x = 1;
 			inline bool Coordinate::_internal_has_x() const {
@@ -8356,7 +8356,7 @@ namespace Canary {
 					_impl_.name_.Set("", GetArenaForAllocation());
 				}
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-				// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.name)
+	   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.name)
 			}
 
 			// optional bytes description = 5;
@@ -8423,7 +8423,7 @@ namespace Canary {
 					_impl_.description_.Set("", GetArenaForAllocation());
 				}
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-				// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.description)
+	   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.Appearance.description)
 			}
 
 			// -------------------------------------------------------------------
@@ -11560,7 +11560,7 @@ namespace Canary {
 					_impl_.name_.Set("", GetArenaForAllocation());
 				}
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-				// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.name)
+	   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.name)
 			}
 
 			// optional bytes location = 2;
@@ -11627,7 +11627,7 @@ namespace Canary {
 					_impl_.location_.Set("", GetArenaForAllocation());
 				}
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-				// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.location)
+	   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.location)
 			}
 
 			// optional uint32 sale_price = 3;
@@ -11778,7 +11778,7 @@ namespace Canary {
 					_impl_.currency_quest_flag_display_name_.Set("", GetArenaForAllocation());
 				}
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-				// @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
+	   // @@protoc_insertion_point(field_set_allocated:Canary.protobuf.appearances.AppearanceFlagNPC.currency_quest_flag_display_name)
 			}
 
 			// -------------------------------------------------------------------
@@ -12117,7 +12117,7 @@ namespace Canary {
 #ifdef __GNUC__
 	#pragma GCC diagnostic pop
 #endif // __GNUC__
-			// -------------------------------------------------------------------
+	   // -------------------------------------------------------------------
 
 			// -------------------------------------------------------------------
 
