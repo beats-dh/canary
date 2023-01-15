@@ -28,7 +28,7 @@ jobs:
           clangFormatVersion: 15
           inplace: true
 
-      - uses: EndBug/add-and-commit@v9
+      - uses: EndBug/add-and-commit@v4
         with:
           author_name: Beats
           author_email: daniel15042014@hotmail.com
