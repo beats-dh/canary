@@ -1,3 +1,4 @@
+---
 name: Clang-format
 
 on:
@@ -20,18 +21,18 @@ jobs:
           ref: ${{github.event.pull_request.head.ref}}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: DoozyX/clang-format-lint-action@v0.15
+      - uses: DoozyX/clang-format-lint-action@v0.14
         with:
           source: "src"
           exclude: "src/protobuf"
           extensions: "cpp,hpp,h"
-          clangFormatVersion: 15
+          clangFormatVersion: 14
           inplace: true
 
       - uses: EndBug/add-and-commit@v4
         with:
-          author_name: Beats
-          author_email: daniel15042014@hotmail.com
+          author_name: GitHub Actions
+          author_email: github-actions[bot]@users.noreply.github.com
           message: "Code format"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
