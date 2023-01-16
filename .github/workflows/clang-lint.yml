@@ -1,5 +1,5 @@
 ---
-name: Clang-format
+name: Clang-formater
 
 on:
   pull_request:
