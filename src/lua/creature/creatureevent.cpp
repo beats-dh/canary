@@ -5,7 +5,7 @@
  * License: https://github.com/opentibiabr/canary/blob/main/LICENSE
  * Contributors: https://github.com/opentibiabr/canary/graphs/contributors
  * Website: https://docs.opentibiabr.org/
-*/
+ */
 
 #include "pch.hpp"
 
@@ -13,15 +13,14 @@
 #include "utils/tools.h"
 #include "creatures/players/player.h"
 
-void CreatureEvents::clear()
-{
+void CreatureEvents::clear() {
 	for (auto &[name, event] : creatureEvents) {
 		event.clearEvent();
 	}
 }
 
 bool CreatureEvents::registerLuaEvent(CreatureEvent* event) {
-	CreatureEvent_ptr creatureEvent{ event };
+	CreatureEvent_ptr creatureEvent { event };
 	if (creatureEvent->getEventType() == CREATURE_EVENT_NONE) {
 		SPDLOG_ERROR("[CreatureEvents::registerLuaEvent] - Trying to register event without type");
 		return false;
@@ -29,7 +28,7 @@ bool CreatureEvents::registerLuaEvent(CreatureEvent* event) {
 
 	CreatureEvent* oldEvent = getEventByName(creatureEvent->getName(), false);
 	if (oldEvent) {
-		//if there was an event with the same that is not loaded
+		// if there was an event with the same that is not loaded
 		//(happens when realoading), it is reused
 		if (!oldEvent->isLoaded() && oldEvent->getEventType() == creatureEvent->getEventType()) {
 			oldEvent->copyEvent(creatureEvent.get());
@@ -37,13 +36,13 @@ bool CreatureEvents::registerLuaEvent(CreatureEvent* event) {
 
 		return false;
 	} else {
-		//if not, register it normally
+		// if not, register it normally
 		creatureEvents.emplace(creatureEvent->getName(), std::move(*creatureEvent));
 		return true;
 	}
 }
 
-CreatureEvent* CreatureEvents::getEventByName(const std::string& name, bool forceLoaded /*= true*/) {
+CreatureEvent* CreatureEvents::getEventByName(const std::string &name, bool forceLoaded /*= true*/) {
 	auto it = creatureEvents.find(name);
 	if (it != creatureEvents.end()) {
 		if (!forceLoaded || it->second.isLoaded()) {
@@ -54,8 +53,8 @@ CreatureEvent* CreatureEvents::getEventByName(const std::string& name, bool forc
 }
 
 bool CreatureEvents::playerLogin(Player* player) const {
-	//fire global event if is registered
-	for (const auto& it : creatureEvents) {
+	// fire global event if is registered
+	for (const auto &it : creatureEvents) {
 		if (it.second.getEventType() == CREATURE_EVENT_LOGIN) {
 			if (!it.second.executeOnLogin(player)) {
 				return false;
@@ -66,8 +65,8 @@ bool CreatureEvents::playerLogin(Player* player) const {
 }
 
 bool CreatureEvents::playerLogout(Player* player) const {
-	//fire global event if is registered
-	for (const auto& it : creatureEvents) {
+	// fire global event if is registered
+	for (const auto &it : creatureEvents) {
 		if (it.second.getEventType() == CREATURE_EVENT_LOGOUT) {
 			if (!it.second.executeOnLogout(player)) {
 				return false;
@@ -82,9 +81,8 @@ bool CreatureEvents::playerAdvance(
 	skills_t skill,
 	uint32_t oldLevel,
 	uint32_t newLevel
-) const
-{
-	for ([[maybe_unused]] const auto& [eventName, eventPtr] : creatureEvents) {
+) const {
+	for ([[maybe_unused]] const auto &[eventName, eventPtr] : creatureEvents) {
 		if (eventPtr.getEventType() == CREATURE_EVENT_ADVANCE) {
 			if (!eventPtr.executeAdvance(player, skill, oldLevel, newLevel)) {
 				return false;
@@ -100,7 +98,8 @@ bool CreatureEvents::playerAdvance(
  =======================
 */
 
-CreatureEvent::CreatureEvent(LuaScriptInterface* interface) : Script(interface) {}
+CreatureEvent::CreatureEvent(LuaScriptInterface* interface) :
+	Script(interface) { }
 
 void CreatureEvents::removeInvalidEvents() {
 	for (auto it = creatureEvents.begin(); it != creatureEvents.end(); ++it) {
@@ -111,7 +110,7 @@ void CreatureEvents::removeInvalidEvents() {
 }
 
 std::string CreatureEvent::getScriptTypeName() const {
-	//Depending on the type script event name is different
+	// Depending on the type script event name is different
 	switch (type) {
 		case CREATURE_EVENT_LOGIN:
 			return "onLogin";
@@ -170,11 +169,11 @@ void CreatureEvent::clearEvent() {
 }
 
 bool CreatureEvent::executeOnLogin(Player* player) const {
-	//onLogin(player)
+	// onLogin(player)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnLogin - Player {} event {}]"
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), getName());
 		return false;
 	}
 
@@ -190,11 +189,11 @@ bool CreatureEvent::executeOnLogin(Player* player) const {
 }
 
 bool CreatureEvent::executeOnLogout(Player* player) const {
-	//onLogout(player)
+	// onLogout(player)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnLogout - Player {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), getName());
 		return false;
 	}
 
@@ -210,11 +209,11 @@ bool CreatureEvent::executeOnLogout(Player* player) const {
 }
 
 bool CreatureEvent::executeOnThink(Creature* creature, uint32_t interval) const {
-	//onThink(creature, interval)
+	// onThink(creature, interval)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnThink - Creature {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    creature->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), getName());
 		return false;
 	}
 
@@ -232,11 +231,11 @@ bool CreatureEvent::executeOnThink(Creature* creature, uint32_t interval) const 
 }
 
 bool CreatureEvent::executeOnPrepareDeath(Creature* creature, Creature* killer) const {
-	//onPrepareDeath(creature, killer)
+	// onPrepareDeath(creature, killer)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnPrepareDeath - Creature {} killer {}"
-			" event {}] Call stack overflow. Too many lua script calls being nested.",
-			creature->getName(), killer->getName(), getName());
+					 " event {}] Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), killer->getName(), getName());
 		return false;
 	}
 
@@ -261,11 +260,11 @@ bool CreatureEvent::executeOnPrepareDeath(Creature* creature, Creature* killer) 
 }
 
 bool CreatureEvent::executeOnDeath(Creature* creature, Item* corpse, Creature* killer, Creature* mostDamageKiller, bool lastHitUnjustified, bool mostDamageUnjustified) const {
-	//onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+	// onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnDeath - Creature {} killer {} event {}] "
-									"Call stack overflow. Too many lua script calls being nested.",
-									creature->getName(), killer->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), killer->getName(), getName());
 		return false;
 	}
 
@@ -300,13 +299,12 @@ bool CreatureEvent::executeOnDeath(Creature* creature, Item* corpse, Creature* k
 	return getScriptInterface()->callFunction(6);
 }
 
-bool CreatureEvent::executeAdvance(Player* player, skills_t skill, uint32_t oldLevel,
-                                   uint32_t newLevel) const {
-	//onAdvance(player, skill, oldLevel, newLevel)
+bool CreatureEvent::executeAdvance(Player* player, skills_t skill, uint32_t oldLevel, uint32_t newLevel) const {
+	// onAdvance(player, skill, oldLevel, newLevel)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeAdvance - Player {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), getName());
 		return false;
 	}
 
@@ -326,11 +324,11 @@ bool CreatureEvent::executeAdvance(Player* player, skills_t skill, uint32_t oldL
 }
 
 void CreatureEvent::executeOnKill(Creature* creature, Creature* target, bool lastHit) const {
-	//onKill(creature, target, lastHit)
+	// onKill(creature, target, lastHit)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeOnKill - Creature {} target {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    creature->getName(), target->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), target->getName(), getName());
 		return;
 	}
 
@@ -349,12 +347,12 @@ void CreatureEvent::executeOnKill(Creature* creature, Creature* target, bool las
 }
 
 void CreatureEvent::executeModalWindow(Player* player, uint32_t modalWindowId, uint8_t buttonId, uint8_t choiceId) const {
-	//onModalWindow(player, modalWindowId, buttonId, choiceId)
+	// onModalWindow(player, modalWindowId, buttonId, choiceId)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeModalWindow - "
-                    "Player {} modaw window id {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), modalWindowId, getName());
+					 "Player {} modaw window id {} event {}] "
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), modalWindowId, getName());
 		return;
 	}
 
@@ -374,12 +372,12 @@ void CreatureEvent::executeModalWindow(Player* player, uint32_t modalWindowId, u
 	getScriptInterface()->callVoidFunction(4);
 }
 
-bool CreatureEvent::executeTextEdit(Player* player, Item* item, const std::string& text) const {
-	//onTextEdit(player, item, text)
+bool CreatureEvent::executeTextEdit(Player* player, Item* item, const std::string &text) const {
+	// onTextEdit(player, item, text)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeTextEdit - Player {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), getName());
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), getName());
 		return false;
 	}
 
@@ -398,13 +396,13 @@ bool CreatureEvent::executeTextEdit(Player* player, Item* item, const std::strin
 	return getScriptInterface()->callFunction(3);
 }
 
-void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, CombatDamage& damage) const {
-	//onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, CombatDamage &damage) const {
+	// onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeHealthChange - "
-                    "Creature {} attacker {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    creature->getName(), attacker->getName(), getName());
+					 "Creature {} attacker {} event {}] "
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), attacker->getName(), getName());
 		return;
 	}
 
@@ -443,13 +441,13 @@ void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, 
 	getScriptInterface()->resetScriptEnv();
 }
 
-void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, CombatDamage& damage) const {
-	//onManaChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, CombatDamage &damage) const {
+	// onManaChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeManaChange - "
-                    "Creature {} attacker {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    creature->getName(), attacker->getName(), getName());
+					 "Creature {} attacker {} event {}] "
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 creature->getName(), attacker->getName(), getName());
 		return;
 	}
 
@@ -483,13 +481,13 @@ void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, Co
 	getScriptInterface()->resetScriptEnv();
 }
 
-void CreatureEvent::executeExtendedOpcode(Player* player, uint8_t opcode, const std::string& buffer) const {
-	//onExtendedOpcode(player, opcode, buffer)
+void CreatureEvent::executeExtendedOpcode(Player* player, uint8_t opcode, const std::string &buffer) const {
+	// onExtendedOpcode(player, opcode, buffer)
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("[CreatureEvent::executeExtendedOpcode - "
-                    "Player {} event {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
-                    player->getName(), getName());
+					 "Player {} event {}] "
+					 "Call stack overflow. Too many lua script calls being nested.",
+					 player->getName(), getName());
 		return;
 	}
 
