@@ -30,92 +30,94 @@ void DatabaseTasks::start()
   if (db_ == nullptr) {
     return;
   }
+  std::unique_lock<std::mutex> lock(connection_lock);
 	db_->connect();
-	ThreadHolder::start();
-}
-
-void DatabaseTasks::startThread()
-{
 	ThreadHolder::start();
 }
 
 void DatabaseTasks::threadMain()
 {
-	std::unique_lock<std::mutex> taskLockUnique(taskLock, std::defer_lock);
-	while (getState() != THREAD_STATE_TERMINATED) {
-		taskLockUnique.lock();
-		if (tasks.empty()) {
-			if (flushTasks) {
-				flushSignal.notify_one();
-			}
-			taskSignal.wait(taskLockUnique, [this] {
-				return !tasks.empty();
-			});
-		}
+    std::unique_lock<std::mutex> taskLockUnique(task_lock, std::defer_lock);
+    thread_state.store(true); //atribui o estado ativo a thread_state
+    while (thread_state.load()) {
+        if(!taskLockUnique.try_lock()){
+            continue;
+        }
+        if (tasks.empty()) {
+            task_signal.wait(taskLockUnique, [this] {
+                if(!thread_state.load()) {
+                    return true;
+                }
+                return !tasks.empty();
+            });
+        }
 
-		if (!tasks.empty()) {
-			DatabaseTask task = std::move(tasks.front());
-			tasks.pop_front();
-			taskLockUnique.unlock();
-			runTask(task);
-		} else {
-			taskLockUnique.unlock();
-		}
-	}
+        if (!tasks.empty()) {
+            DatabaseTask task = std::move(tasks.front());
+            tasks.pop_back();
+            taskLockUnique.unlock();
+            if(!task.query.empty()){
+                std::packaged_task<void()> task_handle(std::bind(&DatabaseTasks::runTask, this, task));
+                task_handle();
+            }
+        } else {
+            taskLockUnique.unlock();
+        }
+    }
 }
 
 void DatabaseTasks::addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback/* = nullptr*/, bool store/* = false*/)
 {
-	bool signal = false;
-	taskLock.lock();
-	if (getState() == THREAD_STATE_RUNNING) {
-		signal = tasks.empty();
-		tasks.emplace_back(std::move(query), std::move(callback), store);
-	}
-	taskLock.unlock();
-
-	if (signal) {
-		taskSignal.notify_one();
-	}
+  std::unique_lock<std::mutex> lock(task_lock);
+  if (getState() == THREAD_STATE_RUNNING) {
+    tasks.emplace_back(std::move(query), std::move(callback), store);
+    task_signal.notify_one();
+  }
 }
+
 
 void DatabaseTasks::runTask(const DatabaseTask& task)
 {
-  if (db_ == nullptr) {
-    return;
-  }
-  bool success;
-	DBResult_ptr result;
-	if (task.store) {
-		result = db_->storeQuery(task.query);
-		success = true;
-	} else {
-		result = nullptr;
-		success = db_->executeQuery(task.query);
-	}
+    if (db_ == nullptr) {
+        return;
+    }
+    bool success;
+    DBResult_ptr result;
+    std::call_once(init_flag, [&] {
+        if (task.store) {
+            result = db_->storeQuery(task.query);
+            success = true;
+        } else {
+            result = nullptr;
+            success = db_->executeQuery(task.query);
+        }
+    });
 
-	if (task.callback) {
-		g_dispatcher().addTask(createTask(std::bind(task.callback, result, success)));
-	}
+    if (task.callback) {
+        g_dispatcher().addTask(createTask(std::bind(task.callback, result, success)));
+    }
 }
 
-void DatabaseTasks::flush()
-{
-	std::unique_lock<std::mutex> guard{ taskLock };
-	if (!tasks.empty()) {
-		flushTasks = true;
-		flushSignal.wait(guard, [this] {
-			return !flushTasks;
-		});
-		flushTasks = false;
-	}
+void DatabaseTasks::flush() {
+  std::unique_lock<std::mutex> guard(task_lock);
+  while (!tasks.empty() || !task_handle_list.empty()) {
+    task_signal.wait(guard, [this] {
+      return tasks.empty() && task_handle_list.empty();
+    });
+  }
+  tasks.clear();
+  task_handle_list.clear();
 }
 
 void DatabaseTasks::shutdown()
 {
-	taskLock.lock();
-	setState(THREAD_STATE_TERMINATED);
-	taskLock.unlock();
-	flush();
-	taskSignal.notify_one();
+    std::unique_lock<std::mutex> guard(task_lock, std::defer_lock);
+    if(!guard.try_lock()){
+        return;
+    }
+    setState(THREAD_STATE_TERMINATED);
+    std::call_once(shutdown_flag, [&] {
+        flush();
+        task_signal.notify_one();
+    });
 }

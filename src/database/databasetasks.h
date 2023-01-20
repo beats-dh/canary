@@ -52,11 +52,16 @@ class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 
 		Database *db_;
 		std::thread thread;
-		std::list<DatabaseTask> tasks;
-		std::mutex taskLock;
-		std::condition_variable taskSignal;
-		std::condition_variable flushSignal;
-		bool flushTasks = false;
+		std::vector<DatabaseTask> tasks;
+		std::mutex connection_lock;
+		std::mutex task_lock;
+		std::condition_variable_any task_signal;
+		std::condition_variable_any flush_signal;
+		std::atomic<bool> thread_state;
+		std::once_flag init_flag;
+		std::once_flag shutdown_flag;
+		std::vector<std::future<DBResult_ptr>> task_handle_list;
+
 };
 
 constexpr auto g_databaseTasks = &DatabaseTasks::getInstance;

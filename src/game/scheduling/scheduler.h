@@ -70,7 +70,7 @@ class Scheduler : public ThreadHolder<Scheduler>
 	private:
 		std::thread thread;
 		std::mutex eventLock;
-		std::condition_variable eventSignal;
+		std::condition_variable_any eventSignal;
 
 		uint32_t lastEventId {0};
 		std::priority_queue<SchedulerTask*, std::deque<SchedulerTask*>, TaskComparator> eventList;
