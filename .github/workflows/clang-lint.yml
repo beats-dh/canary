@@ -7,17 +7,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check current branch
-        run: |
-          BRANCH=$(jq -r '.ref' < ${GITHUB_EVENT_PATH})
-          BRANCH=${BRANCH#refs/heads/}
-          echo "Current branch: ${BRANCH}"
       - name: Set up Git
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
       - uses: actions/checkout@v3
-        if: ${{ env.BRANCH != 'main' }}
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
@@ -29,7 +23,15 @@ jobs:
           extensions: "cpp,hpp,h"
           clangFormatVersion: 15
           inplace: true
-      - uses: EndBug/add-and-commit@v9
+      - name: Check current branch
+        run: |
+          BRANCH=$(jq -r '.ref' < ${GITHUB_EVENT_PATH})
+          BRANCH=${BRANCH#refs/heads/}
+          echo "Current branch: ${BRANCH}"
+
+      - name: Add and commit changes
+        if: ${{ env.BRANCH != 'main' }}
+        uses: EndBug/add-and-commit@v9
         with:
           author_name: GitHub Actions
           author_email: github-actions[bot]@users.noreply.github.com
