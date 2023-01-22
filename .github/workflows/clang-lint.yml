@@ -12,12 +12,18 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
+
+      - name: Actions checkout
+        if: ${{ github.ref != 'refs/heads/main' }}
       - uses: actions/checkout@v3
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: DoozyX/clang-format-lint-action@v0.15
+
+      - name: Run clang format lint
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: DoozyX/clang-format-lint-action@v0.15
         with:
           source: "src"
           exclude: "src/protobuf"
@@ -25,7 +31,7 @@ jobs:
           clangFormatVersion: 15
           inplace: true
 
-      - name: add and commit
+      - name: Run add and commit
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: EndBug/add-and-commit@v9
         with:
