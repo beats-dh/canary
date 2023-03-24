@@ -5310,8 +5310,6 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 			addMagicEffect(targetPos, CONST_ME_BLOCKHIT);
 		} else if (blockType == BLOCK_DODGE) {
 			addMagicEffect(targetPos, CONST_ME_DODGE);
-		} else if (blockType == BLOCK_DODGE) {
-			addMagicEffect(targetPos, CONST_ME_DODGE);
 		} else if (blockType == BLOCK_IMMUNITY) {
 			uint8_t hitEffect = 0;
 			switch (combatType) {
@@ -5386,6 +5384,8 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 				canHeal = true;
 			}
 		}
+
+		primaryBlockType = BLOCK_NONE;
 		if (damage.origin != ORIGIN_REFLECT) {
 			primaryBlockType = target->blockHit(attacker, damage.primary.type, damage.primary.value, checkDefense, checkArmor, field);
 		}
@@ -5423,6 +5423,8 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 				canHeal = true;
 			}
 		}
+
+		secondaryBlockType = BLOCK_NONE;
 		if (damage.origin != ORIGIN_REFLECT) {
 			secondaryBlockType = target->blockHit(attacker, damage.secondary.type, damage.secondary.value, false, false, field);
 		}
