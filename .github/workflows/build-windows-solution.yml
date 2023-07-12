@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 env:
   CMAKE_BUILD_PARALLEL_LEVEL: 2

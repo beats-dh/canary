@@ -14,6 +14,7 @@ env:
   CMAKE_BUILD_PARALLEL_LEVEL: 2
   MAKEFLAGS: '-j 2'
   VCPKG_BINARY_SOURCES: clear;default,readwrite
+  VCPKG_INSTALLATION_ROOT: $(pwd)/vcpkg
 
 jobs:
   sonarcloud:
@@ -54,6 +55,14 @@ jobs:
           restore-keys: |
             sonar-${{ runner.os}}-
 
+      - name: Cache vcpkg dependencies
+        uses: actions/cache@main
+        with:
+          path: |
+            /home/runner/work/canary/canary/vcpkg/installed
+            /home/runner/work/canary/canary/vcpkg/vcpkg
+          key: ${{ runner.os }}-vcpkg-${{ hashFiles('**/vcpkg.json') }}
+
       - name: Restore artifacts and install vcpkg
         id: vcpkg-step
         run: |
@@ -66,6 +75,9 @@ jobs:
         with:
           vcpkgGitURL: "https://github.com/microsoft/vcpkg.git"
           vcpkgGitCommitId: ${{ env.VCPKG_GIT_COMMIT_ID }}
+          runVcpkgInstall: true  # Alterado de false para true
+          doNotUpdateVcpkg: false
+          doNotCache: false  # Alterado de true para false
 
       - name: Install sonar-scanner
         uses: SonarSource/sonarcloud-github-c-cpp@v1
