@@ -80,7 +80,7 @@ jobs:
           doNotCache: false  # Alterado de true para false
 
       - name: Install sonar-scanner
-        uses: SonarSource/sonarcloud-github-c-cpp@v1
+        uses: SonarSource/sonarcloud-github-c-cpp@v2
 
       - name: Generate compilation database
         run: |
