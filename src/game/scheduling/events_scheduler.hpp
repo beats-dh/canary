@@ -25,6 +25,13 @@ struct EventRates {
 		uint16_t skillrate = 100;
 };
 
+struct beats {
+		uint16_t beatsexprate = 100;
+		uint32_t beatslootrate = 100;
+		uint32_t beatsspawnrate = 100;
+		uint16_t beatsskillrate = 100;
+};
+
 class EventsScheduler {
 	public:
 		EventsScheduler() = default;

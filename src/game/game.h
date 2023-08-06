@@ -539,12 +539,12 @@ class Game {
 		void playerInspectItem(Player* player, const Position &pos);
 		void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
 
-		void addCharmRune(Charm* charm) {
-			CharmList.push_back(charm);
+		void addCharmRune(std::unique_ptr<Charm> charm) {
+			CharmList.push_back(std::move(charm));
 			CharmList.shrink_to_fit();
 		}
 
-		std::vector<Charm*> getCharmList() {
+		std::vector<std::unique_ptr<Charm>> &getCharmList() {
 			return CharmList;
 		}
 
@@ -762,7 +762,7 @@ class Game {
 		std::map<uint16_t, std::string> BestiaryList;
 		std::string boostedCreature = "";
 
-		std::vector<Charm*> CharmList;
+		std::vector<std::unique_ptr<Charm>> CharmList;
 		std::vector<Creature*> ToReleaseCreatures;
 		std::vector<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];
 		std::vector<Item*> ToReleaseItems;

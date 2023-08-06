@@ -2730,15 +2730,15 @@ void ProtocolGame::BestiarysendCharms() {
 	msg.addByte(0xd8);
 	msg.add<uint32_t>(player->getCharmPoints());
 
-	std::vector<Charm*> charmList = g_game().getCharmList();
+	const auto &charmList = g_game().getCharmList();
 	msg.addByte(charmList.size());
-	for (Charm* c_type : charmList) {
+	for (const auto &c_type : charmList) {
 		msg.addByte(c_type->id);
 		msg.addString(c_type->name);
 		msg.addString(c_type->description);
 		msg.addByte(0); // Unknown
 		msg.add<uint16_t>(c_type->points);
-		if (g_iobestiary().hasCharmUnlockedRuneBit(c_type, player->getUnlockedRunesBit())) {
+		if (g_iobestiary().hasCharmUnlockedRuneBit(c_type.get(), player->getUnlockedRunesBit())) {
 			msg.addByte(1);
 			uint16_t raceid = player->parseRacebyCharm(c_type->id, false, 0);
 			if (raceid > 0) {

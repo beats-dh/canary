@@ -502,12 +502,12 @@ int GameFunctions::luaGameCreateTile(lua_State* L) {
 
 int GameFunctions::luaGameGetBestiaryCharm(lua_State* L) {
 	// Game.getBestiaryCharm()
-	std::vector<Charm*> c_list = g_game().getCharmList();
+	const auto &c_list = g_game().getCharmList();
 	lua_createtable(L, c_list.size(), 0);
 
 	int index = 0;
-	for (auto &it : c_list) {
-		pushUserdata<Charm>(L, it);
+	for (const auto &it : c_list) {
+		pushUserdata<Charm>(L, it.get());
 		setMetatable(L, -1, "Charm");
 		lua_rawseti(L, -2, ++index);
 	}

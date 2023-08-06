@@ -103,15 +103,7 @@ Game::Game() {
 	m_IOWheel = std::make_unique<IOWheel>();
 }
 
-Game::~Game() {
-	for (const auto &it : guilds) {
-		delete it.second;
-	}
-
-	for (const auto &it : CharmList) {
-		delete it;
-	}
-}
+Game::~Game() {}
 
 void Game::resetMonsters() const {
 	for (const auto &[monsterId, monster] : getMonsters()) {

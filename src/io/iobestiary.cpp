@@ -93,19 +93,20 @@ bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target
 }
 
 Charm* IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= false*/) {
-	std::vector<Charm*> charmInternal = g_game().getCharmList();
-	for (Charm* tmpCharm : charmInternal) {
+	const auto &charmInternal = g_game().getCharmList();
+	for (const auto &tmpCharm : charmInternal) {
 		if (tmpCharm->id == activeCharm) {
-			return tmpCharm;
+			return tmpCharm.get(); // get() retorna o ponteiro raw do unique_ptr
 		}
 	}
 
 	if (force) {
-		auto charm = new Charm();
+		auto charm = std::make_unique<Charm>();
 		charm->id = activeCharm;
 		charm->binary = 1 << activeCharm;
-		g_game().addCharmRune(charm);
-		return charm;
+		auto rawPtr = charm.get();
+		g_game().addCharmRune(std::move(charm));
+		return rawPtr;
 	}
 
 	return nullptr;
