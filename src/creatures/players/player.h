@@ -239,10 +239,10 @@ class Player final : public Creature, public Cylinder {
 			bankBalance = balance;
 		}
 
-		Guild* getGuild() const {
+		std::shared_ptr<Guild> getGuild() const {
 			return guild;
 		}
-		void setGuild(Guild* guild);
+		void setGuild(std::shared_ptr<Guild> guild);
 
 		GuildRank_ptr getGuildRank() const {
 			return guildRank;
@@ -2612,7 +2612,7 @@ class Player final : public Creature, public Cylinder {
 		std::vector<Kill> unjustifiedKills;
 
 		BedItem* bedItem = nullptr;
-		Guild* guild = nullptr;
+		std::shared_ptr<Guild> guild = nullptr;
 		GuildRank_ptr guildRank;
 		Group* group = nullptr;
 		Inbox* inbox;

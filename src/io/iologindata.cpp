@@ -389,7 +389,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 		uint32_t playerRankId = result->getNumber<uint32_t>("rank_id");
 		player->guildNick = result->getString("nick");
 
-		Guild* guild = g_game().getGuild(guildId);
+		std::shared_ptr<Guild> guild = g_game().getGuild(guildId);
 		if (!guild) {
 			guild = IOGuild::loadGuild(guildId);
 			g_game().addGuild(guild);

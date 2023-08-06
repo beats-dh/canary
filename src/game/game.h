@@ -497,8 +497,8 @@ class Game {
 		void addMonster(Monster* npc);
 		void removeMonster(Monster* npc);
 
-		Guild* getGuild(uint32_t id) const;
-		void addGuild(Guild* guild);
+		std::shared_ptr<Guild> getGuild(uint32_t id) const;
+		void addGuild(std::shared_ptr<Guild> guild);
 		void removeGuild(uint32_t guildId);
 		void decreaseBrowseFieldRef(const Position &pos);
 
@@ -749,7 +749,7 @@ class Game {
 		phmap::flat_hash_map<std::string, Player*> m_uniqueLoginPlayerNames;
 		phmap::flat_hash_map<uint32_t, Player*> players;
 		phmap::flat_hash_map<std::string, Player*> mappedPlayerNames;
-		phmap::flat_hash_map<uint32_t, Guild*> guilds;
+		phmap::flat_hash_map<uint32_t, std::shared_ptr<Guild>> guilds;
 		phmap::flat_hash_map<uint16_t, Item*> uniqueItems;
 		phmap::btree_map<uint32_t, uint32_t> stages;
 

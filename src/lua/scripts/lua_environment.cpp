@@ -26,7 +26,8 @@ LuaEnvironment::~LuaEnvironment() {
 
 bool LuaEnvironment::initState() {
 	luaState = luaL_newstate();
-	LuaFunctionsLoader::load(luaState);
+	LuaFunctionsLoader::
+		LuaFunctionsLoader::load(luaState);
 	runningEventId = EVENT_ID_USER;
 
 	return true;

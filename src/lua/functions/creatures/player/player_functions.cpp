@@ -1414,13 +1414,13 @@ int PlayerFunctions::luaPlayerGetGuild(lua_State* L) {
 		return 1;
 	}
 
-	Guild* guild = player->getGuild();
+	auto guild = player->getGuild();
 	if (!guild) {
 		lua_pushnil(L);
 		return 1;
 	}
 
-	pushUserdata<Guild>(L, guild);
+	pushUserdata<Guild>(L, guild.get());
 	setMetatable(L, -1, "Guild");
 	return 1;
 }
@@ -1433,7 +1433,9 @@ int PlayerFunctions::luaPlayerSetGuild(lua_State* L) {
 		return 1;
 	}
 
-	player->setGuild(getUserdata<Guild>(L, 2));
+	std::shared_ptr<Guild> guild = getUserdataShared<Guild>(L, 2);
+	player->setGuild(guild);
+
 	pushBoolean(L, true);
 	return 1;
 }

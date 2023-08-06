@@ -84,4 +84,6 @@ function playerDeath.onDeath(player, corpse, killer, mostDamageKiller, unjustifi
 	end
 end
 
+print(targetGuild:getId())
+
 playerDeath:register()

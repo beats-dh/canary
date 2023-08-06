@@ -41,6 +41,7 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 #include "protobuf/appearances.pb.h"
+#include "lua/functions/lua_functions_loader.hpp"
 
 namespace InternalGame {
 	void sendBlockEffect(BlockType_t blockType, CombatType_t combatType, const Position &targetPos, Creature* source) {
@@ -163,7 +164,8 @@ Game::Game() {
 	m_IOWheel = std::make_unique<IOWheel>();
 }
 
-Game::~Game() {}
+Game::~Game() {
+}
 
 void Game::resetMonsters() const {
 	for (const auto &[monsterId, monster] : getMonsters()) {
@@ -7687,7 +7689,7 @@ void Game::sendGuildMotd(uint32_t playerId) {
 		return;
 	}
 
-	Guild* guild = player->getGuild();
+	auto guild = player->getGuild();
 	if (guild) {
 		player->sendChannelMessage("Message of the Day", guild->getMotd(), TALKTYPE_CHANNEL_R1, CHANNEL_GUILD);
 	}
@@ -9110,7 +9112,7 @@ void Game::removeMonster(Monster* monster) {
 	monsters.erase(monster->getID());
 }
 
-Guild* Game::getGuild(uint32_t id) const {
+std::shared_ptr<Guild> Game::getGuild(uint32_t id) const {
 	auto it = guilds.find(id);
 	if (it == guilds.end()) {
 		return nullptr;
@@ -9118,7 +9120,7 @@ Guild* Game::getGuild(uint32_t id) const {
 	return it->second;
 }
 
-void Game::addGuild(Guild* guild) {
+void Game::addGuild(std::shared_ptr<Guild> guild) {
 	if (!guild) {
 		return;
 	}
