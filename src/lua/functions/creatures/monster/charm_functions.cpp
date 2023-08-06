@@ -17,9 +17,9 @@ int CharmFunctions::luaCharmCreate(lua_State* L) {
 	// charm(id)
 	if (isNumber(L, 2)) {
 		charmRune_t charmid = getNumber<charmRune_t>(L, 2);
-		std::vector<Charm*> charmList = g_game().getCharmList();
-		for (auto &it : charmList) {
-			Charm* charm = it;
+		const auto &charmList = g_game().getCharmList();
+		for (const auto &it : charmList) {
+			Charm* charm = it.get();
 			if (charm->id == charmid) {
 				pushUserdata<Charm>(L, charm);
 				setMetatable(L, -1, "Charm");
