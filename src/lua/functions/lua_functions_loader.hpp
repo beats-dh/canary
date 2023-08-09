@@ -181,11 +181,6 @@ class LuaFunctionsLoader {
 		}
 
 		template <class T>
-		static std::shared_ptr<T>* getRawUserDataShared(lua_State* L, int32_t arg) {
-			return static_cast<std::shared_ptr<T>*>(lua_touserdata(L, arg));
-		}
-
-		template <class T>
 		static void pushUserdata(lua_State* L, std::shared_ptr<T> value) {
 			// This is basically malloc from C++ point of view.
 			auto userData = static_cast<std::shared_ptr<T>*>(lua_newuserdata(L, sizeof(std::shared_ptr<T>)));

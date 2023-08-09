@@ -633,8 +633,7 @@ int LuaFunctionsLoader::luaUserdataCompare(lua_State* L) {
 }
 
 int LuaFunctionsLoader::luaGarbageCollection(lua_State* L) {
-	if (auto* ptr = getRawUserDataShared<LuaObject>(L, 1))
-		*ptr = nullptr;
-
+	auto* ptr = static_cast<std::shared_ptr<LuaObject>*>(lua_touserdata(L, 1));
+	*ptr = nullptr;
 	return 0;
 }
