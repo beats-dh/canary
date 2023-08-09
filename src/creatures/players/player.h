@@ -482,7 +482,6 @@ class Player final : public Creature, public Cylinder {
 			return inMarket;
 		}
 		void setSpecialMenuAvailable(bool supplyStashBool, bool marketMenuBool, bool depotSearchBool) {
-
 			// Closing depot search when player have special container disabled and it's still open.
 			if (isDepotSearchOpen() && !depotSearchBool && depotSearch) {
 				depotSearchOnItem = { 0, 0 };
@@ -873,7 +872,7 @@ class Player final : public Creature, public Cylinder {
 		void onAddCondition(ConditionType_t type) override;
 		void onAddCombatCondition(ConditionType_t type) override;
 		void onEndCondition(ConditionType_t type) override;
-		void onCombatRemoveCondition(Condition* condition) override;
+		void onCombatRemoveCondition(const ConditionPtr &condition) override;
 		void onAttackedCreature(Creature* target) override;
 		void onAttacked() override;
 		void onAttackedCreatureDrainHealth(Creature* target, int32_t points) override;
@@ -2469,7 +2468,7 @@ class Player final : public Creature, public Cylinder {
 		static uint32_t playerFirstID;
 		static uint32_t playerLastID;
 
-		std::forward_list<Condition*> getMuteConditions() const;
+		std::forward_list<ConditionPtr> getMuteConditions() const;
 
 		void checkTradeState(const Item* item);
 		bool hasCapacity(const Item* item, uint32_t count) const;
@@ -2567,7 +2566,7 @@ class Player final : public Creature, public Cylinder {
 		std::forward_list<uint32_t> modalWindows;
 		std::forward_list<std::string> learnedInstantSpellList;
 		// TODO: This variable is only temporarily used when logging in, get rid of it somehow.
-		std::forward_list<Condition*> storedConditionList;
+		std::forward_list<ConditionPtr> storedConditionList;
 
 		std::list<std::shared_ptr<MonsterType>> BestiaryTracker;
 

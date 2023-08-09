@@ -68,7 +68,7 @@ class ChainPickerCallback final : public CallBack {
 };
 
 struct CombatParams {
-		std::forward_list<std::unique_ptr<const Condition>> conditionList;
+		std::forward_list<ConditionPtr> conditionList;
 
 		std::unique_ptr<ValueCallback> valueCallback;
 		std::unique_ptr<TileCallback> tileCallback;
@@ -296,7 +296,7 @@ class Combat {
 		bool hasArea() const {
 			return area != nullptr;
 		}
-		void addCondition(const Condition* condition) {
+		void addCondition(const ConditionPtr &condition) {
 			params.conditionList.emplace_front(condition);
 		}
 		void setPlayerCombatValues(formulaType_t formulaType, double mina, double minb, double maxa, double maxb);

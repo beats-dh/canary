@@ -467,7 +467,7 @@ float Player::getDefenseFactor() const {
 
 uint32_t Player::getClientIcons() const {
 	uint32_t icons = 0;
-	for (Condition* condition : conditions) {
+	for (const ConditionPtr &condition : conditions) {
 		if (!isSuppress(condition->getType())) {
 			icons |= condition->getIcons();
 		}
@@ -1558,7 +1558,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin) {
 			}
 		}
 
-		for (Condition* condition : storedConditionList) {
+		for (const ConditionPtr &condition : storedConditionList) {
 			addCondition(condition);
 		}
 		storedConditionList.clear();
@@ -1585,7 +1585,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin) {
 			offlineTime = 0;
 		}
 
-		for (Condition* condition : getMuteConditions()) {
+		for (const ConditionPtr &condition : getMuteConditions()) {
 			condition->setTicks(condition->getTicks() - (offlineTime * 1000));
 			if (condition->getTicks() <= 0) {
 				removeCondition(condition);
@@ -1829,7 +1829,7 @@ void Player::onCreatureMove(Creature* creature, const Tile* newTile, const Posit
 	if (teleport || oldPos.z != newPos.z) {
 		int32_t ticks = g_configManager().getNumber(STAIRHOP_DELAY);
 		if (ticks > 0) {
-			if (Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_PACIFIED, ticks, 0)) {
+			if (const ConditionPtr &condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_PACIFIED, ticks, 0)) {
 				addCondition(condition);
 			}
 		}
@@ -2064,7 +2064,7 @@ uint32_t Player::isMuted() const {
 	}
 
 	int32_t muteTicks = 0;
-	for (Condition* condition : conditions) {
+	for (const ConditionPtr &condition : conditions) {
 		if (condition->getType() == CONDITION_MUTED && condition->getTicks() > muteTicks) {
 			muteTicks = condition->getTicks();
 		}
@@ -2094,7 +2094,7 @@ void Player::removeMessageBuffer() {
 
 			uint32_t muteTime = 5 * muteCount * muteCount;
 			muteCountMap[guid] = muteCount + 1;
-			Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_MUTED, muteTime * 1000, 0);
+			const ConditionPtr &condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_MUTED, muteTime * 1000, 0);
 			addCondition(condition);
 
 			std::ostringstream ss;
@@ -2696,14 +2696,13 @@ void Player::death(Creature* lastHitCreature) {
 
 		auto it = conditions.begin(), end = conditions.end();
 		while (it != end) {
-			Condition* condition = *it;
+			const ConditionPtr condition = *it;
 			// isSupress block to delete spells conditions (ensures that the player cannot, for example, reset the cooldown time of the familiar and summon several)
 			if (condition->isPersistent() && condition->isRemovableOnDeath()) {
 				it = conditions.erase(it);
 
 				condition->endCondition(this);
 				onEndCondition(condition->getType());
-				delete condition;
 			} else {
 				++it;
 			}
@@ -2713,13 +2712,12 @@ void Player::death(Creature* lastHitCreature) {
 
 		auto it = conditions.begin(), end = conditions.end();
 		while (it != end) {
-			Condition* condition = *it;
+			const ConditionPtr condition = *it;
 			if (condition->isPersistent()) {
 				it = conditions.erase(it);
 
 				condition->endCondition(this);
 				onEndCondition(condition->getType());
-				delete condition;
 			} else {
 				++it;
 			}
@@ -2857,7 +2855,7 @@ void Player::addInFightTicks(bool pzlock /*= false*/) {
 		sendIcons();
 	}
 
-	Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(PZ_LOCKED), 0);
+	const ConditionPtr &condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(PZ_LOCKED), 0);
 	addCondition(condition);
 }
 
@@ -4262,7 +4260,7 @@ void Player::onWalkComplete() {
 		 */
 
 		SPDLOG_DEBUG("[Player::onWalkComplete] Executing feared conditions as players completed it's walk.");
-		Condition* f = getCondition(CONDITION_FEARED);
+		const ConditionPtr &f = getCondition(CONDITION_FEARED);
 		f->executeCondition(this, 0);
 	}
 
@@ -4387,7 +4385,7 @@ void Player::onEndCondition(ConditionType_t type) {
 	sendIcons();
 }
 
-void Player::onCombatRemoveCondition(Condition* condition) {
+void Player::onCombatRemoveCondition(const ConditionPtr &condition) {
 	// Creature::onCombatRemoveCondition(condition);
 	if (condition->getId() > 0) {
 		// Means the condition is from an item, id == slot
@@ -4550,7 +4548,7 @@ bool Player::onKilledCreature(Creature* target, bool lastHit /* = true*/) {
 
 				if (lastHit && hasCondition(CONDITION_INFIGHT)) {
 					pzLocked = true;
-					Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(WHITE_SKULL_TIME), 0);
+					const ConditionPtr &condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(WHITE_SKULL_TIME), 0);
 					addCondition(condition);
 				}
 			}
@@ -5976,9 +5974,9 @@ size_t Player::getMaxDepotItems() const {
 	return g_configManager().getNumber(FREE_DEPOT_LIMIT);
 }
 
-std::forward_list<Condition*> Player::getMuteConditions() const {
-	std::forward_list<Condition*> muteConditions;
-	for (Condition* condition : conditions) {
+std::forward_list<ConditionPtr> Player::getMuteConditions() const {
+	std::forward_list<ConditionPtr> muteConditions;
+	for (const ConditionPtr &condition : conditions) {
 		if (condition->getTicks() <= 0) {
 			continue;
 		}
@@ -6025,7 +6023,7 @@ void Player::updateRegeneration() {
 		return;
 	}
 
-	Condition* condition = getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
+	const ConditionPtr &condition = getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 	if (condition) {
 		condition->setParam(CONDITION_PARAM_HEALTHGAIN, vocation->getHealthGainAmount());
 		condition->setParam(CONDITION_PARAM_HEALTHTICKS, vocation->getHealthGainTicks());
@@ -7332,15 +7330,12 @@ void Player::registerForgeHistoryDescription(ForgeHistory history) {
 		);
 	} else if (history.actionType == ForgeConversion_t::FORGE_ACTION_DUSTTOSLIVERS) {
 		detailsResponse << fmt::format("Converted {:d} dust to {:d} slivers.", history.cost, history.gained);
-
 	} else if (history.actionType == ForgeConversion_t::FORGE_ACTION_SLIVERSTOCORES) {
 		history.actionType = ForgeConversion_t::FORGE_ACTION_DUSTTOSLIVERS;
 		detailsResponse << fmt::format("Converted {:d} slivers to {:d} exalted core.", history.cost, history.gained);
-
 	} else if (history.actionType == ForgeConversion_t::FORGE_ACTION_INCREASELIMIT) {
 		history.actionType = ForgeConversion_t::FORGE_ACTION_DUSTTOSLIVERS;
 		detailsResponse << fmt::format("Spent {:d} dust to increase the dust limit to {:d}.", history.cost, history.gained + 1);
-
 	} else {
 		detailsResponse << "(unknown)";
 	}

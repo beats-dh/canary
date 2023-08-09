@@ -15,9 +15,7 @@
 class LootFunctions final : LuaScriptInterface {
 	public:
 		static void init(lua_State* L) {
-			registerClass(L, "Loot", "", LootFunctions::luaCreateLoot);
-			registerMetaMethod(L, "Loot", "__gc", LootFunctions::luaDeleteLoot);
-			registerMethod(L, "Loot", "delete", LootFunctions::luaDeleteLoot);
+			registerSharedClass(L, "Loot", "", LootFunctions::luaCreateLoot);
 
 			registerMethod(L, "Loot", "setId", LootFunctions::luaLootSetId);
 			registerMethod(L, "Loot", "setIdFromName", LootFunctions::luaLootSetIdFromName);
@@ -41,7 +39,6 @@ class LootFunctions final : LuaScriptInterface {
 
 	private:
 		static int luaCreateLoot(lua_State* L);
-		static int luaDeleteLoot(lua_State* L);
 		static int luaLootSetId(lua_State* L);
 		static int luaLootSetIdFromName(lua_State* L);
 		static int luaLootSetMinCount(lua_State* L);

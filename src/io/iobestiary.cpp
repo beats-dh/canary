@@ -23,7 +23,7 @@ bool IOBestiary::parseCharmCombat(const std::shared_ptr<Charm> &charm, Player* p
 	CombatDamage charmDamage;
 	if (charm->type == CHARM_OFFENSIVE) {
 		if (charm->id == CHARM_CRIPPLE) {
-			ConditionSpeed* cripple = static_cast<ConditionSpeed*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_PARALYZE, 10000, 0));
+			const auto &cripple = Condition::createCondition(CONDITIONID_COMBAT, CONDITION_PARALYZE, 10000, 0)->static_self_cast<ConditionSpeed>();
 			cripple->setFormulaVars(-1, 81, -1, 81);
 			target->addCondition(cripple);
 			player->sendCancelMessage(charm->cancelMsg);
@@ -67,14 +67,14 @@ bool IOBestiary::parseCharmCombat(const std::shared_ptr<Charm> &charm, Player* p
 				return true;
 			}
 			case CHARM_ADRENALINE: {
-				ConditionSpeed* adrenaline = static_cast<ConditionSpeed*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_HASTE, 10000, 0));
+				const auto &adrenaline = Condition::createCondition(CONDITIONID_COMBAT, CONDITION_HASTE, 10000, 0)->static_self_cast<ConditionSpeed>();
 				adrenaline->setFormulaVars(1.5, -0, 1.5, -0);
 				player->addCondition(adrenaline);
 				player->sendCancelMessage(charm->cancelMsg);
 				return false;
 			}
 			case CHARM_NUMB: {
-				ConditionSpeed* numb = static_cast<ConditionSpeed*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_PARALYZE, 10000, 0));
+				const auto &numb = Condition::createCondition(CONDITIONID_COMBAT, CONDITION_PARALYZE, 10000, 0)->static_self_cast<ConditionSpeed>();
 				numb->setFormulaVars(-1, 81, -1, 81);
 				target->addCondition(numb);
 				player->sendCancelMessage(charm->cancelMsg);
@@ -225,7 +225,6 @@ void IOBestiary::addBestiaryKill(Player* player, std::shared_ptr<MonsterType> mt
 		(curCount < mtype->info.bestiaryFirstUnlock && (curCount + amount) >= mtype->info.bestiaryFirstUnlock) || // First kill stage reached
 		(curCount < mtype->info.bestiarySecondUnlock && (curCount + amount) >= mtype->info.bestiarySecondUnlock) || // Second kill stage reached
 		(curCount < mtype->info.bestiaryToUnlock && (curCount + amount) >= mtype->info.bestiaryToUnlock)) { // Final kill stage reached
-
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
 		player->sendTextMessage(MESSAGE_STATUS, ss.str());
 		player->sendBestiaryEntryChanged(raceid);
@@ -306,7 +305,6 @@ void IOBestiary::sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t ac
 
 		int32_t value = bitToggle(player->getUnlockedRunesBit(), charm, true);
 		player->setUnlockedRunesBit(value);
-
 	} else if (action == 1) {
 		std::list<charmRune_t> usedRunes = getCharmUsedRuneBitAll(player);
 		uint16_t limitRunes = 0;

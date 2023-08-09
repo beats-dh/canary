@@ -18,7 +18,7 @@
 #include "game/movement/position.h"
 #include "items/tile.h"
 
-using ConditionList = std::list<Condition*>;
+using ConditionList = std::list<ConditionPtr>;
 using CreatureEventList = std::list<CreatureEvent*>;
 
 class Map;
@@ -335,15 +335,15 @@ class Creature : virtual public Thing {
 			return SPEECHBUBBLE_NONE;
 		}
 
-		bool addCondition(Condition* condition);
-		bool addCombatCondition(Condition* condition);
+		bool addCondition(const ConditionPtr condition);
+		bool addCombatCondition(const ConditionPtr &condition);
 		void removeCondition(ConditionType_t conditionType, ConditionId_t conditionId, bool force = false);
 		void removeCondition(ConditionType_t type);
-		void removeCondition(Condition* condition);
+		void removeCondition(const ConditionPtr condition);
 		void removeCombatCondition(ConditionType_t type);
-		Condition* getCondition(ConditionType_t type) const;
-		Condition* getCondition(ConditionType_t type, ConditionId_t conditionId, uint32_t subId = 0) const;
-		std::vector<Condition*> getConditionsByType(ConditionType_t type) const;
+		ConditionPtr getCondition(ConditionType_t type) const;
+		ConditionPtr getCondition(ConditionType_t type, ConditionId_t conditionId, uint32_t subId = 0) const;
+		std::vector<ConditionPtr> getConditionsByType(ConditionType_t type) const;
 		void executeConditions(uint32_t interval);
 		bool hasCondition(ConditionType_t type, uint32_t subId = 0) const;
 		virtual bool isImmune(ConditionType_t type) const;
@@ -389,7 +389,7 @@ class Creature : virtual public Thing {
 		virtual void onAddCombatCondition(ConditionType_t type);
 		virtual void onEndCondition(ConditionType_t type);
 		void onTickCondition(ConditionType_t type, bool &bRemove);
-		virtual void onCombatRemoveCondition(Condition* condition);
+		virtual void onCombatRemoveCondition(const ConditionPtr &condition);
 		virtual void onAttackedCreature(Creature*) { }
 		virtual void onAttacked();
 		virtual void onAttackedCreatureDrainHealth(Creature* target, int32_t points);

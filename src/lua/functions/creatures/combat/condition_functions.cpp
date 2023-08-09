@@ -19,29 +19,20 @@ int ConditionFunctions::luaConditionCreate(lua_State* L) {
 	ConditionId_t conditionId = getNumber<ConditionId_t>(L, 3, CONDITIONID_COMBAT);
 	uint32_t subId = getNumber<uint32_t>(L, 4, 0);
 
-	Condition* condition = Condition::createCondition(conditionId, conditionType, 0, 0, false, subId);
+	const auto &condition = Condition::createCondition(conditionId, conditionType, 0, 0, false, subId);
 	if (condition) {
 		pushUserdata<Condition>(L, condition);
 		setMetatable(L, -1, "Condition");
 	} else {
 		lua_pushnil(L);
 	}
-	return 1;
-}
 
-int ConditionFunctions::luaConditionDelete(lua_State* L) {
-	// condition:delete()
-	Condition** conditionPtr = getRawUserdata<Condition>(L, 1);
-	if (conditionPtr && *conditionPtr) {
-		delete *conditionPtr;
-		*conditionPtr = nullptr;
-	}
-	return 0;
+	return 1;
 }
 
 int ConditionFunctions::luaConditionGetId(lua_State* L) {
 	// condition:getId()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getId());
 	} else {
@@ -52,7 +43,7 @@ int ConditionFunctions::luaConditionGetId(lua_State* L) {
 
 int ConditionFunctions::luaConditionGetSubId(lua_State* L) {
 	// condition:getSubId()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getSubId());
 	} else {
@@ -63,7 +54,7 @@ int ConditionFunctions::luaConditionGetSubId(lua_State* L) {
 
 int ConditionFunctions::luaConditionGetType(lua_State* L) {
 	// condition:getType()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getType());
 	} else {
@@ -74,7 +65,7 @@ int ConditionFunctions::luaConditionGetType(lua_State* L) {
 
 int ConditionFunctions::luaConditionGetIcons(lua_State* L) {
 	// condition:getIcons()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getIcons());
 	} else {
@@ -85,7 +76,7 @@ int ConditionFunctions::luaConditionGetIcons(lua_State* L) {
 
 int ConditionFunctions::luaConditionGetEndTime(lua_State* L) {
 	// condition:getEndTime()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getEndTime());
 	} else {
@@ -96,9 +87,9 @@ int ConditionFunctions::luaConditionGetEndTime(lua_State* L) {
 
 int ConditionFunctions::luaConditionClone(lua_State* L) {
 	// condition:clone()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
-		pushUserdata<Condition>(L, condition->clone());
+		pushUserdata<Condition>(L, condition->clone().get());
 		setMetatable(L, -1, "Condition");
 	} else {
 		lua_pushnil(L);
@@ -108,7 +99,7 @@ int ConditionFunctions::luaConditionClone(lua_State* L) {
 
 int ConditionFunctions::luaConditionGetTicks(lua_State* L) {
 	// condition:getTicks()
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		lua_pushnumber(L, condition->getTicks());
 	} else {
@@ -120,7 +111,7 @@ int ConditionFunctions::luaConditionGetTicks(lua_State* L) {
 int ConditionFunctions::luaConditionSetTicks(lua_State* L) {
 	// condition:setTicks(ticks)
 	int32_t ticks = getNumber<int32_t>(L, 2);
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (condition) {
 		condition->setTicks(ticks);
 		pushBoolean(L, true);
@@ -132,7 +123,7 @@ int ConditionFunctions::luaConditionSetTicks(lua_State* L) {
 
 int ConditionFunctions::luaConditionSetParameter(lua_State* L) {
 	// condition:setParameter(key, value)
-	Condition* condition = getUserdata<Condition>(L, 1);
+	const auto &condition = getUserdataShared<Condition>(L, 1);
 	if (!condition) {
 		lua_pushnil(L);
 		return 1;
@@ -156,7 +147,7 @@ int ConditionFunctions::luaConditionSetFormula(lua_State* L) {
 	double maxa = getNumber<double>(L, 4);
 	double minb = getNumber<double>(L, 3);
 	double mina = getNumber<double>(L, 2);
-	ConditionSpeed* condition = dynamic_cast<ConditionSpeed*>(getUserdata<Condition>(L, 1));
+	const auto &condition = getUserdataShared<ConditionSpeed>(L, 1);
 	if (condition) {
 		condition->setFormulaVars(mina, minb, maxa, maxb);
 		pushBoolean(L, true);
@@ -189,7 +180,7 @@ int ConditionFunctions::luaConditionSetOutfit(lua_State* L) {
 		outfit.lookTypeEx = getNumber<uint16_t>(L, 2);
 	}
 
-	ConditionOutfit* condition = dynamic_cast<ConditionOutfit*>(getUserdata<Condition>(L, 1));
+	const auto &condition = getUserdataShared<ConditionOutfit>(L, 1);
 	if (condition) {
 		condition->setOutfit(outfit);
 		pushBoolean(L, true);
@@ -204,7 +195,7 @@ int ConditionFunctions::luaConditionAddDamage(lua_State* L) {
 	int32_t value = getNumber<int32_t>(L, 4);
 	int32_t time = getNumber<int32_t>(L, 3);
 	int32_t rounds = getNumber<int32_t>(L, 2);
-	ConditionDamage* condition = dynamic_cast<ConditionDamage*>(getUserdata<Condition>(L, 1));
+	const auto &condition = getUserdataShared<ConditionDamage>(L, 1);
 	if (condition) {
 		pushBoolean(L, condition->addDamage(rounds, time, value));
 	} else {

@@ -260,12 +260,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 	PropStream propStream;
 	propStream.init(attr, attrSize);
 
-	Condition* condition = Condition::createCondition(propStream);
+	ConditionPtr condition = Condition::createCondition(propStream);
 	while (condition) {
 		if (condition->unserialize(propStream)) {
 			player->storedConditionList.push_front(condition);
-		} else {
-			delete condition;
 		}
 		condition = Condition::createCondition(propStream);
 	}
@@ -473,7 +471,6 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 				player->addBestiaryTrackerList(tmp_tt);
 			}
 		}
-
 	} else {
 		query.str(std::string());
 		query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
@@ -935,7 +932,7 @@ bool IOLoginData::savePlayerGuard(Player* player) {
 
 	// serialize conditions
 	PropWriteStream propWriteStream;
-	for (Condition* condition : player->conditions) {
+	for (const ConditionPtr &condition : player->conditions) {
 		if (condition->isPersistent()) {
 			condition->serialize(propWriteStream);
 			propWriteStream.write<uint8_t>(CONDITIONATTR_END);

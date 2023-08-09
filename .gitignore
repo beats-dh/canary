@@ -394,3 +394,5 @@ vcpkg_installed
 
 # CLION
 cmake-build-debug*
+vcproj/data*
+vcproj/data-canary*

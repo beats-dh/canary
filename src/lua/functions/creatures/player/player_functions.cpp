@@ -1433,7 +1433,7 @@ int PlayerFunctions::luaPlayerSetGuild(lua_State* L) {
 		return 1;
 	}
 
-	std::shared_ptr<Guild> guild = getUserdataShared<Guild>(L, 2);
+	const auto &guild = getUserdataShared<Guild>(L, 2);
 	player->setGuild(guild);
 
 	pushBoolean(L, true);

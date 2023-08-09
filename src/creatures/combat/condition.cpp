@@ -183,7 +183,7 @@ bool Condition::executeCondition(Creature* creature, int32_t interval) {
 	return true;
 }
 
-Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, int32_t ticks, int32_t param /* = 0*/, bool buff /* = false*/, uint32_t subId /* = 0*/) {
+ConditionPtr Condition::createCondition(ConditionId_t id, ConditionType_t type, int32_t ticks, int32_t param, bool buff, uint32_t subId) {
 	switch (type) {
 		case CONDITION_POISON:
 		case CONDITION_FIRE:
@@ -193,41 +193,41 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_DAZZLED:
 		case CONDITION_CURSED:
 		case CONDITION_BLEEDING:
-			return new ConditionDamage(id, type, buff, subId);
+			return std::make_shared<ConditionDamage>(id, type, buff, subId);
 
 		case CONDITION_HASTE:
 		case CONDITION_PARALYZE:
-			return new ConditionSpeed(id, type, ticks, buff, subId, param);
+			return std::make_shared<ConditionSpeed>(id, type, ticks, buff, subId, param);
 
 		case CONDITION_INVISIBLE:
-			return new ConditionInvisible(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionInvisible>(id, type, ticks, buff, subId);
 
 		case CONDITION_OUTFIT:
-			return new ConditionOutfit(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionOutfit>(id, type, ticks, buff, subId);
 
 		case CONDITION_LIGHT:
-			return new ConditionLight(id, type, ticks, buff, subId, param & 0xFF, (param & 0xFF00) >> 8);
+			return std::make_shared<ConditionLight>(id, type, ticks, buff, subId, param & 0xFF, (param & 0xFF00) >> 8);
 
 		case CONDITION_REGENERATION:
-			return new ConditionRegeneration(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionRegeneration>(id, type, ticks, buff, subId);
 
 		case CONDITION_SOUL:
-			return new ConditionSoul(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionSoul>(id, type, ticks, buff, subId);
 
 		case CONDITION_ATTRIBUTES:
-			return new ConditionAttributes(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionAttributes>(id, type, ticks, buff, subId);
 
 		case CONDITION_SPELLCOOLDOWN:
-			return new ConditionSpellCooldown(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionSpellCooldown>(id, type, ticks, buff, subId);
 
 		case CONDITION_SPELLGROUPCOOLDOWN:
-			return new ConditionSpellGroupCooldown(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionSpellGroupCooldown>(id, type, ticks, buff, subId);
 
 		case CONDITION_MANASHIELD:
-			return new ConditionManaShield(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionManaShield>(id, type, ticks, buff, subId);
 
 		case CONDITION_FEARED:
-			return new ConditionFeared(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionFeared>(id, type, ticks, buff, subId);
 
 		case CONDITION_ROOTED:
 		case CONDITION_INFIGHT:
@@ -239,14 +239,14 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_CHANNELMUTEDTICKS:
 		case CONDITION_YELLTICKS:
 		case CONDITION_PACIFIED:
-			return new ConditionGeneric(id, type, ticks, buff, subId);
+			return std::make_shared<ConditionGeneric>(id, type, ticks, buff, subId);
 
 		default:
 			return nullptr;
 	}
 }
 
-Condition* Condition::createCondition(PropStream &propStream) {
+ConditionPtr Condition::createCondition(PropStream &propStream) {
 	uint8_t attr;
 	if (!propStream.read<uint8_t>(attr) || attr != CONDITIONATTR_TYPE) {
 		return nullptr;
@@ -331,7 +331,7 @@ uint32_t Condition::getIcons() const {
 	return isBuff ? ICON_PARTY_BUFF : 0;
 }
 
-bool Condition::updateCondition(const Condition* addCondition) {
+bool Condition::updateCondition(const ConditionPtr &addCondition) {
 	if (conditionType != addCondition->getType()) {
 		return false;
 	}
@@ -363,7 +363,7 @@ void ConditionGeneric::endCondition(Creature*) {
 	//
 }
 
-void ConditionGeneric::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionGeneric::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 
@@ -400,7 +400,7 @@ uint32_t ConditionGeneric::getIcons() const {
  *  ConditionAttributes
  */
 
-void ConditionAttributes::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionAttributes::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (!creature) {
 		return;
 	}
@@ -1112,7 +1112,7 @@ void ConditionRegeneration::endCondition(Creature* creature) {
 	}
 }
 
-void ConditionRegeneration::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionRegeneration::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 
@@ -1290,7 +1290,7 @@ void ConditionManaShield::endCondition(Creature* creature) {
 	}
 }
 
-void ConditionManaShield::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionManaShield::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	endCondition(creature);
 	setTicks(addCondition->getTicks());
 
@@ -1344,7 +1344,7 @@ uint32_t ConditionManaShield::getIcons() const {
  *  ConditionSoul
  */
 
-void ConditionSoul::addCondition(Creature*, const Condition* addCondition) {
+void ConditionSoul::addCondition(Creature*, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 
@@ -1499,7 +1499,7 @@ void ConditionDamage::serialize(PropWriteStream &propWriteStream) {
 	}
 }
 
-bool ConditionDamage::updateCondition(const Condition* addCondition) {
+bool ConditionDamage::updateCondition(const ConditionPtr &addCondition) {
 	const ConditionDamage &conditionDamage = static_cast<const ConditionDamage &>(*addCondition);
 	if (conditionDamage.doForceUpdate()) {
 		return true;
@@ -1678,7 +1678,7 @@ void ConditionDamage::endCondition(Creature*) {
 	//
 }
 
-void ConditionDamage::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionDamage::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (addCondition->getType() != conditionType) {
 		return;
 	}
@@ -1810,7 +1810,6 @@ bool ConditionFeared::isStuck(Creature* creature, Position pos) const {
 }
 
 bool ConditionFeared::getRandomDirection(Creature* creature, Position pos) {
-
 	static std::vector<Direction> directions {
 		DIRECTION_NORTH,
 		DIRECTION_NORTHEAST,
@@ -1840,9 +1839,9 @@ bool ConditionFeared::canWalkTo(const Creature* creature, Position pos, Directio
 		return false;
 	}
 
-	const Tile* tile = g_game().map.getTile(pos);
+	Tile* tile = g_game().map.getTile(pos);
 	if (tile && tile->getTopVisibleCreature(creature) == nullptr && tile->queryAdd(0, *creature, 1, FLAG_PATHFINDING) == RETURNVALUE_NOERROR) {
-		const MagicField* field = tile->getFieldItem();
+		MagicField* field = tile->getFieldItem();
 		if (field && !field->isBlocking() && field->getDamage() != 0) {
 			return false;
 		}
@@ -2058,7 +2057,7 @@ void ConditionFeared::endCondition(Creature* creature) {
 	}
 }
 
-void ConditionFeared::addCondition(Creature*, const Condition* addCondition) {
+void ConditionFeared::addCondition(Creature*, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 	}
@@ -2161,7 +2160,7 @@ void ConditionSpeed::endCondition(Creature* creature) {
 	g_game().changeSpeed(creature, -speedDelta);
 }
 
-void ConditionSpeed::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionSpeed::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (conditionType != addCondition->getType()) {
 		return;
 	}
@@ -2287,7 +2286,7 @@ void ConditionOutfit::endCondition(Creature* creature) {
 	g_game().internalCreatureChangeOutfit(creature, creature->getDefaultOutfit());
 }
 
-void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionOutfit::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && outfit.lookType != 0 && !g_game().isLookTypeRegistered(outfit.lookType)) {
 		SPDLOG_WARN("[ConditionOutfit::addCondition] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", outfit.lookType);
 		return;
@@ -2351,7 +2350,7 @@ void ConditionLight::endCondition(Creature* creature) {
 	g_game().changeLight(creature);
 }
 
-void ConditionLight::addCondition(Creature* creature, const Condition* condition) {
+void ConditionLight::addCondition(Creature* creature, const ConditionPtr &condition) {
 	if (updateCondition(condition)) {
 		setTicks(condition->getTicks());
 
@@ -2433,7 +2432,7 @@ void ConditionLight::serialize(PropWriteStream &propWriteStream) {
  *  ConditionSpellCooldown
  */
 
-void ConditionSpellCooldown::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionSpellCooldown::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 
@@ -2464,7 +2463,7 @@ bool ConditionSpellCooldown::startCondition(Creature* creature) {
  *  ConditionSpellGroupCooldown
  */
 
-void ConditionSpellGroupCooldown::addCondition(Creature* creature, const Condition* addCondition) {
+void ConditionSpellGroupCooldown::addCondition(Creature* creature, const ConditionPtr &addCondition) {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
 

@@ -734,7 +734,7 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 		}
 
 		if (caster == target || target && !target->isImmune(condition->getType())) {
-			Condition* conditionCopy = condition->clone();
+			const ConditionPtr &conditionCopy = condition->clone();
 			if (caster) {
 				conditionCopy->setParam(CONDITION_PARAM_OWNER, caster->getID());
 				conditionCopy->setPositionParam(CONDITION_PARAM_CASTER_POSITION, caster->getPosition());
@@ -2038,7 +2038,7 @@ void MagicField::onStepInField(Creature &creature) {
 
 	const ItemType &it = items[getID()];
 	if (it.conditionDamage) {
-		Condition* conditionCopy = it.conditionDamage->clone();
+		const ConditionPtr &conditionCopy = it.conditionDamage->clone();
 		auto ownerId = getAttribute<uint32_t>(ItemAttribute_t::OWNER);
 		if (ownerId) {
 			bool harmfulField = true;
