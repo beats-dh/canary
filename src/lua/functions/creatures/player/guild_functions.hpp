@@ -17,6 +17,7 @@ class GuildFunctions final : LuaScriptInterface {
 		static void init(lua_State* L) {
 			registerSharedClass(L, "Guild", "", GuildFunctions::luaGuildCreate);
 			registerMetaMethod(L, "Guild", "__eq", GuildFunctions::luaUserdataCompare);
+			registerMetaMethod(L, "Guild", "__gc", LuaFunctionsLoader::luaGarbageCollection);
 
 			registerMethod(L, "Guild", "getId", GuildFunctions::luaGuildGetId);
 			registerMethod(L, "Guild", "getName", GuildFunctions::luaGuildGetName);
