@@ -2759,7 +2759,7 @@ void ProtocolGame::BestiarysendCharms() {
 	std::list<charmRune_t> usedRunes = g_iobestiary().getCharmUsedRuneBitAll(player);
 
 	for (charmRune_t charmRune : usedRunes) {
-		std::shared_ptr<Charm> tmpCharm = g_iobestiary().getBestiaryCharm(charmRune);
+		const std::shared_ptr<Charm> &tmpCharm = g_iobestiary().getBestiaryCharm(charmRune);
 		uint16_t tmp_raceid = player->parseRacebyCharm(tmpCharm->id, false, 0);
 		finishedMonsters.remove(tmp_raceid);
 	}
