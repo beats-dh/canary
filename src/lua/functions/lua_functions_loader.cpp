@@ -555,6 +555,8 @@ void LuaFunctionsLoader::registerClass(lua_State* L, const std::string &classNam
 
 	// pop className, className.metatable
 	lua_pop(L, 2);
+
+	// registerMetaMethod(L, className, "__gc", LuaFunctionsLoader::luaGarbageCollection);
 }
 
 void LuaFunctionsLoader::registerMethod(lua_State* L, const std::string &globalName, const std::string &methodName, lua_CFunction func) {
