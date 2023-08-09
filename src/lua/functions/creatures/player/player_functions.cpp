@@ -1420,7 +1420,7 @@ int PlayerFunctions::luaPlayerGetGuild(lua_State* L) {
 		return 1;
 	}
 
-	pushUserdata<Guild>(L, guild.get());
+	pushUserdata<Guild>(L, guild);
 	setMetatable(L, -1, "Guild");
 	return 1;
 }

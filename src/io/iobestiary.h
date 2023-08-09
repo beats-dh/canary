@@ -72,7 +72,7 @@ class IOBestiary {
 
 		int32_t bitToggle(int32_t input, Charm* charm, bool on) const;
 
-		bool hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const;
+		bool hasCharmUnlockedRuneBit(const std::unique_ptr<Charm> &charm, int32_t input) const;
 
 		std::list<charmRune_t> getCharmUsedRuneBitAll(Player* player);
 		std::list<uint16_t> getBestiaryFinished(Player* player) const;

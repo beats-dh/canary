@@ -164,8 +164,7 @@ Game::Game() {
 	m_IOWheel = std::make_unique<IOWheel>();
 }
 
-Game::~Game() {
-}
+Game::~Game() = default;
 
 void Game::resetMonsters() const {
 	for (const auto &[monsterId, monster] : getMonsters()) {

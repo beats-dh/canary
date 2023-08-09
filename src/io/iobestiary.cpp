@@ -260,7 +260,7 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype) {
 	return CHARM_NONE;
 }
 
-bool IOBestiary::hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const {
+bool IOBestiary::hasCharmUnlockedRuneBit(const std::unique_ptr<Charm> &charm, int32_t input) const {
 	if (!charm) {
 		return false;
 	}

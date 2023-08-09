@@ -2738,7 +2738,7 @@ void ProtocolGame::BestiarysendCharms() {
 		msg.addString(c_type->description);
 		msg.addByte(0); // Unknown
 		msg.add<uint16_t>(c_type->points);
-		if (g_iobestiary().hasCharmUnlockedRuneBit(c_type.get(), player->getUnlockedRunesBit())) {
+		if (g_iobestiary().hasCharmUnlockedRuneBit(c_type, player->getUnlockedRunesBit())) {
 			msg.addByte(1);
 			uint16_t raceid = player->parseRacebyCharm(c_type->id, false, 0);
 			if (raceid > 0) {
