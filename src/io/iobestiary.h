@@ -57,22 +57,22 @@ class IOBestiary {
 			return instance;
 		}
 
-		Charm* getBestiaryCharm(charmRune_t activeCharm, bool force = false);
+		std::shared_ptr<Charm> getBestiaryCharm(charmRune_t activeCharm, bool force = false);
 		void addBestiaryKill(Player* player, MonsterType* mtype, uint32_t amount = 1);
-		bool parseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage, bool dueToPotion = false, bool checkArmor = false);
+		bool parseCharmCombat(const std::shared_ptr<Charm> &charm, Player* player, Creature* target, int32_t realDamage, bool dueToPotion = false, bool checkArmor = false);
 		void addCharmPoints(Player* player, uint16_t amount, bool negative = false);
 		void sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid);
-		void setCharmRuneCreature(Player* player, Charm* charm, uint16_t raceid);
-		void resetCharmRuneCreature(Player* player, Charm* charm);
+		void setCharmRuneCreature(Player* player, std::shared_ptr<Charm> charm, uint16_t raceid);
+		void resetCharmRuneCreature(Player* player, std::shared_ptr<Charm> charm);
 
 		int8_t calculateDifficult(uint32_t chance) const;
 		uint8_t getKillStatus(MonsterType* mtype, uint32_t killAmount) const;
 
 		uint16_t getBestiaryRaceUnlocked(Player* player, BestiaryType_t race) const;
 
-		int32_t bitToggle(int32_t input, Charm* charm, bool on) const;
+		int32_t bitToggle(int32_t input, const std::shared_ptr<Charm> &charm, bool on) const;
 
-		bool hasCharmUnlockedRuneBit(const std::unique_ptr<Charm> &charm, int32_t input) const;
+		bool hasCharmUnlockedRuneBit(const std::shared_ptr<Charm> &charm, int32_t input) const;
 
 		std::list<charmRune_t> getCharmUsedRuneBitAll(Player* player);
 		std::list<uint16_t> getBestiaryFinished(Player* player) const;

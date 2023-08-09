@@ -15,7 +15,7 @@
 #include "creatures/monsters/monsters.h"
 #include "creatures/players/player.h"
 
-bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage, bool dueToPotion, bool checkArmor) {
+bool IOBestiary::parseCharmCombat(const std::shared_ptr<Charm> &charm, Player* player, Creature* target, int32_t realDamage, bool dueToPotion, bool checkArmor) {
 	if (!charm || !player || !target) {
 		return false;
 	}
@@ -92,21 +92,20 @@ bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target
 	return false;
 }
 
-Charm* IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= false*/) {
+std::shared_ptr<Charm> IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= false*/) {
 	const auto &charmInternal = g_game().getCharmList();
 	for (const auto &tmpCharm : charmInternal) {
 		if (tmpCharm->id == activeCharm) {
-			return tmpCharm.get(); // get() retorna o ponteiro raw do unique_ptr
+			return tmpCharm; // Retorna o shared_ptr diretamente
 		}
 	}
 
 	if (force) {
-		auto charm = std::make_unique<Charm>();
+		auto charm = std::make_shared<Charm>();
 		charm->id = activeCharm;
 		charm->binary = 1 << activeCharm;
-		auto rawPtr = charm.get();
-		g_game().addCharmRune(std::move(charm));
-		return rawPtr;
+		g_game().addCharmRune(charm);
+		return charm;
 	}
 
 	return nullptr;
@@ -145,7 +144,7 @@ uint8_t IOBestiary::getKillStatus(MonsterType* mtype, uint32_t killAmount) const
 	return 4;
 }
 
-void IOBestiary::resetCharmRuneCreature(Player* player, Charm* charm) {
+void IOBestiary::resetCharmRuneCreature(Player* player, std::shared_ptr<Charm> charm) {
 	if (!player || !charm) {
 		return;
 	}
@@ -155,7 +154,7 @@ void IOBestiary::resetCharmRuneCreature(Player* player, Charm* charm) {
 	player->parseRacebyCharm(charm->id, true, 0);
 }
 
-void IOBestiary::setCharmRuneCreature(Player* player, Charm* charm, uint16_t raceid) {
+void IOBestiary::setCharmRuneCreature(Player* player, std::shared_ptr<Charm> charm, uint16_t raceid) {
 	if (!player || !charm) {
 		return;
 	}
@@ -252,7 +251,7 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype) {
 	std::list<charmRune_t> usedRunes = getCharmUsedRuneBitAll(player);
 
 	for (charmRune_t it : usedRunes) {
-		Charm* charm = getBestiaryCharm(it);
+		const std::shared_ptr<Charm> &charm = getBestiaryCharm(it);
 		if (bestiaryEntry == player->parseRacebyCharm(charm->id, false, 0)) {
 			return charm->id;
 		}
@@ -260,7 +259,7 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype) {
 	return CHARM_NONE;
 }
 
-bool IOBestiary::hasCharmUnlockedRuneBit(const std::unique_ptr<Charm> &charm, int32_t input) const {
+bool IOBestiary::hasCharmUnlockedRuneBit(const std::shared_ptr<Charm> &charm, int32_t input) const {
 	if (!charm) {
 		return false;
 	}
@@ -268,7 +267,7 @@ bool IOBestiary::hasCharmUnlockedRuneBit(const std::unique_ptr<Charm> &charm, in
 	return ((input & charm->binary) != 0);
 }
 
-int32_t IOBestiary::bitToggle(int32_t input, Charm* charm, bool on) const {
+int32_t IOBestiary::bitToggle(int32_t input, const std::shared_ptr<Charm> &charm, bool on) const {
 	if (!charm) {
 		return CHARM_NONE;
 	}
@@ -286,7 +285,7 @@ int32_t IOBestiary::bitToggle(int32_t input, Charm* charm, bool on) const {
 }
 
 void IOBestiary::sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid) {
-	Charm* charm = getBestiaryCharm(runeID);
+	const std::shared_ptr<Charm> &charm = getBestiaryCharm(runeID);
 	if (!player || !charm) {
 		return;
 	}

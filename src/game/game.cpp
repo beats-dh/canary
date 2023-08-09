@@ -5876,7 +5876,7 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 					IOBestiary g_bestiary;
 					charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
 					if (activeCharm == CHARM_PARRY) {
-						Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
+						const std::shared_ptr<Charm> &charm = g_bestiary.getBestiaryCharm(activeCharm);
 						if (charm && charm->type == CHARM_DEFENSIVE && (charm->chance > normal_random(0, 100))) {
 							g_bestiary.parseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value));
 						}
@@ -6449,7 +6449,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			// Charm rune (target as player)
 			if (charmRune_t activeCharm = g_iobestiary().getCharmFromTarget(targetPlayer, g_monsters().getMonsterTypeByRaceId(attackerMonster->getRaceId()));
 				activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
-				if (Charm* charm = g_iobestiary().getBestiaryCharm(activeCharm);
+				if (const std::shared_ptr<Charm> &charm = g_iobestiary().getBestiaryCharm(activeCharm);
 					charm->type == CHARM_DEFENSIVE && charm->chance > normal_random(0, 100) && g_iobestiary().parseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value))) {
 					return false; // Dodge charm
 				}
@@ -6825,7 +6825,7 @@ void Game::applyCharmRune(
 	}
 	if (charmRune_t activeCharm = g_iobestiary().getCharmFromTarget(attackerPlayer, g_monsters().getMonsterTypeByRaceId(targetMonster->getRaceId()));
 		activeCharm != CHARM_NONE) {
-		Charm* charm = g_iobestiary().getBestiaryCharm(activeCharm);
+		const std::shared_ptr<Charm> &charm = g_iobestiary().getBestiaryCharm(activeCharm);
 		int8_t chance = charm->id == CHARM_CRIPPLE ? charm->chance : charm->chance + attackerPlayer->getCharmChanceModifier();
 		if (isDevMode()) {
 			spdlog::info("charm chance: {}, base: {}, bonus: {}", chance, charm->chance, attackerPlayer->getCharmChanceModifier());
@@ -6853,7 +6853,7 @@ void Game::applyManaLeech(
 	if (targetMonster) {
 		if (uint16_t playerCharmRaceidVoid = attackerPlayer->parseRacebyCharm(CHARM_VOID, false, 0);
 			playerCharmRaceidVoid != 0 && playerCharmRaceidVoid == targetMonster->getRace()) {
-			if (const Charm* voidc = g_iobestiary().getBestiaryCharm(CHARM_VOID)) {
+			if (const std::shared_ptr<Charm> &voidc = g_iobestiary().getBestiaryCharm(CHARM_VOID)) {
 				manaSkill += voidc->percent;
 			}
 		}
@@ -6884,7 +6884,7 @@ void Game::applyLifeLeech(
 	if (targetMonster) {
 		if (uint16_t playerCharmRaceidVamp = attackerPlayer->parseRacebyCharm(CHARM_VAMP, false, 0);
 			playerCharmRaceidVamp != 0 && playerCharmRaceidVamp == targetMonster->getRaceId()) {
-			if (const Charm* lifec = g_iobestiary().getBestiaryCharm(CHARM_VAMP)) {
+			if (const std::shared_ptr<Charm> &lifec = g_iobestiary().getBestiaryCharm(CHARM_VAMP)) {
 				lifeSkill += lifec->percent;
 			}
 		}
@@ -7035,7 +7035,7 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage &
 			if (mType) {
 				charmRune_t activeCharm = g_iobestiary().getCharmFromTarget(targetPlayer, mType);
 				if (activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
-					Charm* charm = g_iobestiary().getBestiaryCharm(activeCharm);
+					const std::shared_ptr<Charm> &charm = g_iobestiary().getBestiaryCharm(activeCharm);
 					if (charm && charm->type == CHARM_DEFENSIVE && (charm->chance > normal_random(0, 100))) {
 						if (g_iobestiary().parseCharmCombat(charm, targetPlayer, attacker, manaChange)) {
 							sendDoubleSoundEffect(targetPlayer->getPosition(), charm->soundCastEffect, charm->soundImpactEffect, targetPlayer);
