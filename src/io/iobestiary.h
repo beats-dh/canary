@@ -16,7 +16,7 @@
 
 class Game;
 
-class Charm {
+class Charm : public LuaObject {
 	public:
 		Charm() = default;
 		Charm(std::string initname, charmRune_t initcharmRune_t, std::string initdescription, charm_t inittype, uint16_t initpoints, int32_t initbinary) :

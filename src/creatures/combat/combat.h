@@ -248,7 +248,7 @@ class AreaCombat {
 		bool hasExtArea = false;
 };
 
-class Combat {
+class Combat : public LuaObject {
 	public:
 		Combat() = default;
 

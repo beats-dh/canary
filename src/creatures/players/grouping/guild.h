@@ -12,7 +12,7 @@
 
 class Player;
 
-struct GuildRank {
+struct GuildRank : public LuaObject {
 		uint32_t id;
 		std::string name;
 		uint8_t level;
@@ -22,7 +22,7 @@ struct GuildRank {
 };
 
 using GuildRank_ptr = std::shared_ptr<GuildRank>;
-class Guild {
+class Guild : public LuaObject {
 	public:
 		Guild(uint32_t initId, std::string initName) :
 			name(std::move(initName)), id(initId) { }

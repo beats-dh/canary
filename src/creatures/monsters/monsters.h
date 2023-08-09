@@ -56,7 +56,7 @@ struct spellBlock_t {
 		SoundEffect_t soundCastEffect = SoundEffect_t::SILENCE;
 };
 
-class MonsterType {
+class MonsterType : public LuaObject {
 		struct MonsterInfo {
 				LuaScriptInterface* scriptInterface;
 
@@ -201,7 +201,7 @@ class MonsterType {
 		bool canSpawn(const Position &pos);
 };
 
-class MonsterSpell {
+class MonsterSpell : public LuaObject {
 	public:
 		MonsterSpell() = default;
 
