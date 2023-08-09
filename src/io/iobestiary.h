@@ -58,7 +58,7 @@ class IOBestiary {
 		}
 
 		std::shared_ptr<Charm> getBestiaryCharm(charmRune_t activeCharm, bool force = false);
-		void addBestiaryKill(Player* player, MonsterType* mtype, uint32_t amount = 1);
+		void addBestiaryKill(Player* player, std::shared_ptr<MonsterType> mtype, uint32_t amount = 1);
 		bool parseCharmCombat(const std::shared_ptr<Charm> &charm, Player* player, Creature* target, int32_t realDamage, bool dueToPotion = false, bool checkArmor = false);
 		void addCharmPoints(Player* player, uint16_t amount, bool negative = false);
 		void sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid);
@@ -66,7 +66,7 @@ class IOBestiary {
 		void resetCharmRuneCreature(Player* player, std::shared_ptr<Charm> charm);
 
 		int8_t calculateDifficult(uint32_t chance) const;
-		uint8_t getKillStatus(MonsterType* mtype, uint32_t killAmount) const;
+		uint8_t getKillStatus(std::shared_ptr<MonsterType> mtype, uint32_t killAmount) const;
 
 		uint16_t getBestiaryRaceUnlocked(Player* player, BestiaryType_t race) const;
 
@@ -77,10 +77,10 @@ class IOBestiary {
 		std::list<charmRune_t> getCharmUsedRuneBitAll(Player* player);
 		std::list<uint16_t> getBestiaryFinished(Player* player) const;
 
-		charmRune_t getCharmFromTarget(Player* player, MonsterType* mtype);
+		charmRune_t getCharmFromTarget(Player* player, std::shared_ptr<MonsterType> mtype);
 
 		phmap::btree_map<uint16_t, uint32_t> getBestiaryKillCountByMonsterIDs(Player* player, phmap::btree_map<uint16_t, std::string> mtype_list) const;
-		phmap::btree_map<uint8_t, int16_t> getMonsterElements(MonsterType* mtype) const;
+		phmap::btree_map<uint8_t, int16_t> getMonsterElements(std::shared_ptr<MonsterType> mtype) const;
 		phmap::btree_map<uint16_t, std::string> findRaceByName(const std::string &race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
 };
 

@@ -33,12 +33,11 @@ int GameFunctions::luaGameCreateMonsterType(lua_State* L) {
 	// Game.createMonsterType(name)
 	if (isString(L, 1)) {
 		std::string name = getString(L, 1);
-		auto monsterType = new MonsterType(name);
+		auto monsterType = std::make_shared<MonsterType>(name);
 		g_monsters().addMonsterType(name, monsterType);
 		if (!monsterType) {
 			reportErrorFunc("MonsterType is nullptr");
 			pushBoolean(L, false);
-			delete monsterType;
 			return 1;
 		}
 

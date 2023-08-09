@@ -56,9 +56,9 @@ class IOBosstiary {
 		std::string getBoostedBossName() const;
 		void setBossBoostedId(uint32_t raceId);
 		uint32_t getBoostedBossId() const;
-		MonsterType* getMonsterTypeByBossRaceId(uint32_t raceId) const;
+		std::shared_ptr<MonsterType> getMonsterTypeByBossRaceId(uint32_t raceId) const;
 
-		void addBosstiaryKill(Player* player, const MonsterType* mtype, uint32_t amount = 1) const;
+		void addBosstiaryKill(Player* player, const std::shared_ptr<MonsterType> mtype, uint32_t amount = 1) const;
 		uint16_t calculateLootBonus(uint32_t bossPoints) const;
 		uint32_t calculateBossPoints(uint16_t lootBonus) const;
 		std::vector<uint32_t> getBosstiaryFinished(const Player* player, uint8_t level = 1) const;

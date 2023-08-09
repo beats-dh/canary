@@ -117,14 +117,14 @@ phmap::btree_map<uint16_t, std::string> IOBestiary::findRaceByName(const std::st
 
 	if (Onlystring) {
 		for (auto it : best_list) {
-			const MonsterType* tmpType = g_monsters().getMonsterType(it.second);
+			const std::shared_ptr<MonsterType> tmpType = g_monsters().getMonsterType(it.second);
 			if (tmpType && tmpType->info.bestiaryClass == race) {
 				race_list.insert({ it.first, it.second });
 			}
 		}
 	} else {
 		for (auto itn : best_list) {
-			const MonsterType* tmpType = g_monsters().getMonsterType(itn.second);
+			const std::shared_ptr<MonsterType> tmpType = g_monsters().getMonsterType(itn.second);
 			if (tmpType && tmpType->info.bestiaryRace == raceNumber) {
 				race_list.insert({ itn.first, itn.second });
 			}
@@ -133,7 +133,7 @@ phmap::btree_map<uint16_t, std::string> IOBestiary::findRaceByName(const std::st
 	return race_list;
 }
 
-uint8_t IOBestiary::getKillStatus(MonsterType* mtype, uint32_t killAmount) const {
+uint8_t IOBestiary::getKillStatus(std::shared_ptr<MonsterType> mtype, uint32_t killAmount) const {
 	if (killAmount < mtype->info.bestiaryFirstUnlock) {
 		return 1;
 	} else if (killAmount < mtype->info.bestiarySecondUnlock) {
@@ -189,7 +189,7 @@ uint16_t IOBestiary::getBestiaryRaceUnlocked(Player* player, BestiaryType_t race
 	phmap::btree_map<uint16_t, std::string> besty_l = g_game().getBestiaryList();
 
 	for (auto it : besty_l) {
-		const MonsterType* mtype = g_monsters().getMonsterType(it.second);
+		const std::shared_ptr<MonsterType> mtype = g_monsters().getMonsterType(it.second);
 		if (mtype && mtype->info.bestiaryRace == race && player->getBestiaryKillCount(mtype->info.raceid) > 0) {
 			count++;
 		}
@@ -211,7 +211,7 @@ void IOBestiary::addCharmPoints(Player* player, uint16_t amount, bool negative /
 	player->setCharmPoints(myCharms);
 }
 
-void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t amount /*= 1*/) {
+void IOBestiary::addBestiaryKill(Player* player, std::shared_ptr<MonsterType> mtype, uint32_t amount /*= 1*/) {
 	uint16_t raceid = mtype->info.raceid;
 	if (raceid == 0 || !player || !mtype) {
 		return;
@@ -234,15 +234,15 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t am
 			addCharmPoints(player, mtype->info.bestiaryCharmsPoints);
 	}
 
-	std::list<MonsterType*> trackerList = player->getBestiaryTrackerList();
-	for (MonsterType* mType : trackerList) {
+	std::list<std::shared_ptr<MonsterType>> trackerList = player->getBestiaryTrackerList();
+	for (std::shared_ptr<MonsterType> mType : trackerList) {
 		if (raceid == mType->info.raceid) {
 			player->refreshBestiaryTracker(trackerList);
 		}
 	}
 }
 
-charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype) {
+charmRune_t IOBestiary::getCharmFromTarget(Player* player, std::shared_ptr<MonsterType> mtype) {
 	if (!player || !mtype) {
 		return CHARM_NONE;
 	}
@@ -347,7 +347,7 @@ void IOBestiary::sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t ac
 	return;
 }
 
-phmap::btree_map<uint8_t, int16_t> IOBestiary::getMonsterElements(MonsterType* mtype) const {
+phmap::btree_map<uint8_t, int16_t> IOBestiary::getMonsterElements(std::shared_ptr<MonsterType> mtype) const {
 	phmap::btree_map<uint8_t, int16_t> defaultMap = {};
 	for (uint8_t i = 0; i <= 7; i++) {
 		defaultMap[i] = 100;
@@ -404,7 +404,7 @@ std::list<uint16_t> IOBestiary::getBestiaryFinished(Player* player) const {
 	for (auto nt : besty_l) {
 		uint16_t raceid = nt.first;
 		uint32_t thisKilled = player->getBestiaryKillCount(raceid);
-		const MonsterType* mtype = g_monsters().getMonsterType(nt.second);
+		const std::shared_ptr<MonsterType> mtype = g_monsters().getMonsterType(nt.second);
 		if (mtype && thisKilled >= mtype->info.bestiaryToUnlock) {
 			finishedMonsters.push_front(raceid);
 		}

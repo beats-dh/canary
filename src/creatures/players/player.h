@@ -280,11 +280,11 @@ class Player final : public Creature, public Cylinder {
 			return guildWarVector;
 		}
 
-		std::list<MonsterType*> getBestiaryTrackerList() const {
+		std::list<std::shared_ptr<MonsterType>> getBestiaryTrackerList() const {
 			return BestiaryTracker;
 		}
 
-		void addBestiaryTrackerList(MonsterType* mtype) {
+		void addBestiaryTrackerList(const std::shared_ptr<MonsterType> &mtype) {
 			if (client) {
 				auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
 				if (it == BestiaryTracker.end()) {
@@ -302,7 +302,7 @@ class Player final : public Creature, public Cylinder {
 			}
 		}
 
-		void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
+		void refreshBestiaryTracker(std::list<std::shared_ptr<MonsterType>> trackerList) {
 			if (client) {
 				client->refreshBestiaryTracker(trackerList);
 			}
@@ -2109,7 +2109,7 @@ class Player final : public Creature, public Cylinder {
 
 		// Task hunting system
 		void initializeTaskHunting();
-		bool isCreatureUnlockedOnTaskHunting(const MonsterType* mtype) const;
+		bool isCreatureUnlockedOnTaskHunting(const std::shared_ptr<MonsterType> &mtype) const;
 
 		bool setTaskHuntingSlotClass(TaskHuntingSlot* slot) {
 			if (getTaskHuntingSlotById(slot->id)) {
@@ -2569,7 +2569,7 @@ class Player final : public Creature, public Cylinder {
 		// TODO: This variable is only temporarily used when logging in, get rid of it somehow.
 		std::forward_list<Condition*> storedConditionList;
 
-		std::list<MonsterType*> BestiaryTracker;
+		std::list<std::shared_ptr<MonsterType>> BestiaryTracker;
 
 		std::string name;
 		std::string guildNick;

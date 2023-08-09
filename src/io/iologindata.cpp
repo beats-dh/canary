@@ -468,7 +468,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 
 		uint16_t raceid_t;
 		while (propBestStream.read<uint16_t>(raceid_t)) {
-			MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
+			std::shared_ptr<MonsterType> tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
 			if (tmp_tt) {
 				player->addBestiaryTrackerList(tmp_tt);
 			}
@@ -1085,7 +1085,7 @@ bool IOLoginData::savePlayerGuard(Player* player) {
 
 	// Bestiary tracker
 	PropWriteStream propBestiaryStream;
-	for (MonsterType* trackedType : player->getBestiaryTrackerList()) {
+	for (std::shared_ptr<MonsterType> trackedType : player->getBestiaryTrackerList()) {
 		propBestiaryStream.write<uint16_t>(trackedType->info.raceid);
 	}
 	size_t trackerSize;
