@@ -510,10 +510,17 @@ class Creature : virtual public Thing {
 		bool getPathTo(const Position &targetPos, std::forward_list<Direction> &dirList, const FindPathParams &fpp) const;
 		bool getPathTo(const Position &targetPos, std::forward_list<Direction> &dirList, int32_t minTargetDist, int32_t maxTargetDist, bool fullPathSearch = true, bool clearSight = true, int32_t maxSearchDist = 7) const;
 
+		// TODO: Remover depois que converter todos para shared
 		void incrementReferenceCounter() {
+			if (getNpc())
+				return;
 			++referenceCounter;
 		}
+
+		// TODO: Remover depois que converter todos para shared
 		void decrementReferenceCounter() {
+			if (getNpc())
+				return;
 			if (--referenceCounter == 0) {
 				delete this;
 			}
