@@ -86,7 +86,7 @@ class NpcType {
 		std::string nameDescription;
 		NpcInfo info;
 
-		void loadShop(NpcType* npcType, ShopBlock shopBlock);
+		void loadShop(const std::shared_ptr<NpcType> &npcType, ShopBlock shopBlock);
 
 		bool loadCallback(LuaScriptInterface* scriptInterface);
 		bool canSpawn(const Position &pos);
@@ -106,7 +106,7 @@ class Npcs {
 			return instance;
 		}
 
-		NpcType* getNpcType(const std::string &name, bool create = false);
+		std::shared_ptr<NpcType> getNpcType(const std::string &name, bool create = false);
 
 		// Reset npcs informations on reload
 		bool load(bool loadLibs = true, bool loadNpcs = true, bool reloading = false) const;
@@ -114,7 +114,7 @@ class Npcs {
 
 	private:
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
-		phmap::btree_map<std::string, NpcType*> npcs;
+		phmap::btree_map<std::string, std::shared_ptr<NpcType>> npcs;
 };
 
 constexpr auto g_npcs = &Npcs::getInstance;

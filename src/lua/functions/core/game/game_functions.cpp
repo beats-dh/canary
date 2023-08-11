@@ -438,7 +438,7 @@ int GameFunctions::luaGameCreateMonster(lua_State* L) {
 
 int GameFunctions::luaGameGenerateNpc(lua_State* L) {
 	// Game.generateNpc(npcName)
-	Npc* npc = Npc::createNpc(getString(L, 1));
+	const std::shared_ptr<Npc> &npc = Npc::createNpc(getString(L, 1));
 	if (!npc) {
 		lua_pushnil(L);
 		return 1;
@@ -451,7 +451,7 @@ int GameFunctions::luaGameGenerateNpc(lua_State* L) {
 
 int GameFunctions::luaGameCreateNpc(lua_State* L) {
 	// Game.createNpc(npcName, position[, extended = false[, force = false]])
-	Npc* npc = Npc::createNpc(getString(L, 1));
+	const std::shared_ptr<Npc> &npc = Npc::createNpc(getString(L, 1));
 	if (!npc) {
 		lua_pushnil(L);
 		return 1;
@@ -460,11 +460,11 @@ int GameFunctions::luaGameCreateNpc(lua_State* L) {
 	const Position &position = getPosition(L, 2);
 	bool extended = getBoolean(L, 3, false);
 	bool force = getBoolean(L, 4, false);
-	if (g_game().placeCreature(npc, position, extended, force)) {
+	if (g_game().placeCreature(npc.get(), position, extended, force)) {
 		pushUserdata<Npc>(L, npc);
 		setMetatable(L, -1, "Npc");
 	} else {
-		delete npc;
+		// delete npc;
 		lua_pushnil(L);
 	}
 	return 1;

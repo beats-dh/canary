@@ -2198,7 +2198,7 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg) {
 	uint16_t raceId = msg.get<uint16_t>();
 	std::string Class = "";
 	std::shared_ptr<MonsterType> mtype = nullptr;
-    phmap::btree_map<uint16_t, std::string> mtype_list = g_game().getBestiaryList();
+	phmap::btree_map<uint16_t, std::string> mtype_list = g_game().getBestiaryList();
 
 	auto ait = mtype_list.find(raceId);
 	if (ait != mtype_list.end()) {
@@ -4233,7 +4233,7 @@ void ProtocolGame::sendLootStats(Item* item, uint8_t count) {
 	lootedItem = nullptr;
 }
 
-void ProtocolGame::sendShop(Npc* npc) {
+void ProtocolGame::sendShop(const std::shared_ptr<Npc> &npc) {
 	NetworkMessage msg;
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());

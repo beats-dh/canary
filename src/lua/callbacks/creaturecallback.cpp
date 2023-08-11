@@ -35,7 +35,7 @@ bool CreatureCallback::startScriptInterface(int32_t scriptId) {
 }
 
 void CreatureCallback::pushSpecificCreature(Creature* creature) {
-	if (Npc* npc = creature->getNpc()) {
+	if (const std::shared_ptr<Npc> &npc = creature->getNpc()) {
 		LuaScriptInterface::pushUserdata<Npc>(L, npc);
 	} else if (Monster* monster = creature->getMonster()) {
 		LuaScriptInterface::pushUserdata<Monster>(L, monster);

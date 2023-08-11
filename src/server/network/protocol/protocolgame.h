@@ -326,7 +326,7 @@ class ProtocolGame final : public Protocol {
 		void sendCreatureSkull(const Creature* creature);
 		void sendCreatureType(const Creature* creature, uint8_t creatureType);
 
-		void sendShop(Npc* npc);
+		void sendShop(const std::shared_ptr<Npc> &npc);
 		void sendCloseShop();
 		void sendClientCheck();
 		void sendGameNews();

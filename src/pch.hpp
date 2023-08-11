@@ -127,6 +127,7 @@
 
 #include <string>
 #include <iostream>
+#include "lua/global/luaobject.h"
 
 bool isDevMode();
 

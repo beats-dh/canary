@@ -22,15 +22,15 @@ int32_t Npc::despawnRadius;
 
 uint32_t Npc::npcAutoID = 0x80000000;
 
-Npc* Npc::createNpc(const std::string &name) {
-	NpcType* npcType = g_npcs().getNpcType(name);
+std::shared_ptr<Npc> Npc::createNpc(const std::string &name) {
+	auto npcType = g_npcs().getNpcType(name);
 	if (!npcType) {
 		return nullptr;
 	}
-	return new Npc(npcType);
+	return std::make_shared<Npc>(npcType);
 }
 
-Npc::Npc(NpcType* npcType) :
+Npc::Npc(const std::shared_ptr<NpcType> &npcType) :
 	Creature(),
 	strDescription(npcType->nameDescription),
 	npcType(npcType) {
@@ -55,11 +55,11 @@ Npc::~Npc() {
 }
 
 void Npc::addList() {
-	g_game().addNpc(this);
+	g_game().addNpc(shared_from_this());
 }
 
 void Npc::removeList() {
-	g_game().removeNpc(this);
+	g_game().removeNpc(shared_from_this());
 }
 
 bool Npc::canInteract(const Position &pos, uint32_t range /* = 4 */) const {

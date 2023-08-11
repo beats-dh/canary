@@ -664,7 +664,7 @@ Creature* Game::getCreatureByID(uint32_t id) {
 	} else if (id <= Monster::monsterAutoID) {
 		return getMonsterByID(id);
 	} else if (id <= Npc::npcAutoID) {
-		return getNpcByID(id);
+		return getNpcByID(id).get();
 	} else {
 		SPDLOG_WARN("Creature with id {} not exists");
 	}
@@ -683,7 +683,7 @@ Monster* Game::getMonsterByID(uint32_t id) {
 	return it->second;
 }
 
-Npc* Game::getNpcByID(uint32_t id) {
+std::shared_ptr<Npc> Game::getNpcByID(uint32_t id) {
 	if (id == 0) {
 		return nullptr;
 	}
@@ -718,7 +718,7 @@ Creature* Game::getCreatureByName(const std::string &s) {
 
 	for (const auto &it : npcs) {
 		if (lowerCaseName == asLowerCaseString(it.second->getName())) {
-			return it.second;
+			return it.second.get();
 		}
 	}
 
@@ -730,7 +730,7 @@ Creature* Game::getCreatureByName(const std::string &s) {
 	return nullptr;
 }
 
-Npc* Game::getNpcByName(const std::string &s) {
+std::shared_ptr<Npc> Game::getNpcByName(const std::string &s) {
 	if (s.empty()) {
 		return nullptr;
 	}
@@ -1144,7 +1144,7 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 				}
 			}
 
-			Npc* movingNpc = movingCreature->getNpc();
+			std::shared_ptr<Npc> movingNpc = movingCreature->getNpc();
 			if (movingNpc && movingNpc->canInteract(toPos)) {
 				player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 				return;
@@ -3016,7 +3016,7 @@ void Game::playerCloseNpcChannel(uint32_t playerId) {
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, player->getPosition());
 	for (Creature* spectator : spectators) {
-		if (Npc* npc = spectator->getNpc()) {
+		if (std::shared_ptr<Npc> npc = spectator->getNpc()) {
 			npc->onPlayerCloseChannel(player);
 		}
 	}
@@ -4514,7 +4514,7 @@ void Game::playerBuyItem(uint32_t playerId, uint16_t itemId, uint8_t count, uint
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	std::shared_ptr<Npc> merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4552,7 +4552,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t itemId, uint8_t count, uin
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	std::shared_ptr<Npc> merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4591,7 +4591,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t itemId, uint8_t count) {
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	std::shared_ptr<Npc> merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -8040,17 +8040,17 @@ void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId) {
 		return;
 	}
 
-	Npc* npc = getNpcByID(npcId);
+	std::shared_ptr<Npc> npc = getNpcByID(npcId);
 	if (!npc) {
 		return;
 	}
 
 	SpectatorHashSet spectators;
-	spectators.insert(npc);
+	spectators.insert(npc.get());
 	map.getSpectators(spectators, player->getPosition(), true, true);
 	internalCreatureSay(player, TALKTYPE_SAY, "hi", false, &spectators);
 	spectators.clear();
-	spectators.insert(npc);
+	spectators.insert(npc.get());
 	if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
 		internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "trade", false, &spectators);
 	} else {
@@ -9095,11 +9095,11 @@ void Game::removePlayer(Player* player) {
 	players.erase(player->getID());
 }
 
-void Game::addNpc(Npc* npc) {
+void Game::addNpc(std::shared_ptr<Npc> npc) {
 	npcs[npc->getID()] = npc;
 }
 
-void Game::removeNpc(Npc* npc) {
+void Game::removeNpc(std::shared_ptr<Npc> npc) {
 	npcs.erase(npc->getID());
 }
 

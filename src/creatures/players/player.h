@@ -757,11 +757,11 @@ class Player final : public Creature, public Cylinder {
 		}
 
 		// shop functions
-		void setShopOwner(Npc* owner) {
+		void setShopOwner(const std::shared_ptr<Npc> &owner) {
 			shopOwner = owner;
 		}
 
-		Npc* getShopOwner() const {
+		std::shared_ptr<Npc> getShopOwner() const {
 			return shopOwner;
 		}
 
@@ -785,7 +785,7 @@ class Player final : public Creature, public Cylinder {
 		void onWalkComplete() override;
 
 		void stopWalk();
-		bool openShopWindow(Npc* npc);
+		bool openShopWindow(const std::shared_ptr<Npc> &npc);
 		bool closeShopWindow(bool sendCloseShopWindow = true);
 		bool updateSaleShopList(const Item* item);
 		bool hasShopItemForSale(uint16_t itemId, uint8_t subType) const;
@@ -1361,7 +1361,7 @@ class Player final : public Creature, public Cylinder {
 				client->sendToChannel(creature, type, text, channelId);
 			}
 		}
-		void sendShop(Npc* npc) const {
+		void sendShop(const std::shared_ptr<Npc> &npc) const {
 			if (client) {
 				client->sendShop(npc);
 			}
@@ -2620,7 +2620,7 @@ class Player final : public Creature, public Cylinder {
 		Item* inventory[CONST_SLOT_LAST + 1] = {};
 		Item* writeItem = nullptr;
 		House* editHouse = nullptr;
-		Npc* shopOwner = nullptr;
+		std::shared_ptr<Npc> shopOwner = nullptr;
 		Party* party = nullptr;
 		Player* tradePartner = nullptr;
 		ProtocolGame_ptr client;

@@ -113,13 +113,13 @@ class Game {
 
 		Monster* getMonsterByID(uint32_t id);
 
-		Npc* getNpcByID(uint32_t id);
+		std::shared_ptr<Npc> getNpcByID(uint32_t id);
 
 		Player* getPlayerByID(uint32_t id);
 
 		Creature* getCreatureByName(const std::string &s);
 
-		Npc* getNpcByName(const std::string &s);
+		std::shared_ptr<Npc> getNpcByName(const std::string &s);
 
 		Player* getPlayerByName(const std::string &s);
 
@@ -480,7 +480,7 @@ class Game {
 		const phmap::btree_map<uint32_t, Monster*> &getMonsters() const {
 			return monsters;
 		}
-		const phmap::btree_map<uint32_t, Npc*> &getNpcs() const {
+		const phmap::btree_map<uint32_t, std::shared_ptr<Npc>> &getNpcs() const {
 			return npcs;
 		}
 
@@ -491,8 +491,8 @@ class Game {
 		void addPlayer(Player* player);
 		void removePlayer(Player* player);
 
-		void addNpc(Npc* npc);
-		void removeNpc(Npc* npc);
+		void addNpc(std::shared_ptr<Npc> npc);
+		void removeNpc(std::shared_ptr<Npc> npc);
 
 		void addMonster(Monster* npc);
 		void removeMonster(Monster* npc);
@@ -776,7 +776,7 @@ class Game {
 
 		WildcardTreeNode wildcardTree { false };
 
-		phmap::btree_map<uint32_t, Npc*> npcs;
+		phmap::btree_map<uint32_t, std::shared_ptr<Npc>> npcs;
 		phmap::btree_map<uint32_t, Monster*> monsters;
 		std::vector<uint32_t> forgeableMonsters;
 

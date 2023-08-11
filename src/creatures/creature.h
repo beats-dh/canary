@@ -76,10 +76,10 @@ class Creature : virtual public Thing {
 		virtual const Player* getPlayer() const {
 			return nullptr;
 		}
-		virtual Npc* getNpc() {
+		virtual std::shared_ptr<Npc> getNpc() {
 			return nullptr;
 		}
-		virtual const Npc* getNpc() const {
+		virtual std::shared_ptr<const Npc> getNpc() const {
 			return nullptr;
 		}
 		virtual Monster* getMonster() {

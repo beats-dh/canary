@@ -18,13 +18,13 @@ class Creature;
 class Game;
 class SpawnNpc;
 
-class Npc final : public Creature {
+class Npc final : public Creature, public std::enable_shared_from_this<Npc> {
 	public:
-		static Npc* createNpc(const std::string &name);
+		static std::shared_ptr<Npc> createNpc(const std::string &name);
 		static int32_t despawnRange;
 		static int32_t despawnRadius;
 
-		explicit Npc(NpcType* npcType);
+		explicit Npc(const std::shared_ptr<NpcType> &npcType);
 		Npc() = default;
 		~Npc();
 
@@ -39,11 +39,11 @@ class Npc final : public Creature {
 			return instance;
 		}
 
-		Npc* getNpc() override {
-			return this;
+		std::shared_ptr<Npc> getNpc() {
+			return shared_from_this();
 		}
-		const Npc* getNpc() const override {
-			return this;
+		std::shared_ptr<const Npc> getNpc() const {
+			return shared_from_this();
 		}
 
 		void setID() override {
@@ -182,7 +182,7 @@ class Npc final : public Creature {
 
 		phmap::btree_set<Player*> shopPlayerSet;
 
-		NpcType* npcType;
+		std::shared_ptr<NpcType> npcType;
 		SpawnNpc* spawnNpc = nullptr;
 
 		uint8_t speechBubble;

@@ -18,7 +18,7 @@ class NpcType;
 
 struct spawnBlockNpc_t {
 		Position pos;
-		NpcType* npcType;
+		std::shared_ptr<NpcType> npcType;
 		int64_t lastSpawnNpc;
 		uint32_t interval;
 		Direction direction;
@@ -35,7 +35,7 @@ class SpawnNpc {
 		SpawnNpc &operator=(const SpawnNpc &) = delete;
 
 		bool addNpc(const std::string &name, const Position &pos, Direction dir, uint32_t interval);
-		void removeNpc(Npc* npc);
+		void removeNpc(std::shared_ptr<Npc> npc);
 
 		uint32_t getInterval() const {
 			return interval;
@@ -50,7 +50,7 @@ class SpawnNpc {
 
 	private:
 		// map of the spawned npcs
-		using SpawnedNpcMap = std::multimap<uint32_t, Npc*>;
+		using SpawnedNpcMap = std::multimap<uint32_t, std::shared_ptr<Npc>>;
 		using spawned_pair = SpawnedNpcMap::value_type;
 		SpawnedNpcMap spawnedNpcMap;
 
@@ -64,7 +64,7 @@ class SpawnNpc {
 		uint32_t checkSpawnNpcEvent = 0;
 
 		static bool findPlayer(const Position &pos);
-		bool spawnNpc(uint32_t spawnId, NpcType* npcType, const Position &pos, Direction dir, bool startup = false);
+		bool spawnNpc(uint32_t spawnId, const std::shared_ptr<NpcType> &npcType, const Position &pos, Direction dir, bool startup = false);
 		void checkSpawnNpc();
 		void scheduleSpawnNpc(uint32_t spawnId, spawnBlockNpc_t &sb, uint16_t interval);
 };

@@ -184,7 +184,7 @@ void Events::eventMonsterOnSpawn(Monster* monster, const Position &position) {
 }
 
 // Npc
-void Events::eventNpcOnSpawn(Npc* npc, const Position &position) {
+void Events::eventNpcOnSpawn(const std::shared_ptr<Npc> &npc, const Position &position) {
 	// Npc:onSpawn(position) or Npc.onSpawn(self, position)
 	if (info.npcOnSpawn == -1) {
 		return;

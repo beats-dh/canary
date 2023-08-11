@@ -62,10 +62,10 @@ class ScriptEnvironment {
 		static uint32_t addResult(DBResult_ptr res);
 		static bool removeResult(uint32_t id);
 
-		void setNpc(Npc* npc) {
+		void setNpc(const std::shared_ptr<Npc> &npc) {
 			curNpc = npc;
 		}
-		Npc* getNpc() const {
+		std::shared_ptr<Npc> getNpc() const {
 			return curNpc;
 		}
 
@@ -82,7 +82,7 @@ class ScriptEnvironment {
 		LuaScriptInterface* interface;
 
 		// for npc scripts
-		Npc* curNpc = nullptr;
+		std::shared_ptr<Npc> curNpc = nullptr;
 
 		// temporary item list
 		static std::multimap<ScriptEnvironment*, Item*> tempItems;

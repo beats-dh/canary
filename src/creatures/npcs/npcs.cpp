@@ -73,7 +73,7 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface) {
 	return true;
 }
 
-void NpcType::loadShop(NpcType* npcType, ShopBlock shopBlock) {
+void NpcType::loadShop(const std::shared_ptr<NpcType> &npcType, ShopBlock shopBlock) {
 	ItemType &iType = Item::items.getItemType(shopBlock.itemId);
 
 	// Registering item prices globaly.
@@ -126,7 +126,7 @@ bool Npcs::reload() {
 			return false;
 		}
 
-		npcs.clear();
+		// npcs.clear();
 		scriptInterface.reset();
 		g_game().resetNpcs();
 		return true;
@@ -134,7 +134,7 @@ bool Npcs::reload() {
 	return false;
 }
 
-NpcType* Npcs::getNpcType(const std::string &name, bool create /* = false*/) {
+std::shared_ptr<NpcType> Npcs::getNpcType(const std::string &name, bool create /* = false*/) {
 	std::string key = asLowerCaseString(name);
 	auto it = npcs.find(key);
 
@@ -146,7 +146,7 @@ NpcType* Npcs::getNpcType(const std::string &name, bool create /* = false*/) {
 		return nullptr;
 	}
 
-	npcs[key] = new NpcType(name);
+	npcs[key] = std::make_shared<NpcType>(name);
 
 	return npcs[key];
 }

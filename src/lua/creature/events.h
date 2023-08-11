@@ -127,8 +127,8 @@ class Events {
 		void eventMonsterOnDropLoot(Monster* monster, Container* corpse);
 		void eventMonsterOnSpawn(Monster* monster, const Position &position);
 
-		// Monster
-		void eventNpcOnSpawn(Npc* npc, const Position &position);
+		// Npc
+		void eventNpcOnSpawn(const std::shared_ptr<Npc> &npc, const Position &position);
 
 	private:
 		LuaScriptInterface scriptInterface;

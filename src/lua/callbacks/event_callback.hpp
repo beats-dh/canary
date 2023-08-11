@@ -123,7 +123,7 @@ class EventCallback : public Script {
 		void monsterOnSpawn(Monster* monster, const Position &position) const;
 
 		// Npc
-		void npcOnSpawn(Npc* npc, const Position &position) const;
+		void npcOnSpawn(const std::shared_ptr<Npc> &npc, const Position &position) const;
 
 		/**
 		 * @note here end the lua binder functions }

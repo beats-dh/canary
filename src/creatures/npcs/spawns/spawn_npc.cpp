@@ -137,9 +137,9 @@ void SpawnNpc::startSpawnNpcCheck() {
 
 SpawnNpc::~SpawnNpc() {
 	for (const auto &it : spawnedNpcMap) {
-		Npc* npc = it.second;
-		npc->setSpawnNpc(nullptr);
-		npc->decrementReferenceCounter();
+		std::shared_ptr<Npc> npc = it.second;
+		// npc->setSpawnNpc(nullptr);
+		// npc->decrementReferenceCounter();
 	}
 }
 
@@ -158,8 +158,8 @@ bool SpawnNpc::isInSpawnNpcZone(const Position &pos) {
 	return SpawnsNpc::isInZone(centerPos, radius, pos);
 }
 
-bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position &pos, Direction dir, bool startup /*= false*/) {
-	std::unique_ptr<Npc> npc_ptr(new Npc(npcType));
+bool SpawnNpc::spawnNpc(uint32_t spawnId, const std::shared_ptr<NpcType> &npcType, const Position &pos, Direction dir, bool startup /*= false*/) {
+	std::shared_ptr<Npc> npc_ptr(new Npc(npcType));
 	if (startup) {
 		// No need to send out events to the surrounding since there is no one out there to listen!
 		if (!g_game().internalPlaceCreature(npc_ptr.get(), pos, true, false)) {
@@ -171,17 +171,17 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position &pos,
 		}
 	}
 
-	Npc* npc = npc_ptr.release();
-	npc->setDirection(dir);
-	npc->setSpawnNpc(this);
-	npc->setMasterPos(pos);
-	npc->incrementReferenceCounter();
+	// Npc* npc = npc_ptr.release();
+	npc_ptr->setDirection(dir);
+	npc_ptr->setSpawnNpc(this);
+	npc_ptr->setMasterPos(pos);
+	// npc_ptr->incrementReferenceCounter();
 
-	spawnedNpcMap.insert(spawned_pair(spawnId, npc));
+	spawnedNpcMap.insert(spawned_pair(spawnId, npc_ptr.get()));
 	spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();
 
-	g_events().eventNpcOnSpawn(npc, pos);
-	g_callbacks().executeCallback(EventCallback_t::npcOnSpawn, &EventCallback::npcOnSpawn, npc, pos);
+	g_events().eventNpcOnSpawn(npc_ptr, pos);
+	g_callbacks().executeCallback(EventCallback_t::npcOnSpawn, &EventCallback::npcOnSpawn, npc_ptr, pos);
 	return true;
 }
 
@@ -238,10 +238,10 @@ void SpawnNpc::cleanup() {
 	auto it = spawnedNpcMap.begin();
 	while (it != spawnedNpcMap.end()) {
 		uint32_t spawnId = it->first;
-		Npc* npc = it->second;
+		std::shared_ptr<Npc> npc = it->second;
 		if (npc->isRemoved()) {
 			spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();
-			npc->decrementReferenceCounter();
+			// npc->decrementReferenceCounter();
 			it = spawnedNpcMap.erase(it);
 		} else {
 			++it;
@@ -250,7 +250,7 @@ void SpawnNpc::cleanup() {
 }
 
 bool SpawnNpc::addNpc(const std::string &name, const Position &pos, Direction dir, uint32_t scheduleInterval) {
-	NpcType* npcType = g_npcs().getNpcType(name);
+	const std::shared_ptr<NpcType> &npcType = g_npcs().getNpcType(name);
 	if (!npcType) {
 		SPDLOG_ERROR("Can not find {}", name);
 		return false;
@@ -270,10 +270,10 @@ bool SpawnNpc::addNpc(const std::string &name, const Position &pos, Direction di
 	return true;
 }
 
-void SpawnNpc::removeNpc(Npc* npc) {
+void SpawnNpc::removeNpc(std::shared_ptr<Npc> npc) {
 	for (auto it = spawnedNpcMap.begin(), end = spawnedNpcMap.end(); it != end; ++it) {
 		if (it->second == npc) {
-			npc->decrementReferenceCounter();
+			// npc->decrementReferenceCounter();
 			spawnedNpcMap.erase(it);
 			break;
 		}

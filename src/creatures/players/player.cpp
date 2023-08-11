@@ -886,7 +886,7 @@ bool Player::canWalkthrough(const Creature* creature) const {
 
 	const Player* player = creature->getPlayer();
 	const Monster* monster = creature->getMonster();
-	const Npc* npc = creature->getNpc();
+	const auto &npc = creature->getNpc();
 	if (monster) {
 		if (!monster->isFamiliar()) {
 			return false;
@@ -941,7 +941,7 @@ bool Player::canWalkthroughEx(const Creature* creature) const {
 	}
 
 	const Player* player = creature->getPlayer();
-	const Npc* npc = creature->getNpc();
+	const auto &npc = creature->getNpc();
 	if (player) {
 		const Tile* playerTile = player->getTile();
 		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_configManager().getNumber(PROTECTION_LEVEL)) || g_game().getWorldType() == WORLD_TYPE_NO_PVP);
@@ -1725,13 +1725,13 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout) {
 		}
 	}
 
-	if (creature == shopOwner) {
+	if (creature == shopOwner.get()) {
 		setShopOwner(nullptr);
 		sendCloseShop();
 	}
 }
 
-bool Player::openShopWindow(Npc* npc) {
+bool Player::openShopWindow(const std::shared_ptr<Npc> &npc) {
 	if (!npc) {
 		SPDLOG_ERROR("[Player::openShopWindow] - Npc is wrong or nullptr");
 		return false;

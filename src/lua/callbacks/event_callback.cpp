@@ -1088,7 +1088,7 @@ void EventCallback::monsterOnSpawn(Monster* monster, const Position &position) c
 }
 
 // Npc
-void EventCallback::npcOnSpawn(Npc* npc, const Position &position) const {
+void EventCallback::npcOnSpawn(const std::shared_ptr<Npc> &npc, const Position &position) const {
 	if (!getScriptInterface()->reserveScriptEnv()) {
 		SPDLOG_ERROR("{} - "
 					 "Position {}"
