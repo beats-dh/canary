@@ -56,8 +56,8 @@ bool SpawnsNpc::loadFromXml(const std::string &fileNpcName) {
 			continue;
 		}
 
-		spawnNpcList.emplace_front(centerPos, radius);
-		SpawnNpc &spawnNpc = spawnNpcList.front();
+		spawnNpcList.emplace_front(std::make_shared<SpawnNpc>(centerPos, radius));
+		const auto &spawnNpc = spawnNpcList.front();
 
 		for (auto childNode : spawnNode.children()) {
 			if (strcasecmp(childNode.name(), "npc") == 0) {
@@ -84,7 +84,7 @@ bool SpawnsNpc::loadFromXml(const std::string &fileNpcName) {
 				);
 				int64_t interval = pugi::cast<int64_t>(childNode.attribute("spawntime").value()) * 1000;
 				if (interval >= MINSPAWN_INTERVAL && interval <= MAXSPAWN_INTERVAL) {
-					spawnNpc.addNpc(nameAttribute.as_string(), pos, dir, static_cast<uint32_t>(interval));
+					spawnNpc->addNpc(nameAttribute.as_string(), pos, dir, static_cast<uint32_t>(interval));
 				} else {
 					if (interval <= MINSPAWN_INTERVAL) {
 						SPDLOG_WARN("[SpawnsNpc::loadFromXml] - {} {} spawntime can not be less than {} seconds", nameAttribute.as_string(), pos.toString(), MINSPAWN_INTERVAL / 1000);
@@ -103,16 +103,16 @@ void SpawnsNpc::startup() {
 		return;
 	}
 
-	for (SpawnNpc &spawnNpc : spawnNpcList) {
-		spawnNpc.startup();
+	for (const auto &spawnNpc : spawnNpcList) {
+		spawnNpc->startup();
 	}
 
 	setStarted(true);
 }
 
 void SpawnsNpc::clear() {
-	for (SpawnNpc &spawnNpc : spawnNpcList) {
-		spawnNpc.stopEvent();
+	for (const auto &spawnNpc : spawnNpcList) {
+		spawnNpc->stopEvent();
 	}
 	spawnNpcList.clear();
 
@@ -131,15 +131,7 @@ bool SpawnsNpc::isInZone(const Position &centerPos, int32_t radius, const Positi
 
 void SpawnNpc::startSpawnNpcCheck() {
 	if (checkSpawnNpcEvent == 0) {
-		checkSpawnNpcEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnNpc::checkSpawnNpc, this)));
-	}
-}
-
-SpawnNpc::~SpawnNpc() {
-	for (const auto &it : spawnedNpcMap) {
-		std::shared_ptr<Npc> npc = it.second;
-		// npc->setSpawnNpc(nullptr);
-		// npc->decrementReferenceCounter();
+		checkSpawnNpcEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnNpc::checkSpawnNpc, static_self_cast<SpawnNpc>())));
 	}
 }
 
@@ -159,7 +151,7 @@ bool SpawnNpc::isInSpawnNpcZone(const Position &pos) {
 }
 
 bool SpawnNpc::spawnNpc(uint32_t spawnId, const std::shared_ptr<NpcType> &npcType, const Position &pos, Direction dir, bool startup /*= false*/) {
-	std::shared_ptr<Npc> npc_ptr(new Npc(npcType));
+	const auto &npc_ptr = std::make_shared<Npc>(npcType);
 	if (startup) {
 		// No need to send out events to the surrounding since there is no one out there to listen!
 		if (!g_game().internalPlaceCreature(npc_ptr.get(), pos, true, false)) {
@@ -173,11 +165,11 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, const std::shared_ptr<NpcType> &npcTyp
 
 	// Npc* npc = npc_ptr.release();
 	npc_ptr->setDirection(dir);
-	npc_ptr->setSpawnNpc(this);
+	npc_ptr->setSpawnNpc(static_self_cast<SpawnNpc>());
 	npc_ptr->setMasterPos(pos);
 	// npc_ptr->incrementReferenceCounter();
 
-	spawnedNpcMap.insert(spawned_pair(spawnId, npc_ptr.get()));
+	spawnedNpcMap.emplace(spawnId, npc_ptr);
 	spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();
 
 	g_events().eventNpcOnSpawn(npc_ptr, pos);
@@ -221,7 +213,7 @@ void SpawnNpc::checkSpawnNpc() {
 	}
 
 	if (spawnedNpcMap.size() < spawnNpcMap.size()) {
-		checkSpawnNpcEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnNpc::checkSpawnNpc, this)));
+		checkSpawnNpcEvent = g_scheduler().addEvent(createSchedulerTask(getInterval(), std::bind(&SpawnNpc::checkSpawnNpc, static_self_cast<SpawnNpc>())));
 	}
 }
 
@@ -230,7 +222,7 @@ void SpawnNpc::scheduleSpawnNpc(uint32_t spawnId, spawnBlockNpc_t &sb, uint16_t 
 		spawnNpc(spawnId, sb.npcType, sb.pos, sb.direction);
 	} else {
 		g_game().addMagicEffect(sb.pos, CONST_ME_TELEPORT);
-		g_scheduler().addEvent(createSchedulerTask(1400, std::bind(&SpawnNpc::scheduleSpawnNpc, this, spawnId, sb, interval - NONBLOCKABLE_SPAWN_NPC_INTERVAL)));
+		g_scheduler().addEvent(createSchedulerTask(1400, std::bind(&SpawnNpc::scheduleSpawnNpc, static_self_cast<SpawnNpc>(), spawnId, sb, interval - NONBLOCKABLE_SPAWN_NPC_INTERVAL)));
 	}
 }
 
@@ -256,7 +248,7 @@ bool SpawnNpc::addNpc(const std::string &name, const Position &pos, Direction di
 		return false;
 	}
 
-	this->interval = std::min(this->interval, scheduleInterval);
+	interval = std::min(interval, scheduleInterval);
 
 	spawnBlockNpc_t sb;
 	sb.npcType = npcType;

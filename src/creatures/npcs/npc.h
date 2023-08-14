@@ -117,7 +117,7 @@ class Npc final : public Creature, public std::enable_shared_from_this<Npc> {
 		RespawnType getRespawnType() const {
 			return npcType->info.respawnType;
 		}
-		void setSpawnNpc(SpawnNpc* newSpawn) {
+		void setSpawnNpc(const std::shared_ptr<SpawnNpc> &newSpawn) {
 			this->spawnNpc = newSpawn;
 		}
 
@@ -183,7 +183,7 @@ class Npc final : public Creature, public std::enable_shared_from_this<Npc> {
 		phmap::btree_set<Player*> shopPlayerSet;
 
 		std::shared_ptr<NpcType> npcType;
-		SpawnNpc* spawnNpc = nullptr;
+		std::shared_ptr<SpawnNpc> spawnNpc;
 
 		uint8_t speechBubble;
 
