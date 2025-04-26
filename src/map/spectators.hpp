@@ -22,6 +22,19 @@ struct SpectatorsCache {
 	struct FloorData {
 		std::optional<CreatureVector> floor;
 		std::optional<CreatureVector> multiFloor;
+
+		// Inicializador que pré-aloca para evitar realocações frequentes
+		void initialize() {
+			if (!floor) {
+				floor.emplace();
+			}
+			if (!multiFloor) {
+				multiFloor.emplace();
+			}
+
+			floor->reserve(64); // Tamanho típico para espectadores no mesmo nível
+			multiFloor->reserve(128); // Tamanho típico para espectadores em múltiplos níveis
+		}
 	};
 
 	int32_t minRangeX { 0 };
@@ -33,6 +46,18 @@ struct SpectatorsCache {
 	FloorData monsters;
 	FloorData npcs;
 	FloorData players;
+
+	// Timestamp de última atualização para possível invalidação de cache por tempo
+	uint64_t lastUpdate { 0 };
+
+	// Inicializador que configura todas as estruturas de dados
+	void initialize() {
+		creatures.initialize();
+		monsters.initialize();
+		npcs.initialize();
+		players.initialize();
+		lastUpdate = std::chrono::steady_clock::now().time_since_epoch().count();
+	}
 };
 
 class Spectators {
@@ -62,39 +87,42 @@ public:
 
 	Spectators insert(const std::shared_ptr<Creature> &creature);
 	Spectators insertAll(const CreatureVector &list);
+
 	Spectators join(const Spectators &anotherSpectators) {
 		return insertAll(anotherSpectators.creatures);
 	}
 
-	bool contains(const std::shared_ptr<Creature> &creature) const {
+	// Métodos inlined para melhor performance
+	[[nodiscard]] inline bool contains(const std::shared_ptr<Creature> &creature) const {
 		return std::ranges::find(creatures, creature) != creatures.end();
 	}
 
-	bool erase(const std::shared_ptr<Creature> &creature) {
+	inline bool erase(const std::shared_ptr<Creature> &creature) {
 		return std::erase(creatures, creature) > 0;
 	}
 
-	bool empty() const noexcept {
+	[[nodiscard]] inline bool empty() const noexcept {
 		return creatures.empty();
 	}
 
-	size_t size() const noexcept {
+	[[nodiscard]] inline size_t size() const noexcept {
 		return creatures.size();
 	}
 
-	auto begin() const noexcept {
+	[[nodiscard]] inline auto begin() const noexcept {
 		return creatures.begin();
 	}
 
-	auto end() const noexcept {
+	[[nodiscard]] inline auto end() const noexcept {
 		return creatures.end();
 	}
 
-	const auto &data() const noexcept {
+	[[nodiscard]] inline const auto &data() const noexcept {
 		return creatures;
 	}
 
 private:
+	// Pré-alocado com tamanho inicial para evitar rehashing frequente
 	static phmap::flat_hash_map<Position, SpectatorsCache> spectatorsCache;
 
 	Spectators find(const Position &centerPos, bool multifloor = false, bool onlyPlayers = false, bool onlyMonsters = false, bool onlyNpcs = false, int32_t minRangeX = 0, int32_t maxRangeX = 0, int32_t minRangeY = 0, int32_t maxRangeY = 0, bool useCache = true);

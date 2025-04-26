@@ -9,159 +9,149 @@
 
 #pragma once
 
-#include "declarations.hpp"
-
-// TODO: move to .cpp for avoid circular dependencies
-#include "config/configmanager.hpp"
-#include "map/house/house.hpp"
-#include "items/item.hpp"
-#include "map/map.hpp"
-#include "creatures/monsters/spawns/spawn_monster.hpp"
-#include "creatures/npcs/spawns/spawn_npc.hpp"
-#include "game/zones/zone.hpp"
+class Map;
+struct Position;
+class FileStream;
 
 class IOMap {
 public:
+	/**
+	 * Carrega o mapa a partir do arquivo OTBM
+	 * @param map Ponteiro para o objeto Map
+	 * @param pos Posição de deslocamento (opcional)
+	 * @throws IOMapException em caso de erro
+	 */
 	static void loadMap(Map* map, const Position &pos = Position());
 
 	/**
-	 * Load main map monsters
-	 * \param map Is the map class
-	 * \returns true if the monsters spawn map was loaded successfully
+	 * Carrega monstros do mapa principal
+	 * @param map Ponteiro para o objeto Map
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadMonsters(Map* map) {
-		if (map->monsterfile.empty()) {
-			// OTBM file doesn't tell us about the monsterfile,
-			// Lets guess it is mapname-monster.xml.
-			map->monsterfile = g_configManager().getString(MAP_NAME);
-			map->monsterfile += "-monster.xml";
-		}
-
-		return map->spawnsMonster.loadFromXML(map->monsterfile);
-	}
+	static std::expected<bool, std::string> loadMonsters(Map* map);
 
 	/**
-	 * Load main map zones
-	 * \param map Is the map class
-	 * \returns true if the zones spawn map was loaded successfully
+	 * Carrega zonas do mapa principal
+	 * @param map Ponteiro para o objeto Map
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadZones(Map* map) {
-		if (map->zonesfile.empty()) {
-			// OTBM file doesn't tell us about the zonesfile,
-			// Lets guess it is mapname-zone.xml.
-			map->zonesfile = g_configManager().getString(MAP_NAME);
-			map->zonesfile += "-zones.xml";
-		}
-
-		return Zone::loadFromXML(map->zonesfile);
-	}
+	static std::expected<bool, std::string> loadZones(Map* map);
 
 	/**
-	 * Load main map npcs
-	 * \param map Is the map class
-	 * \returns true if the npcs spawn map was loaded successfully
+	 * Carrega NPCs do mapa principal
+	 * @param map Ponteiro para o objeto Map
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadNpcs(Map* map) {
-		if (map->npcfile.empty()) {
-			// OTBM file doesn't tell us about the npcfile,
-			// Lets guess it is mapname-npc.xml.
-			map->npcfile = g_configManager().getString(MAP_NAME);
-			map->npcfile += "-npc.xml";
-		}
-
-		return map->spawnsNpc.loadFromXml(map->npcfile);
-	}
+	static std::expected<bool, std::string> loadNpcs(Map* map);
 
 	/**
-	 * Load main map houses
-	 * \param map Is the map class
-	 * \returns true if the main map houses was loaded successfully
+	 * Carrega casas do mapa principal
+	 * @param map Ponteiro para o objeto Map
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadHouses(Map* map) {
-		if (map->housefile.empty()) {
-			// OTBM file doesn't tell us about the housefile,
-			// Lets guess it is mapname-house.xml.
-			map->housefile = g_configManager().getString(MAP_NAME);
-			map->housefile += "-house.xml";
-		}
-
-		return map->houses.loadHousesXML(map->housefile);
-	}
+	static std::expected<bool, std::string> loadHouses(Map* map);
 
 	/**
-	 * Load custom  map monsters
-	 * \param map Is the map class
-	 * \returns true if the monsters spawn map custom was loaded successfully
+	 * Carrega monstros de mapas customizados
+	 * @param map Ponteiro para o objeto Map
+	 * @param mapName Nome do mapa customizado
+	 * @param customMapIndex Índice do mapa customizado
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadMonstersCustom(Map* map, const std::string &mapName, int customMapIndex) {
-		if (map->monsterfile.empty()) {
-			// OTBM file doesn't tell us about the monsterfile,
-			// Lets guess it is mapname-monster.xml.
-			map->monsterfile = mapName;
-			map->monsterfile += "-monster.xml";
-		}
-		return map->spawnsMonsterCustomMaps[customMapIndex].loadFromXML(map->monsterfile);
-	}
+	static std::expected<bool, std::string> loadMonstersCustom(Map* map, std::string_view mapName, int customMapIndex);
 
 	/**
-	 * Load custom  map zones
-	 * \param map Is the map class
-	 * \returns true if the zones spawn map custom was loaded successfully
+	 * Carrega zonas de mapas customizados
+	 * @param map Ponteiro para o objeto Map
+	 * @param mapName Nome do mapa customizado
+	 * @param customMapIndex Índice do mapa customizado
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadZonesCustom(Map* map, const std::string &mapName, int customMapIndex) {
-		if (map->zonesfile.empty()) {
-			// OTBM file doesn't tell us about the zonesfile,
-			// Lets guess it is mapname-zones.xml.
-			map->zonesfile = mapName;
-			map->zonesfile += "-zones.xml";
-		}
-		return Zone::loadFromXML(map->zonesfile, customMapIndex);
-	}
+	static std::expected<bool, std::string> loadZonesCustom(const Map* map, std::string_view mapName, int customMapIndex);
 
 	/**
-	 * Load custom map npcs
-	 * \param map Is the map class
-	 * \returns true if the npcs spawn map custom was loaded successfully
+	 * Carrega NPCs de mapas customizados
+	 * @param map Ponteiro para o objeto Map
+	 * @param mapName Nome do mapa customizado
+	 * @param customMapIndex Índice do mapa customizado
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadNpcsCustom(Map* map, const std::string &mapName, int customMapIndex) {
-		if (map->npcfile.empty()) {
-			// OTBM file doesn't tell us about the npcfile,
-			// Lets guess it is mapname-npc.xml.
-			map->npcfile = mapName;
-			map->npcfile += "-npc.xml";
-		}
-
-		return map->spawnsNpcCustomMaps[customMapIndex].loadFromXml(map->npcfile);
-	}
+	static std::expected<bool, std::string> loadNpcsCustom(Map* map, std::string_view mapName, int customMapIndex);
 
 	/**
-	 * Load custom map houses
-	 * \param map Is the map class
-	 * \returns true if the map custom houses was loaded successfully
+	 * Carrega casas de mapas customizados
+	 * @param map Ponteiro para o objeto Map
+	 * @param mapName Nome do mapa customizado
+	 * @param customMapIndex Índice do mapa customizado
+	 * @return std::expected com true se sucesso ou mensagem de erro
 	 */
-	static bool loadHousesCustom(Map* map, const std::string &mapName, int customMapIndex) {
-		if (map->housefile.empty()) {
-			// OTBM file doesn't tell us about the housefile,
-			// Lets guess it is mapname-house.xml.
-			map->housefile = mapName;
-			map->housefile += "-house.xml";
-		}
-		return map->housesCustomMaps[customMapIndex].loadHousesXML(map->housefile);
-	}
+	static std::expected<bool, std::string> loadHousesCustom(Map* map, std::string_view mapName, int customMapIndex);
+
+	/**
+	 * Carrega todos os recursos (monstros, zonas, NPCs, casas) sequencialmente
+	 * @param map Ponteiro para o objeto Map
+	 * @return std::expected com true se sucesso ou mensagem de erro
+	 */
+	static std::expected<bool, std::string> loadAllResources(Map* map);
+
+	/**
+	 * Carrega todos os recursos customizados sequencialmente
+	 * @param map Ponteiro para o objeto Map
+	 * @param mapName Nome do mapa customizado
+	 * @param customMapIndex Índice do mapa customizado
+	 * @return std::expected com true se sucesso ou mensagem de erro
+	 */
+	static std::expected<bool, std::string> loadAllResourcesCustom(Map* map, std::string_view mapName, int customMapIndex);
 
 private:
+	/**
+	 * Analisa atributos de dados do mapa
+	 * @param stream Stream de dados do arquivo
+	 * @param map Ponteiro para o objeto Map
+	 */
 	static void parseMapDataAttributes(FileStream &stream, Map* map);
+
+	/**
+	 * Analisa waypoints do mapa
+	 * @param stream Stream de dados do arquivo
+	 * @param map Referência para o objeto Map
+	 */
 	static void parseWaypoints(FileStream &stream, Map &map);
+
+	/**
+	 * Analisa cidades do mapa
+	 * @param stream Stream de dados do arquivo
+	 * @param map Referência para o objeto Map
+	 */
 	static void parseTowns(FileStream &stream, Map &map);
+
+	/**
+	 * Analisa área de tiles do mapa
+	 * @param stream Stream de dados do arquivo
+	 * @param map Referência para o objeto Map
+	 * @param pos Posição de deslocamento
+	 */
 	static void parseTileArea(FileStream &stream, Map &map, const Position &pos);
+
+	/**
+	 * Obtém o caminho completo para um arquivo baseado no nome do mapa
+	 * @param currentPath Caminho atual, se estiver vazio será gerado
+	 * @param mapName Nome do mapa
+	 * @param suffix Sufixo a ser adicionado
+	 * @return Caminho completo para o arquivo
+	 */
+	static std::string getFullPath(const std::string &currentPath, std::string_view mapName, std::string_view suffix);
 };
 
-class IOMapException : public std::exception {
+/**
+ * Exceção específica para erros relacionados ao carregamento de mapas
+ */
+class IOMapException final : public std::exception {
 public:
 	explicit IOMapException(std::string msg) :
 		message(std::move(msg)) { }
 
-	const char* what() const noexcept override {
+	[[nodiscard]] const char* what() const noexcept override {
 		return message.c_str();
 	}
 

@@ -9,14 +9,11 @@
 
 #pragma once
 
-#include "items/cylinder.hpp"
-#include "items/item.hpp"
-
 class Tile;
 
 class Teleport final : public Item, public Cylinder {
 public:
-	explicit Teleport(uint16_t type) :
+	explicit Teleport(const uint16_t type) :
 		Item(type) {};
 
 	std::shared_ptr<Teleport> getTeleport() override {
@@ -34,7 +31,7 @@ public:
 	const Position &getDestPos() const {
 		return destPos;
 	}
-	void setDestPos(Position pos) {
+	void constexpr setDestPos(const Position pos) {
 		destPos = pos;
 	}
 

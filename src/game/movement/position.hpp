@@ -31,87 +31,84 @@ struct Position {
 		x(initX), y(initY), z(initZ) { }
 
 	template <int_fast32_t deltax, int_fast32_t deltay>
-	static bool areInRange(const Position &p1, const Position &p2) {
+	[[nodiscard]] static constexpr bool areInRange(const Position &p1, const Position &p2) {
 		return Position::getDistanceX(p1, p2) <= deltax && Position::getDistanceY(p1, p2) <= deltay;
 	}
 
 	template <int_fast32_t deltax, int_fast32_t deltay, int_fast16_t deltaz>
-	static bool areInRange(const Position &p1, const Position &p2) {
+	[[nodiscard]] static constexpr bool areInRange(const Position &p1, const Position &p2) {
 		return Position::getDistanceX(p1, p2) <= deltax && Position::getDistanceY(p1, p2) <= deltay && Position::getDistanceZ(p1, p2) <= deltaz;
 	}
 
-	static int_fast32_t getOffsetX(const Position &p1, const Position &p2) {
+	[[nodiscard]] static constexpr int_fast32_t getOffsetX(const Position &p1, const Position &p2) {
 		return p1.getX() - p2.getX();
 	}
-	static int_fast32_t getOffsetY(const Position &p1, const Position &p2) {
+
+	[[nodiscard]] static constexpr int_fast32_t getOffsetY(const Position &p1, const Position &p2) {
 		return p1.getY() - p2.getY();
 	}
-	static int_fast16_t getOffsetZ(const Position &p1, const Position &p2) {
+
+	[[nodiscard]] static int_fast16_t getOffsetZ(const Position &p1, const Position &p2) {
 		return p1.getZ() - p2.getZ();
 	}
 
-	static int32_t getDistanceX(const Position &p1, const Position &p2) {
+	[[nodiscard]] static int32_t getDistanceX(const Position &p1, const Position &p2) {
 		return std::abs(Position::getOffsetX(p1, p2));
 	}
-	static int32_t getDistanceY(const Position &p1, const Position &p2) {
+
+	[[nodiscard]] static int32_t getDistanceY(const Position &p1, const Position &p2) {
 		return std::abs(Position::getOffsetY(p1, p2));
 	}
-	static int16_t getDistanceZ(const Position &p1, const Position &p2) {
+
+	[[nodiscard]] static int16_t getDistanceZ(const Position &p1, const Position &p2) {
 		return std::abs(Position::getOffsetZ(p1, p2));
 	}
-	static int32_t getDiagonalDistance(const Position &p1, const Position &p2) {
+
+	[[nodiscard]] static constexpr int32_t getDiagonalDistance(const Position &p1, const Position &p2) {
 		return std::max(Position::getDistanceX(p1, p2), Position::getDistanceY(p1, p2));
 	}
-	static double getEuclideanDistance(const Position &p1, const Position &p2);
 
-	static Direction getRandomDirection();
+	[[nodiscard]] static double getEuclideanDistance(const Position &p1, const Position &p2);
+
+	[[nodiscard]] static Direction getRandomDirection();
 
 	uint16_t x = 0;
 	uint16_t y = 0;
 	uint8_t z = 0;
 
-	bool operator<(const Position &p) const {
-		return (z < p.z) || (z == p.z && y < p.y) || (z == p.z && y == p.y && x < p.x);
+	[[nodiscard]] auto operator<=>(const Position &p) const noexcept {
+		if (const auto cmp = z <=> p.z; cmp != 0) {
+			return cmp;
+		}
+		if (const auto cmp = y <=> p.y; cmp != 0) {
+			return cmp;
+		}
+		return x <=> p.x;
 	}
 
-	bool operator>(const Position &p) const {
-		return !(*this < p);
-	}
+	[[nodiscard]] bool operator==(const Position &p) const = default;
 
-	bool operator==(const Position &p) const {
-		return p.x == x && p.y == y && p.z == z;
-	}
-
-	bool operator!=(const Position &p) const {
-		return p.x != x || p.y != y || p.z != z;
-	}
-
-	Position operator+(const Position &p1) const {
+	[[nodiscard]] Position operator+(const Position &p1) const {
 		return Position(x + p1.x, y + p1.y, z + p1.z);
 	}
 
-	Position operator-(const Position &p1) const {
+	[[nodiscard]] Position operator-(const Position &p1) const {
 		return Position(x - p1.x, y - p1.y, z - p1.z);
 	}
 
-	std::string toString() const {
-		std::string str;
-		return str.append("( ")
-			.append(std::to_string(getX()))
-			.append(", ")
-			.append(std::to_string(getY()))
-			.append(", ")
-			.append(std::to_string(getZ()))
-			.append(" )");
+	[[nodiscard]] std::string toString() const {
+		return std::format("( {}, {}, {} )", getX(), getY(), getZ());
 	}
 
-	int_fast32_t getX() const {
+	[[nodiscard]] constexpr int_fast32_t getX() const {
 		return x;
 	}
-	int_fast32_t getY() const {
+
+	[[nodiscard]] constexpr int_fast32_t getY() const {
 		return y;
 	}
-	int_fast16_t getZ() const {
+
+	[[nodiscard]] constexpr int_fast16_t getZ() const {
 		return z;
 	}
 };
@@ -119,7 +116,7 @@ struct Position {
 namespace std {
 	template <>
 	struct hash<Position> {
-		std::size_t operator()(const Position &p) const noexcept {
+		[[nodiscard]] std::size_t operator()(const Position &p) const noexcept {
 			return static_cast<std::size_t>(p.x) | (static_cast<std::size_t>(p.y) << 16) | (static_cast<std::size_t>(p.z) << 32);
 		}
 	};

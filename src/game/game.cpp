@@ -10875,7 +10875,9 @@ void Game::transferHouseItemsToDepot() {
 	if (transferSuccess > 0) {
 		g_logger().info("Finished house transfer items from '{}' players", transferSuccess);
 		transferHouseItemsToPlayer.clear();
-		Map::save();
+		if (!Map::save()) {
+			g_logger().error("Failed to save houses after transferring items to depot");
+		}
 	}
 }
 

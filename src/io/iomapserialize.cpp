@@ -17,7 +17,7 @@
 void IOMapSerialize::loadHouseItems(Map* map) {
 	Benchmark bm_context;
 
-	DBResult_ptr result = Database::getInstance().storeQuery("SELECT `data` FROM `tile_store`");
+	const DBResult_ptr result = Database::getInstance().storeQuery("SELECT `data` FROM `tile_store`");
 	if (!result) {
 		return;
 	}
@@ -46,9 +46,9 @@ void IOMapSerialize::loadHouseItems(Map* map) {
 		}
 
 		while (item_count--) {
-			if (auto houseTile = std::dynamic_pointer_cast<HouseTile>(tile)) {
+			if (const auto &houseTile = std::dynamic_pointer_cast<HouseTile>(tile)) {
 				const auto &house = houseTile->getHouse();
-				auto isTransferOnRestart = g_configManager().getBoolean(TOGGLE_HOUSE_TRANSFER_ON_SERVER_RESTART);
+				const auto isTransferOnRestart = g_configManager().getBoolean(TOGGLE_HOUSE_TRANSFER_ON_SERVER_RESTART);
 				if (!isTransferOnRestart && house->getOwner() == 0) {
 					g_logger().trace("Skipping load item from house id: {}, position: {}, house does not have owner", house->getId(), house->getEntryPosition().toString());
 					house->clearHouseInfo(false);
@@ -63,7 +63,7 @@ void IOMapSerialize::loadHouseItems(Map* map) {
 }
 
 bool IOMapSerialize::saveHouseItems() {
-	bool success = DBTransaction::executeWithinTransaction([]() {
+	const bool success = DBTransaction::executeWithinTransaction([]() {
 		return SaveHouseItemsGuard();
 	});
 
@@ -86,7 +86,7 @@ bool IOMapSerialize::SaveHouseItemsGuard() {
 	DBInsert stmt("INSERT INTO `tile_store` (`house_id`, `data`) VALUES ");
 
 	PropWriteStream stream;
-	for (const auto &[key, house] : g_game().map.houses.getHouses()) {
+	for (const auto &house : g_game().map.houses.getHouses() | std::views::values) {
 		// save house items
 		for (const auto &tile : house->getTiles()) {
 			saveTile(stream, tile);
@@ -141,15 +141,15 @@ bool IOMapSerialize::loadItem(PropStream &propStream, const std::shared_ptr<Cyli
 	const ItemType &iType = Item::items[id];
 	if (iType.isBed() || iType.movable || !tile || iType.isCarpet() || iType.isTrashHolder()) {
 		// create a new item
-		auto item = Item::CreateItem(id);
+		const auto &item = Item::CreateItem(id);
 		if (item) {
 			if (item->unserializeAttr(propStream)) {
 				// Remove only not movable and not sleeper bed
-				auto bed = item->getBed();
+				const auto &bed = item->getBed();
 				if (isHouseItem && iType.isBed() && bed && bed->getSleeper() == 0 && !iType.movable) {
 					return false;
 				}
-				std::shared_ptr<Container> container = item->getContainer();
+				const std::shared_ptr<Container> &container = item->getContainer();
 				if (container && !loadContainer(propStream, container)) {
 					return false;
 				}
@@ -185,7 +185,7 @@ bool IOMapSerialize::loadItem(PropStream &propStream, const std::shared_ptr<Cyli
 
 		if (item) {
 			if (item->unserializeAttr(propStream)) {
-				std::shared_ptr<Container> container = item->getContainer();
+				const std::shared_ptr<Container> &container = item->getContainer();
 				if (container && !loadContainer(propStream, container)) {
 					return false;
 				}
@@ -196,16 +196,16 @@ bool IOMapSerialize::loadItem(PropStream &propStream, const std::shared_ptr<Cyli
 			}
 		} else {
 			// The map changed since the last save, just read the attributes
-			auto dummy = Item::CreateItem(id);
+			const auto &dummy = Item::CreateItem(id);
 			if (dummy) {
 				dummy->unserializeAttr(propStream);
-				std::shared_ptr<Container> container = dummy->getContainer();
+				const std::shared_ptr<Container> &container = dummy->getContainer();
 				if (container) {
 					if (!loadContainer(propStream, container)) {
 						return false;
 					}
-				} else if (std::shared_ptr<BedItem> bedItem = std::dynamic_pointer_cast<BedItem>(dummy)) {
-					uint32_t sleeperGUID = bedItem->getSleeper();
+				} else if (const std::shared_ptr<BedItem> &bedItem = std::dynamic_pointer_cast<BedItem>(dummy)) {
+					const uint32_t sleeperGUID = bedItem->getSleeper();
 					if (sleeperGUID != 0) {
 						g_game().removeBedSleeper(sleeperGUID);
 					}
@@ -245,15 +245,15 @@ void IOMapSerialize::saveTile(PropWriteStream &stream, const std::shared_ptr<Til
 	uint16_t count = 0;
 	for (auto &item : *tileItems) {
 		if (item->getID() == ITEM_BATHTUB_FILLED_NOTMOVABLE) {
-			std::shared_ptr<Item> tub = Item::CreateItem(ITEM_BATHTUB_FILLED);
-			items.push_front(tub);
+			const std::shared_ptr<Item> &tub = Item::CreateItem(ITEM_BATHTUB_FILLED);
+			items.emplace_front(tub);
 			++count;
 			continue;
 		} else if (!item->isSavedToHouses()) {
 			continue;
 		}
 
-		items.push_front(item);
+		items.emplace_front(item);
 		++count;
 	}
 
@@ -280,7 +280,7 @@ bool IOMapSerialize::loadHouseInfo() {
 
 	do {
 		auto houseId = result->getNumber<uint32_t>("id");
-		const auto house = g_game().map.houses.getHouse(houseId);
+		const auto &house = g_game().map.houses.getHouse(houseId);
 		if (!house) {
 			continue;
 		}
@@ -297,7 +297,7 @@ bool IOMapSerialize::loadHouseInfo() {
 		const auto timeNow = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
 		// Transfer house owner
-		auto isTransferOnRestart = g_configManager().getBoolean(TOGGLE_HOUSE_TRANSFER_ON_SERVER_RESTART);
+		const auto isTransferOnRestart = g_configManager().getBoolean(TOGGLE_HOUSE_TRANSFER_ON_SERVER_RESTART);
 		if (isTransferOnRestart && newOwner >= 0) {
 			g_game().setTransferPlayerHouseItems(houseId, owner);
 			if (newOwner == 0) {
@@ -310,7 +310,7 @@ bool IOMapSerialize::loadHouseInfo() {
 		} else if (state == CyclopediaHouseState::Available && timeNow > bidEndDate && bidder > 0) {
 			g_logger().debug("[BID] - Setting house id '{}' owner to player GUID '{}'", houseId, bidder);
 			if (highestBid < internalBid) {
-				uint32_t diff = internalBid - highestBid;
+				const uint32_t diff = internalBid - highestBid;
 				IOLoginData::increaseBankBalance(bidder, diff);
 			}
 			house->setOwner(bidder);
@@ -356,7 +356,7 @@ bool IOMapSerialize::loadHouseInfo() {
 		do {
 			const auto &house = g_game().map.houses.getHouse(result->getNumber<uint32_t>("house_id"));
 			if (house) {
-				auto listId = result->getNumber<uint32_t>("listid");
+				const auto listId = result->getNumber<uint32_t>("listid");
 				auto list = result->getString("list");
 				house->setAccessList(listId, list);
 			}
@@ -366,7 +366,7 @@ bool IOMapSerialize::loadHouseInfo() {
 }
 
 bool IOMapSerialize::saveHouseInfo() {
-	bool success = DBTransaction::executeWithinTransaction([]() {
+	const bool success = DBTransaction::executeWithinTransaction([]() {
 		return SaveHouseInfoGuard();
 	});
 
@@ -384,7 +384,7 @@ bool IOMapSerialize::SaveHouseInfoGuard() {
 	DBInsert houseUpdate("INSERT INTO `houses` (`id`, `owner`, `paid`, `warnings`, `name`, `town_id`, `rent`, `size`, `beds`, `bidder`, `bidder_name`, `highest_bid`, `internal_bid`, `bid_end_date`, `state`, `transfer_status`) VALUES ");
 	houseUpdate.upsert({ "owner", "paid", "warnings", "name", "town_id", "rent", "size", "beds", "bidder", "bidder_name", "highest_bid", "internal_bid", "bid_end_date", "state", "transfer_status" });
 
-	for (const auto &[key, house] : g_game().map.houses.getHouses()) {
+	for (const auto &house : g_game().map.houses.getHouses() | std::views::values) {
 		auto stateValue = magic_enum::enum_integer(house->getState());
 		std::string values = fmt::format("{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}", house->getId(), house->getOwner(), house->getPaidUntil(), house->getPayRentWarnings(), db.escapeString(house->getName()), house->getTownId(), house->getRent(), house->getSize(), house->getBedCount(), house->getBidder(), db.escapeString(house->getBidderName()), house->getHighestBid(), house->getInternalBid(), house->getBidEndDate(), std::to_string(stateValue), (house->getTransferStatus() ? 1 : 0));
 
@@ -401,7 +401,7 @@ bool IOMapSerialize::SaveHouseInfoGuard() {
 	listUpdate.upsert({ "list", "version" });
 	auto version = getTimeUsNow();
 
-	for (const auto &[key, house] : g_game().map.houses.getHouses()) {
+	for (const auto &house : g_game().map.houses.getHouses() | std::views::values) {
 		std::string listText;
 		if (house->getAccessList(GUEST_LIST, listText) && !listText.empty()) {
 			query << house->getId() << ',' << GUEST_LIST << ',' << db.escapeString(listText) << ',' << version;

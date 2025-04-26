@@ -48,6 +48,8 @@
 #include <stack>
 #include <source_location>
 #include <span>
+#include <stacktrace>
+#include <expected>
 
 // --------------------
 // System Includes

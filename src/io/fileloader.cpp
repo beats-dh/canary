@@ -10,78 +10,87 @@
 #include "io/fileloader.hpp"
 
 namespace OTB {
-	constexpr Identifier wildcard = { { '\0', '\0', '\0', '\0' } };
+	Loader::Loader(const std::string_view fileName, const Identifier &acceptedIdentifier) {
+		try {
+			fileContents = mio::mmap_source(std::string(fileName), 0, /* offset */
+			                                mio::map_entire_file);
 
-	Loader::Loader(const std::string &fileName, const Identifier &acceptedIdentifier) :
-		fileContents(fileName) {
-		constexpr auto minimalSize = sizeof(Identifier) + sizeof(Node::START) + sizeof(Node::type) + sizeof(Node::END);
-		if (fileContents.size() <= minimalSize) {
-			throw InvalidOTBFormat {};
-		}
+			constexpr auto minimalSize = sizeof(Identifier) + sizeof(Node::START) + sizeof(Node::type) + sizeof(Node::END);
+			if (fileContents.size() <= minimalSize) {
+				throw InvalidOTBFormat {};
+			}
 
-		Identifier fileIdentifier;
+			Identifier fileIdentifier;
+			std::memcpy(fileIdentifier.data(), fileContents.data(), fileIdentifier.size());
 
-		std::ranges::copy(fileContents | std::views::take(fileIdentifier.size()), fileIdentifier.begin());
-
-		if (fileIdentifier != acceptedIdentifier && fileIdentifier != wildcard) {
-			throw InvalidOTBFormat {};
+			if (std::memcmp(fileIdentifier.data(), acceptedIdentifier.data(), fileIdentifier.size()) != 0 && std::memcmp(fileIdentifier.data(), wildcard.data(), fileIdentifier.size()) != 0) {
+				throw InvalidOTBFormat {};
+			}
+		} catch (const std::exception &e) {
+			fileContents = mio::mmap_source {};
+			throw;
 		}
 	}
 
-	using NodeStack = std::stack<Node*, std::vector<Node*>>;
-	static Node &getCurrentNode(const NodeStack &nodeStack) {
-		if (nodeStack.empty()) {
+	Node &Loader::getCurrentNode(const PreallocatedNodeStack &nodeStack) {
+		if (nodeStack.empty() || nodeStack.top() == nullptr) {
 			throw InvalidOTBFormat {};
 		}
 		return *nodeStack.top();
 	}
 
 	const Node &Loader::parseTree() {
-		auto it = fileContents.begin() + sizeof(Identifier);
+		if (!isLoaded()) {
+			throw InvalidOTBFormat {};
+		}
+
+		auto it = fileContents.data() + sizeof(Identifier);
+		const auto end = fileContents.data() + fileContents.size();
+
 		if (static_cast<uint8_t>(*it) != Node::START) {
 			throw InvalidOTBFormat {};
 		}
+
 		root.type = *(++it);
 		root.propsBegin = ++it;
-		NodeStack parseStack;
+
+		PreallocatedNodeStack parseStack;
 		parseStack.push(&root);
 
-		for (; it != fileContents.end(); ++it) {
-			switch (static_cast<uint8_t>(*it)) {
-				case Node::START: {
-					auto &currentNode = getCurrentNode(parseStack);
-					if (currentNode.children.empty()) {
-						currentNode.propsEnd = it;
-					}
-					currentNode.children.emplace_back();
-					auto &child = currentNode.children.back();
-					if (++it == fileContents.end()) {
-						throw InvalidOTBFormat {};
-					}
-					child.type = *it;
-					child.propsBegin = it + sizeof(Node::type);
-					parseStack.push(&child);
-					break;
+		while (it < end) {
+			const auto byte = static_cast<uint8_t>(*it);
+
+			if (byte == Node::START) {
+				auto &currentNode = getCurrentNode(parseStack);
+				if (currentNode.children.empty()) {
+					currentNode.propsEnd = it;
 				}
-				case Node::END: {
-					auto &currentNode = getCurrentNode(parseStack);
-					if (currentNode.children.empty()) {
-						currentNode.propsEnd = it;
-					}
-					parseStack.pop();
-					break;
+
+				currentNode.children.emplace_back();
+				auto &child = currentNode.children.back();
+
+				if (++it >= end) {
+					throw InvalidOTBFormat {};
 				}
-				case Node::ESCAPE: {
-					if (++it == fileContents.end()) {
-						throw InvalidOTBFormat {};
-					}
-					break;
+
+				child.type = *it;
+				child.propsBegin = it + sizeof(Node::type);
+				parseStack.push(&child);
+			} else if (byte == Node::END) {
+				auto &currentNode = getCurrentNode(parseStack);
+				if (currentNode.children.empty()) {
+					currentNode.propsEnd = it;
 				}
-				default: {
-					break;
+				parseStack.pop();
+			} else if (byte == Node::ESCAPE) {
+				if (++it >= end) {
+					throw InvalidOTBFormat {};
 				}
 			}
+
+			++it;
 		}
+
 		if (!parseStack.empty()) {
 			throw InvalidOTBFormat {};
 		}
@@ -89,19 +98,31 @@ namespace OTB {
 		return root;
 	}
 
-	bool Loader::getProps(const Node &node, PropStream &props) {
-		auto size = std::distance(node.propsBegin, node.propsEnd);
-		if (size == 0) {
+	bool Loader::getProps(const Node &node, PropStream &props) const {
+		const auto begin = node.propsBegin;
+		const auto end = node.propsEnd;
+
+		const auto size = std::distance(begin, end);
+		if (size <= 0) {
 			return false;
 		}
+
 		propBuffer.resize(size);
+
+		size_t outputIdx = 0;
 		bool lastEscaped = false;
 
-		auto escapedPropEnd = std::copy_if(node.propsBegin, node.propsEnd, propBuffer.begin(), [&lastEscaped](const char &byte) {
-			lastEscaped = byte == static_cast<char>(Node::ESCAPE) && !lastEscaped;
-			return !lastEscaped;
-		});
-		props.init(&propBuffer[0], std::distance(propBuffer.begin(), escapedPropEnd));
+		for (auto it = begin; it != end; ++it) {
+			const char c = *it;
+			if (c == static_cast<char>(Node::ESCAPE) && !lastEscaped) {
+				lastEscaped = true;
+			} else {
+				propBuffer[outputIdx++] = c;
+				lastEscaped = false;
+			}
+		}
+
+		props.init(propBuffer.data(), outputIdx);
 		return true;
 	}
 } // namespace OTB

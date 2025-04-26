@@ -8,154 +8,155 @@
  */
 
 #include "io/filestream.hpp"
-
 #include "io/fileloader.hpp"
 
-uint32_t FileStream::tell() const {
-	return m_pos;
-}
-
-void FileStream::seek(uint32_t pos) {
-	if (pos > m_data.size()) {
-		g_logger().error("Seek failed");
-		return;
-	}
-	m_pos = pos;
-}
-
-void FileStream::skip(uint32_t len) {
-	seek(tell() + len);
-}
-
-uint32_t FileStream::size() const {
-	std::size_t size = m_data.size();
-	if (size > std::numeric_limits<uint32_t>::max()) {
-		g_logger().error("File size exceeds uint32_t range");
-		return {};
+uint8_t FileStream::getU8() noexcept {
+	// Verificação rápida de limites
+	if (m_pos >= m_data.size()) {
+		g_logger().error("Failed to getU8: end of stream");
+		return 0;
 	}
 
-	return static_cast<uint32_t>(size);
-}
-
-template <typename T>
-bool FileStream::read(T &ret, bool escape) {
-	static_assert(std::is_trivially_copyable_v<T>, "Type T must be trivially copyable");
-
-	const auto size = sizeof(T);
-
-	if (m_pos + size > m_data.size()) {
-		g_logger().error("Read failed");
-		return false;
-	}
-
-	std::array<uint8_t, sizeof(T)> array;
-	if (escape) {
-		for (int_fast8_t i = 0; i < size; ++i) {
-			if (m_data[m_pos] == OTB::Node::ESCAPE) {
-				++m_pos;
-			}
-			array[i] = m_data[m_pos];
-			++m_pos;
-		}
-	} else {
-		std::span<const uint8_t> sourceSpan(m_data.data() + m_pos, size);
-		std::ranges::copy(sourceSpan, array.begin());
-		m_pos += size;
-	}
-
-	ret = std::bit_cast<T>(array);
-	return true;
-}
-
-uint8_t FileStream::getU8() {
-	uint8_t v = 0;
-
-	if (m_pos + 1 > m_data.size()) {
-		g_logger().error("Failed to getU8");
-		return {};
-	}
-
-	// Fast Escape Val
-	if (m_nodes > 0 && m_data[m_pos] == OTB::Node::ESCAPE) {
+	if (m_nodes > 0 && m_data[m_pos] == static_cast<std::byte>(OTB::Node::ESCAPE)) {
 		++m_pos;
+		if (m_pos >= m_data.size()) {
+			g_logger().error("Failed to getU8: escape at end of stream");
+			return 0;
+		}
 	}
-
-	v = m_data[m_pos];
-	++m_pos;
-
-	return v;
+	return static_cast<uint8_t>(m_data[m_pos++]);
 }
 
-uint16_t FileStream::getU16() {
+uint16_t FileStream::getU16() noexcept {
 	uint16_t v = 0;
-	read(v, m_nodes > 0);
+	if (m_nodes > 0) {
+		read(v, true);
+	} else {
+		if (m_pos + sizeof(uint16_t) <= m_data.size()) {
+			std::memcpy(&v, &m_data[m_pos], sizeof(uint16_t));
+			m_pos += sizeof(uint16_t);
+		} else {
+			g_logger().error("Failed to getU16: buffer overflow");
+		}
+	}
 	return v;
 }
 
-uint32_t FileStream::getU32() {
+uint32_t FileStream::getU32() noexcept {
 	uint32_t v = 0;
-	read(v, m_nodes > 0);
+	if (m_nodes > 0) {
+		read(v, true);
+	} else {
+		if (m_pos + sizeof(uint32_t) <= m_data.size()) {
+			std::memcpy(&v, &m_data[m_pos], sizeof(uint32_t));
+			m_pos += sizeof(uint32_t);
+		} else {
+			g_logger().error("Failed to getU32: buffer overflow");
+		}
+	}
 	return v;
 }
 
-uint64_t FileStream::getU64() {
+uint64_t FileStream::getU64() noexcept {
 	uint64_t v = 0;
-	read(v, m_nodes > 0);
+	if (m_nodes > 0) {
+		read(v, true);
+	} else {
+		if (m_pos + sizeof(uint64_t) <= m_data.size()) {
+			std::memcpy(&v, &m_data[m_pos], sizeof(uint64_t));
+			m_pos += sizeof(uint64_t);
+		} else {
+			g_logger().error("Failed to getU64: buffer overflow");
+		}
+	}
 	return v;
 }
 
 std::string FileStream::getString() {
-	std::string str;
-	if (const uint16_t len = getU16(); len > 0 && len < 8192) {
-		if (m_pos + len > m_data.size()) {
-			g_logger().error("[FileStream::getString] - Read failed");
-			return {};
-		}
+	constexpr uint16_t maxStringLen = 8192;
+	const uint16_t len = getU16();
 
-		str = { (char*)&m_data[m_pos], len };
-		m_pos += len;
-	} else if (len != 0) {
-		g_logger().error("[FileStream::getString] - Read failed because string is too big");
+	if (len == 0) {
+		return {};
 	}
+
+	if (len >= maxStringLen) {
+		g_logger().error("Read failed: string too large ({})", len);
+		return {};
+	}
+
+	if (m_pos + len > m_data.size()) {
+		g_logger().error("Read failed: string would exceed buffer size");
+		return {};
+	}
+
+	std::string str;
+	str.reserve(len);
+	str.assign(reinterpret_cast<const char*>(&m_data[m_pos]), len);
+	m_pos += len;
+
 	return str;
 }
 
-void FileStream::back(uint32_t pos) {
-	m_pos -= pos;
-}
+bool FileStream::isProp(const uint8_t prop, const bool toNext) noexcept {
+	const uint32_t originalPos = m_pos;
 
-bool FileStream::isProp(uint8_t prop, bool toNext) {
-	if (getU8() == prop) {
+	if (eof()) {
+		return false;
+	}
+
+	const uint8_t byte = getU8();
+	if (byte == prop) {
 		if (!toNext) {
-			back();
+			m_pos = originalPos;
 		}
 		return true;
 	}
 
-	back();
+	m_pos = originalPos;
 	return false;
 }
 
-bool FileStream::startNode(uint8_t type) {
-	if (getU8() == OTB::Node::START) {
-		if (type == 0 || getU8() == type) {
-			++m_nodes;
-			return true;
-		}
+bool FileStream::startNode(const uint8_t type) noexcept {
+	const uint32_t originalPos = m_pos;
 
-		back();
+	if (eof() || getU8() != OTB::Node::START) {
+		m_pos = originalPos;
+		return false;
 	}
 
-	back();
+	if (type == 0) {
+		++m_nodes;
+		return true;
+	}
+
+	if (eof()) {
+		m_pos = originalPos;
+		return false;
+	}
+
+	const uint8_t nodeType = getU8();
+	if (nodeType == type) {
+		++m_nodes;
+		return true;
+	}
+
+	m_pos = originalPos;
 	return false;
 }
 
-bool FileStream::endNode() {
-	if (getU8() == OTB::Node::END) {
+bool FileStream::endNode() noexcept {
+	const uint32_t originalPos = m_pos;
+
+	if (eof() || getU8() != OTB::Node::END) {
+		m_pos = originalPos;
+		return false;
+	}
+
+	if (m_nodes > 0) {
 		--m_nodes;
-		return true;
+	} else {
+		g_logger().warn("End node called with no open nodes");
 	}
-
-	back();
-	return false;
+	return true;
 }

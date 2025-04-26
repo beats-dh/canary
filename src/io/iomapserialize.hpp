@@ -9,8 +9,6 @@
 
 #pragma once
 
-#include "map/map.hpp"
-
 class IOMapSerialize {
 public:
 	static void loadHouseItems(Map* map);

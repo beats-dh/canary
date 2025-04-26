@@ -11,9 +11,8 @@
 
 #include "creatures/creature.hpp"
 #include "game/game.hpp"
-#include "game/scheduling/dispatcher.hpp"
 
-Attr_ReadValue Teleport::readAttr(AttrTypes_t attr, PropStream &propStream) {
+Attr_ReadValue Teleport::readAttr(const AttrTypes_t attr, PropStream &propStream) {
 	if (attr == ATTR_TELE_DEST) {
 		if (!propStream.read<uint16_t>(destPos.x) || !propStream.read<uint16_t>(destPos.y) || !propStream.read<uint8_t>(destPos.z)) {
 			return ATTR_READ_ERROR;
@@ -53,7 +52,7 @@ bool Teleport::checkInfinityLoop(const std::shared_ptr<Tile> &destTile) {
 		return false;
 	}
 
-	if (std::shared_ptr<Teleport> teleport = destTile->getTeleportItem()) {
+	if (const std::shared_ptr<Teleport> &teleport = destTile->getTeleportItem()) {
 		const Position &nextDestPos = teleport->getDestPos();
 		if (getPosition() == nextDestPos) {
 			return true;
@@ -87,7 +86,7 @@ void Teleport::addThing(int32_t, const std::shared_ptr<Thing> &thing) {
 	const MagicEffectClasses effect = Item::items[id].magicEffect;
 
 	if (const auto &creature = thing->getCreature()) {
-		Position origPos = creature->getPosition();
+		const Position origPos = creature->getPosition();
 		g_game().internalCreatureTurn(creature, origPos.x > destPos.x ? DIRECTION_WEST : DIRECTION_EAST);
 		g_game().map.moveCreature(creature, destTile);
 

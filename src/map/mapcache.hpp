@@ -1,6 +1,6 @@
 /**
  * Canary - A free and open-source MMORPG server emulator
- * Copyright (©) 2019-2023 OpenTibiaBR <opentibiabr@outlook.com>
+ * Copyright (©) 2019-2024 OpenTibiaBR <opentibiabr@outlook.com>
  * Repository: https://github.com/opentibiabr/canary
  * License: https://github.com/opentibiabr/canary/blob/main/LICENSE
  * Contributors: https://github.com/opentibiabr/canary/graphs/contributors
@@ -17,6 +17,13 @@ class Tile;
 class Item;
 struct Position;
 class FileStream;
+
+// Estrutura hash para usar com unordered_map
+struct identity_hash {
+	constexpr size_t operator()(const size_t &v) const noexcept {
+		return v;
+	}
+};
 
 #pragma pack(1)
 struct BasicItem {
@@ -35,10 +42,10 @@ struct BasicItem {
 
 	std::vector<std::shared_ptr<BasicItem>> items;
 
-	bool unserializeItemNode(FileStream &propStream, uint16_t x, uint16_t y, uint8_t z);
+	std::expected<bool, std::string> unserializeItemNode(FileStream &propStream, uint16_t x, uint16_t y, uint8_t z);
 	void readAttr(FileStream &propStream);
 
-	size_t hash() const {
+	[[nodiscard]] size_t hash() const noexcept {
 		size_t h = 0;
 		hash(h);
 		return h;
@@ -59,15 +66,15 @@ struct BasicTile {
 
 	bool isStatic { false };
 
-	bool isEmpty(bool ignoreFlag = false) const {
+	[[nodiscard]] constexpr bool isEmpty(bool ignoreFlag = false) const noexcept {
 		return (ignoreFlag || flags == 0) && ground == nullptr && items.empty();
 	}
 
-	bool isHouse() const {
+	[[nodiscard]] constexpr bool isHouse() const noexcept {
 		return houseId != 0;
 	}
 
-	size_t hash() const {
+	[[nodiscard]] size_t hash() const noexcept {
 		size_t h = 0;
 		hash(h);
 		return h;
@@ -83,7 +90,7 @@ class MapCache {
 public:
 	virtual ~MapCache() = default;
 
-	void setBasicTile(uint16_t x, uint16_t y, uint8_t z, const std::shared_ptr<BasicTile> &BasicTile);
+	void setBasicTile(uint16_t x, uint16_t y, uint8_t z, const std::shared_ptr<BasicTile> &basicTile);
 
 	std::shared_ptr<BasicItem> tryReplaceItemFromCache(const std::shared_ptr<BasicItem> &ref) const;
 
@@ -100,12 +107,12 @@ public:
 	 * Gets a map sector.
 	 * \returns A pointer to that map sector.
 	 */
-	MapSector* getMapSector(const uint32_t x, const uint32_t y) {
+	[[nodiscard]] MapSector* getMapSector(const uint32_t x, const uint32_t y) {
 		const auto it = mapSectors.find(x / SECTOR_SIZE | y / SECTOR_SIZE << 16);
 		return it != mapSectors.end() ? &it->second : nullptr;
 	}
 
-	const MapSector* getMapSector(const uint32_t x, const uint32_t y) const {
+	[[nodiscard]] const MapSector* getMapSector(const uint32_t x, const uint32_t y) const {
 		const auto it = mapSectors.find(x / SECTOR_SIZE | y / SECTOR_SIZE << 16);
 		return it != mapSectors.end() ? &it->second : nullptr;
 	}
@@ -116,6 +123,9 @@ protected:
 	std::unordered_map<uint32_t, MapSector> mapSectors;
 
 private:
-	void parseItemAttr(const std::shared_ptr<BasicItem> &BasicItem, const std::shared_ptr<Item> &item) const;
-	std::shared_ptr<Item> createItem(const std::shared_ptr<BasicItem> &BasicItem, Position position);
+	void parseItemAttr(const std::shared_ptr<BasicItem> &basicItem, const std::shared_ptr<Item> &item) const;
+	std::shared_ptr<Item> createItem(const std::shared_ptr<BasicItem> &basicItem, Position position);
+
+	// Nova sobrecarga para otimização de movimento
+	std::shared_ptr<Item> createItem(std::shared_ptr<BasicItem> &&basicItem, Position position);
 };
