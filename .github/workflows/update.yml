@@ -25,12 +25,15 @@ jobs:
           LATEST_TAG=$(curl -s https://api.github.com/repos/microsoft/vcpkg/releases/latest | jq -r '.tag_name')
           echo "Latest tag: $LATEST_TAG"
           
-          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG | cut -f1)
-          echo "Baseline SHA: $LATEST_BASELINE"
+          # Get the commit SHA that the tag points to (handles annotated tags)
+          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG^{} | cut -f1)
           
+          # Fallback if ^{} doesn't work
           if [ -z "$LATEST_BASELINE" ]; then
-            LATEST_BASELINE=$(curl -s "https://api.github.com/repos/microsoft/vcpkg/git/refs/tags/$LATEST_TAG" | jq -r '.object.sha')
+            LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG | cut -f1)
           fi
+          
+          echo "Baseline SHA: $LATEST_BASELINE"
           
           CURRENT_BASELINE=$(jq -r '."builtin-baseline"' vcpkg.json)
           
