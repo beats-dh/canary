@@ -49,6 +49,20 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
+          # Verifica se a branch já existe remotamente
+          if git ls-remote --heads origin ${BRANCH_NAME} | grep -q ${BRANCH_NAME}; then
+            echo "Branch ${BRANCH_NAME} already exists remotely"
+            
+            # Verifica se já existe PR aberto
+            if gh pr list --head ${BRANCH_NAME} --state open | grep -q .; then
+              echo "PR already exists for this branch, skipping"
+              exit 0
+            else
+              echo "Branch exists but no PR found, deleting and recreating"
+              git push origin --delete ${BRANCH_NAME}
+            fi
+          fi
+          
           git checkout -b ${BRANCH_NAME}
           
           jq --arg baseline "${NEW_BASELINE}" '."builtin-baseline" = $baseline' vcpkg.json > vcpkg.json.tmp
