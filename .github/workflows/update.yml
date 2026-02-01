@@ -2,7 +2,7 @@ name: Update vcpkg Baseline
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -25,12 +25,10 @@ jobs:
           LATEST_TAG=$(curl -s https://api.github.com/repos/microsoft/vcpkg/releases/latest | jq -r '.tag_name')
           echo "Latest tag: $LATEST_TAG"
           
-          # Get the commit SHA that the tag points to (handles annotated tags)
-          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG^{} | cut -f1)
+          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git "refs/tags/${LATEST_TAG}^{}" | awk '{print $1}')
           
-          # Fallback if ^{} doesn't work
           if [ -z "$LATEST_BASELINE" ]; then
-            LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG | cut -f1)
+            LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git "refs/tags/${LATEST_TAG}" | awk '{print $1}')
           fi
           
           echo "Baseline SHA: $LATEST_BASELINE"
@@ -133,18 +131,16 @@ jobs:
       - name: Get latest vcpkg release
         id: vcpkg
         run: |
-          # Pega a última release
           LATEST_TAG=$(curl -s https://api.github.com/repos/microsoft/vcpkg/releases/latest | jq -r '.tag_name')
           echo "Latest tag: $LATEST_TAG"
           
-          # Pega o commit SHA diretamente da ref da tag
-          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git refs/tags/$LATEST_TAG | cut -f1)
-          echo "Baseline SHA: $LATEST_BASELINE"
+          LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git "refs/tags/${LATEST_TAG}^{}" | awk '{print $1}')
           
-          # Se não conseguiu, tenta via API dereferenciando a tag
           if [ -z "$LATEST_BASELINE" ]; then
-            LATEST_BASELINE=$(curl -s "https://api.github.com/repos/microsoft/vcpkg/git/refs/tags/$LATEST_TAG" | jq -r '.object.sha')
+            LATEST_BASELINE=$(git ls-remote https://github.com/microsoft/vcpkg.git "refs/tags/${LATEST_TAG}" | awk '{print $1}')
           fi
+          
+          echo "Baseline SHA: $LATEST_BASELINE"
           
           echo "tag=$LATEST_TAG" >> $GITHUB_OUTPUT
           echo "baseline=$LATEST_BASELINE" >> $GITHUB_OUTPUT
